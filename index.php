@@ -28,7 +28,7 @@ if (!api_is_anonymous()) {
     $header_title = ' ';
 }
 
-$controller = new IndexManager($header_title);
+$controller = new HomeController($header_title);
 //Actions
 $loginFailed = isset($_GET['loginFailed']) ? true : isset($loginFailed);
 if (!empty($_GET['logout'])) {
@@ -114,11 +114,11 @@ if (api_get_setting('display_categories_on_homepage') === 'true') {
 $controller->set_login_form();
 //@todo move this inside the IndexManager
 
-if (!api_is_anonymous()) {
-    $controller->tpl->assign('profile_block', $controller->return_profile_block());
-    $controller->tpl->assign('user_image_block', $controller->return_user_image_block());
-    $controller->tpl->assign('course_block', $controller->return_course_block());
-}
+//if (!api_is_anonymous()) {
+//    $controller->tpl->assign('profile_block', $controller->return_profile_block());
+//    $controller->tpl->assign('user_image_block', $controller->return_user_image_block());
+//    $controller->tpl->assign('course_block', $controller->return_course_block());
+//}
 $hotCourses = '';
 $announcements_block = '';
 
@@ -138,23 +138,25 @@ if ($useCookieValidation === 'true') {
     }
 }
 // When loading a chamilo page do not include the hot courses and news
-if (!isset($_REQUEST['include'])) {
-    if (api_get_setting('show_hot_courses') == 'true') {
-        if (api_get_configuration_value('popular_courses_handpicked')) {
-            // If the option has been set correctly, use the courses manually
-            // marked as popular rather than the ones marked by users
-            $hotCourses = $controller->returnPopularCoursesHandPicked();
-        } else {
-            $hotCourses = $controller->return_hot_courses();
-        }
-    }
-    $announcements_block = $controller->return_announcements();
-}
-if (api_get_configuration_value('show_hot_sessions') === true) {
-    $hotSessions = SessionManager::getHotSessions();
-    $controller->tpl->assign('hot_sessions', $hotSessions);
-}
-$controller->tpl->assign('hot_courses', $hotCourses);
+//if (!isset($_REQUEST['include'])) {
+//    if (api_get_setting('show_hot_courses') == 'true') {
+//        if (api_get_configuration_value('popular_courses_handpicked')) {
+//            // If the option has been set correctly, use the courses manually
+//            // marked as popular rather than the ones marked by users
+//            $hotCourses = $controller->returnPopularCoursesHandPicked();
+//        } else {
+//            $hotCourses = $controller->return_hot_courses();
+//        }
+//    }
+//    $announcements_block = $controller->return_announcements();
+//}
+//if (api_get_configuration_value('show_hot_sessions') === true) {
+//    $hotSessions = SessionManager::getHotSessions();
+//    $controller->tpl->assign('hot_sessions', $hotSessions);
+//}
+
+// FIXME OPENSCOP
+$controller->tpl->assign('hot_courses', $controller->getCourseList());
 $controller->tpl->assign('announcements_block', $announcements_block);
 
 $allowJustification = api_get_plugin_setting('justification', 'tool_enable') === 'true';
@@ -170,21 +172,21 @@ if ($allowJustification) {
     }
 }
 
-if ($includeFile) {
-    // If we are including a static page, then home_welcome is empty
-    $controller->tpl->assign('home_welcome', $justification);
-    $controller->tpl->assign('home_include', $controller->return_home_page($includeFile));
-} else {
-    // If we are including the real homepage, then home_include is empty
-    $controller->tpl->assign('home_welcome', $justification.$controller->return_home_page(false));
-    $controller->tpl->assign('home_include', '');
-}
-$controller->tpl->assign('navigation_links', $controller->return_navigation_links());
-$controller->tpl->assign('notice_block', $controller->return_notice());
-$controller->tpl->assign('help_block', $controller->return_help());
-$controller->tpl->assign('student_publication_block', $controller->studentPublicationBlock());
+//if ($includeFile) {
+//    // If we are including a static page, then home_welcome is empty
+//    $controller->tpl->assign('home_welcome', $justification);
+//    $controller->tpl->assign('home_include', $controller->return_home_page($includeFile));
+//} else {
+//    // If we are including the real homepage, then home_include is empty
+//    $controller->tpl->assign('home_welcome', $justification.$controller->return_home_page(false));
+//    $controller->tpl->assign('home_include', '');
+//}
+//$controller->tpl->assign('navigation_links', $controller->return_navigation_links());
+//$controller->tpl->assign('notice_block', $controller->return_notice());
+//$controller->tpl->assign('help_block', $controller->return_help());
+//$controller->tpl->assign('student_publication_block', $controller->studentPublicationBlock());
 if (api_is_platform_admin() || api_is_drh()) {
-    $controller->tpl->assign('skills_block', $controller->returnSkillLinks());
+//    $controller->tpl->assign('skills_block', $controller->returnSkillLinks());
 }
 if (api_is_anonymous()) {
     $controller->tpl->setLoginBodyClass();
@@ -199,10 +201,10 @@ if (isset($_GET['firstpage'])) {
 } else {
     api_delete_firstpage_parameter();
 }
-
 $controller->setGradeBookDependencyBar(api_get_user_id());
 $controller->tpl->display_two_col_template();
-
+//$controller->tpl->display_one_col_template();
+//$controller->setOneColumnTemplate();
 // Deleting the session_id.
 Session::erase('session_id');
 Session::erase('id_session');
