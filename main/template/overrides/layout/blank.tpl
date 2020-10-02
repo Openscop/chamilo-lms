@@ -1,51 +1,82 @@
-{% extends 'layout/page.tpl'|get_template %}
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html lang="{{ document_language }}" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>    <html lang="{{ document_language }}" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>    <html lang="{{ document_language }}" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="{{ document_language }}" class="no-js"> <!--<![endif]-->
+<head>
+    {% block head %}
+    {% include 'layout/head.tpl'|get_template %}
+    {% endblock %}
+</head>
+<body class="{{ 'page_origin' ? ('page_origin_' ~ page_origin) : '' }}">
+<!-- START MAIN -->
+<main id="main" dir="{{ text_direction }}" class="{{ section_name }} {{ login_class }}">
+    <noscript>{{ "NoJavascript"|get_lang }}</noscript>
 
-
-{% block body %}
-{% if plugin_main_top %}
-<div class="row">
-    <div id="plugin_main_top" class="col-md-12">
-        {{ plugin_main_top }}
+    {% if displayCookieUsageWarning == true %}
+    <!-- START DISPLAY COOKIES VALIDATION -->
+    <div class="toolbar-cookie alert-warning">
+        <form onSubmit="$(this).toggle('slow')" action="" method="post">
+            <input value=1 type="hidden" name="acceptCookies"/>
+            <div class="cookieUsageValidation">
+                {{ 'YouAcceptCookies' | get_lang }}
+                <span style="margin-left:20px;" onclick="$(this).next().toggle('slow'); $(this).toggle('slow')">
+                                ({{"More" | get_lang }})
+                            </span>
+                <div style="display:none; margin:20px 0;">
+                    {{ "HelpCookieUsageValidation" | get_lang}}
+                </div>
+                <span style="margin-left:20px;" onclick="$(this).parent().parent().submit()">
+                                ({{"Accept" | get_lang }})
+                            </span>
+            </div>
+        </form>
     </div>
-</div>
-{% endif %}
-{% if plugin_content_top %}
-<div class="row">
-    <div id="plugin_content_top" class="col-md-12">
-        {{ plugin_content_top }}
-    </div>
-</div>
-{% endif %}
+    <!-- END DISPLAY COOKIES VALIDATION -->
+    {% endif %}
 
-<div class="row">
-    <div class="col-xs-12 col-md-12">
-        {% include 'layout/page_body.tpl'|get_template %}
-        {% block content %}
-        {% if content is not null %}
-        <section id="main_content">
+    {% if show_header == true %}
+    <!-- START HEADER -->
+    <header id="cm-header">
+        {% include 'layout/page_header.tpl'|get_template %}
+    </header>
+
+    {% endif %}
+
+    <!-- START CONTENT -->
+    <section id="cm-content">
+        <div class="container-fluid" style="padding: 0px 75px 0px 75px">
+            {% if show_course_shortcut is not null %}
+            <!-- TOOLS SHOW COURSE -->
+            <div id="cm-tools" class="nav-tools">
+                {{ show_course_shortcut }}
+            </div>
+            <!-- END TOOLS SHOW COURSE -->
+            {% endif %}
+
+            {% block breadcrumb %}
+            {{ breadcrumb }}
+            {% endblock %}
+
+            {% block body %}
             {{ content }}
-        </section>
-        {% endif %}
-        {% endblock %}
-    </div>
-</div>
-<!-- FIXME OPENSCOP -->
-<div class="row">
-    {% include 'layout/hot_courses.tpl'|get_template %}
-</div>
-{% if plugin_content_bottom %}
-<div class="row">
-    <div id="plugin_content_bottom" class="col-md-12">
-        {{ plugin_content_bottom }}
-    </div>
-</div>
-{% endif %}
+            {% endblock %}
+        </div>
+    </section>
+    <!-- END CONTENT -->
 
-{% if plugin_main_bottom %}
-<div class="row">
-    <div id="plugin_main_bottom" class="col-md-12">
-        {{ plugin_main_bottom }}
-    </div>
-</div>
-{% endif %}
-{% endblock %}
+    {% if show_footer == true %}
+    <!-- START FOOTER -->
+    <footer class="footer">
+        {% include 'layout/page_footer.tpl'|get_template %}
+    </footer>
+    <!-- END FOOTER -->
+    {% endif %}
+
+</main>
+<!-- END MAIN -->
+
+{% include 'layout/modals.tpl'|get_template %}
+</body>
+</html>
