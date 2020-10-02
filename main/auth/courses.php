@@ -101,8 +101,8 @@ switch ($action) {
                 );
             }
         }
-
-        header('Location: '.$currentUrl);
+// FIXME OPENSCOP
+        header('Location: '.api_get_path(WEB_PATH).'user_portal.php');
         exit;
         break;
     case 'subscribe_course':
@@ -120,7 +120,8 @@ switch ($action) {
                     $user = api_get_user_entity(api_get_user_id());
                     if ($user) {
                         foreach ($user->getCurrentlyAccessibleSessions() as $session) {
-                            $redirectionTarget = $redirectionTarget.'?id_session='.$session->getId();
+                            // FIXME OPENSCOP
+                            $redirectionTarget = api_get_path(WEB_PATH).'user_portal.php';
                             break;
                         }
                     }
@@ -173,7 +174,8 @@ switch ($action) {
                             }
                         }
                     }
-                    header('Location: '.$redirectionTarget);
+                    // FIXME OPENSCOP
+                    header('Location: '.api_get_path(WEB_PATH).'user_portal.php');
                     exit;
                 }
 

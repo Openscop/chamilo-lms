@@ -3,10 +3,9 @@
         <div class="col-xs-12 col-sm-6 col-md-4">
             <div class="items items-hotcourse">
                 <div class="image">
-                        <a title="{{ item.title}}" href="{{ _p.web }}course/{{ item.real_id  }}/about">
-                            <img src="{{ item.course_image_large }}" class="img-responsive" alt="{{ item.title }}">
-                        </a>
-
+                    <a alt="{{ item.title }}" title="{{ item.title }}" href="{{item.public_url}}">
+                        <img src="{{ item.course_image_large }}" class="img-responsive" alt="{{ item.title }}">
+                    </a>
                     {% if item.categoryName != '' %}
                         <span class="category">{{ item.categoryName }}</span>
                         <div class="cribbon"></div>
@@ -16,15 +15,9 @@
                 <div class="description">
                     <div class="block-title">
                         <h5 class="title">
-                            {% if item.is_course_student or item.is_course_teacher %}
-                                <a alt="{{ item.title }}" title="{{ item.title }}" href="{{ _p.web }}courses/{{ item.directory  }}/">
+                                <a alt="{{ item.title }}" title="{{ item.title }}" href="{{item.public_url}}">
                                     {{ item.title_cut}}
                                 </a>
-                            {% else %}
-                                <a alt="{{ item.title }}" title="{{ item.title }}" href="{{ _p.web }}course/{{ item.real_id  }}/about">
-                                    {{ item.title_cut}}
-                                </a>
-                            {% endif %}
                         </h5>
                     </div>
                     <div class="ranking">
@@ -38,6 +31,7 @@
                         </div>
                         <div class="col-sm-8">
                             <div class="btn-group" role="group">
+                                {{ item.go_to_course_button}}
                                 {{ item.register_button }}
                                 {{ item.unsubscribe_button }}
                             </div>
