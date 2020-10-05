@@ -51,7 +51,7 @@
                 Voici l'intention de ce parcours. </p>
             {{ item.go_to_course_button }}
             {{ item.register_button }}
-            {{ item.unsuscibe_button }}
+            {{ item.unsubscribe_button }}
         </div>
         <button class="close_tuile_description" style="position: absolute;top: -8px;right: -8px;width: 34px;height: 34px;border-radius: 17px;border: solid 1px gray;background-color: white;z-index: 2600;">X</button>
         </div>
