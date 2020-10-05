@@ -382,12 +382,6 @@ class Template
         $this->display($tpl);
     }
 
-    public function display_hot_course_item()
-    {
-        $tpl = $this->get_template('layout/hot_course_item.tpl');
-        $this->display($tpl);
-    }
-
     /**
      * Sets the footer visibility.
      *
