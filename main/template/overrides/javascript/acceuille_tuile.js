@@ -23,6 +23,10 @@ $(function() {
         is_display = 0;
         return is_display;
     });
+
+    $(".ranking").click(function(){
+        event.stopPropagation();
+    });
 });
 
 let nmb = 0;
