@@ -25,8 +25,14 @@
                         {% else %}
                         <a alt="{{ item.title }}" title="{{ item.title }}" href="{{ _p.web }}course/{{ item.real_id  }}/about">
                             {{ item.title}}
+                            {% if item.current_user_is_teacher %}
+                            <a href="{{ item.edit_actions }}" style="color: initial !important;">
+                                <em class="fa fa-pencil" style="color: initial !important;"></em>
+                            </a>
+                            {% endif %}
                         </a>
                         {% endif %}
+
                     </h5>
                     <div class="ranking">
                         {{ item.rating_html }}
@@ -36,24 +42,11 @@
                 <div class="toolbar row">
                     {{ item.tag }}
                 </div>
+                <div class="unsubscribe_button">
+                    {{ item.unsubscribe_button }}
+                </div>
 
             </div>
-        </div>
-        <div class="triangle" style="width: 150px; height: 150px; position: absolute; z-index: 0; background-color: white; transform: skew(-45deg, 45deg); margin-left: 100px; top: 440px; display: none;">
-
-        </div>
-        <div class="tuile_description " style="display: none; background-color: white; position: relative;">
-            <div style="width: 450px; border-right: 1px solid black">
-                <h2>Description :</h2>
-                <p>L’État soutient le déploiement national du dispositif de Pass numériques afin de garantir et de favoriser l’accès aux usages numériques de tous les Français, notamment les plus éloignés. Le dispositif de Pass numériques donne le droit d’accéder - dans des structures de proximité, préalablement qualifiées et mettant à disposition des professionnels de qualité - à des services d’accompagnement numérique avec une prise en charge totale ou partielle par un tiers-payeur.</p>
-            </div>
-            <div style="width: 450px; padding-top: 60px; padding-left: 25px">
-                <p>Passez à l'action sur votre territoire. Trouvez les solutions pour agir ?
-                    Voici l'intention de ce parcours. </p>
-                {{ item.go_to_course_button }}
-            </div>
-            <button class="close_tuile_description" style="position: absolute;top: -8px;right: -8px;width: 34px;height: 34px;border-radius: 17px;border: solid 1px gray;background-color: white;z-index: 2600;">X</button>
-
         </div>
     </div>
 
