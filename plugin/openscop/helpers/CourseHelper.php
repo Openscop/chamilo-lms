@@ -1,14 +1,81 @@
 <?php
 
-
+/**
+ * Class CourseHelper
+ *
+ * lister les course /!\ multi site
+ * table course : course
+ * table user : user
+ * table liaison user/course : course_rel_user
+ * table site : access_url
+ * table liaison site/course : access_url_rel_course
+ * table liaison site/user : access_url_rel_user
+ */
 class CourseHelper extends CourseManager
 {
+    /**
+     * retourne la liste des cours pour la page d'acceuil
+     * @return array
+     */
+    public static function getHomeCourses(){
+        $currentSiteId = api_get_current_access_url_id();
+        $userId = api_get_user_id();
+        $courses = self::getCoursesForSite($currentSiteId);
+        $courses = self::processLastCourse($courses);
+        return $courses;
+    }
+
+    public static function getUserCourses(){
+        $currentSiteId = api_get_current_access_url_id();
+        $userId = api_get_user_id();
+        $courses = self::getCoursesForSiteAndUser($currentSiteId, $userId);
+        $courses = self::processLastCourse($courses);
+        return $courses;
+    }
+
+    public static function getCoursesForSite($siteId){
+        $table_course = Database::get_main_table(TABLE_MAIN_COURSE);
+        $table_course_url = Database::get_main_table(TABLE_MAIN_ACCESS_URL_REL_COURSE);
+        $table_user_access = Database::get_main_table(TABLE_MAIN_ACCESS_URL_REL_USER);
+        $now = api_get_utc_datetime();
+        $sql = Database::getManager()
+            ->createQueryBuilder()
+            ->select('*')
+            ->from($table_course, 'c')
+            ->leftJoin($table_course_url, 'aurc', Doctrine\ORM\Query\Expr\Join::ON, 'c.id = aurc.c_id')
+            ->where('aurc.access_url_id = '.$siteId)
+            ->where('creation_date <= '. $now)
+            ->where('visibility <> '. COURSE_VISIBILITY_CLOSED)
+            ->where('visibility <> '. COURSE_VISIBILITY_HIDDEN)
+            ->orderBy('c.id', 'DESC');
+        return Database::query($sql)->fetchAll(PDO::FETCH_ASSOC);
+    }
+    public static function getCoursesForSiteAndUser($siteId, $userId){
+        $table_course = Database::get_main_table(TABLE_MAIN_COURSE);
+        $table_course_url = Database::get_main_table(TABLE_MAIN_ACCESS_URL_REL_COURSE);
+        $tableCourseUser = Database::get_main_table(TABLE_MAIN_COURSE_USER);
+        $now = api_get_utc_datetime();
+        $sql = Database::getManager()
+            ->createQueryBuilder()
+            ->select('*')
+            ->from($table_course, 'c')
+            ->leftJoin($table_course_url, 'aurc', Doctrine\ORM\Query\Expr\Join::ON, 'c.id = aurc.c_id')
+            ->leftJoin($tableCourseUser, 'cru', Doctrine\ORM\Query\Expr\Join::ON, 'c.id = cru.c_id')
+            ->where('aurc.access_url_id = '.$siteId)
+            ->where('creation_date <= '. $now)
+            ->where('visibility <> '. COURSE_VISIBILITY_CLOSED)
+            ->where('visibility <> '. COURSE_VISIBILITY_HIDDEN)
+            ->where('cru.user_id = '. $userId)
+            ->orderBy('c.id', 'DESC');
+        return Database::query($sql)->fetchAll(PDO::FETCH_ASSOC);
+    }
     public static function getNewCourse(){
         $limit = 6;
         $userId = api_get_user_id();
-
         // Getting my courses
         $my_course_list = self::get_courses_list_by_user_id($userId);
+
+
 
         $codeList = [];
         foreach ($my_course_list as $course) {
@@ -50,7 +117,6 @@ class CourseHelper extends CourseManager
         }
         return $courses;
     }
-
 
     public static function processLastCourse($courses, $codeList = []){
         $hotCourses = [];
@@ -204,5 +270,16 @@ class CourseHelper extends CourseManager
             ->where('c_id = '.$courseId)
             ->orderBy('id', 'ASC');
         return Database::fetch_assoc(Database::query($learningPaths));
+    }
+
+    public static function getCourseByUser($userId){
+        $learningPaths = Database::getManager()
+            ->createQueryBuilder()
+            ->select('*')
+            ->from('course_rel_user', 'c_u_l')
+            ->where('user_id = '.$userId);
+        $coursesIds = Database::query($learningPaths)->fetchAll(PDO::FETCH_ASSOC);
+//        foreach()
+        return [];
     }
 }

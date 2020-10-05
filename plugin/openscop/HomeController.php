@@ -3,8 +3,20 @@
 
 class HomeController extends IndexManager
 {
-    public function getCourseList(){
-        return CourseHelper::getNewCourse();
+    /**
+     * retourne la liste des courses par ordre de creation (la plus recente avant)
+     * @return array
+     */
+    public function getHomeCourseList(){
+        return CourseHelper::getHomeCourses();
+    }
+
+    /**
+     * retourne la liste des courses de l'user par ordre de creation (la plus recente avant)
+     * @return array
+     */
+    public function getUserCourseList(){
+        return CourseHelper::getUserCourses();
     }
 
 
@@ -993,7 +1005,14 @@ class HomeController extends IndexManager
                 }
             }
         }
-
+        $data = [
+            'courses' => $courseCompleteList,
+            'sessions' => $session_categories,
+            'html' => trim($specialCourseList.$sessions_with_category.$sessions_with_no_category.$listCourse),
+            'session_count' => $sessionCount,
+            'course_count' => $courseCount,
+        ];
+print('<pre>'.print_r($data, true).'</pre>'); die;
         return [
             'courses' => $courseCompleteList,
             'sessions' => $session_categories,
