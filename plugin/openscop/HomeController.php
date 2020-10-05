@@ -7,12 +7,9 @@ class HomeController extends IndexManager
         return CourseHelper::getNewCourse();
     }
 
-    public function setOneColumnTemplate(){
-//        $tpl = $this->tpl->get_template('layout/blank.tpl');
-        $tpl = $this->tpl->get_template('layout/layout_1_col.tpl');
-        $this->tpl->display($tpl);
-    }
-    public function display_hot_items(){
+
+    public function display_hot_course_item()
+    {
         $tpl = $this->tpl->get_template('layout/hot_course_item.tpl');
         $this->tpl->display($tpl);
     }

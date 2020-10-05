@@ -77,26 +77,20 @@ class CourseHelper extends CourseManager
             $session = '&id_session='.$sessionId;
             $action = '&action=view';
 
-            $learningPaths = Database::getManager()
-                ->createQueryBuilder()
-                ->select('*')
-                ->from('c_lp', 'lp')
-                ->where('c_id = '.$my_course['real_id'])
-                ->orderBy('id', 'ASC')
-                ->getDQL();
-            $lp = Database::fetch_assoc(Database::query($learningPaths));
+            $userRegisteredInCourse = self::is_user_subscribed_in_course($user_id, $course_info['code']);
+            $userRegisteredInCourseAsTeacher = self::is_course_teacher($user_id, $course_info['code']);
+            $userRegistered = $userRegisteredInCourse && $userRegisteredInCourseAsTeacher;
+
+            $lp = self::getParcoursForCourse($my_course['real_id']);
 
             // main/lp/lp_controller.php?cidReq=TEST&id_session=0&gidReq=0&gradebook=0&origin=&action=view&lp_id=1&isStudentView=true
             $id = $lp['id'];
             $url_start_lp = 'main/lp/lp_controller.php?'.$cidReq.$session.$action.'&lp_id='.$id;
-            $url_start_lp .= '&isStudentView=true';
+            $url_start_lp .= '&isStudentView='.!$userRegisteredInCourseAsTeacher;
             $my_course['course_student_url'] = $url_start_lp;
             $my_course['course_teacher_url'] = api_get_course_url($my_course['id']);
 
 
-            $userRegisteredInCourse = self::is_user_subscribed_in_course($user_id, $course_info['code']);
-            $userRegisteredInCourseAsTeacher = self::is_course_teacher($user_id, $course_info['code']);
-            $userRegistered = $userRegisteredInCourse && $userRegisteredInCourseAsTeacher;
             $my_course['is_course_student'] = $userRegisteredInCourse;
             $my_course['is_course_teacher'] = $userRegisteredInCourseAsTeacher;
             $my_course['is_registered'] = $userRegistered;
@@ -104,8 +98,7 @@ class CourseHelper extends CourseManager
 
             $percent = learnpath::getProgress($id, $user_id, $courseId, $sessionId);
             $textPercent = $percent . '%';
-            $my_course['progress'] = learnpath::get_progress_bar($percent, $textPercent);
-
+            $my_course['progress'] = learnpath::get_progress_bar($textPercent);
             // Course visibility
             if ($access_link && in_array('register', $access_link)) {
                 $my_course['course_register_url'] = api_get_path(WEB_COURSE_PATH).$course_info['path'].'/index.php?action=subscribe&sec_token='.$stok;
@@ -197,12 +190,19 @@ class CourseHelper extends CourseManager
                 $my_course['public_url'] = $my_course['course_register_url'];
             }
 
-//            print('<pre>'.print_r($my_course, true).'</pre>');
-//            die;
-
             $hotCourses[] = $my_course;
         }
 
         return $hotCourses;
+    }
+
+    public static function getParcoursForCourse($courseId){
+        $learningPaths = Database::getManager()
+            ->createQueryBuilder()
+            ->select('*')
+            ->from('c_lp', 'lp')
+            ->where('c_id = '.$courseId)
+            ->orderBy('id', 'ASC');
+        return Database::fetch_assoc(Database::query($learningPaths));
     }
 }

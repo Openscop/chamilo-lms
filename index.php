@@ -202,7 +202,7 @@ if (isset($_GET['firstpage'])) {
     api_delete_firstpage_parameter();
 }
 $controller->setGradeBookDependencyBar(api_get_user_id());
-$controller->tpl->display_hot_course_item();
+$controller->display_hot_course_item();
 
 // Deleting the session_id.
 Session::erase('session_id');
