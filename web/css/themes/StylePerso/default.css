@@ -42,7 +42,7 @@ a:hover{
 .navbar-default {
 background: #E61983; 
 border: none;
-font-size: x-large;
+font-size: 2rem;
 font-weight: bold;
 
 }
@@ -159,6 +159,7 @@ footer.bgfooter a:hover{
 
 .thumbnail{
   max-height: 370px !important;
+  padding: 0px !important;
   
 }
 .thumbnail a > img{
@@ -168,8 +169,37 @@ footer.bgfooter a:hover{
 }
 
 footer{
-  position: relative !important;
+  position: absolute !important;
+  bottom: 0;
 }
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
   background: #E61983 !important;
+}
+.navbar-default{
+  color: white !important;
+}
+
+.block-title{
+  
+  padding: 5px 0 5px 0;
+  
+}
+
+.block-title .title{
+  font-size: 20px;
+  color: white !important;
+}
+
+a{
+  color: inherit !important;
+}
+.ranking{
+  color: white !important;
+}
+#rating_wrapper_star_3{
+  color: inherit !important;
+}
+
+.dropdown-menu{
+  color: black !important;
 }
