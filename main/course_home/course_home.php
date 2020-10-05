@@ -259,7 +259,8 @@ if ($action === 'subscribe') {
                 $redirectionTarget = api_get_path(WEB_PATH).'course/'.$courseId.'/about';
             }
         }
-        header('Location: '.$redirectionTarget);
+        // FIXME OPENSCOP
+        header('Location: '.api_get_path(WEB_PATH).'user_portal.php');
         exit;
     }
 }
