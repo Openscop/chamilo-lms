@@ -268,6 +268,7 @@ class CourseHelper extends CourseManager
                 );
             }
             if($my_course['is_course_teacher']) {
+                $my_course['edit_action'] = api_get_path(WEB_CODE_PATH).'course_info/infocours.php?cidReq='.$course_info['code'];
                 $my_course['public_url'] = $my_course['course_teacher_url'];
             } else if($my_course['is_course_student']) {
                 $my_course['public_url'] = $my_course['course_student_url'];
@@ -277,7 +278,6 @@ class CourseHelper extends CourseManager
 
             $hotCourses[] = $my_course;
         }
-
         return $hotCourses;
     }
 
