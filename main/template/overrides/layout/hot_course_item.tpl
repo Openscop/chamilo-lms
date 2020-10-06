@@ -5,7 +5,7 @@
 {% if item.title %}
 
 <div class="col-xs-12 col-sm-5 col-md-4 tuile">
-    <div class="thumbnail">
+    <div class="thumbnail" style="margin-bottom: 50px">
     <div class="items items-hotcourse">
         <div class="image card-img-top">
             <a title="{{ item.title }}" href="#">
@@ -14,7 +14,7 @@
 
         </div>
 
-            <div class="block-title">
+            <div class="block-title" style="min-height: 150px">
                 <h5 class="title" style="padding: 0 15px 0 15px">
                     {% if item.is_course_student or item.is_course_teacher %}
                     <a alt="{{ item.title }}" title="#">
