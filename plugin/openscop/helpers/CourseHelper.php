@@ -76,7 +76,7 @@ class CourseHelper extends CourseManager
             ->leftJoin($table_course_url, 'aurc', Doctrine\ORM\Query\Expr\Join::ON, 'c.id = aurc.c_id')
             ->leftJoin($tableCourseUser, 'cru', Doctrine\ORM\Query\Expr\Join::ON, 'c.id = cru.c_id')
             ->where('aurc.access_url_id = ' . $siteId)
-            ->andWhere('creation_date <= ' . $now)
+            ->andWhere('creation_date <= "' . $now . '"')
             ->andWhere('visibility <> ' . COURSE_VISIBILITY_CLOSED)
             ->andWhere('visibility <> ' . COURSE_VISIBILITY_HIDDEN)
             ->andWhere('cru.user_id = ' . $userId)
