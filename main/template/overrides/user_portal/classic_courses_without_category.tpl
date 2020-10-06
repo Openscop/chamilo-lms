@@ -2,6 +2,7 @@
 <div class="classic-courses">
     <div class="panel panel-default">
         <div class="panel-body">
+
             {% for item in courses %}
                 {% if item.title %}
                     <div class="col-xs-12 col-sm-5 col-md-4 tuile" data-url="{{ item.public_url }}"
@@ -30,6 +31,7 @@
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 {% endif %}
             {% endfor %}
