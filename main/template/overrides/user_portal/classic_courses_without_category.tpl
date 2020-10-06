@@ -5,7 +5,7 @@
 
             {% for item in courses %}
                 {% if item.title %}
-                    <div class="col-xs-12 col-sm-5 col-md-4 tuile" data-url="{{ item.public_url }}"
+                    <div class="col-xs-10 col-sm-5 col-md-6 tuile" data-url="{{ item.public_url }}"
                          title="reprendre le cours"
                          style="margin-top: 15px;">
                         <div class="thumbnail">
@@ -16,11 +16,17 @@
                                 <div class="block-title" >
                                     <h5 class="title">
                                         {{ item.title}}
+                                        {% if item.edit_actions != '' %}
+                                        <a href="{{ item.edit_actions }}" >
+                                            <em class="fa fa-pencil edit_button" data-link="{{ item.edit_actions }}"></em>
+                                        </a>
+                                        {%endif%}
                                     </h5>
                                     <div style="padding: 0 15px 0 15px">
                                         {% if item.is_course_student and item.is_course_teacher == False %}
                                         {{ item.progress }}
                                         {% endif %}
+
                                     </div>
                                     <div class="ranking">
                                         {{ item.rating_html }}
@@ -36,6 +42,7 @@
                         </div>
 
                     </div>
+
                 {% endif %}
             {% endfor %}
         </div>
