@@ -11,6 +11,7 @@
  * table liaison site/course : access_url_rel_course
  * table liaison site/user : access_url_rel_user
  * table parcours : c_lp
+ * course tags table : extra_field_rel_tag
  */
 class CourseHelper extends CourseManager
 {
@@ -25,6 +26,7 @@ class CourseHelper extends CourseManager
             $currentSiteId = api_get_current_access_url_id();
             $courses = self::getCoursesForSite($currentSiteId);
             $courses = self::processLastCourse($courses);
+            OpenscopHelper::debug($courses);
         } catch(Exception $e) {
             return [];
         }
@@ -251,6 +253,8 @@ class CourseHelper extends CourseManager
             }
             // end buycourse validation
 
+            $my_course['tags'] = self::getCourseTags($my_course['real_id']);
+            $my_course['description'] = self::getCourseDescription($my_course['real_id']);
             // Description
             $my_course['description_button'] = self::returnDescriptionButton($course_info);
             $my_course['teachers'] = self::getTeachersFromCourse($course_info['real_id'], true);
@@ -286,5 +290,27 @@ class CourseHelper extends CourseManager
             ->where('c_id = ' . $courseId)
             ->orderBy('id', 'ASC');
         return Database::fetch_assoc(Database::query($learningPaths));
+    }
+
+    public static function getCourseTags($courseId){
+        $sql = Database::getManager()
+            ->createQueryBuilder()
+            ->select('*')
+            ->from('tag', 't')
+            ->leftJoin('extra_field_rel_tag', 'efrt', Doctrine\ORM\Query\Expr\Join::ON, 't.id = efrt.tag_id')
+            ->where('efrt.item_id = ' . $courseId)
+            ->orderBy('t.tag', 'ASC');
+        return Database::query($sql)->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public static function getCourseDescription($courseId){
+        $table = Database::get_course_table(TABLE_TOOL_INTRO);
+        $sql = Database::getManager()
+            ->createQueryBuilder()
+            ->select('intro_text')
+            ->from($table, 't')
+            ->where('t.c_id = ' . $courseId)
+            ->orderBy('t.id');
+        return Database::query($sql)->fetch(PDO::FETCH_COLUMN);
     }
 }
