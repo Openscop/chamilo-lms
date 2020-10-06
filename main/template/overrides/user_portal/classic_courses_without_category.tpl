@@ -26,8 +26,8 @@
                         <a alt="{{ item.title }}" title="{{ item.title }}" href="{{ _p.web }}course/{{ item.real_id  }}/about">
                             {{ item.title}}
                             {% if item.current_user_is_teacher %}
-                            <a href="{{ item.edit_actions }}" style="color: initial !important;">
-                                <em class="fa fa-pencil" style="color: initial !important;"></em>
+                            <a href="{{ item.edit_actions }}">
+                                <em class="fa fa-pencil"></em>
                             </a>
                             {% endif %}
                         </a>

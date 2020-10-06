@@ -151,8 +151,13 @@ footer.bgfooter a:hover{
   color: #CCC;
 }
 
-/*Perso plus */
+/*Page acceuil */
 
+.tuile{
+  margin-left: 0px; 
+  margin-top: 0px; 
+  padding: 15px;
+}
 #cm-content{
   background-color: #F3F3F3;
 }
@@ -160,7 +165,15 @@ footer.bgfooter a:hover{
 .thumbnail{
   max-height: 370px !important;
   padding: 0px !important;
+  min-height: 300px !important
   
+}
+.thumbnail .block-title{
+  min-height: 130px
+}
+
+.thumbnail .title{
+  padding: 0 15px 0 15px
 }
 .thumbnail a > img{
   max-height: 220px;
@@ -170,7 +183,7 @@ footer.bgfooter a:hover{
 
 footer{
   position: absolute !important;
-  bottom: 0;
+  top: 100%;
 }
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
   background: #E61983 !important;
@@ -202,4 +215,70 @@ a{
 
 .dropdown-menu{
   color: black !important;
+}
+
+.ranking{
+  display: inline-block;
+}
+
+.triangle{
+  width: 50px;
+  height: 50px; 
+  position: absolute; 
+  z-index: 0; 
+  background-color: white; 
+  transform: skew(-70deg, 65deg);
+  margin-left: 100px; 
+  top: 450px; 
+  display: none;
+}
+
+/*Button */
+
+.course_button{
+  width: 100%;
+  padding: 0 25% 0 25%;
+  margin-top: 5%;
+}
+
+.course_button .btn{
+  width: 100%;
+  font-size: large !important;
+  color: white !important;
+  background-color: #E61983 !important;
+  border-color: #E61983 !important;
+}
+
+.course_button .btn:hover{
+  color: #E61983 !important;
+  background-color: white !important;
+  border-color: #E61983 !important;
+}
+
+.course_button .btn-primary:hover{
+  color: #E61983 !important;
+  background-color: white !important;
+  border-color: #E61983 !important;
+}
+
+.unsubscribe_button{
+  width: 100%;
+  padding: 0 25% 0 25%;
+}
+
+.unsubscribe_button .btn-danger{
+  width: 100%;
+  background-color: white !important; 
+  border-color: white !important;
+}
+/* forumaile */
+#formLogin_submitAuth{
+  background-color: #E61983;
+  border-color: #b4025e;
+}
+
+/* Photo de profile */
+
+.sidebar-avatar .area-avatar .img-circle {
+  border: none !important;
 }

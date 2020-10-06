@@ -32,14 +32,14 @@ $(function() {
 let nmb = 0;
 
 function color_tuile(){
-    let color = ["#FF3246", "#E61983", "#20124DFF", "#6DEAEE"];
+    let color = ["background_1", "background_2", "background_3", "background_4"];
     for( var i =0; i < $(".tuile").length; i += 1){
         let ancient_nmb = 6;
         nmb = Math.floor(Math.random() * 4);
         if(nmb === ancient_nmb){
             nmb = Math.floor(Math.random() * 4);
         }
-        $(".tuile").eq( i ).find(".block-title").css("background", color[nmb]);
+        $(".tuile").eq( i ).find(".block-title").addClass(color[nmb]);
         ancient_nmb = nmb;
     }
 }
