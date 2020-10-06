@@ -10,6 +10,7 @@
  * table site : access_url
  * table liaison site/course : access_url_rel_course
  * table liaison site/user : access_url_rel_user
+ * table parcours : c_lp
  */
 class CourseHelper extends CourseManager
 {
@@ -36,7 +37,6 @@ class CourseHelper extends CourseManager
     public static function getCoursesForSite($siteId){
         $table_course = Database::get_main_table(TABLE_MAIN_COURSE);
         $table_course_url = Database::get_main_table(TABLE_MAIN_ACCESS_URL_REL_COURSE);
-        $table_user_access = Database::get_main_table(TABLE_MAIN_ACCESS_URL_REL_USER);
         $now = api_get_utc_datetime();
         $sql = Database::getManager()
             ->createQueryBuilder()
@@ -247,11 +247,10 @@ class CourseHelper extends CourseManager
                     $point_info
                 );
             }
-
-            if($my_course['is_course_student']) {
-                $my_course['public_url'] = $my_course['course_student_url'];
-            }else if($my_course['is_course_teacher']){
+            if($my_course['is_course_teacher']) {
                 $my_course['public_url'] = $my_course['course_teacher_url'];
+            }else if($my_course['is_course_student']) {
+                    $my_course['public_url'] = $my_course['course_student_url'];
             }else if($my_course['register_button']){
                 $my_course['public_url'] = $my_course['course_register_url'];
             }
@@ -270,16 +269,5 @@ class CourseHelper extends CourseManager
             ->where('c_id = '.$courseId)
             ->orderBy('id', 'ASC');
         return Database::fetch_assoc(Database::query($learningPaths));
-    }
-
-    public static function getCourseByUser($userId){
-        $learningPaths = Database::getManager()
-            ->createQueryBuilder()
-            ->select('*')
-            ->from('course_rel_user', 'c_u_l')
-            ->where('user_id = '.$userId);
-        $coursesIds = Database::query($learningPaths)->fetchAll(PDO::FETCH_ASSOC);
-//        foreach()
-        return [];
     }
 }
