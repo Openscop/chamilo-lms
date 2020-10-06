@@ -172,119 +172,127 @@ $myCourseListAsCategory = api_get_configuration_value('my_courses_list_as_catego
 
 $controller = new HomeController(get_lang('MyCourses'));
 
-if (!$myCourseListAsCategory) {
-    // Main courses and session list
-    if (isset($_COOKIE['defaultMyCourseView'.$userId]) &&
-        $_COOKIE['defaultMyCourseView'.$userId] == IndexManager::VIEW_BY_SESSION &&
-        $displayMyCourseViewBySessionLink
-    ) {
-        $courseAndSessions = $controller->returnCoursesAndSessionsViewBySession($userId);
-        IndexManager::setDefaultMyCourseView(IndexManager::VIEW_BY_SESSION, $userId);
-    } else {
-        $courseAndSessions = $controller->returnCoursesAndSessions($userId, true, null, true, $loadHistory);
-        IndexManager::setDefaultMyCourseView(IndexManager::VIEW_BY_DEFAULT, $userId);
-    }
-
-    // if teacher, session coach or admin, display the button to change te course view
-    if ($displayMyCourseViewBySessionLink &&
-        (
-            api_is_drh() ||
-            api_is_session_general_coach() ||
-            api_is_platform_admin() ||
-            api_is_session_admin() ||
-            api_is_teacher()
-        )
-    ) {
-        $courseAndSessions['html'] = "
-            <div class='view-by-session-link'>
-                <div class='btn-group pull-right'>
-                    <a class='btn btn-default' id='viewByDefault' href='user_portal.php'
-                        onclick='changeMyCoursesView(\"".IndexManager::VIEW_BY_DEFAULT."\")'>
-                        ".get_lang('MyCoursesDefaultView')."
-                    </a>
-                    <a class='btn btn-default' id='viewBySession' href='user_portal.php'
-                        onclick='changeMyCoursesView(\"".IndexManager::VIEW_BY_SESSION."\")'>
-                        ".get_lang('MyCoursesSessionView')."
-                    </a>
-                </div>
-            </div>
-            <br /><br />
-        ".$courseAndSessions['html'];
-    }
-} else {
-    $categoryCode = isset($_GET['category']) ? $_GET['category'] : '';
-
-    if (!$categoryCode) {
-        $courseAndSessions = $controller->returnCourseCategoryListFromUser($userId);
-    } else {
-        $courseAndSessions = $controller->returnCoursesAndSessions(
-            $userId,
-            false,
-            $categoryCode,
-            true,
-            $loadHistory
-        );
-        $getCategory = CourseCategory::getCategory($categoryCode);
-        $controller->tpl->assign('category', $getCategory);
-    }
-}
+//if (!$myCourseListAsCategory) {
+//    // Main courses and session list
+//    if (isset($_COOKIE['defaultMyCourseView'.$userId]) &&
+//        $_COOKIE['defaultMyCourseView'.$userId] == IndexManager::VIEW_BY_SESSION &&
+//        $displayMyCourseViewBySessionLink
+//    ) {
+//        $courseAndSessions = $controller->returnCoursesAndSessionsViewBySession($userId);
+//        IndexManager::setDefaultMyCourseView(IndexManager::VIEW_BY_SESSION, $userId);
+//    } else {
+//        $courseAndSessions = $controller->returnCoursesAndSessions($userId, true, null, true, $loadHistory);
+//        IndexManager::setDefaultMyCourseView(IndexManager::VIEW_BY_DEFAULT, $userId);
+//    }
+//
+//    // if teacher, session coach or admin, display the button to change te course view
+//    if ($displayMyCourseViewBySessionLink &&
+//        (
+//            api_is_drh() ||
+//            api_is_session_general_coach() ||
+//            api_is_platform_admin() ||
+//            api_is_session_admin() ||
+//            api_is_teacher()
+//        )
+//    ) {
+//        $courseAndSessions['html'] = "
+//            <div class='view-by-session-link'>
+//                <div class='btn-group pull-right'>
+//                    <a class='btn btn-default' id='viewByDefault' href='user_portal.php'
+//                        onclick='changeMyCoursesView(\"".IndexManager::VIEW_BY_DEFAULT."\")'>
+//                        ".get_lang('MyCoursesDefaultView')."
+//                    </a>
+//                    <a class='btn btn-default' id='viewBySession' href='user_portal.php'
+//                        onclick='changeMyCoursesView(\"".IndexManager::VIEW_BY_SESSION."\")'>
+//                        ".get_lang('MyCoursesSessionView')."
+//                    </a>
+//                </div>
+//            </div>
+//            <br /><br />
+//        ".$courseAndSessions['html'];
+//    }
+//} else {
+//    $categoryCode = isset($_GET['category']) ? $_GET['category'] : '';
+//
+//    if (!$categoryCode) {
+//        $courseAndSessions = $controller->returnCourseCategoryListFromUser($userId);
+//    } else {
+//        $courseAndSessions = $controller->returnCoursesAndSessions(
+//            $userId,
+//            false,
+//            $categoryCode,
+//            true,
+//            $loadHistory
+//        );
+//        $getCategory = CourseCategory::getCategory($categoryCode);
+//        $controller->tpl->assign('category', $getCategory);
+//    }
+//}
 
 // Check if a user is enrolled only in one course for going directly to the course after the login.
-if (api_get_setting('go_to_course_after_login') == 'true') {
-    $count_of_sessions = $courseAndSessions['session_count'];
-    $count_of_courses_no_sessions = $courseAndSessions['course_count'];
-    // User is subscribe in 1 session and 0 courses.
-    if ($count_of_sessions == 1 && $count_of_courses_no_sessions == 0) {
-        $sessions = SessionManager::get_sessions_by_user($userId);
-
-        if (isset($sessions[0])) {
-            $sessionInfo = $sessions[0];
-            // Session only has 1 course.
-            if (isset($sessionInfo['courses']) &&
-                count($sessionInfo['courses']) == 1
-            ) {
-                foreach ($sessionInfo['courses'] as $courseItem) {
-                    $courseInfo = api_get_course_info_by_id($courseItem['real_id']);
-                    if (!empty($courseInfo)) {
-                        $courseUrl = $courseInfo['course_public_url'].'?id_session='.$sessionInfo['session_id'];
-                        header('Location:'.$courseUrl);
-                        exit;
-                    }
-                }
-            }
-
-            // Session has many courses.
-            if (isset($sessionInfo['session_id'])) {
-                $url = api_get_path(WEB_CODE_PATH).'session/index.php?session_id='.$sessionInfo['session_id'];
-
-                header('Location:'.$url);
-                exit;
-            }
-        }
-    }
-
-    // User is subscribed to 1 course.
-    if (!isset($_SESSION['coursesAlreadyVisited']) &&
-        $count_of_sessions == 0 &&
-        $count_of_courses_no_sessions == 1
-    ) {
-        if (!empty($courseAndSessions['courses']) && isset($courseAndSessions['courses'][0]) && !empty($courseAndSessions['courses'][0]['link'])) {
-            header("Location: {$courseAndSessions['courses'][0]['link']}");
-            exit;
-        }
-    }
-}
+//if (api_get_setting('go_to_course_after_login') == 'true') {
+//    $count_of_sessions = $courseAndSessions['session_count'];
+//    $count_of_courses_no_sessions = $courseAndSessions['course_count'];
+//    // User is subscribe in 1 session and 0 courses.
+//    if ($count_of_sessions == 1 && $count_of_courses_no_sessions == 0) {
+//        $sessions = SessionManager::get_sessions_by_user($userId);
+//
+//        if (isset($sessions[0])) {
+//            $sessionInfo = $sessions[0];
+//            // Session only has 1 course.
+//            if (isset($sessionInfo['courses']) &&
+//                count($sessionInfo['courses']) == 1
+//            ) {
+//                foreach ($sessionInfo['courses'] as $courseItem) {
+//                    $courseInfo = api_get_course_info_by_id($courseItem['real_id']);
+//                    if (!empty($courseInfo)) {
+//                        $courseUrl = $courseInfo['course_public_url'].'?id_session='.$sessionInfo['session_id'];
+//                        header('Location:'.$courseUrl);
+//                        exit;
+//                    }
+//                }
+//            }
+//
+//            // Session has many courses.
+//            if (isset($sessionInfo['session_id'])) {
+//                $url = api_get_path(WEB_CODE_PATH).'session/index.php?session_id='.$sessionInfo['session_id'];
+//
+//                header('Location:'.$url);
+//                exit;
+//            }
+//        }
+//    }
+//
+//    // User is subscribed to 1 course.
+//    if (!isset($_SESSION['coursesAlreadyVisited']) &&
+//        $count_of_sessions == 0 &&
+//        $count_of_courses_no_sessions == 1
+//    ) {
+//        if (!empty($courseAndSessions['courses']) && isset($courseAndSessions['courses'][0]) && !empty($courseAndSessions['courses'][0]['link'])) {
+//            header("Location: {$courseAndSessions['courses'][0]['link']}");
+//            exit;
+//        }
+//    }
+//}
 
 // Show the chamilo mascot
-if (empty($courseAndSessions['html']) && !isset($_GET['history'])) {
+//if (empty($courseAndSessions['html']) && !isset($_GET['history'])) {
+//    $controller->tpl->assign(
+//        'welcome_to_course_block',
+//        $controller->return_welcome_to_course_block()
+//    );
+//}
+$courses = $controller->getUserCourseList();
+if (empty($courses) && !isset($_GET['history'])) {
     $controller->tpl->assign(
         'welcome_to_course_block',
         $controller->return_welcome_to_course_block()
     );
 }
-
-$controller->tpl->assign('content', $courseAndSessions['html']);
-
+$controller->tpl->assign('courses', $courses);
+if(!empty($courses)) {
+    $controller->tpl->assign('content', $controller->tpl->fetch($controller->tpl->get_template('user_portal/classic_courses_without_category.tpl')));
+}
 // Display the Site Use Cookie Warning Validation
 $useCookieValidation = api_get_setting('cookie_warning');
 if ($useCookieValidation === 'true') {
@@ -320,7 +328,7 @@ $controller->tpl->assign('user_image_block', $controller->return_user_image_bloc
 //$controller->tpl->assign('course_block', $controller->return_course_block());
 //$controller->tpl->assign('navigation_course_links', $controller->return_navigation_links());
 //$controller->tpl->assign('search_block', $controller->return_search_block());
-//$controller->tpl->assign('notice_block', $controller->return_notice());
+$controller->tpl->assign('notice_block', $controller->return_notice());
 //$controller->tpl->assign('classes_block', $controller->returnClassesBlock());
 $controller->tpl->assign('skills_block', $controller->returnSkillLinks());
 //$controller->tpl->assign('student_publication_block', $controller->studentPublicationBlock());
