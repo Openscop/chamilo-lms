@@ -255,6 +255,7 @@ class CourseHelper extends CourseManager
 
             $my_course['tags'] = self::getCourseTags($my_course['real_id']);
             $my_course['description'] = self::getCourseDescription($my_course['real_id']);
+            $my_course['presentation'] = self::getCoursePresentation($my_course['real_id']);
             // Description
             $my_course['description_button'] = self::returnDescriptionButton($course_info);
             $my_course['teachers'] = self::getTeachersFromCourse($course_info['real_id'], true);
@@ -304,6 +305,14 @@ class CourseHelper extends CourseManager
     }
 
     public static function getCourseDescription($courseId){
+        $data = CourseDescription::get_descriptions($courseId);
+        if(is_array($data)){
+            $data = $data[0];
+        }
+        return $data->get_content();
+    }
+
+    public static function getCoursePresentation($courseId){
         $table = Database::get_course_table(TABLE_TOOL_INTRO);
         $sql = Database::getManager()
             ->createQueryBuilder()
