@@ -26,7 +26,6 @@ class CourseHelper extends CourseManager
             $currentSiteId = api_get_current_access_url_id();
             $courses = self::getCoursesForSite($currentSiteId);
             $courses = self::processLastCourse($courses);
-            OpenscopHelper::debug($courses);
         } catch(Exception $e) {
             return [];
         }
@@ -309,7 +308,10 @@ class CourseHelper extends CourseManager
         if(is_array($data)){
             $data = $data[0];
         }
-        return $data->get_content();
+        if(isset($data)) {
+            return $data->get_content();
+        }
+        return '';
     }
 
     public static function getCoursePresentation($courseId){
