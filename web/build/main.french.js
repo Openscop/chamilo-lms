@@ -308,7 +308,7 @@ $(function() {
                 instance.options.markersRolls = {};
 
                 qMarkersRolls.forEach(function (qMarkerRoll) {
-                    var url = 'http://chamilo-1.11.ddev.site/main/exercise/exercise_submit.php?&'
+                    var url = 'https://chamilo.ddev.site:444/main/exercise/exercise_submit.php?&'
                         + $.param({
                             exerciseId: qMarkerRoll[1],
                             learnpath_id: 0,
