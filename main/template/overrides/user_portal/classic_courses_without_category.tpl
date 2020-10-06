@@ -16,9 +16,9 @@
                                 <div class="block-title" >
                                     <h5 class="title">
                                         {{ item.title}}
-                                        {% if item.edit_actions != '' %}
-                                        <a href="{{ item.edit_actions }}" >
-                                            <em class="fa fa-pencil edit_button" data-link="{{ item.edit_actions }}"></em>
+                                        {% if item.edit_action != '' %}
+                                        <a href="{{ item.edit_action }}" >
+                                            <em class="fa fa-pencil edit_button" data-link="{{ item.edit_action }}"></em>
                                         </a>
                                         {%endif%}
                                     </h5>
@@ -28,16 +28,12 @@
                                         {% endif %}
 
                                     </div>
-                                    <div class="ranking">
-                                        {{ item.rating_html }}
+                                    <div class="unsubscribe_button">
+                                        {{ item.unsubscribe_button }}
                                     </div>
                                 </div>
-                                <div class="toolbar row">
-                                    {{ item.tag }}
-                                </div>
-                                <div class="unsubscribe_button">
-                                    {{ item.unsubscribe_button }}
-                                </div>
+
+
                             </div>
                         </div>
 

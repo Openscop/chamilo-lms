@@ -14,7 +14,7 @@
 
         </div>
 
-            <div class="block-title" style="min-height: 150px">
+            <div class="block-title" style="min-height: 100px">
                 <h5 class="title" style="padding: 0 15px 0 15px; font-weight: bolder !important;">
                     {% if item.is_course_student or item.is_course_teacher %}
                     <a alt="{{ item.title }}" title="#">
@@ -31,9 +31,6 @@
                     {{ item.progress }}
                     {% endif %}
                 </div>
-                <div class="ranking" style="padding: 0 15px 0 15px">
-                    {{ item.rating_html }}
-                </div>
                 <div style="padding: 0 15px 0 15px; font-size: large; margin-top: auto">
                     {% for tag in item.tags%}
                     <span>{{ tag.tag }}</span>
@@ -48,7 +45,7 @@
     <div class="triangle">
 
     </div>
-    <div class="tuile_description container" style="display: none; background-color: white; position: relative; flex-wrap: wrap; margin-top: 50px !important;">
+    <div class="tuile_description container" style="display: none; background-color: white; position: relative; flex-wrap: wrap; margin-top: 80px !important;">
         <div class="row">
         <div class="col-md-6" style=" border-right: 1px solid black;" " >
             <h2>Description :</h2>
@@ -67,8 +64,6 @@
             <div class="unsubscribe_button">
             {{ item.unsubscribe_button }}
             </div>
-            <div>{{ item.description }}</div>
-
         </div>
         <button class="close_tuile_description" style="position: absolute;top: -8px;right: -8px;width: 34px;height: 34px;border-radius: 17px;border: solid 1px gray;background-color: white;z-index: 2600;">X</button>
         </div>
