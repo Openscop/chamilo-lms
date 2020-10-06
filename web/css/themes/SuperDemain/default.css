@@ -1,0 +1,310 @@
+/*!
+ * CSS Fruity Orange - v. 2.0
+ * 2015 - Alex Aragón (aragonc@beeznest.com)
+ * Licensed GPL
+ * Based on Bootstrap
+*/
+
+@font-face {
+  font-family: 'Dosis', sans-serif;
+  src: url('https://fonts.googleapis.com/css2?family=Dosis&display=swap');
+}
+@font-face {
+  font-family: 'Dosis', sans-serif;
+  src: url('https://fonts.googleapis.com/css2?family=Dosis&display=swap');
+}
+@font-face {
+  font-family: 'Dosis', sans-serif;
+  src: url('https://fonts.googleapis.com/css2?family=Dosis&display=swap');
+}
+@font-face {
+  font-family: 'Dosis', sans-serif;
+  src: url('https://fonts.googleapis.com/css2?family=Dosis&display=swap');
+}
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  margin: 0;
+  font-family: 'Dosis', sans-serif;
+  line-height: 1.72222;
+  background-color: #F3F3F3;
+}
+a{
+  color: #666666;
+}
+a:hover{
+  color: #50B387;
+  text-decoration: none;
+}
+
+.navbar-default {
+background: #E61983; 
+border: none;
+font-size: 2rem;
+font-weight: bold;
+
+}
+.navbar-default .navbar-brand {
+  color: #ffffff;
+}
+
+.navbar-default .navbar-text {
+  color: #ffffff;
+}
+
+.navbar-default .navbar-nav > li {
+  
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: #FFFFFF;
+}
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+color: #FFFFFF;
+/*background: #d30d91;*/ 
+}
+.navbar-default .navbar-nav > li > .dropdown-menu {
+  background: #FFFFFF;
+}
+.navbar-default .navbar-nav > li > .dropdown-menu > li > a {
+  color: #ffffff;
+}
+.navbar-default .navbar-nav > li > .dropdown-menu > li{
+    border: none;
+}
+.navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
+.navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
+  color: #FFFFFF;
+/*background: #d30d91;*/
+}
+.navbar-default .navbar-nav > li > .dropdown-menu > li > .divider {
+  background-color: #0099c0;
+}
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+  color: #FFFFFF;
+  background: #E61983; 
+  /*background: #d30d91;*/; 
+}
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+  color: #FFFFFF;
+  /*background: #d30d91;*/ 
+}
+.navbar-default .navbar-toggle {
+  border-color: #6D0019;
+}
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+  background-color: #6D0019;
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #ffffff;
+}
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+  border-color: #6D0019;
+}
+.navbar-default .navbar-link {
+  color: #ffffff;
+}
+.navbar-default .navbar-link:hover {
+  color: #ededed;
+}
+.badge{
+    background-color: #50B387;
+}
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #ededed;
+    background-color: #6D0019;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #ededed;
+
+    background-color: #0099c0;
+  }
+}
+.breadcrumb{
+  background: #F9F9F9;
+  color: #006A84;
+}
+.nav li a:hover{
+    background: transparent;
+}
+.panel-default .panel-heading{
+    background-color: #EBECF2;
+}
+.panel-default{
+    border-color: #F3F3F4;
+}
+
+footer{
+  position: absolute !important;
+  top: 100%;
+}
+
+footer.bgfooter{
+  background: #000000;
+
+}
+footer.bgfooter a{
+  color: #ffffff;
+}
+footer.bgfooter a:hover{
+  color: #CCC;
+}
+
+/*Page acceuil */
+
+.tuile{
+  margin-left: 0px; 
+  margin-top: 0px; 
+  padding: 15px;
+}
+#cm-content{
+  background-color: #F3F3F3;
+}
+
+.thumbnail{
+  max-height: 340px !important;
+  padding: 0px !important;
+  
+  
+}
+.thumbnail .block-title{
+  min-height: 130px
+}
+
+.thumbnail .title{
+  padding: 0 15px 0 15px
+}
+.thumbnail a > img{
+  max-height: 220px;
+  width: 100%;
+  margin: 0 !important;
+}
+
+
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+  background: #E61983 !important;
+}
+.navbar-default{
+  color: white !important;
+}
+
+.block-title{
+  
+  padding: 5px 0 5px 0;
+  
+}
+
+.block-title .title{
+  font-size: 20px;
+  color: white !important;
+}
+
+a{
+  color: inherit !important;
+}
+.ranking{
+  color: white !important;
+}
+#rating_wrapper_star_3{
+  color: inherit !important;
+}
+
+.dropdown-menu{
+  color: black !important;
+}
+
+.ranking{
+  display: inline-block;
+}
+
+.triangle{
+  width: 50px;
+  height: 50px; 
+  position: absolute; 
+  z-index: 0; 
+  background-color: white; 
+  transform: skew(-70deg, 65deg);
+  margin-left: 100px; 
+  top: 450px; 
+  display: none;
+}
+.thumbnail .items-hotcourse .img-responsive{
+  width: 100%;
+}
+
+.tuile{
+  cursor: pointer;
+}
+
+/* Background Color */
+
+.background_1{
+  background-color: #FF3246;
+}
+
+.background_2{
+  background-color: #E61983;
+}
+
+.background_3{
+  background-color: #20124DFF;
+}
+
+.background_4{
+  background-color: #6DEAEE;
+}
+/*Button */
+
+.course_button{
+  width: 100%;
+  padding: 0 25% 0 25%;
+  margin-top: 5%;
+}
+
+.course_button .btn{
+  width: 100%;
+  font-size: large !important;
+  color: white !important;
+  background-color: #E61983 !important;
+  border-color: #E61983 !important;
+}
+
+.course_button .btn:hover{
+  color: #E61983 !important;
+  background-color: white !important;
+  border-color: #E61983 !important;
+}
+
+.course_button .btn-primary:hover{
+  color: #E61983 !important;
+  background-color: white !important;
+  border-color: #E61983 !important;
+}
+
+.unsubscribe_button{
+  width: 100%;
+  padding: 0 25% 0 25%;
+}
+
+.unsubscribe_button .btn-danger{
+  width: 100%;
+  background-color: white !important; 
+  border-color: white !important;
+}
+/* forumaile */
+#formLogin_submitAuth{
+  background-color: #E61983;
+  border-color: #b4025e;
+}
+
+/* Photo de profile */
+
+.sidebar-avatar .area-avatar .img-circle {
+  border: none !important;
+}

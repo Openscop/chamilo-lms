@@ -5,7 +5,7 @@
 {% if item.title %}
 
 <div class="col-xs-12 col-sm-5 col-md-4 tuile">
-    <div class="thumbnail">
+    <div class="thumbnail" style="margin-bottom: 50px">
     <div class="items items-hotcourse">
         <div class="image card-img-top">
             <a title="{{ item.title }}" href="#">
@@ -14,8 +14,8 @@
 
         </div>
 
-            <div class="block-title">
-                <h5 class="title" style="padding: 0 15px 0 15px">
+            <div class="block-title" style="min-height: 150px">
+                <h5 class="title" style="padding: 0 15px 0 15px; font-weight: bolder !important;">
                     {% if item.is_course_student or item.is_course_teacher %}
                     <a alt="{{ item.title }}" title="#">
                         {{ item.title}}
@@ -34,12 +34,14 @@
                 <div class="ranking" style="padding: 0 15px 0 15px">
                     {{ item.rating_html }}
                 </div>
-
+                <div style="padding: 0 15px 0 15px; font-size: large; margin-top: auto">
+                    {% for tag in item.tags%}
+                    <span>{{ tag.tag }}</span>
+                    {% endfor %}
+                </div>
             </div>
 
-            <div class="toolbar row">
-                {{ item.tag }}
-            </div>
+
 
     </div>
     </div>
@@ -50,7 +52,7 @@
         <div class="row">
         <div class="col-md-6" style=" border-right: 1px solid black;" " >
             <h2>Description :</h2>
-            <p>L’État soutient le déploiement national du dispositif de Pass numériques afin de garantir et de favoriser l’accès aux usages numériques de tous les Français, notamment les plus éloignés. Le dispositif de Pass numériques donne le droit d’accéder - dans des structures de proximité, préalablement qualifiées et mettant à disposition des professionnels de qualité - à des services d’accompagnement numérique avec une prise en charge totale ou partielle par un tiers-payeur.</p>
+            <p>{{item.description}}</p>
         </div>
         <div class="col-md-6" style=" padding-top: 60px; padding-left: 25px;" >
             <p>Passez à l'action sur votre territoire. Trouvez les solutions pour agir ?
