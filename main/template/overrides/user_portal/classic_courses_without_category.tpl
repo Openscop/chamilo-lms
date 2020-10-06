@@ -1,11 +1,3 @@
-<style>
-    .thumbnail > .items-hotcourse > .card-img-top > .img-responsive{
-        width: 100%;
-    }
-    .tuile{
-        cursor: pointer;
-    }
-</style>
 {% if not courses is empty %}
 <div class="classic-courses">
     <div class="panel panel-default">
