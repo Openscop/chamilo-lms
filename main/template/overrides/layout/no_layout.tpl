@@ -11,6 +11,14 @@
             height:100%;
             background-color: #240A5F;
         }
+        .row {
+            height: 100%;
+            display: table-row;
+        }
+        .row .no-float {
+            display: table-cell;
+            float: none;
+        }
     </style>
 </head>
 <body dir="{{text_direction}}" class="{{section_name}}">

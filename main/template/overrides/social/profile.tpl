@@ -10,7 +10,7 @@
 <div class="row">
     <div class="col-md-3">
         {{ social_avatar_block }}
-        {{ social_extra_info_block }}
+
     </div>
     <div id="wallMessages" class="col-md-6">
         {{ add_post_form }}
