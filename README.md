@@ -1,3 +1,13 @@
+# Openscop
+Ce fork correspond à des demandes spécifiques de notre client dans un délai limité.
+
+les objectifs sont de :
+
+    - modifier l'interface selon les besoin du client
+    - supprimer certaines étapes pour les étudiants (rediriger directement vers le parcours sans passer par la page du cours)
+    - suppression de liens/block des pages (les blocs réseaux sociaux, etc...)
+
+
 # Chamilo 1.11.x
 
 [![Build Status](https://travis-ci.org/chamilo/chamilo-lms.svg?branch=1.11.x)](https://travis-ci.org/chamilo/chamilo-lms)
