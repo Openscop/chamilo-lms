@@ -8,6 +8,7 @@
             <div class="lp-view-zone-container">
                 <div id="scorm-info">
                     <div id="panel-scorm" class="panel-body">
+                        {#
                         <div class="image-avatar">
                             {% if lp_author == '' %}
                             <div class="text-center">
@@ -24,6 +25,7 @@
                             </div>
                             {% endif %}
                         </div>
+                #}
                         {% if show_audio_player %}
                         <div id="lp_media_file" class="audio-scorm">
                             {{ media_player }}
@@ -153,6 +155,7 @@
         <div class="contenu col-xs-12 col-md-9 {{ show_left_column == 1 ? 'content-scorm' : 'no-right-col' }}">
             <div class="lp-view-zone-container">
                 <div class="lp-view-tabs">
+                    {#
                     <div id="navTabsbar" class="nav-tabs-bar">
                         <ul id="navTabs" class="nav nav-tabs tabs-right" role="tablist">
                             <li role="presentation" class="active">
@@ -173,6 +176,7 @@
                     </div>
 
                     {% include 'learnpath/menubar.tpl'|get_template %}
+                    #}
 
                     <div id="tab-iframe" class="tab-content">
 

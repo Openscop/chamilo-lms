@@ -19,10 +19,7 @@
                         {{ item.title }}
                     </a>
                 </div>
-                <div style="width: 25px; height: 25px; border-radius: 50%; background-color: white; border-color: black; border-style: solid; display: inline-block; position: absolute; right: 5px; text-align: center; font-weight: bolder; color: #FF3246; vertical-align: center; font-size: 15px; line-height: 22px;">
-                    {% if item.status == "completed" %}
-                        X
-                    {% endif %}
+                <div class="item-status">
                 </div>
                 {% endif %}
             </div>
