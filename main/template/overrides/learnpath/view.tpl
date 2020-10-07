@@ -1,5 +1,3 @@
-<div>{{fix_link}}</div>
-
 <div class="learnpath-container">
     {# contenu de la page : #}
     <div class="row {{ is_allowed_to_edit ? 'lp-view-include-breadcrumb' }} {{ lp_mode == 'embedframe' ? 'lp-view-collapsed' : '' }}">
