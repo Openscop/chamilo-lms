@@ -60,7 +60,7 @@ class CourseHelper extends CourseManager
             ->andWhere('visibility <> ' . COURSE_VISIBILITY_CLOSED)
             ->andWhere('visibility <> ' . COURSE_VISIBILITY_HIDDEN)
             ->groupBy('c.id')
-            ->orderBy('c.id', 'DESC');
+            ->orderBy('c.title');
         return Database::query($sql)->fetchAll(PDO::FETCH_ASSOC);
     }
 
@@ -81,7 +81,7 @@ class CourseHelper extends CourseManager
             ->andWhere('visibility <> ' . COURSE_VISIBILITY_CLOSED)
             ->andWhere('visibility <> ' . COURSE_VISIBILITY_HIDDEN)
             ->andWhere('cru.user_id = ' . $userId)
-            ->orderBy('c.id', 'DESC');
+            ->orderBy('c.title');
         return Database::query($sql)->fetchAll(PDO::FETCH_ASSOC);
     }
 
