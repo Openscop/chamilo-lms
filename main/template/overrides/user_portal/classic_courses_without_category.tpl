@@ -13,7 +13,7 @@
                                 <div class="image card-img-top">
                                     <img src="{{ item.course_image_large }}" class="img-responsive" alt="{{ item.title }}" style="max-height: 225px">
                                 </div>
-                                <div class="block-title" >
+                                <div class="block-title" style="height: 175px !important;">
                                     <h5 class="title">
                                         {{ item.title}}
                                         {% if item.edit_action != '' %}

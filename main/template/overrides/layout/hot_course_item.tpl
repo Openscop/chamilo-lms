@@ -5,7 +5,7 @@
 {% if item.title %}
 
 <div class="col-xs-12 col-sm-5 col-md-4 tuile">
-    <div class="thumbnail" style="margin-bottom: 50px">
+    <div class="thumbnail">
     <div class="items items-hotcourse">
         <div class="image card-img-top">
             <a title="{{ item.title }}" href="#">
@@ -14,16 +14,18 @@
 
         </div>
 
-            <div class="block-title" style="min-height: 100px">
-                <h5 class="title" style="padding: 0 15px 0 15px; font-weight: bolder !important;">
+            <div class="block-title">
+                <h5 class="title">
                     {% if item.is_course_student or item.is_course_teacher %}
-                    <a alt="{{ item.title }}" title="#">
+                    <a alt="{{ item.title }}" title="#" class="title-text">
                         {{ item.title}}
                     </a>
+                    <i class="gg-chevron-right-o"></i>
                     {% else %}
-                    <a alt="{{ item.title }}" title="#">
+                    <a alt="{{ item.title }}" title="#" class="title-text">
                         {{ item.title}}
                     </a>
+                    <i class="gg-chevron-right-o"></i>
                     {% endif %}
                 </h5>
                 <div style="padding: 0 15px 0 15px">
@@ -31,7 +33,7 @@
                     {{ item.progress }}
                     {% endif %}
                 </div>
-                <div style="padding: 0 15px 0 15px; font-size: large; margin-top: auto">
+                <div class="block-tag">
                     {% for tag in item.tags%}
                     <span>{{ tag.tag }}</span>
                     {% endfor %}
@@ -45,11 +47,10 @@
     <div class="triangle">
 
     </div>
-    <div class="tuile_description container" style="display: none; background-color: white; position: relative; flex-wrap: wrap; margin-top: 80px !important;">
+    <div class="tuile_description container" style="display: none; background-color: white; position: relative; flex-wrap: wrap; margin-top: 65px !important;">
         <div class="row">
-        <div class="col-md-6" style=" border-right: 1px solid black;" " >
-            <h2>Description :</h2>
-            <p>{{item.description}}</p>
+        <div class="col-md-6" style=" border-right: 1px solid black; font-weight: bold" " >
+            <p style="margin: 15px 5px 15px 5px">{{item.description}}</p>
         </div>
         <div class="col-md-6" style=" padding-top: 60px; padding-left: 25px;" >
             <p>Passez à l'action sur votre territoire. Trouvez les solutions pour agir ?
@@ -77,4 +78,7 @@
 {% endfor %}
 
 <script src="main/template/overrides/javascript/acceuille_tuile.js"></script>
+<style>
+
+</style>
 {% endblock %}
