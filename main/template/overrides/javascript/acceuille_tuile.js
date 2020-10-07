@@ -42,14 +42,18 @@ $(function() {
 let nmb = 0;
 
 function color_tuile(){
-    let color = ["background_1", "background_2", "background_3", "background_4"];
-    for( var i =0; i < $(".tuile").length; i += 1){
-        let ancient_nmb = 6;
-        nmb = Math.floor(Math.random() * 4);
-        if(nmb === ancient_nmb){
-            nmb = Math.floor(Math.random() * 4);
-        }
-        $(".tuile").eq( i ).find(".block-title").addClass(color[nmb]);
-        ancient_nmb = nmb;
+    let color = ["background_1", "background_2", "background_3", "background_4", "background_5", "background_6"];
+    // for( var i =0; i < $(".tuile").length; i += 1){
+    //     let ancient_nmb = 6;
+    //     nmb = Math.floor(Math.random() * 4);
+    //     if(nmb === ancient_nmb){
+    //         nmb = Math.floor(Math.random() * 4);
+    //     }
+    //     $(".tuile").eq( i ).find(".block-title").addClass(color[nmb]);
+    //     ancient_nmb = nmb;
+    // }
+    for( var i =0; i < 6; i += 1) {
+        // $(".container-fluid .tuile:nth-child(i)").find(".block-title").addClass(color[i]);
+        $(".tuile").eq( i ).find(".block-title").addClass(color[i]);
     }
 }

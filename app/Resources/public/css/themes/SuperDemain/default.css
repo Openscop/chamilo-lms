@@ -170,20 +170,34 @@ footer.bgfooter a:hover{
 .thumbnail{
   max-height: 340px !important;
   padding: 0px !important;
-  
-  
+  margin-bottom: 50px;
+  cursor: pointer;
 }
 .thumbnail .block-title{
-  min-height: 130px
+  height: 25% !important;
+  min-height: 125px !important;
+  padding: 5px 0 5px 0;
 }
 
 .thumbnail .title{
-  padding: 0 15px 0 15px
+  padding: 0 15px 0 15px;
+  font-weight: bolder !important; 
+  display: flex;
 }
 .thumbnail a > img{
   max-height: 220px;
   width: 100%;
   margin: 0 !important;
+}
+.title-text{
+  width: 85%
+}
+
+.block-tag{
+  padding: 0 15px 0 15px; 
+  font-size: 1.8rem; 
+  margin-top: 6%; 
+  color: white
 }
 
 
@@ -192,12 +206,6 @@ footer.bgfooter a:hover{
 }
 .navbar-default{
   color: white !important;
-}
-
-.block-title{
-  
-  padding: 5px 0 5px 0;
-  
 }
 
 .block-title .title{
@@ -238,8 +246,31 @@ a{
   width: 100%;
 }
 
-.tuile{
-  cursor: pointer;
+/* Icone chevron */
+.gg-chevron-right-o {
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  transform: scale(var(--ggs,1));
+  width: 22px;
+  height: 22px;
+  border: 2px solid;
+  border-radius: 100px;
+  margin: 15px auto auto auto;
+
+}
+.gg-chevron-right-o::after {
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-bottom: 2px solid;
+  border-right: 2px solid;
+  transform: rotate(-45deg);
+  left: 5px;
+  top: 6px
 }
 
 /* Background Color */
@@ -259,6 +290,15 @@ a{
 .background_4{
   background-color: #6DEAEE;
 }
+
+.background_5{
+  background-color: #24989c;
+}
+
+.background_6{
+  background-color: #5e0abe;
+}
+
 /*Button */
 
 .course_button{
@@ -307,4 +347,123 @@ a{
 
 .sidebar-avatar .area-avatar .img-circle {
   border: none !important;
+}
+
+#learning_path_toc{
+  position: relative !important;
+  top: unset !important;
+  left: unset !important;
+  right: unset !important;
+  bottom: unset !important;
+}
+.menu-button{
+  top: 90px !important;
+}
+#content-scorm{
+  height: 90% !important;
+}
+#scorm-info{
+  background-color: transparent !important;
+}
+.scorm_item_normal{
+  background-color: transparent !important;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  padding: 0;
+  border-collapse: collapse;
+  border: white 1px solid;
+  margin:-2px 0 0 -1px;
+}
+.scorm_completed .item, .scorm_item_normal.scorm_completed{
+  background: none !important;
+}
+.scorm_item_normal .item{
+  flex-grow: 2;
+  padding-left: 10px;
+  border: white 1px solid;
+  border-collapse: collapse;
+  font-weight: bolder;
+}
+.scorm_item_normal .item{
+  width: 35px;
+  border: white 1px solid;
+  border-collapse: collapse;
+}
+.scorm_completed.scorm_highlight .item{
+  background: none !important;
+  background-color: #00829C !important;
+}
+.scorm_completed .item {
+  background: none !important;
+}
+.scorm_failed .item {
+  background: none !important;
+}
+.scorm_not_attempted .item {
+  background: none !important;
+}
+.scorm_highlight .item {
+  background: none !important;
+  background-color: #00829C !important;
+  color: #009AB8;
+}
+.scorm_highlight.scorm_completed .item {
+  background: none !important;
+  background-color: #00829C !important;
+}
+.scorm_highlight.scorm_failed .item {
+  background: none !important;
+  background-color: #00829C !important;
+}
+
+.scorm_item_normal .item-status{
+  width: 35px;
+  border: white 1px solid;
+  border-collapse: collapse;
+}
+.scorm_completed.scorm_highlight .item-status{
+  background: url(/main/img/scorm/scorm_current.png) no-repeat 10px center !important;
+  background-color: #00829C !important;
+}
+.scorm_completed .item-status {
+  background: url("/main/img/scorm/scorm_completed.png") no-repeat 10px center !important;
+}
+.scorm_failed .item-status {
+  background: url("/main/img/scorm/scorm_failed.png") no-repeat 10px center !important;
+}
+.scorm_not_attempted .item-status {
+  background: url("/main/img/scorm/scorm_not_attempted.png") no-repeat 10px center !important;
+}
+.scorm_highlight .item-status {
+  background: url("/main/img/scorm/scorm_highlight.png") no-repeat 10px center !important;
+  background-color: #00829C !important;
+  color: #009AB8;
+}
+.scorm_highlight.scorm_completed .item-status {
+  background: url("/main/img/scorm/scorm_current.png") no-repeat 10px center !important;
+  background-color: #00829C !important;
+}
+.scorm_highlight.scorm_failed .item-status {
+  background: url("/main/img/scorm/scorm_failed.png") no-repeat 10px center !important;
+  background-color: #00829C !important;
+}
+.scorm_highlight.scorm_completed .item{
+  background: none !important;
+  background-color: #00829C !important;
+}
+.scorm_highlight .item a{
+  /*text-decoration: none;*/
+  color: white !important;
+}
+.learnpath-container {
+  display:table;
+  width: 100%;
+  padding: 0; /*set left/right padding according to needs*/
+  box-sizing: border-box;
+  color: white;
+}
+.scorm-title h4{
+  color: inherit;
 }
