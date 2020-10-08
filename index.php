@@ -31,6 +31,12 @@ if (!api_is_anonymous()) {
 $controller = new HomeController($header_title);
 //Actions
 $loginFailed = isset($_GET['loginFailed']) ? true : isset($loginFailed);
+
+if($loginFailed){
+    // FIXME OPENSCOP display error
+    Display::addFlash(Display::return_message(get_lang($_GET['error']), 'error'));
+}
+
 if (!empty($_GET['logout'])) {
     $redirect = !empty($_GET['no_redirect']) ? false : true;
     // pass $logoutInfo defined in local.inc.php
