@@ -15,3 +15,4 @@
 {% endblock %}
 
 {% include 'layout/course_navigation.tpl'|get_template %}
+{{ flash_messages }}
