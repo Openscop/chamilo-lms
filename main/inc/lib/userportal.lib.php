@@ -888,12 +888,13 @@ class IndexManager
                 'title' => get_lang('Inbox').$cant_msg,
             ];
 
-            $items[] = [
-                'class' => 'new-message-social',
-                'icon' => Display::return_icon('new-message.png', get_lang('Compose')),
-                'link' => api_get_path(WEB_CODE_PATH).'messages/new_message.php',
-                'title' => get_lang('Compose'),
-            ];
+            // FIXME OPENSCOP
+//            $items[] = [
+//                'class' => 'new-message-social',
+//                'icon' => Display::return_icon('new-message.png', get_lang('Compose')),
+//                'link' => api_get_path(WEB_CODE_PATH).'messages/new_message.php',
+//                'title' => get_lang('Compose'),
+//            ];
 
             if (api_get_setting('allow_social_tool') === 'true') {
                 $total_invitations = Display::badge($total_invitations);
@@ -906,12 +907,13 @@ class IndexManager
             }
         }
 
-        $items[] = [
-            'class' => 'personal-data',
-            'icon' => Display::return_icon('database.png', get_lang('PersonalDataReport')),
-            'link' => api_get_path(WEB_CODE_PATH).'social/personal_data.php',
-            'title' => get_lang('PersonalDataReport'),
-        ];
+        // FIXME OPENSCOP
+//        $items[] = [
+//            'class' => 'personal-data',
+//            'icon' => Display::return_icon('database.png', get_lang('PersonalDataReport')),
+//            'link' => api_get_path(WEB_CODE_PATH).'social/personal_data.php',
+//            'title' => get_lang('PersonalDataReport'),
+//        ];
 
         if (api_get_configuration_value('allow_my_files_link_in_homepage')) {
             if (api_get_setting('allow_my_files') !== 'false') {
