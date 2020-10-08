@@ -245,7 +245,25 @@ a{
 .thumbnail .items-hotcourse .img-responsive{
   width: 100%;
 }
-
+.tuile_description
+{
+  display: none;
+  background-color: white;
+  position: relative;
+  flex-wrap: wrap;
+  margin-top: 65px !important;
+}
+.close_tuile_description{
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  width: 34px;
+  height: 34px;
+  border-radius: 17px;
+  border: solid 1px gray;
+  background-color: white;
+  z-index: 2600;
+}
 /* Icone chevron */
 .gg-chevron-right-o {
   box-sizing: border-box;
