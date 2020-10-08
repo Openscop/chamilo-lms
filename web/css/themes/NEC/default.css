@@ -41,10 +41,10 @@ a:hover{
 }
 
 .navbar-default {
-background: #1A063F; 
-border: none;
-font-size: 2rem;
-font-weight: bold;
+  background: #1A063F;
+  border: none;
+  font-size: 2rem;
+  font-weight: bold;
 
 }
 .navbar-default .navbar-brand {
@@ -56,7 +56,7 @@ font-weight: bold;
 }
 
 .navbar-default .navbar-nav > li {
-  
+
   padding-top: 15px;
   padding-bottom: 15px;
 }
@@ -65,8 +65,8 @@ font-weight: bold;
   color: #FFFFFF;
 }
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
-color: #FFFFFF;
-/*background: #d30d91;*/ 
+  color: #FFFFFF;
+  /*background: #d30d91;*/
 }
 .navbar-default .navbar-nav > li > .dropdown-menu {
   background: #FFFFFF;
@@ -75,24 +75,24 @@ color: #FFFFFF;
   color: #ffffff;
 }
 .navbar-default .navbar-nav > li > .dropdown-menu > li{
-    border: none;
+  border: none;
 }
 .navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
 .navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
   color: #FFFFFF;
-/*background: #d30d91;*/
+  /*background: #d30d91;*/
 }
 .navbar-default .navbar-nav > li > .dropdown-menu > li > .divider {
   background-color: #0099c0;
 }
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
   color: #FFFFFF;
-  background: #1A063F; 
-  /*background: #d30d91;*/; 
+  background: #1A063F;
+  /*background: #d30d91;*/;
 }
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
   color: #FFFFFF;
-  /*background: #d30d91;*/ 
+  /*background: #d30d91;*/
 }
 .navbar-default .navbar-toggle {
   border-color: #6D0019;
@@ -114,7 +114,7 @@ color: #FFFFFF;
   color: #ededed;
 }
 .badge{
-    background-color: #50B387;
+  background-color: #50B387;
 }
 @media (max-width: 767px) {
   .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
@@ -132,16 +132,16 @@ color: #FFFFFF;
   color: #006A84;
 }
 .nav li a:hover{
-    background: transparent;
+  background: transparent;
 }
 .panel-default .panel-heading{
-    background-color: #EBECF2;
+  background-color: #EBECF2;
 }
 .panel-default{
-    border-color: #F3F3F4;
+  border-color: #F3F3F4;
 }
 footer.bgfooter{
-background: #000000;
+  background: #000000;
 }
 
 footer{
@@ -163,23 +163,23 @@ footer.bgfooter a:hover{
 
 /*Perso plus */
 .tuile{
-  margin-left: 0px; 
-  margin-top: 0px; 
+  margin-left: 0px;
+  margin-top: 0px;
   padding: 15px;
 }
 
 
 #cm-content{
   background-color: #FCF072;
- 
+
 }
 
 .thumbnail{
   max-height: 340px !important;
   padding: 0px !important;
   margin-bottom: 50px
-  
-  
+
+
 }
 .thumbnail .block-title{
   height: 25% !important;
@@ -187,7 +187,7 @@ footer.bgfooter a:hover{
 
 .thumbnail .title{
   padding: 0 15px 0 15px;
-  font-weight: bolder !important; 
+  font-weight: bolder !important;
   display: flex;
 }
 .thumbnail a > img{
@@ -200,9 +200,9 @@ footer.bgfooter a:hover{
 }
 
 .block-tag{
-  padding: 0 15px 0 15px; 
-  font-size: 1.8rem; 
-  margin-top: 6%; 
+  padding: 0 15px 0 15px;
+  font-size: 1.8rem;
+  margin-top: 6%;
   color: white
 }
 
@@ -214,9 +214,9 @@ footer.bgfooter a:hover{
 }
 
 .block-title{
-  
+
   padding: 5px 0 5px 0;
-  
+
 }
 
 .block-title .title{
@@ -243,13 +243,13 @@ a{
 }
 .triangle{
   width: 50px;
-  height: 50px; 
-  position: absolute; 
-  z-index: 0; 
-  background-color: white; 
+  height: 50px;
+  position: absolute;
+  z-index: 0;
+  background-color: white;
   transform: skew(-70deg, 65deg);
-  margin-left: 100px; 
-  top: 450px; 
+  margin-left: 100px;
+  top: 450px;
   display: none;
 }
 .thumbnail .items-hotcourse .img-responsive{
@@ -341,7 +341,7 @@ a{
 
 .unsubscribe_button .btn-danger{
   width: 100%;
-  background-color: white !important; 
+  background-color: white !important;
   border-color: white !important;
 }
 /* forumaile */
@@ -355,6 +355,7 @@ a{
 .sidebar-avatar .area-avatar .img-circle {
   border: none !important;
 }
+
 
 #learning_path_toc{
   position: relative !important;
