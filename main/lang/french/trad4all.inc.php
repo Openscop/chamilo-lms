@@ -342,7 +342,7 @@ ANSWER_EXPLANATION: C'est un commentaire facultatif de retour qui apparaîtra à
 SCORE: 20";
 $ImportAikenQuizExplanation = "Le format Aiken est un fichier (.txt) avec un texte simple, avec plusieurs blocs de questions, chacune séparée par une ligne blanche. La première ligne est la question, les lignes de réponse sont préfixés par une lettre et un point, et la bonne réponse vient avec le préfixe 'ANSWER'.
 Voir l'exemple ci-dessous.";
-$ExerciseAikenErrorNoAnswerOptionGiven = "Le fichier importé comporte au moins une question sans réponse (ou les réponses ne comprennent pas la lettre de préfixe requis). Assurez-vous que chaque question a au moins une réponse et qu'elle est précédée par une lettre et un point ou une parenthèse, comme ceci: 
+$ExerciseAikenErrorNoAnswerOptionGiven = "Le fichier importé comporte au moins une question sans réponse (ou les réponses ne comprennent pas la lettre de préfixe requis). Assurez-vous que chaque question a au moins une réponse et qu'elle est précédée par une lettre et un point ou une parenthèse, comme ceci:
 A. Réponse 1";
 $ExerciseAikenErrorNoCorrectAnswerDefined = "Le fichier importé comporte au moins une question sans réponse correcte définie. Assurez-vous que toutes les questions comprennent la réponse: [Lettre] ligne.";
 $SearchCourseBySession = "Recherche de cours par session";
@@ -565,7 +565,7 @@ $NewMessage = "Nouveau message";
 $DeleteSelectedMessages = "Supprimer les messages sélectionnés";
 $DeselectAll = "Tout désélectionner";
 $ReplyToMessage = "Répondre à ce message";
-$BackToInbox = "Retour boîte de réception";
+$BackToInbox = "Retour aux Notifications";
 $MessageSentTo = "Ce message a été envoyé à";
 $SendMessageTo = "Envoyer à";
 $Myself = "moi-même";
@@ -2329,7 +2329,7 @@ $MyPersonalData = "Fiche perso";
 $AlterPersonalData = "Modifier détails";
 $Invites = "Mes invitations";
 $ContactsGroups = "Groupes de contacts";
-$MyInbox = "Boîte de réception";
+$MyInbox = "Notifications";
 $ViewSharedProfile = "Voir profil partagé";
 $ImagesUploaded = "Images envoyées";
 $ExtraInformation = "Information extra";
@@ -2637,7 +2637,7 @@ $MailCronCourseExpirationReminderBody = "Cher/Chère %s,
 
 Nous avons remarqué que vous n'avez pas terminé le cours %s alors que sa date de fin a été établie au %s, vous laissant %s jour(s) pour le terminer. Nous vous rappelons que vous ne disposez de la possibilité de suivre ce cours qu'une fois par an. Nous vous invitons donc avec insistance à le compléter dans le délai qu'il vous reste. Vous pouvez retrouver le cours en vous connectant à la plate-forme à cette adresse: %s
 
--- 
+--
 
 Cordialement,
 
@@ -3320,7 +3320,7 @@ $h = "h";
 $CreateNewGlobalRole = "Créer un nouveau rôle global";
 $CreateNewLocalRole = "Créer un nouveau rôle local";
 $Actions = "Action";
-$Inbox = "Boîte de réception";
+$Inbox = "Notifications";
 $ComposeMessage = "Composer message";
 $Other = "Autre";
 $AddRight = "Ajouter";
@@ -5427,7 +5427,7 @@ $DeleteFromGroup = "Désinscrire du groupe";
 $YouAreInvitedToGroupContent = "Vous êtes invité à accéder à un contenu de groupe";
 $YouAreInvitedToGroup = "Vous êtes invité à rejoindre le groupe";
 $ToSubscribeClickInTheLinkBelow = "Pour vous inscrire, suivez le lien ci-dessous";
-$ReturnToInbox = "Retourner à la boîte de réception";
+$ReturnToInbox = "Retourner aux Notifications";
 $ReturnToOutbox = "Retourner à la boîte d'envoi";
 $EditNormalProfile = "Modifier le profil normal";
 $LeaveGroup = "Quitter le groupe";
