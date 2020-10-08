@@ -12,7 +12,7 @@ $(function() {
         }else {
             // gere l'animation pour la page home
             if (is_display === 0) {
-                $(this).effect("bounce", {times: 1}, 500);
+                $(this).effect("bounce", {times: 1, distance: 15}, 400);
                 $('.tuile').not(this).each(function () {
                     $(this).css("display", "none");
                 });

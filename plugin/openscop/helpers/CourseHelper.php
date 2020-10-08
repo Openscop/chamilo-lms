@@ -253,6 +253,7 @@ class CourseHelper extends CourseManager
             // end buycourse validation
 
             $my_course['tags'] = self::getCourseTags($my_course['real_id']);
+            $my_course['details'] = self::getCourseDetails($my_course['real_id']);
             $my_course['description'] = self::getCourseDescription($my_course['real_id']);
             $my_course['presentation'] = self::getCoursePresentation($my_course['real_id']);
             // Description
@@ -301,6 +302,17 @@ class CourseHelper extends CourseManager
             ->where('efrt.item_id = ' . $courseId)
             ->orderBy('t.tag', 'ASC');
         return Database::query($sql)->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public static function getCourseDetails($courseId){
+        $sql = Database::getManager()
+            ->createQueryBuilder()
+            ->select('value')
+            ->from('extra_field', 'ef')
+            ->leftJoin('extra_field_values', 'efv', Doctrine\ORM\Query\Expr\Join::ON, 'ef.id = efv.field_id')
+            ->where('efv.item_id = ' . $courseId)
+            ->andWhere("ef.variable = 'details'");
+        return Database::query($sql)->fetch(PDO::FETCH_COLUMN);
     }
 
     public static function getCourseDescription($courseId){

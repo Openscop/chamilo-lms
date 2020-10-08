@@ -252,7 +252,60 @@ a{
   position: relative;
   flex-wrap: wrap;
   margin-top: 65px !important;
+  padding: 20px;
 }
+
+.tuile_description .row {
+  display: flex;
+}
+
+.tuile_description-col {
+  font-size: 18px;
+  padding: 20px;
+}
+
+/* ~ extends col-md-6 */
+@media (min-width: 992px) {
+  .tuile_description-col {
+    width: 49%;
+  }
+
+  .tuile_description-line {
+    min-height: 50px;
+    border-right: black 2px solid;
+    width: 1px;
+    margin: 20px 0;
+  }
+}
+
+@media (max-width: 992px) {
+  .tuile_description .row {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .tuile_description-line {
+    border-bottom: black 2px solid;
+    height: 1px;
+    margin: 0 20px;
+  }
+
+  .tuile_description-col {
+    width: 100%;
+  }
+}
+
+.tuile_description-col {
+  line-height: 1.2;
+}
+
+.tuile_description-col-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
 .close_tuile_description{
   position: absolute;
   top: -8px;
@@ -327,7 +380,8 @@ a{
 
 .course_button .btn{
   width: 100%;
-  font-size: large !important;
+  font-weight: bold;
+  font-size: 20px !important;
   color: white !important;
   background-color: #E61983 !important;
   border-color: #E61983 !important;

@@ -9,7 +9,7 @@
     <div class="items items-hotcourse">
         <div class="image card-img-top">
             <a title="{{ item.title }}" href="#">
-                <img src="{{ item.course_image_large }}" class="img-responsive" alt="{{ item.title }}">
+                <img src="{{ item.course_image_large }}" class="img-responsive" style="object-fit: cover;" alt="{{ item.title }}">
             </a>
 
         </div>
@@ -49,22 +49,24 @@
     </div>
     <div class="tuile_description container">
         <div class="row">
-        <div class="col-md-6" style=" border-right: 1px solid black; font-weight: bold" >
-            <p style="margin: 15px 5px 15px 5px">{{item.description}}</p>
-        </div>
-        <div class="col-md-6" style=" padding-top: 60px; padding-left: 25px;" >
-            <div class="course_button">
-            {{ item.go_to_course_button }}
+            <div class="tuile_description-col tuile_description-col-left" >
+                {{item.description}}
             </div>
-            <div class="course_button">
-            {{ item.register_button }}
+            <div class="tuile_description-line"></div>
+            <div class="tuile_description-col">
+                {{item.details }}
+                <div class="course_button">
+                {{ item.go_to_course_button }}
+                </div>
+                <div class="course_button">
+                {{ item.register_button }}
 
+                </div>
+                <div class="unsubscribe_button">
+                {{ item.unsubscribe_button }}
+                </div>
             </div>
-            <div class="unsubscribe_button">
-            {{ item.unsubscribe_button }}
-            </div>
-        </div>
-        <button class="close_tuile_description">X</button>
+            <button class="close_tuile_description">X</button>
         </div>
 </div>
     </div>

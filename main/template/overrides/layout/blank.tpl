@@ -46,22 +46,23 @@
 
     <!-- START CONTENT -->
     <section id="cm-content">
-        <div class="container-fluid" style="padding: 0px 75px 0px 75px; display: flex; flex-wrap: wrap">
-            {% if show_course_shortcut is not null %}
-            <!-- TOOLS SHOW COURSE -->
-            <div id="cm-tools" class="nav-tools">
+        <div class="container-fluid" style="margin: 0 40px;">
+            <div class="row" style="display: flex;
+                                    flex-wrap: wrap;">
+                {% if show_course_shortcut is not null %}
+                <!-- TOOLS SHOW COURSE -->
                 {{ show_course_shortcut }}
+                <!-- END TOOLS SHOW COURSE -->
+                {% endif %}
+
+                {% block breadcrumb %}
+                {{ breadcrumb }}
+                {% endblock %}
+
+                {% block body %}
+                {{ content }}
+                {% endblock %}
             </div>
-            <!-- END TOOLS SHOW COURSE -->
-            {% endif %}
-
-            {% block breadcrumb %}
-            {{ breadcrumb }}
-            {% endblock %}
-
-            {% block body %}
-            {{ content }}
-            {% endblock %}
         </div>
     </section>
     <!-- END CONTENT -->
