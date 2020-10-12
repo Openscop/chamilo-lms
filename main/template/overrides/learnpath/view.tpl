@@ -130,6 +130,15 @@
         {% endif %}
         <div class="contenu col-xs-12 col-md-9 {{ show_left_column == 1 ? 'content-scorm' : 'no-right-col' }}">
             <div class="lp-view-zone-container">
+                <div class="contenu-nextButton-container">
+                    {% for index,item in data_list %}
+                        {% if item.id == item.current_id %}
+                            {% if data_list[index+1] %}
+                                <button onclick="switch_item('{{item.current_id}}','{{data_list[index+1].id}}'); return false;" class="container-nextButton btn">J'ai bien compris ( enfin je crois ), je passe à la suite</button>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                </div>
                 <div class="lp-view-tabs">
                     {#
                     <div id="navTabsbar" class="nav-tabs-bar">

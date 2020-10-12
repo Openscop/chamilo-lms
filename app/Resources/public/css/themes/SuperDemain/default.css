@@ -702,3 +702,29 @@ Custom progress indicator
   border-bottom: 500px solid transparent;
   border-right: 10000px solid #ffffff;
 }
+
+.lp-view-tabs {
+  margin-top: 0;
+}
+
+.contenu-nextButton-container {
+  height: 77px;
+  display: flex;
+  font-size: 28px;
+  justify-content: flex-end;
+  padding: 10px;
+}
+
+.container-nextButton {
+  height: 40px;
+  font-size: 20px;
+  background-color: #E61983;
+  color: white;
+  border: #E61983;
+}
+
+.container-nextButton:hover {
+  color: #E61983;
+  background-color: white;
+  border: white;
+}
