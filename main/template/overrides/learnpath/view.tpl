@@ -6,30 +6,6 @@
             <div class="lp-view-zone-container">
                 <div id="scorm-info">
                     <div id="panel-scorm" class="panel-body">
-                        {#
-                        <div class="image-avatar">
-                            {% if lp_author == '' %}
-                            <div class="text-center">
-                                {{ lp_preview_image }}
-                            </div>
-                            {% else %}
-                            <div class="media-author">
-                                <div class="media-author-avatar">
-                                    {{ lp_preview_image }}
-                                </div>
-                                <div class="media-author-description">
-                                    {{ lp_author }}
-                                </div>
-                            </div>
-                            {% endif %}
-                        </div>
-                #}
-                        {% if show_audio_player %}
-                        <div id="lp_media_file" class="audio-scorm">
-                            {{ media_player }}
-                        </div>
-                        {% endif %}
-
                         {% if lp_accumulate_work_time != '' %}
                         {% set lp_progress %}
                         <style>
@@ -73,7 +49,7 @@
                             </div>
                             <div class="col-xs-8">
                                 <div id="progress_bar">
-                                    {{ progress_bar }}
+                                    {{ progress_indicator }}
                                 </div>
                             </div>
                         </div>
@@ -101,7 +77,7 @@
                         {% else %}
                         {% set lp_progress %}
                         <div id="progress_bar">
-                            {{ progress_bar }}
+                            {{ progress_indicator }}
                         </div>
                         {% endset %}
                         {% endif %}
@@ -141,7 +117,9 @@
                         {{ teacher_toc_buttons }}
                     </div>
                 </div>
+        {{ item.css_level }}
                 {# TOC layout #}
+        {{ item.css_level }}
                 <div id="toc_id" class="scorm-body" name="toc_name">
                     <div id="flag-mobile" class="visible-xs-block" aria-hidden="true"></div>
                     {% include 'learnpath/scorm_list.tpl'|get_template %}
@@ -153,6 +131,14 @@
         <div class="contenu col-xs-12 col-md-9 {{ show_left_column == 1 ? 'content-scorm' : 'no-right-col' }}">
             <div class="lp-view-zone-container">
                 <div class="lp-view-tabs">
+                    {% for item in current_course %}
+                        {% if item.title %}
+                            <div class="learnpath-container-title-image">
+                                <h2>{{ item.title }}</h2>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+
                     {#
                     <div id="navTabsbar" class="nav-tabs-bar">
                         <ul id="navTabs" class="nav nav-tabs tabs-right" role="tablist">

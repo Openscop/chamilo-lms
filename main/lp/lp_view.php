@@ -392,8 +392,10 @@ if (!empty($lp_theme_css) && !empty($mycourselptheme) && $mycourselptheme != -1 
 }
 
 $progress_bar = '';
+$progress_indicator = '';
 if (!api_is_invitee()) {
     $progress_bar = $lp->getProgressBar();
+    $progress_indicator = $lp->getProgressIndicator();
 }
 $navigation_bar = $lp->get_navigation_bar();
 $navigation_bar_bottom = $lp->get_navigation_bar('control-bottom');
@@ -500,6 +502,13 @@ if ($fixLinkSetting) {
     $fixLink = '{type:"script", id:"_fr10", src:"'.api_get_path(WEB_LIBRARY_PATH).'fixlinks.js"}';
 }
 
+// custom change for frequence-ecole
+$template->assign('current_course', CourseManager::processHotCourseItem(
+    [
+        ['c_id' => $course_id],
+    ]
+));
+
 $template->assign('fix_link', $fixLink);
 $template->assign('glossary_tool_available_list', ['true', 'lp', 'exercise_and_lp']);
 
@@ -519,6 +528,7 @@ $template->assign('button_home_url', $buttonHomeUrl);
 $template->assign('button_home_text', $buttonHomeText);
 $template->assign('navigation_bar', $navigation_bar);
 $template->assign('progress_bar', $progress_bar);
+$template->assign('progress_indicator', $progress_indicator);
 $template->assign('show_audio_player', $show_audioplayer);
 $template->assign('media_player', $mediaplayer);
 $template->assign('toc_list', $get_toc_list);

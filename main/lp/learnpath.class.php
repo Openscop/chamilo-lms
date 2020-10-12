@@ -2520,6 +2520,25 @@ class learnpath
         return self::get_progress_bar($percentage, $text_add);
     }
 
+    /***
+     * @return string
+     */
+    public function getProgressIndicator()
+    {
+        list($percentage, $text_add) = $this->get_progress_bar_text('%');
+        $text = $percentage.$text_add;
+        $output = '<div id="progressIndicator">
+                    <div class="ring-window">
+                     <div class="ring" style="transform:rotate('.$percentage.'deg)"></div>
+                    </div>
+                    <div class="dial" style="transform:rotate('.$percentage.'deg)">
+                      <div class="needle"></div>
+                    </div>
+                    <p class="progressIndicator-text">'.$text.'</p>
+                   </div>';
+        return $output;
+    }
+
     /**
      * Gets the progress bar info to display inside the progress bar.
      * Also used by scorm_api.php.
