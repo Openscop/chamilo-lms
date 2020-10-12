@@ -211,7 +211,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                        aria-expanded="false">
                         SE CONNECTER
-                        <em class="fa fa-sign-out"></em>
+                        <em class="fa fa-sign-in"></em>
                     </a>
                     <ul class="dropdown-menu" role="menu" style="width: 350px">
                         {{ login_form }}
