@@ -131,18 +131,10 @@
         <div class="contenu col-xs-12 col-md-9 {{ show_left_column == 1 ? 'content-scorm' : 'no-right-col' }}">
             <div class="lp-view-zone-container">
                 <div class="lp-view-tabs">
-                    {% for item in current_course %}
-                        {% if item.title %}
-                            <div class="learnpath-container-title-image">
-                                <h2>{{ item.title }}</h2>
-                            </div>
-                        {% endif %}
-                    {% endfor %}
-
                     {#
                     <div id="navTabsbar" class="nav-tabs-bar">
                         <ul id="navTabs" class="nav nav-tabs tabs-right" role="tablist">
-                            <li role="presentation" class="active">
+                            <li role="presentation" class="active">me
                                 <a href="#lp-view-content" title="{{ 'Lesson'|get_lang }}"
                                    aria-controls="lp-view-content" role="tab" data-toggle="tab">
                                     <span class="fa fa-book fa-2x fa-fw" aria-hidden="true"></span>

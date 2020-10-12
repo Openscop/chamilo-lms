@@ -1,7 +1,8 @@
 {% if data_list is not empty %}
 <div id="learning_path_toc" class="scorm-list">
     <div class="scorm-title">
-        <h4>{{ lp_title_scorm }}</h4>
+        <h3>Déroulé du parcours</h3>
+        <h4><span>{{ lp_title_scorm }}</span></h4>
     </div>
     <div class="scorm-body">
         <div id="inner_lp_toc" class="inner_lp_toc scrollbar-light">

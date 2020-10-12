@@ -436,6 +436,7 @@ a{
 }
 #scorm-info{
   background-color: transparent !important;
+  height: 160px;
 }
 .scorm_item_normal{
   background-color: transparent !important;
@@ -537,6 +538,7 @@ a{
   font-size: 16px;
 }
 
+
 .learnpath-container {
   display:table;
   width: 100%;
@@ -544,6 +546,15 @@ a{
   box-sizing: border-box;
   color: white;
 }
+
+.learnpath-container .menu_gauche {
+  padding: 0px 30px;
+}
+
+.learnpath-container .contenu {
+  padding: 0;
+}
+
 .learnpath-container-title-image {
   background-repeat: no-repeat;
   height: 142px;
@@ -556,6 +567,10 @@ a{
 
 .scorm-title h4{
   color: inherit;
+}
+
+.scorm-title h4 span{
+  background-color: #E61983;
 }
 
 /*
@@ -572,7 +587,7 @@ Custom progress indicator
   padding: 20px;
   display: inline-block;
   width: 100%;
-  max-width: 400px;
+  max-width: 200px;
   position: relative;
   cursor: pointer;
 }
