@@ -9,7 +9,7 @@
     <style>
         html, body, .learnpath-container, .content-scorm, .content-scorm > *,  .lp-view-tabs, #tab-iframe, #tab-iframe > *, #wrapper-iframe, #wrapper-iframe > iframe{
             height:100%;
-            background-color: #240A5F;
+            background-color: #F3F3F3;
         }
         .row {
             height: 100%;

@@ -29,7 +29,7 @@ body {
   margin: 0;
   font-family: 'Dosis', sans-serif;
   line-height: 1.72222;
-  background-color: #F3F3F3;
+  background-color: #F3F3F3 !important;
 }
 a{
   color: #666666;
@@ -40,11 +40,11 @@ a:hover{
 }
 
 .navbar-default {
-background: #E61983; 
-border: none;
-font-size: 2rem;
-font-weight: bold;
-
+  background: #E61983;
+  border: none;
+  font-size: 2rem;
+  font-weight: bold;
+  border-radius: 0px;
 }
 .navbar-default .navbar-brand {
   color: #ffffff;
@@ -112,6 +112,12 @@ color: #FFFFFF;
 .navbar-default .navbar-link:hover {
   color: #ededed;
 }
+
+.avatar-user .img-circle {
+  border: none;
+}
+
+
 .badge{
     background-color: #50B387;
 }
@@ -548,11 +554,23 @@ a{
 }
 
 .learnpath-container .menu_gauche {
-  padding: 0px 30px;
+  padding: 0px 15px;
+}
+
+.learnpath-container .menu_gauche .lp-view-zone-container {
+  padding: 0px 10px 30px;
+  background-color: #240A5F;
 }
 
 .learnpath-container .contenu {
-  padding: 0;
+  padding: 0 15px 0 0;
+}
+
+.learnpath-container .contenu .lp-view-zone-container {
+  background: #F3F3F3;
+}
+.learnpath-container .contenu .lp-view-zone-container .lp-view-tabs {
+  margin-top: 0px;
 }
 
 .learnpath-container-title-image {
@@ -727,4 +745,35 @@ Custom progress indicator
   color: #E61983;
   background-color: white;
   border: white;
+}
+
+/*
+Learn path page
+ */
+
+.page_origin_learnpath {
+  font-size: 10px !important;
+  font-weight: 500 !important;
+  color: #240A5F !important;
+}
+.page_origin_learnpath h1 {
+  font-size: 20px !important;
+  text-transform: uppercase !important;
+  color: #240A5F !important;
+  font-weight: 800 !important;
+}
+.page_origin_learnpath h2 {
+  font-size: 16px !important;
+  color: #E61983 !important;
+  font-weight: 800 !important;
+}
+.page_origin_learnpath h3  {
+  font-size: 16px !important;
+  color: #240A5F !important;
+  font-weight: 800 !important;
+}
+.page_origin_learnpath h4  {
+  font-size: 14px !important;
+  color: #62CBD6 !important;
+  font-weight: 800 !important;
 }
