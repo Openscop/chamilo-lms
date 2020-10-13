@@ -131,13 +131,29 @@
         <div class="contenu col-xs-12 col-md-9 {{ show_left_column == 1 ? 'content-scorm' : 'no-right-col' }}">
             <div class="lp-view-zone-container">
                 <div class="contenu-nextButton-container">
-                    {% for index,item in data_list %}
-                        {% if item.id == item.current_id %}
-                            {% if data_list[index+1] %}
-                                <button onclick="switch_item('{{item.current_id}}','{{data_list[index+1].id}}'); return false;" class="container-nextButton btn">J'ai bien compris ( enfin je crois ), je passe à la suite</button>
-                            {% endif %}
-                        {% endif %}
-                    {% endfor %}
+                    <button id='nextItemButton' data-current-item="{{lp_current_item_id}}" data-list="{{data_list|json_encode|e('html_attr')}}" onclick="next_item(this); return false;" class="container-nextButton btn">J’ai bien compris, (enfin, je crois)
+                        et je passe à la suite</button>
+                    <button id='returnHomeButton' class="hidden container-nextButton btn">Commencer un autre parcours</button>
+                    <script>
+                        function next_item(el) {
+                            const current_item_id = el.getAttribute("data-current-item");
+                            const list = el.getAttribute("data-list");
+
+                            let nextId = -1;
+                            for (const index in list) {
+                                // find current element in list
+                                if (list[index].id === current_item_id) {
+                                    // see if next element exists
+                                    if ((Number(index) + 1) < list.length ) {
+                                       nextId = list[Number(index)+1].id;
+                                    }
+                                }
+                            }
+                            if (nextId > -1) {
+                                switch_item(current_item_id, nextId);
+                            }
+                        }
+                    </script>
                 </div>
                 <div class="lp-view-tabs">
                     {#

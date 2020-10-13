@@ -1484,6 +1484,25 @@ function reinit_updatable_vars_list() {
 }
 
 /**
+ * frequence ecole change
+ * update data value of next item button
+ */
+function update_next_item_button(newCurrentItem) {
+    const buttonEl = $("#nextItemButton");
+    const returnHomebuttonEl = $("#returnHomeButton");
+    buttonEl.attr('data-current-item', newCurrentItem);
+    const list = buttonEl.data('list');
+    const lastId = list[list.length-1].id;
+    if (lastId === newCurrentItem) {
+        buttonEl.addClass('hidden');
+        returnHomebuttonEl.removeClass('hidden');
+    } else {
+        buttonEl.removeClass('hidden');
+        returnHomebuttonEl.addClass('hidden');
+    }
+}
+
+/**
  * Function that handles the saving of an item and switching from an item to another.
  * Once called, this function should be able to do the whole process of
  * (1) saving the current item,
@@ -1498,6 +1517,9 @@ function reinit_updatable_vars_list() {
  */
 function switch_item(current_item, next_item)
 {
+    // frequence ecole custom change
+    update_next_item_button(next_item);
+
     logit_lms('switch_item() called with params '+olms.lms_item_id+' and '+next_item+'',2);
 
     if (olms.lms_initialized == 0) {

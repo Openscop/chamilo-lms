@@ -7,9 +7,12 @@
 {% include 'layout/head.tpl'|get_template %}
 
     <style>
-        html, body, .learnpath-container, .content-scorm, .content-scorm > *,  .lp-view-tabs, #tab-iframe, #tab-iframe > *, #wrapper-iframe, #wrapper-iframe > iframe{
+        html, body, .learnpath-container, .content-scorm, .content-scorm > *, #tab-iframe, #tab-iframe > *, #wrapper-iframe, #wrapper-iframe > iframe{
             height:100%;
             background-color: #F3F3F3;
+        }
+        .lp-view-tabs {
+            height : 760px;
         }
         .row {
             height: 100%;
