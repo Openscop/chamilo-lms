@@ -322,7 +322,7 @@ if (!empty($some_activex) || !empty($some_plugins)) {
         $controller->tpl->assign('sniff_notification', $sniff_notification);
     }
 }
-
+// FIXME OPENSCOP
 $controller->tpl->assign('profile_block', $controller->return_profile_block());
 $controller->tpl->assign('user_image_block', $controller->return_user_image_block());
 //$controller->tpl->assign('course_block', $controller->return_course_block());
@@ -330,7 +330,7 @@ $controller->tpl->assign('user_image_block', $controller->return_user_image_bloc
 //$controller->tpl->assign('search_block', $controller->return_search_block());
 $controller->tpl->assign('notice_block', $controller->return_notice());
 //$controller->tpl->assign('classes_block', $controller->returnClassesBlock());
-$controller->tpl->assign('skills_block', $controller->returnSkillLinks());
+//$controller->tpl->assign('skills_block', $controller->returnSkillLinks());
 //$controller->tpl->assign('student_publication_block', $controller->studentPublicationBlock());
 
 $historyClass = '';
