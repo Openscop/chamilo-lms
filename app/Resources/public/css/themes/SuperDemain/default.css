@@ -742,7 +742,7 @@ Custom progress indicator
 }
 
 .container-nextButton:hover {
-  color: #E61983;
+  color: #E61983 !important;
   background-color: white;
   border: white;
 }

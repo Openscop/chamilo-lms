@@ -131,14 +131,12 @@
         <div class="contenu col-xs-12 col-md-9 {{ show_left_column == 1 ? 'content-scorm' : 'no-right-col' }}">
             <div class="lp-view-zone-container">
                 <div class="contenu-nextButton-container">
-                    <button id='nextItemButton' data-current-item="{{lp_current_item_id}}" data-list="{{data_list|json_encode|e('html_attr')}}" onclick="next_item(this); return false;" class="container-nextButton btn">J’ai bien compris, (enfin, je crois)
+                    <button id='nextItemButton' data-current-item="{{lp_current_item_id}}" data-list="{{data_list|json_encode|e('html_attr')}}" onclick="next_item({{data_list|json_encode|e('html_attr')}}, this); return false;" class="container-nextButton btn">J’ai bien compris, (enfin, je crois)
                         et je passe à la suite</button>
-                    <button id='returnHomeButton' class="hidden container-nextButton btn">Commencer un autre parcours</button>
+                    <a href="/index.php" id='returnHomeButton' class="hidden container-nextButton btn">Commencer un autre parcours</a>
                     <script>
-                        function next_item(el) {
+                        function next_item(list, el) {
                             const current_item_id = el.getAttribute("data-current-item");
-                            const list = el.getAttribute("data-list");
-
                             let nextId = -1;
                             for (const index in list) {
                                 // find current element in list
