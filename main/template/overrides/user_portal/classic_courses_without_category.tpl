@@ -22,12 +22,6 @@
                                         </a>
                                         {%endif%}
                                     </h5>
-                                    <div style="padding: 0 15px 0 15px">
-                                        {% if item.is_course_student and item.is_course_teacher == False %}
-                                        {{ item.progress }}
-                                        {% endif %}
-
-                                    </div>
                                     <div class="unsubscribe_button">
                                         {{ item.unsubscribe_button }}
                                     </div>
