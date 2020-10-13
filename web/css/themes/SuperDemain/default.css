@@ -742,37 +742,37 @@ Custom progress indicator
 }
 
 .container-nextButton:hover {
-  color: #E61983;
+  color: #E61983 !important;
   background-color: white;
   border: white;
 }
 
 /*
-Learn path page
+Learn path page and styled document page
  */
 
-.page_origin_learnpath {
+.document_style_superdemain, .page_origin_learnpath {
   font-size: 10px !important;
   font-weight: 500 !important;
   color: #240A5F !important;
 }
-.page_origin_learnpath h1 {
+.document_style_superdemain h1, .page_origin_learnpath h1 {
   font-size: 20px !important;
   text-transform: uppercase !important;
   color: #240A5F !important;
   font-weight: 800 !important;
 }
-.page_origin_learnpath h2 {
+.document_style_superdemain h2, .page_origin_learnpath h2 {
   font-size: 16px !important;
   color: #E61983 !important;
   font-weight: 800 !important;
 }
-.page_origin_learnpath h3  {
+.document_style_superdemain h3, .page_origin_learnpath h3  {
   font-size: 16px !important;
   color: #240A5F !important;
   font-weight: 800 !important;
 }
-.page_origin_learnpath h4  {
+.document_style_superdemain h4, .page_origin_learnpath h4  {
   font-size: 14px !important;
   color: #62CBD6 !important;
   font-weight: 800 !important;
