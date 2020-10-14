@@ -34,7 +34,11 @@
 
                 {% if welcome_to_course_block %}
                     <article id="homepage-course">
-                        {{ welcome_to_course_block }}
+                        <h1>Bonjour Angela Blachere,</h1>
+                        <h2>Nous vous souhaitons la bienvenue sur la plateforme de parcours pros de Super Demain.</h2>
+                        <h3>Comme vous pouvez le voir, votre liste de cours est vide.<br />
+                        C’est parce que vous n’êtes encore inscrit.e à aucun cours !<br />
+                        Choisissez les cours qui vous intéressent en page d’accueil, inscrivez vous et vous pourrez ensuite accéder aux cours pour découvrir les activités proposées.</h3>
                     </article>
                 {% endif %}
 
