@@ -28,11 +28,6 @@
                     <i class="gg-chevron-right-o"></i>
                     {% endif %}
                 </h5>
-                <div style="padding: 0 15px 0 15px">
-                    {% if item.is_course_student and item.is_course_teacher == False %}
-                    {{ item.progress }}
-                    {% endif %}
-                </div>
                 <div class="block-tag">
                     {% for tag in item.tags%}
                     <span>{{ tag.tag }}</span>
