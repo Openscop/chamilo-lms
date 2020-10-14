@@ -862,17 +862,24 @@ Learn path page and styled document page
 
 
 
-.btn-success {
+.exercise_overview_options .btn-success {
   background-color: #6DEAEE;
   border-color: #6DEAEE;
+  line-height: 1.3;
+  width: 170px;
+  height: 40px;
+  font-size: 18px;
+  font-weight: 800;
 }
 .btn-success:hover{
   background-color: #63D6D6;
   border-color: #63D6D6;
 }
 
+
+
 .window_left_question, .window_right_question {
-  background-color: #FFFFFF;
+  background: #FFFFFF !important;
 }
 
 .dorie-inscrit{
