@@ -857,13 +857,14 @@ Custom progress indicator
 /*
 Learn path page and styled document page
  */
-
+#homepage-course,
 .document_style_superdemain, .page_origin_learnpath {
   font-size: 20px !important;
   line-height: 24px;
   font-weight: 500 !important;
   color: #240A5F !important;
 }
+#homepage-course h1,
 .document_style_superdemain h1, .page_origin_learnpath h1 {
   font-size: 40px !important;
   text-transform: uppercase !important;
@@ -872,34 +873,40 @@ Learn path page and styled document page
   margin-bottom: 50px;
   margin-top: 40px;
 }
+#homepage-course h2,
 .document_style_superdemain h2, .page_origin_learnpath h2 {
   font-size: 28px !important;
   color: #E61983 !important;
   font-weight: 400 !important;
   margin-bottom: 20px;
 }
+#homepage-course h3,
 .document_style_superdemain h3, .page_origin_learnpath h3 {
   font-size: 24px !important;
   color: #240A5F !important;
   font-weight: 500 !important;
   margin-bottom: 20px;
 }
+#homepage-course h4,
 .document_style_superdemain h4, .page_origin_learnpath h4 {
   font-size: 20px !important;
   color: #62CBD6 !important;
   font-weight: 700 !important;
   margin-bottom: 20px;
 }
+#homepage-course h5,
 .document_style_superdemain h5, .page_origin_learnpath h5 {
   font-size: 16px !important;
   font-weight: 500 !important;
   margin-bottom: 20px;
   color: #240A5F;
 }
+#homepage-course a,
 .document_style_superdemain a, .page_origin_learnpath a {
   text-decoration: underline;
   color: #24989c !important;
 }
+#homepage-course a:hover,
 .document_style_superdemain a:hover, .page_origin_learnpath a:hover {
   text-decoration: underline;
   color: #6DEAEE !important;
