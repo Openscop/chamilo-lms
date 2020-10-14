@@ -557,6 +557,8 @@ a{
 .learnpath-container {
   display:table;
   width: 100%;
+  max-width: 1500px;
+  margin: auto;
   padding: 0; /*set left/right padding according to needs*/
   box-sizing: border-box;
   color: white;
