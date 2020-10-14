@@ -31,6 +31,9 @@ body {
   line-height: 1.72222;
   background-color: #F3F3F3 !important;
 }
+html, body, .learnpath-container, .content-scorm, .content-scorm > *, #tab-iframe, #tab-iframe > *, #wrapper-iframe, #wrapper-iframe > iframe {
+  background: white;
+}
 a{
   color: #666666;
 }
@@ -63,7 +66,8 @@ a:hover{
 .navbar-default .navbar-nav > li > a {
   color: #FFFFFF;
 }
-.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
 color: #FFFFFF;
 /*background: #d30d91;*/
 }
@@ -96,7 +100,8 @@ color: #FFFFFF;
 .navbar-default .navbar-toggle {
   border-color: #6D0019;
 }
-.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
   background-color: #6D0019;
 }
 .navbar-default .navbar-toggle .icon-bar {
@@ -111,6 +116,9 @@ color: #FFFFFF;
 }
 .navbar-default .navbar-link:hover {
   color: #ededed;
+}
+.navbar-default .dropdown-menu {
+  padding: 20px;
 }
 
 .avatar-user .img-circle {
@@ -160,6 +168,27 @@ footer.bgfooter a{
 }
 footer.bgfooter a:hover{
   color: #CCC;
+}
+
+footer #footer {
+  background: white;
+  min-height: 50px;
+  width: 100%;
+}
+footer #footer section.sub-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+footer #footer section.sub-footer img {
+  width: 75px;
+  height: 25px;
+  margin-right: 20px;
+}
+footer #footer section.sub-footer p  {
+  padding: 0;
+  margin: 0;
 }
 
 /*Page acceuil */
@@ -481,7 +510,8 @@ a{
 }
 .scorm_completed.scorm_highlight .item{
   background: none !important;
-  background-color: #00829C !important;
+  background-color: white !important;
+  color: #E61983 !important;
 }
 .scorm_completed .item {
   background: none !important;
@@ -548,9 +578,16 @@ a{
   text-decoration: none;
   color: white !important;
 }
-
+.scorm-body {
+  padding-left: 8px;
+  padding-right: 8px;
+  box-sizing: border-box;
+}
 .scorm_item_normal a.items-list {
   font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  padding: 10px 0;
 }
 
 
@@ -753,38 +790,52 @@ Custom progress indicator
 .container-nextButton:hover {
   color: #E61983 !important;
   background-color: white;
-  border: white;
+  border-color: #E61983;
 }
 
+/******************************************
+// IFRAMES DES GRAINS
+******************************************/
+.document_style_superdemain {
+  max-width: 1000px;
+  margin: auto;
+  background-color: white !important;
+}
 /*
 Learn path page and styled document page
  */
 
 .document_style_superdemain, .page_origin_learnpath {
-  font-size: 10px !important;
+  font-size: 20px !important;
+  line-height: 24px;
   font-weight: 500 !important;
   color: #240A5F !important;
 }
 .document_style_superdemain h1, .page_origin_learnpath h1 {
-  font-size: 20px !important;
+  font-size: 40px !important;
   text-transform: uppercase !important;
   color: #240A5F !important;
-  font-weight: 800 !important;
+  font-weight: 600 !important;
+  margin-bottom: 50px;
+  margin-top: 10px;
 }
 .document_style_superdemain h2, .page_origin_learnpath h2 {
-  font-size: 16px !important;
+  font-size: 28px !important;
   color: #E61983 !important;
-  font-weight: 800 !important;
+  font-weight: 400 !important;
+  margin-bottom: 20px;
 }
 .document_style_superdemain h3, .page_origin_learnpath h3  {
-  font-size: 16px !important;
+  font-size: 24px !important;
   color: #240A5F !important;
-  font-weight: 800 !important;
+  font-weight: 700 !important;
+  margin-bottom: 20px;
 }
 .document_style_superdemain h4, .page_origin_learnpath h4  {
-  font-size: 14px !important;
+  font-size: 20px !important;
   color: #62CBD6 !important;
-  font-weight: 800 !important;
+  font-weight: 700 !important;
+  margin-bottom: 20px;
 }
 
 
@@ -801,3 +852,10 @@ Learn path page and styled document page
 .window_left_question .window_right_question {
   background-color: #ffff
 }
+
+.dorie-inscrit{
+   position: absolute;
+   top: 0;
+   right: 0;
+   transform: translateX(-100%) translateY(100%);
+ }
