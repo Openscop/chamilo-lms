@@ -213,9 +213,8 @@ footer #footer section.sub-footer p  {
 
 /************** Titre **************/
 .homepage-title {
-  font-size: 25px;
-  margin-right: 40px;
-  margin-left: 40px;
+  margin: 20px !important;
+  font-size: 23px;
 }
 
 
