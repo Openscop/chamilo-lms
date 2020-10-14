@@ -797,7 +797,7 @@ Custom progress indicator
 /******************************************
 // IFRAMES DES GRAINS
 ******************************************/
-.document_style_superdemain {
+.document_style_superdemain, .page_origin_learnpath {
   max-width: 1000px;
   margin: auto;
   background-color: white !important;
