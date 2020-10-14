@@ -502,7 +502,7 @@ a{
   background-color: transparent !important;
   height: 160px;
 }
-.scorm_item_normal{
+.scorm_item_normal {
   background-color: transparent !important;
   display: flex;
   flex-direction: row;
@@ -513,68 +513,54 @@ a{
   border: white 1px solid;
   margin:-2px 0 0 -1px;
 }
-.scorm_completed .item, .scorm_item_normal.scorm_completed{
-  background: none !important;
-}
-.scorm_item_normal .item{
+.scorm_item_normal .item {
   flex-grow: 2;
   padding-left: 10px;
-  border: white 1px solid;
-  border-collapse: collapse;
   font-weight: bolder;
-}
-.scorm_item_normal .item{
   width: 35px;
   border: white 1px solid;
   border-collapse: collapse;
 }
-.scorm_completed.scorm_highlight .item{
+.scorm_item_normal .item-status {
+  width: 35px;
+  border: white 1px solid;
+  border-collapse: collapse;
+}
+.scorm_item_normal.scorm_completed,
+.scorm_item_normal.scorm_completed .item {
   background: none !important;
-  background-color: white !important;
+}
+.scorm_item_normal.scorm_completed .item {
+  background: none !important;
+}
+.scorm_item_normal.scorm_failed .item {
+  background: none !important;
+}
+.scorm_item_normal.scorm_not_attempted .item {
+  background: none !important;
+}
+.scorm_item_normal.scorm_highlight .item,
+.scorm_item_normal.scorm_highlight.scorm_completed .item,
+.scorm_item_normal.scorm_highlight.scorm_failed .item {
+  background: none !important;
   color: #E61983 !important;
-}
-.scorm_completed .item {
-  background: none !important;
-}
-.scorm_failed .item {
-  background: none !important;
-}
-.scorm_not_attempted .item {
-  background: none !important;
-}
-.scorm_highlight .item {
-  background: none !important;
-  background-color: #00829C !important;
-  color: #009AB8;
-}
-.scorm_highlight.scorm_completed .item {
-  background: none !important;
-  background-color: #00829C !important;
-}
-.scorm_highlight.scorm_failed .item {
-  background: none !important;
-  background-color: #00829C !important;
+  background-color: white !important;
 }
 
-.scorm_item_normal .item-status{
-  width: 35px;
-  border: white 1px solid;
-  border-collapse: collapse;
-}
-.scorm_completed.scorm_highlight .item-status{
+.scorm_item_normal.scorm_completed.scorm_highlight .item-status{
   background: url(/main/img/scorm/scorm_current.png) no-repeat 10px center !important;
   background-color: #00829C !important;
 }
-.scorm_completed .item-status {
+.scorm_item_normal.scorm_completed .item-status {
   background: url("/main/img/scorm/scorm_current.png") no-repeat 10px center !important;
 }
-.scorm_failed .item-status {
+.scorm_item_normal.scorm_failed .item-status {
   background: url("/main/img/scorm/scorm_failed.png") no-repeat 10px center !important;
 }
-.scorm_not_attempted .item-status {
+.scorm_item_normal.scorm_not_attempted .item-status {
   background: url("/main/img/scorm/scorm_highlight.png") no-repeat 10px center !important;
 }
-.scorm_highlight .item-status {
+.scorm_item_normal.scorm_highlight .item-status {
   background: url("/main/img/scorm/scorm_highlight.png") no-repeat 10px center !important;
   background-color: #00829C !important;
   color: #009AB8;
@@ -582,19 +568,19 @@ a{
 .scorm_item_normal.scorm_not_attempted {
   background: none;
 }
-.scorm_highlight.scorm_completed .item-status {
+.scorm_item_normal.scorm_highlight.scorm_completed .item-status {
   background: url("/main/img/scorm/scorm_current.png") no-repeat 10px center !important;
   background-color: #00829C !important;
 }
-.scorm_highlight.scorm_failed .item-status {
+.scorm_item_normal.scorm_highlight.scorm_failed .item-status {
   background: url("/main/img/scorm/scorm_failed.png") no-repeat 10px center !important;
   background-color: #00829C !important;
 }
-.scorm_highlight.scorm_completed .item{
+.scorm_item_normal.scorm_highlight.scorm_completed .item{
   background: none !important;
   background-color: #00829C !important;
 }
-.scorm_highlight .item a{
+.scorm_item_normal.scorm_highlight .item a{
   text-decoration: none;
   color: white !important;
 }
