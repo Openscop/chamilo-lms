@@ -221,6 +221,9 @@ footer #footer section.sub-footer p  {
   width: 100%;
   margin: 0 !important;
 }
+.thumbnail .registred {
+  
+}
 .title-text{
   width: 85%
 }
@@ -843,11 +846,11 @@ Learn path page and styled document page
 }
 .document_style_superdemain a, .page_origin_learnpath a {
   text-decoration: underline;
-  color: #6DEAEE !important;
+  color: #24989c !important;
 }
 .document_style_superdemain a:hover, .page_origin_learnpath a:hover {
   text-decoration: underline;
-  color: #24989c !important;
+  color: #6DEAEE !important;
 }
 
 
