@@ -30,6 +30,7 @@ body {
   font-family: 'Dosis', sans-serif;
   line-height: 1.72222;
   background-color: #F3F3F3 !important;
+  color: #240A5F !important;
 }
 html, body, .learnpath-container, .content-scorm, .content-scorm > *, #tab-iframe, #tab-iframe > *, #wrapper-iframe, #wrapper-iframe > iframe {
   background: white;
@@ -154,19 +155,19 @@ color: #FFFFFF;
     border-color: #F3F3F4;
 }
 
-footer{
+footer {
   position: absolute !important;
   top: 100%;
 }
 
-footer.bgfooter{
+footer.bgfooter {
   background: #000000;
 
 }
-footer.bgfooter a{
+footer.bgfooter a {
   color: #ffffff;
 }
-footer.bgfooter a:hover{
+footer.bgfooter a:hover {
   color: #CCC;
 }
 
@@ -222,7 +223,26 @@ footer #footer section.sub-footer p  {
   margin: 0 !important;
 }
 .thumbnail .registred {
-  
+  position: relative;
+  transform: none;
+  top: 10px;
+  right: 30px;
+  display: block;
+  padding: 10px;
+  background: #FF3246;
+  color: white;
+}
+.thumbnail .registred:before {
+  content: "";
+  border-left: #FF3246 5px solid;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+}
+.thumbnail .registred:after {
+  content: "";
+  border-right: #FF3246 4px solid;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
 }
 .title-text{
   width: 85%
@@ -801,6 +821,7 @@ Custom progress indicator
   max-width: 1000px;
   margin: auto;
   background-color: white !important;
+  color: #240A5F !important;
 }
 /*
 Learn path page and styled document page
