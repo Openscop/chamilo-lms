@@ -31,6 +31,9 @@ body {
   line-height: 1.72222;
   background-color: #F3F3F3 !important;
 }
+html, body, .learnpath-container, .content-scorm, .content-scorm > *, #tab-iframe, #tab-iframe > *, #wrapper-iframe, #wrapper-iframe > iframe {
+  background: white;
+}
 a{
   color: #666666;
 }
@@ -557,8 +560,6 @@ a{
 .learnpath-container {
   display:table;
   width: 100%;
-  max-width: 1500px;
-  margin: auto;
   padding: 0; /*set left/right padding according to needs*/
   box-sizing: border-box;
   color: white;
@@ -755,9 +756,17 @@ Custom progress indicator
 .container-nextButton:hover {
   color: #E61983 !important;
   background-color: white;
-  border: white;
+  border-color: #E61983;
 }
 
+/******************************************
+// IFRAMES DES GRAINS
+******************************************/
+.document_style_superdemain {
+  max-width: 1000px;
+  margin: auto;
+  background-color: white !important;
+}
 /*
 Learn path page and styled document page
  */
