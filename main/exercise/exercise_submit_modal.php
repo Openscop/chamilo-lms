@@ -95,7 +95,8 @@ function SendEx(num) {
     const learnpath_id = urlParams.get("learnpath_id");
     const learnpath_item_id = urlParams.get("learnpath_item_id");
     if (num == -1) {
-        window.location.href = "exercise_result.php?'.api_get_cidreq().'&take_session=1&exerciseId='.$exerciseId.'&num="+num+"&learnpath_item_id="+learnpath_item_id+"&learnpath_id="+learnpath_id;
+        // FIXME OPENSCOP > exerciceId= doit etre exe_id=
+        window.location.href = "exercise_result.php?'.api_get_cidreq().'&take_session=1&exe_id='.$exerciseId.'&num="+num+"&learnpath_item_id="+learnpath_item_id+"&learnpath_id="+learnpath_id;
     } else {
         num -= 1;
         window.location.href = "exercise_submit.php?'.api_get_cidreq().'&tryagain=1&exerciseId='.$exerciseId.'&num="+num+"&learnpath_item_id="+learnpath_item_id+"&learnpath_id="+learnpath_id;
