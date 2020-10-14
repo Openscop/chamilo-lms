@@ -502,7 +502,7 @@ footer #footer section.sub-footer p  {
   height: 160px;
 }
 .scorm_item_normal {
-  background-color: transparent !important;
+  background: transparent none no-repeat 10px center !important;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -535,22 +535,14 @@ footer #footer section.sub-footer p  {
   border: white 1px solid;
   border-collapse: collapse;
 }
-.scorm_item_normal.scorm_not_attempted {
-  background: none;
-}
-.scorm_item_normal.scorm_completed .item-status,
-.scorm_item_normal.scorm_failed .item-status,
-.scorm_item_normal.scorm_not_attempted .item-status {
-  background: transparent none no-repeat 10px center;
-}
 .scorm_item_normal.scorm_completed .item-status {
-  background-image: url("/main/img/scorm/scorm_current.png");
+  background-image: url("/main/img/scorm/scorm_current.png") !important;
 }
 .scorm_item_normal.scorm_failed .item-status {
-  background-image: url("/main/img/scorm/scorm_failed.png");
+  background-image: url("/main/img/scorm/scorm_failed.png") !important;
 }
 .scorm_item_normal.scorm_not_attempted .item-status {
-  background-image: url("/main/img/scorm/scorm_highlight.png");
+  background-image: url("/main/img/scorm/scorm_highlight.png") !important;
 }
 .scorm_item_normal.scorm_highlight .item,
 .scorm_item_normal.scorm_highlight.scorm_completed .item,
@@ -560,18 +552,17 @@ footer #footer section.sub-footer p  {
 .scorm_item_normal.scorm_highlight.scorm_completed .item-status,
 .scorm_item_normal.scorm_highlight.scorm_failed .item-status,
 .scorm_item_normal.scorm_highlight.scorm_completed .item {
-  color: white !important;
-  background-color: #E61983 none no-repeat 10px center;
+  background-color: #E61983 !important;
 }
 .scorm_item_normal.scorm_highlight .item-status,
 .scorm_item_normal.scorm_completed.scorm_highlight .item-status {
-  background-image: url("/main/img/scorm/scorm_highlight.png");
+  background-image: url("/main/img/scorm/scorm_highlight.png") !important;
 }
 .scorm_item_normal.scorm_highlight.scorm_completed .item-status {
-  background-image: url("/main/img/scorm/scorm_current.png");
+  background-image: url("/main/img/scorm/scorm_current.png") !important;
 }
 .scorm_item_normal.scorm_highlight.scorm_failed .item-status {
-  background-image: url("/main/img/scorm/scorm_failed.png");
+  background-image: url("/main/img/scorm/scorm_failed.png") !important;
 }
 .scorm-body {
   padding-left: 8px;
