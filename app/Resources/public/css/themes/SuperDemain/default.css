@@ -510,7 +510,8 @@ a{
 }
 .scorm_completed.scorm_highlight .item{
   background: none !important;
-  background-color: #00829C !important;
+  background-color: white !important;
+  color: #E61983 !important;
 }
 .scorm_completed .item {
   background: none !important;
@@ -814,13 +815,14 @@ Learn path page and styled document page
   font-size: 40px !important;
   text-transform: uppercase !important;
   color: #240A5F !important;
-  font-weight: 500 !important;
-  margin-bottom: 80px;
+  font-weight: 600 !important;
+  margin-bottom: 50px;
+  margin-top: 10px;
 }
 .document_style_superdemain h2, .page_origin_learnpath h2 {
   font-size: 28px !important;
   color: #E61983 !important;
-  font-weight: 500 !important;
+  font-weight: 400 !important;
   margin-bottom: 20px;
 }
 .document_style_superdemain h3, .page_origin_learnpath h3  {

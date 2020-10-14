@@ -130,29 +130,6 @@
         {% endif %}
         <div class="contenu col-xs-12 col-md-9 {{ show_left_column == 1 ? 'content-scorm' : 'no-right-col' }}">
             <div class="lp-view-zone-container">
-                <div class="contenu-nextButton-container">
-                    <button id='nextItemButton' data-current-item="{{lp_current_item_id}}" data-list="{{data_list|json_encode|e('html_attr')}}" onclick="next_item({{data_list|json_encode|e('html_attr')}}, this); return false;" class="container-nextButton btn">J’ai bien compris, (enfin, je crois)
-                        et je passe à la suite</button>
-                    <a href="/index.php" id='returnHomeButton' class="hidden container-nextButton btn">Commencer un autre parcours</a>
-                    <script>
-                        function next_item(list, el) {
-                            const current_item_id = el.getAttribute("data-current-item");
-                            let nextId = -1;
-                            for (const index in list) {
-                                // find current element in list
-                                if (list[index].id === current_item_id) {
-                                    // see if next element exists
-                                    if ((Number(index) + 1) < list.length ) {
-                                       nextId = list[Number(index)+1].id;
-                                    }
-                                }
-                            }
-                            if (nextId > -1) {
-                                switch_item(current_item_id, nextId);
-                            }
-                        }
-                    </script>
-                </div>
                 <div class="lp-view-tabs">
                     {#
                     <div id="navTabsbar" class="nav-tabs-bar">
@@ -207,6 +184,29 @@
                         <div role="tabpanel" class="tab-pane" id="lp-view-forum">
                         </div>
                     </div>
+                </div>
+                <div class="contenu-nextButton-container">
+                    <button id='nextItemButton' data-current-item="{{lp_current_item_id}}" data-list="{{data_list|json_encode|e('html_attr')}}" onclick="next_item({{data_list|json_encode|e('html_attr')}}, this); return false;" class="container-nextButton btn">J’ai bien compris, (enfin, je crois)
+                        et je passe à la suite</button>
+                    <a href="/index.php" id='returnHomeButton' class="hidden container-nextButton btn">Commencer un autre parcours</a>
+                    <script>
+                        function next_item(list, el) {
+                            const current_item_id = el.getAttribute("data-current-item");
+                            let nextId = -1;
+                            for (const index in list) {
+                                // find current element in list
+                                if (list[index].id === current_item_id) {
+                                    // see if next element exists
+                                    if ((Number(index) + 1) < list.length ) {
+                                       nextId = list[Number(index)+1].id;
+                                    }
+                                }
+                            }
+                            if (nextId > -1) {
+                                switch_item(current_item_id, nextId);
+                            }
+                        }
+                    </script>
                 </div>
             </div>
         </div>
