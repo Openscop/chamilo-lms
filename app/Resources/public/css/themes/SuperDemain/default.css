@@ -30,6 +30,7 @@ body {
   font-family: 'Dosis', sans-serif;
   line-height: 1.72222;
   background-color: #F3F3F3 !important;
+  color: #240A5F !important;
 }
 html, body, .learnpath-container, .content-scorm, .content-scorm > *, #tab-iframe, #tab-iframe > *, #wrapper-iframe, #wrapper-iframe > iframe {
   background: white;
@@ -154,19 +155,19 @@ color: #FFFFFF;
     border-color: #F3F3F4;
 }
 
-footer{
+footer {
   position: absolute !important;
   top: 100%;
 }
 
-footer.bgfooter{
+footer.bgfooter {
   background: #000000;
 
 }
-footer.bgfooter a{
+footer.bgfooter a {
   color: #ffffff;
 }
-footer.bgfooter a:hover{
+footer.bgfooter a:hover {
   color: #CCC;
 }
 
@@ -220,6 +221,28 @@ footer #footer section.sub-footer p  {
   max-height: 220px;
   width: 100%;
   margin: 0 !important;
+}
+.thumbnail .registred {
+  position: relative;
+  transform: none;
+  top: 10px;
+  right: 30px;
+  display: block;
+  padding: 10px;
+  background: #FF3246;
+  color: white;
+}
+.thumbnail .registred:before {
+  content: "";
+  border-left: #FF3246 5px solid;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+}
+.thumbnail .registred:after {
+  content: "";
+  border-right: #FF3246 4px solid;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
 }
 .title-text{
   width: 85%
@@ -479,7 +502,7 @@ a{
   background-color: transparent !important;
   height: 160px;
 }
-.scorm_item_normal{
+.scorm_item_normal {
   background-color: transparent !important;
   display: flex;
   flex-direction: row;
@@ -490,68 +513,54 @@ a{
   border: white 1px solid;
   margin:-2px 0 0 -1px;
 }
-.scorm_completed .item, .scorm_item_normal.scorm_completed{
-  background: none !important;
-}
-.scorm_item_normal .item{
+.scorm_item_normal .item {
   flex-grow: 2;
   padding-left: 10px;
-  border: white 1px solid;
-  border-collapse: collapse;
   font-weight: bolder;
-}
-.scorm_item_normal .item{
   width: 35px;
   border: white 1px solid;
   border-collapse: collapse;
 }
-.scorm_completed.scorm_highlight .item{
+.scorm_item_normal .item-status {
+  width: 35px;
+  border: white 1px solid;
+  border-collapse: collapse;
+}
+.scorm_item_normal.scorm_completed,
+.scorm_item_normal.scorm_completed .item {
   background: none !important;
-  background-color: white !important;
+}
+.scorm_item_normal.scorm_completed .item {
+  background: none !important;
+}
+.scorm_item_normal.scorm_failed .item {
+  background: none !important;
+}
+.scorm_item_normal.scorm_not_attempted .item {
+  background: none !important;
+}
+.scorm_item_normal.scorm_highlight .item,
+.scorm_item_normal.scorm_highlight.scorm_completed .item,
+.scorm_item_normal.scorm_highlight.scorm_failed .item {
+  background: none !important;
   color: #E61983 !important;
-}
-.scorm_completed .item {
-  background: none !important;
-}
-.scorm_failed .item {
-  background: none !important;
-}
-.scorm_not_attempted .item {
-  background: none !important;
-}
-.scorm_highlight .item {
-  background: none !important;
-  background-color: #00829C !important;
-  color: #009AB8;
-}
-.scorm_highlight.scorm_completed .item {
-  background: none !important;
-  background-color: #00829C !important;
-}
-.scorm_highlight.scorm_failed .item {
-  background: none !important;
-  background-color: #00829C !important;
+  background-color: white !important;
 }
 
-.scorm_item_normal .item-status{
-  width: 35px;
-  border: white 1px solid;
-  border-collapse: collapse;
-}
-.scorm_completed.scorm_highlight .item-status{
+.scorm_item_normal.scorm_completed.scorm_highlight .item-status{
   background: url(/main/img/scorm/scorm_current.png) no-repeat 10px center !important;
   background-color: #00829C !important;
 }
-.scorm_completed .item-status {
+.scorm_item_normal.scorm_completed .item-status {
   background: url("/main/img/scorm/scorm_current.png") no-repeat 10px center !important;
 }
-.scorm_failed .item-status {
+.scorm_item_normal.scorm_failed .item-status {
   background: url("/main/img/scorm/scorm_failed.png") no-repeat 10px center !important;
 }
-.scorm_not_attempted .item-status {
+.scorm_item_normal.scorm_not_attempted .item-status {
   background: url("/main/img/scorm/scorm_highlight.png") no-repeat 10px center !important;
 }
-.scorm_highlight .item-status {
+.scorm_item_normal.scorm_highlight .item-status {
   background: url("/main/img/scorm/scorm_highlight.png") no-repeat 10px center !important;
   background-color: #00829C !important;
   color: #009AB8;
@@ -559,19 +568,19 @@ a{
 .scorm_item_normal.scorm_not_attempted {
   background: none;
 }
-.scorm_highlight.scorm_completed .item-status {
+.scorm_item_normal.scorm_highlight.scorm_completed .item-status {
   background: url("/main/img/scorm/scorm_current.png") no-repeat 10px center !important;
   background-color: #00829C !important;
 }
-.scorm_highlight.scorm_failed .item-status {
+.scorm_item_normal.scorm_highlight.scorm_failed .item-status {
   background: url("/main/img/scorm/scorm_failed.png") no-repeat 10px center !important;
   background-color: #00829C !important;
 }
-.scorm_highlight.scorm_completed .item{
+.scorm_item_normal.scorm_highlight.scorm_completed .item{
   background: none !important;
   background-color: #00829C !important;
 }
-.scorm_highlight .item a{
+.scorm_item_normal.scorm_highlight .item a{
   text-decoration: none;
   color: white !important;
 }
@@ -798,6 +807,7 @@ Custom progress indicator
   max-width: 1000px;
   margin: auto;
   background-color: white !important;
+  color: #240A5F !important;
 }
 /*
 Learn path page and styled document page
@@ -843,11 +853,11 @@ Learn path page and styled document page
 }
 .document_style_superdemain a, .page_origin_learnpath a {
   text-decoration: underline;
-  color: #6DEAEE !important;
+  color: #24989c !important;
 }
 .document_style_superdemain a:hover, .page_origin_learnpath a:hover {
   text-decoration: underline;
-  color: #24989c !important;
+  color: #6DEAEE !important;
 }
 
 
@@ -879,10 +889,3 @@ Learn path page and styled document page
 .window_left_question, .window_right_question {
   background: #FFFFFF !important;
 }
-
-.dorie-inscrit{
-   position: absolute;
-   top: 0;
-   right: 0;
-   transform: translateX(-100%) translateY(100%);
- }

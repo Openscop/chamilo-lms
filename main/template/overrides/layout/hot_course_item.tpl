@@ -12,7 +12,7 @@
                 <img src="{{ item.course_image_large }}" class="img-responsive" style="object-fit: cover;" alt="{{ item.title }}">
                 {% if item.is_course_teacher %}
                 {% elseif item.is_course_student %}
-                    <span class="dorie-inscrit">Inscrit</span>
+                    <span class="registred">Inscrit·e</span>
                 {% endif %}
             </a>
         </div>
