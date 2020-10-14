@@ -282,14 +282,16 @@ ExerciseLib::exercise_time_control_delete(
 
 ExerciseLib::delete_chat_exercise_session($exe_id);
 
-if (!in_array($origin, ['learnpath', 'embeddable', 'mobileapp'])) {
-    $pageBottom .= '<div class="question-return">';
-    $pageBottom .= Display::url(
-        get_lang('ReturnToCourseHomepage'),
-        api_get_course_url(),
-        ['class' => 'btn btn-primary']
-    );
-    $pageBottom .= '</div>';
+OpenscopHelper::debug($origin);
+if (in_array($origin, ['learnpath', 'embeddable', 'mobileapp'])) {
+    // FIXME OPENSCOP suppression du lien ver la page cours supprimer pour l'user
+//    $pageBottom .= '<div class="question-return">';
+//    $pageBottom .= Display::url(
+//        get_lang('ReturnToCourseHomepage'),
+//        api_get_course_url(),
+//        ['class' => 'btn btn-primary', 'target' => '_parent']
+//    );
+//    $pageBottom .= '</div>';
 
     if (api_is_allowed_to_session_edit()) {
         Exercise::cleanSessionVariables();
@@ -309,7 +311,7 @@ if (!in_array($origin, ['learnpath', 'embeddable', 'mobileapp'])) {
         .'&lp_item_id='.$learnpath_item_id.'&exeId='.$exercise_stat_info['exe_id']
         .'&fb_type='.$objExercise->getFeedbackType().'#atoc_'.$learnpath_item_id;
     $href = $lp_mode === 'fullscreen' ? ' window.opener.location.href="'.$url.'" ' : ' top.location.href="'.$url.'"';
-
+OpenscopHelper::debug($href, true);
     if (api_is_allowed_to_session_edit()) {
         Exercise::cleanSessionVariables();
     }
