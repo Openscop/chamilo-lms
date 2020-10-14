@@ -43,6 +43,12 @@ a:hover{
   text-decoration: none;
 }
 
+
+/**********************************************************************************************
+/**********************************************************************************************
+// Navbar
+***********************************************************************************************
+***********************************************************************************************/
 .navbar-default {
   background: #E61983;
   border: none;
@@ -53,24 +59,19 @@ a:hover{
 .navbar-default .navbar-brand {
   color: #ffffff;
 }
-
 .navbar-default .navbar-text {
   color: #ffffff;
 }
-
 .navbar-default .navbar-nav > li {
-
   padding-top: 15px;
   padding-bottom: 15px;
 }
-
 .navbar-default .navbar-nav > li > a {
   color: #FFFFFF;
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
-color: #FFFFFF;
-/*background: #d30d91;*/
+  color: #FFFFFF;
 }
 .navbar-default .navbar-nav > li > .dropdown-menu {
   background: #FFFFFF;
@@ -79,12 +80,11 @@ color: #FFFFFF;
   color: #ffffff;
 }
 .navbar-default .navbar-nav > li > .dropdown-menu > li{
-    border: none;
+  border: none;
 }
 .navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
 .navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
   color: #FFFFFF;
-/*background: #d30d91;*/
 }
 .navbar-default .navbar-nav > li > .dropdown-menu > li > .divider {
   background-color: #0099c0;
@@ -92,11 +92,9 @@ color: #FFFFFF;
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
   color: #FFFFFF;
   background: #E61983;
-  /*background: #d30d91;*/;
 }
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
   color: #FFFFFF;
-  /*background: #d30d91;*/
 }
 .navbar-default .navbar-toggle {
   border-color: #6D0019;
@@ -121,7 +119,12 @@ color: #FFFFFF;
 .navbar-default .dropdown-menu {
   padding: 20px;
 }
-
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+  background: #E61983 !important;
+}
+.navbar-default{
+  color: white !important;
+}
 .avatar-user .img-circle {
   border: none;
 }
@@ -154,6 +157,13 @@ color: #FFFFFF;
 .panel-default{
     border-color: #F3F3F4;
 }
+
+
+/**********************************************************************************************
+/**********************************************************************************************
+// Footer
+***********************************************************************************************
+***********************************************************************************************/
 
 footer {
   position: absolute !important;
@@ -482,76 +492,12 @@ footer #footer section.sub-footer p  {
   border-right-color: #5e0abe;
 }
 
-.title-text{
-  width: 85%
-}
-
-.block-tag{
-  padding: 0 15px 0 15px;
-  font-size: 1.8rem;
-  margin-top: 6%;
-  color: white
-}
-
-
-.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
-  background: #E61983 !important;
-}
-.navbar-default{
-  color: white !important;
-}
-
-.block-title .title{
-  font-size: 20px;
-  color: white !important;
-}
-
-a{
-  color: inherit !important;
-}
-.ranking{
-  color: white !important;
-}
-#rating_wrapper_star_3{
-  color: inherit !important;
-}
-
-.dropdown-menu{
-  color: #20124D !important;
-}
-
-.ranking{
-  display: inline-block;
-}
-
-/*homepage*/
-
-/* forumaile */
-#formLogin_submitAuth{
-  background-color: #E61983;
-  border-color: #b4025e;
-}
-
-/* Photo de profile */
-
-.sidebar-avatar .area-avatar .img-circle {
-  border: none !important;
-}
-
-#learning_path_toc{
-  position: relative !important;
-  top: unset !important;
-  left: unset !important;
-  right: unset !important;
-  bottom: unset !important;
-}
-.menu-button{
-  top: 90px !important;
-}
-#content-scorm{
-  height: 90% !important;
-}
-#scorm-info{
+/**********************************************************************************************
+/**********************************************************************************************
+// Tableau des grains
+***********************************************************************************************
+***********************************************************************************************/
+#scorm-info {
   background-color: transparent !important;
   height: 160px;
 }
@@ -602,14 +548,19 @@ a{
 .scorm_item_normal.scorm_not_attempted .item {
   background: none !important;
 }
+.scorm_item_normal.scorm_completed .item-status,
+.scorm_item_normal.scorm_failed .item-status,
+.scorm_item_normal.scorm_not_attempted .item-status {
+  background: transparent none no-repeat 10px center !important;;
+}
 .scorm_item_normal.scorm_completed .item-status {
-  background: url("/main/img/scorm/scorm_current.png") no-repeat 10px center !important;
+  background-image: url("/main/img/scorm/scorm_current.png");
 }
 .scorm_item_normal.scorm_failed .item-status {
-  background: url("/main/img/scorm/scorm_failed.png") no-repeat 10px center !important;
+  background-image: url("/main/img/scorm/scorm_failed.png");
 }
 .scorm_item_normal.scorm_not_attempted .item-status {
-  background: url("/main/img/scorm/scorm_highlight.png") no-repeat 10px center !important;
+  background-image: url("/main/img/scorm/scorm_highlight.png");
 }
 .scorm_item_normal.scorm_not_attempted {
   background: none;
@@ -622,24 +573,92 @@ a{
 .scorm_item_normal.scorm_highlight.scorm_completed .item-status,
 .scorm_item_normal.scorm_highlight.scorm_failed .item-status,
 .scorm_item_normal.scorm_highlight.scorm_completed .item {
-  background: none !important;
   color: white !important;
-  background-color: #E61983 !important;
+  background-color: #E61983 none no-repeat 10px center !important;
 }
 .scorm_item_normal.scorm_highlight .item-status,
 .scorm_item_normal.scorm_completed.scorm_highlight .item-status {
-  background: url("/main/img/scorm/scorm_highlight.png") no-repeat 10px center !important;
+  background-image: url("/main/img/scorm/scorm_highlight.png");
 }
 .scorm_item_normal.scorm_highlight.scorm_completed .item-status {
-  background: url("/main/img/scorm/scorm_current.png") no-repeat 10px center !important;
+  background-image: url("/main/img/scorm/scorm_current.png");
 }
 .scorm_item_normal.scorm_highlight.scorm_failed .item-status {
-  background: url("/main/img/scorm/scorm_failed.png") no-repeat 10px center !important;
+  background-image: url("/main/img/scorm/scorm_failed.png");
 }
 .scorm-body {
   padding-left: 8px;
   padding-right: 8px;
   box-sizing: border-box;
+}
+
+
+/**********************************************************************************************
+/**********************************************************************************************
+// Divers
+***********************************************************************************************
+***********************************************************************************************/
+
+.title-text{
+  width: 85%
+}
+
+.block-tag{
+  padding: 0 15px 0 15px;
+  font-size: 1.8rem;
+  margin-top: 6%;
+  color: white
+}
+
+
+
+.block-title .title{
+  font-size: 20px;
+  color: white !important;
+}
+
+a{
+  color: inherit !important;
+}
+.ranking{
+  color: white !important;
+}
+#rating_wrapper_star_3{
+  color: inherit !important;
+}
+
+.dropdown-menu{
+  color: #20124D !important;
+}
+
+.ranking{
+  display: inline-block;
+}
+
+/* forumaile */
+#formLogin_submitAuth{
+  background-color: #E61983;
+  border-color: #b4025e;
+}
+
+/* Photo de profile */
+
+.sidebar-avatar .area-avatar .img-circle {
+  border: none !important;
+}
+
+#learning_path_toc{
+  position: relative !important;
+  top: unset !important;
+  left: unset !important;
+  right: unset !important;
+  bottom: unset !important;
+}
+.menu-button{
+  top: 90px !important;
+}
+#content-scorm{
+  height: 90% !important;
 }
 
 
