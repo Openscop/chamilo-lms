@@ -32,16 +32,6 @@ body {
   background-color: #F3F3F3 !important;
   color: #240A5F !important;
 }
-html, body, .learnpath-container, .content-scorm, .content-scorm > *, #tab-iframe, #tab-iframe > *, #wrapper-iframe, #wrapper-iframe > iframe {
-  background: white;
-}
-a{
-  color: #666666;
-}
-a:hover{
-  color: #50B387;
-  text-decoration: none;
-}
 
 
 /**********************************************************************************************
@@ -552,17 +542,17 @@ footer #footer section.sub-footer p  {
 .scorm_item_normal.scorm_completed.scorm_highlight .item-status,
 .scorm_item_normal.scorm_highlight.scorm_completed .item-status,
 .scorm_item_normal.scorm_highlight.scorm_failed .item-status {
-  background-color: #E61983 none no-repeat 10px center !important;
+  background: #E61983 none no-repeat 10px center !important;
 }
 .scorm_item_normal.scorm_highlight .item-status,
 .scorm_item_normal.scorm_completed.scorm_highlight .item-status {
-  background-image: transparent url("/main/img/scorm/scorm_highlight.png") no-repeat 10px center !important;
+  background: transparent url("/main/img/scorm/scorm_highlight.png") no-repeat 10px center !important;
 }
 .scorm_item_normal.scorm_highlight.scorm_completed .item-status {
-  background-image: transparent url("/main/img/scorm/scorm_current.png") no-repeat 10px center !important;
+  background: transparent url("/main/img/scorm/scorm_current.png") no-repeat 10px center !important;
 }
 .scorm_item_normal.scorm_highlight.scorm_failed .item-status {
-  background-image: transparent url("/main/img/scorm/scorm_failed.png") no-repeat 10px center !important;
+  background: transparent url("/main/img/scorm/scorm_failed.png") no-repeat 10px center !important;
 }
 .scorm-body {
   padding-left: 8px;
@@ -662,9 +652,7 @@ a{
 }
 
 .learnpath-container .contenu .lp-view-zone-container {
-  background: #F3F3F3;
-}
-.learnpath-container .contenu .lp-view-zone-container .lp-view-tabs {
+  background: #F3F3F3;.learnpath-container .contenu .lp-view-zone-container .lp-view-tabs {
   margin-top: 0px;
 }
 
