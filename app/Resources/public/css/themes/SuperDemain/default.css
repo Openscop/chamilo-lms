@@ -545,15 +545,13 @@ footer #footer section.sub-footer p  {
 .scorm_item_normal.scorm_not_attempted .item-status {
   background: transparent url("/main/img/scorm/scorm_highlight.png") no-repeat 10px center !important;
 }
-.scorm_item_normal
 .scorm_item_normal.scorm_highlight .item,
 .scorm_item_normal.scorm_highlight.scorm_completed .item,
 .scorm_item_normal.scorm_highlight.scorm_failed .item,
 .scorm_item_normal.scorm_highlight .item-status,
 .scorm_item_normal.scorm_completed.scorm_highlight .item-status,
 .scorm_item_normal.scorm_highlight.scorm_completed .item-status,
-.scorm_item_normal.scorm_highlight.scorm_failed .item-status,
-.scorm_item_normal.scorm_highlight.scorm_completed .item {
+.scorm_item_normal.scorm_highlight.scorm_failed .item-status {
   background-color: #E61983 none no-repeat 10px center !important;
 }
 .scorm_item_normal.scorm_highlight .item-status,
@@ -853,6 +851,7 @@ Custom progress indicator
   margin: auto;
   background-color: white !important;
   color: #240A5F !important;
+  font-family: 'Dosis', sans-serif;
 }
 /*
 Learn path page and styled document page
