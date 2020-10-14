@@ -58,7 +58,7 @@ a:hover{
 }
 
 .navbar-default .navbar-nav > li {
-  
+
   padding-top: 15px;
   padding-bottom: 15px;
 }
@@ -69,7 +69,7 @@ a:hover{
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
 color: #FFFFFF;
-/*background: #d30d91;*/ 
+/*background: #d30d91;*/
 }
 .navbar-default .navbar-nav > li > .dropdown-menu {
   background: #FFFFFF;
@@ -90,12 +90,12 @@ color: #FFFFFF;
 }
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
   color: #FFFFFF;
-  background: #E61983; 
-  /*background: #d30d91;*/; 
+  background: #E61983;
+  /*background: #d30d91;*/;
 }
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
   color: #FFFFFF;
-  /*background: #d30d91;*/ 
+  /*background: #d30d91;*/
 }
 .navbar-default .navbar-toggle {
   border-color: #6D0019;
@@ -194,8 +194,8 @@ footer #footer section.sub-footer p  {
 /*Page acceuil */
 
 .tuile{
-  margin-left: 0px; 
-  margin-top: 0px; 
+  margin-left: 0px;
+  margin-top: 0px;
   padding: 15px;
 }
 #cm-content{
@@ -216,7 +216,7 @@ footer #footer section.sub-footer p  {
 
 .thumbnail .title{
   padding: 0 15px 0 15px;
-  font-weight: bolder !important; 
+  font-weight: bolder !important;
   display: flex;
 }
 .thumbnail a > img{
@@ -229,9 +229,9 @@ footer #footer section.sub-footer p  {
 }
 
 .block-tag{
-  padding: 0 15px 0 15px; 
-  font-size: 1.8rem; 
-  margin-top: 6%; 
+  padding: 0 15px 0 15px;
+  font-size: 1.8rem;
+  margin-top: 6%;
   color: white
 }
 
@@ -277,13 +277,13 @@ a{
 
 .triangle{
   width: 50px;
-  height: 50px; 
-  position: absolute; 
-  z-index: 0; 
-  background-color: white; 
+  height: 50px;
+  position: absolute;
+  z-index: 0;
+  background-color: white;
   transform: skew(-70deg, 65deg);
-  margin-left: 100px; 
-  top: 450px; 
+  margin-left: 100px;
+  top: 450px;
   display: none;
 }
 .thumbnail .items-hotcourse .img-responsive{
@@ -450,7 +450,7 @@ a{
 
 .unsubscribe_button .btn-danger{
   width: 100%;
-  background-color: white !important; 
+  background-color: white !important;
   border-color: white !important;
 }
 /* forumaile */
@@ -843,6 +843,21 @@ Learn path page and styled document page
   font-weight: 500 !important;
   margin-bottom: 20px;
   color: #240A5F;
+}
+
+
+
+.btn-success {
+  background-color: #6DEAEE;
+  border-color: #6DEAEE;
+}
+.btn-success :hover{
+  background-color: #63D6D6;
+  border-color: #63D6D6;
+}
+
+.window_left_question .window_right_question {
+  background-color: #ffff
 }
 
 .dorie-inscrit{
