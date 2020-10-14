@@ -48,7 +48,7 @@
     <section id="cm-content">
         <div class="container-fluid" style="margin: 0 40px;">
             <div class="row">
-                <h1 class="homepage-title">Bienvenue dans l'espace pro de Super Demain produit pour vous permettre de suivre des parcours en ligne contenant des vidéos explicatives, des interviews, des exercices à faire et des fiches à télécharger...</h1>
+                <h1 class="homepage-title">Bienvenue dans l'espace pro de <strong>Super Demain</strong> développé pour vous permettre de suivre des parcours en ligne contenant des vidéos explicatives, des interviews, des exercices à faire et des fiches à télécharger... Vous pouvez vous connecter, dès à présent, avec le code que vous avez reçu par mail. <strong>Cliquez sur un parcours pour vous inscrire et accéder au cours.</strong></h1>
             </div>
             <div class="row" style="display: flex;
                                     flex-wrap: wrap;">
