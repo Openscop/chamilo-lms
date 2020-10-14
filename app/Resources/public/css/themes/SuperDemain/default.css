@@ -66,7 +66,8 @@ a:hover{
 .navbar-default .navbar-nav > li > a {
   color: #FFFFFF;
 }
-.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
 color: #FFFFFF;
 /*background: #d30d91;*/ 
 }
@@ -99,7 +100,8 @@ color: #FFFFFF;
 .navbar-default .navbar-toggle {
   border-color: #6D0019;
 }
-.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
   background-color: #6D0019;
 }
 .navbar-default .navbar-toggle .icon-bar {
@@ -114,6 +116,9 @@ color: #FFFFFF;
 }
 .navbar-default .navbar-link:hover {
   color: #ededed;
+}
+.navbar-default .dropdown-menu {
+  padding: 0 20px;
 }
 
 .avatar-user .img-circle {
@@ -163,6 +168,27 @@ footer.bgfooter a{
 }
 footer.bgfooter a:hover{
   color: #CCC;
+}
+
+footer #footer {
+  background: white;
+  min-height: 50px;
+  width: 100%;
+}
+footer #footer section.sub-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+footer #footer section.sub-footer img {
+  width: 75px;
+  height: 25px;
+  margin-right: 20px;
+}
+footer #footer section.sub-footer p  {
+  padding: 0;
+  margin: 0;
 }
 
 /*Page acceuil */
@@ -781,22 +807,26 @@ Learn path page and styled document page
   font-size: 36px !important;
   text-transform: uppercase !important;
   color: #240A5F !important;
-  font-weight: 800 !important;
+  font-weight: 700 !important;
+  margin-bottom: 20px;
 }
 .document_style_superdemain h2, .page_origin_learnpath h2 {
   font-size: 30px !important;
   color: #E61983 !important;
-  font-weight: 800 !important;
+  font-weight: 700 !important;
+  margin-bottom: 20px;
 }
 .document_style_superdemain h3, .page_origin_learnpath h3  {
   font-size: 24px !important;
   color: #240A5F !important;
-  font-weight: 800 !important;
+  font-weight: 700 !important;
+  margin-bottom: 20px;
 }
 .document_style_superdemain h4, .page_origin_learnpath h4  {
   font-size: 20px !important;
   color: #62CBD6 !important;
-  font-weight: 800 !important;
+  font-weight: 700 !important;
+  margin-bottom: 20px;
 }
 
 .dorie-inscrit{
