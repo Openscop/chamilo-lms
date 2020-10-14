@@ -32,6 +32,16 @@ body {
   background-color: #F3F3F3 !important;
   color: #240A5F !important;
 }
+html, body, .learnpath-container, .content-scorm, .content-scorm > *, #tab-iframe, #tab-iframe > *, #wrapper-iframe, #wrapper-iframe > iframe {
+  background: white;
+}
+a{
+  color: #666666;
+}
+a:hover{
+  color: #50B387;
+  text-decoration: none;
+}
 
 
 /**********************************************************************************************
