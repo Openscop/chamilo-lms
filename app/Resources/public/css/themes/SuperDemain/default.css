@@ -881,10 +881,3 @@ Learn path page and styled document page
 .window_left_question, .window_right_question {
   background: #FFFFFF !important;
 }
-
-.dorie-inscrit{
-   position: absolute;
-   top: 0;
-   right: 0;
-   transform: translateX(-100%) translateY(100%);
- }
