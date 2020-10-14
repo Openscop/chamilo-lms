@@ -32,9 +32,6 @@ body {
   background-color: #F3F3F3 !important;
   color: #240A5F !important;
 }
-html, body, .learnpath-container, .content-scorm, .content-scorm > *, #tab-iframe, #tab-iframe > *, #wrapper-iframe, #wrapper-iframe > iframe {
-  background: white;
-}
 a{
   color: #666666;
 }
@@ -49,6 +46,9 @@ a:hover{
 // Navbar
 ***********************************************************************************************
 ***********************************************************************************************/
+.navbar-nav>li.logo>a {
+  padding: 0;
+}
 .navbar-default {
   background: #E61983;
   border: none;
