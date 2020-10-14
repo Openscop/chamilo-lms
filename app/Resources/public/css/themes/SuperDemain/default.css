@@ -844,13 +844,13 @@ Learn path page and styled document page
   background-color: #6DEAEE;
   border-color: #6DEAEE;
 }
-.btn-success :hover{
+.btn-success:hover{
   background-color: #63D6D6;
   border-color: #63D6D6;
 }
 
-.window_left_question .window_right_question {
-  background-color: #ffff
+.window_left_question, .window_right_question {
+  background-color: #FFFFFF;
 }
 
 .dorie-inscrit{
