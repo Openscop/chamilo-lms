@@ -483,3 +483,12 @@ a{
   display: table-cell;
   float: none;
 }
+
+
+
+.dorie-inscrit{
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translateX(-100%) translateY(100%);
+}

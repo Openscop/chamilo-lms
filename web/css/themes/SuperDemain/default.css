@@ -786,3 +786,10 @@ Learn path page and styled document page
   color: #62CBD6 !important;
   font-weight: 800 !important;
 }
+
+.dorie-inscrit{
+   position: absolute;
+   top: 0;
+   right: 0;
+   transform: translateX(-100%) translateY(100%);
+ }

@@ -3,10 +3,10 @@ type: php
 docroot: ""
 php_version: "7.3"
 webserver_type: apache-fpm
-router_http_port: "80"
-router_https_port: "443"
+router_http_port: "81"
+router_https_port: "444"
 xdebug_enabled: false
-additional_hostnames: []
+additional_hostnames: ['test1', 'test2']
 additional_fqdns: []
 provider: default
 use_dns_when_possible: true
