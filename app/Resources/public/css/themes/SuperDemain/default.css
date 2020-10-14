@@ -860,10 +860,18 @@ Learn path page and styled document page
   height: 40px;
   font-size: 18px;
   font-weight: 800;
+  fon
 }
 .btn-success:hover{
   background-color: #63D6D6;
   border-color: #63D6D6;
+}
+.btn-success:focus{
+  background-color: #63D6D6;
+  border-color: #63D6D6;
+}
+.exercise_overview_options a.btn-success {
+  color: #20124D;
 }
 
 
