@@ -552,17 +552,17 @@ footer #footer section.sub-footer p  {
 .scorm_item_normal.scorm_completed.scorm_highlight .item-status,
 .scorm_item_normal.scorm_highlight.scorm_completed .item-status,
 .scorm_item_normal.scorm_highlight.scorm_failed .item-status {
-  background-color: #E61983 none no-repeat 10px center !important;
+  background: #E61983 none no-repeat 10px center !important;
 }
 .scorm_item_normal.scorm_highlight .item-status,
 .scorm_item_normal.scorm_completed.scorm_highlight .item-status {
-  background-image: transparent url("/main/img/scorm/scorm_highlight.png") no-repeat 10px center !important;
+  background: transparent url("/main/img/scorm/scorm_highlight.png") no-repeat 10px center !important;
 }
 .scorm_item_normal.scorm_highlight.scorm_completed .item-status {
-  background-image: transparent url("/main/img/scorm/scorm_current.png") no-repeat 10px center !important;
+  background: transparent url("/main/img/scorm/scorm_current.png") no-repeat 10px center !important;
 }
 .scorm_item_normal.scorm_highlight.scorm_failed .item-status {
-  background-image: transparent url("/main/img/scorm/scorm_failed.png") no-repeat 10px center !important;
+  background: transparent url("/main/img/scorm/scorm_failed.png") no-repeat 10px center !important;
 }
 .scorm-body {
   padding-left: 8px;
