@@ -535,23 +535,13 @@ footer #footer section.sub-footer p  {
   border: white 1px solid;
   border-collapse: collapse;
 }
-.scorm_item_normal.scorm_completed,
-.scorm_item_normal.scorm_completed .item {
-  background: none !important;
-}
-.scorm_item_normal.scorm_completed .item {
-  background: none !important;
-}
-.scorm_item_normal.scorm_failed .item {
-  background: none !important;
-}
-.scorm_item_normal.scorm_not_attempted .item {
-  background: none !important;
+.scorm_item_normal.scorm_not_attempted {
+  background: none;
 }
 .scorm_item_normal.scorm_completed .item-status,
 .scorm_item_normal.scorm_failed .item-status,
 .scorm_item_normal.scorm_not_attempted .item-status {
-  background: transparent none no-repeat 10px center !important;;
+  background: transparent none no-repeat 10px center;
 }
 .scorm_item_normal.scorm_completed .item-status {
   background-image: url("/main/img/scorm/scorm_current.png");
@@ -562,9 +552,6 @@ footer #footer section.sub-footer p  {
 .scorm_item_normal.scorm_not_attempted .item-status {
   background-image: url("/main/img/scorm/scorm_highlight.png");
 }
-.scorm_item_normal.scorm_not_attempted {
-  background: none;
-}
 .scorm_item_normal.scorm_highlight .item,
 .scorm_item_normal.scorm_highlight.scorm_completed .item,
 .scorm_item_normal.scorm_highlight.scorm_failed .item,
@@ -574,7 +561,7 @@ footer #footer section.sub-footer p  {
 .scorm_item_normal.scorm_highlight.scorm_failed .item-status,
 .scorm_item_normal.scorm_highlight.scorm_completed .item {
   color: white !important;
-  background-color: #E61983 none no-repeat 10px center !important;
+  background-color: #E61983 none no-repeat 10px center;
 }
 .scorm_item_normal.scorm_highlight .item-status,
 .scorm_item_normal.scorm_completed.scorm_highlight .item-status {
