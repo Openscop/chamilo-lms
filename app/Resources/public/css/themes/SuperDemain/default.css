@@ -502,7 +502,7 @@ footer #footer section.sub-footer p  {
   height: 160px;
 }
 .scorm_item_normal {
-  background: transparent none no-repeat 10px center !important;
+  background: none;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -513,6 +513,7 @@ footer #footer section.sub-footer p  {
   margin:-2px 0 0 -1px;
 }
 .scorm_item_normal .item {
+  background: transparent none no-repeat 10px center !important;
   flex-grow: 2;
   padding-left: 10px;
   font-weight: bolder;
