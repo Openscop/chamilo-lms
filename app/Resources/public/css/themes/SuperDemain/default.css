@@ -905,7 +905,10 @@ Learn path page and styled document page
 }
 
 
-
+.exercise_overview_options {
+  background-color: white;
+  text-align: left;
+}
 .exercise_overview_options .btn-success {
   background-color: #6DEAEE;
   border-color: #6DEAEE;
