@@ -881,20 +881,43 @@ Learn path page and styled document page
   height: 40px;
   font-size: 18px;
   font-weight: 800;
-  fon
+  color: #20124D !important;
+  text-decoration: none;
 }
-.btn-success:hover{
+.form-actions .btn-default{
+  background-color: #6DEAEE;
+  border-color: #6DEAEE;
+  color: #20124D !important;
+  text-decoration: none;
+}
+.exercise_overview_options .btn-success:hover{
   background-color: #63D6D6;
   border-color: #63D6D6;
+  color: #20124D !important;
+  text-decoration: none;
 }
-.btn-success:focus{
+.form-actions .btn-default:hover{
   background-color: #63D6D6;
   border-color: #63D6D6;
+  color: #20124D !important;
+  text-decoration: none;
 }
-.exercise_overview_options a.btn-success {
-  color: #20124D;
+.exercise_overview_options .btn-success:focus{
+  background-color: #63D6D6;
+  border-color: #63D6D6;
+  color: #20124D !important;
+  text-decoration: none;
+}
+.form-actions .btn-default:focus{
+  background-color: #63D6D6;
+  border-color: #63D6D6;
+  color: #20124D !important;
+  text-decoration: none;
 }
 
+.ui-draggable circle {
+  fill: #20124D;
+}
 
 
 .window_left_question, .window_right_question {
