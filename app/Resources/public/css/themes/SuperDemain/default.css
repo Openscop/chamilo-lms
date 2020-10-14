@@ -118,7 +118,7 @@ color: #FFFFFF;
   color: #ededed;
 }
 .navbar-default .dropdown-menu {
-  padding: 0 20px;
+  padding: 20px;
 }
 
 .avatar-user .img-circle {
@@ -818,9 +818,9 @@ Learn path page and styled document page
   margin-bottom: 20px;
 }
 .document_style_superdemain h2, .page_origin_learnpath h2 {
-  font-size: 30px !important;
+  font-size: 28px !important;
   color: #E61983 !important;
-  font-weight: 700 !important;
+  font-weight: 500 !important;
   margin-bottom: 20px;
 }
 .document_style_superdemain h3, .page_origin_learnpath h3  {
