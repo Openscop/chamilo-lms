@@ -198,9 +198,6 @@ footer #footer section.sub-footer p  {
   margin-top: 0px;
   padding: 15px;
 }
-#cm-content{
-  background-color: #F3F3F3;
-}
 
 .thumbnail{
   max-height: 340px !important;
@@ -629,7 +626,8 @@ a{
   padding: 25px;
 }
 
-.scorm-title h4{
+.scorm-title h4 {
+  line-height: 22px;
   color: inherit;
 }
 
@@ -779,24 +777,24 @@ Custom progress indicator
   padding: 10px;
 }
 
-.container-nextButton {
+.contenu-nextButton-container .container-nextButton {
   height: 40px;
   font-size: 20px;
   background-color: #E61983;
   color: white;
-  border: #E61983;
+  border: #E61983 1px solid;
 }
 
 .container-nextButton:hover {
   color: #E61983 !important;
   background-color: white;
-  border-color: #E61983;
+  border: #E61983 1px solid;
 }
 
 /******************************************
 // IFRAMES DES GRAINS
 ******************************************/
-.document_style_superdemain {
+.document_style_superdemain, .page_origin_learnpath {
   max-width: 1000px;
   margin: auto;
   background-color: white !important;
@@ -817,7 +815,7 @@ Learn path page and styled document page
   color: #240A5F !important;
   font-weight: 600 !important;
   margin-bottom: 50px;
-  margin-top: 10px;
+  margin-top: 40px;
 }
 .document_style_superdemain h2, .page_origin_learnpath h2 {
   font-size: 28px !important;
@@ -825,17 +823,31 @@ Learn path page and styled document page
   font-weight: 400 !important;
   margin-bottom: 20px;
 }
-.document_style_superdemain h3, .page_origin_learnpath h3  {
+.document_style_superdemain h3, .page_origin_learnpath h3 {
   font-size: 24px !important;
   color: #240A5F !important;
-  font-weight: 700 !important;
+  font-weight: 500 !important;
   margin-bottom: 20px;
 }
-.document_style_superdemain h4, .page_origin_learnpath h4  {
+.document_style_superdemain h4, .page_origin_learnpath h4 {
   font-size: 20px !important;
   color: #62CBD6 !important;
   font-weight: 700 !important;
   margin-bottom: 20px;
+}
+.document_style_superdemain h5, .page_origin_learnpath h5 {
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  margin-bottom: 20px;
+  color: #240A5F;
+}
+.document_style_superdemain a, .page_origin_learnpath a {
+  text-decoration: underline;
+  color: #6DEAEE !important;
+}
+.document_style_superdemain a:hover, .page_origin_learnpath a:hover {
+  text-decoration: underline;
+  color: #24989c !important;
 }
 
 
