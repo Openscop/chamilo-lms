@@ -198,9 +198,6 @@ footer #footer section.sub-footer p  {
   margin-top: 0px;
   padding: 15px;
 }
-#cm-content{
-  background-color: #F3F3F3;
-}
 
 .thumbnail{
   max-height: 340px !important;
@@ -843,6 +840,14 @@ Learn path page and styled document page
   font-weight: 500 !important;
   margin-bottom: 20px;
   color: #240A5F;
+}
+.document_style_superdemain a, .page_origin_learnpath a {
+  text-decoration: underline;
+  color: #6DEAEE !important;
+}
+.document_style_superdemain a:hover, .page_origin_learnpath a:hover {
+  text-decoration: underline;
+  color: #24989c !important;
 }
 
 
