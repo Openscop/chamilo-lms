@@ -168,6 +168,7 @@ a:hover{
 footer {
   position: absolute !important;
   top: 100%;
+  font-size: 18px;
 }
 
 footer.bgfooter {
@@ -502,7 +503,7 @@ footer #footer section.sub-footer p  {
   height: 160px;
 }
 .scorm_item_normal {
-  background: none;
+  background: transparent !important;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -537,13 +538,13 @@ footer #footer section.sub-footer p  {
   border-collapse: collapse;
 }
 .scorm_item_normal.scorm_completed .item-status {
-  background-image: url("/main/img/scorm/scorm_current.png") !important;
+  background: transparent url("/main/img/scorm/scorm_current.png") no-repeat 10px center !important;
 }
 .scorm_item_normal.scorm_failed .item-status {
-  background-image: url("/main/img/scorm/scorm_failed.png") !important;
+  background: transparent url("/main/img/scorm/scorm_failed.png") no-repeat 10px center !important;
 }
 .scorm_item_normal.scorm_not_attempted .item-status {
-  background-image: url("/main/img/scorm/scorm_highlight.png") !important;
+  background: transparent url("/main/img/scorm/scorm_highlight.png") no-repeat 10px center !important;
 }
 .scorm_item_normal.scorm_highlight .item,
 .scorm_item_normal.scorm_highlight.scorm_completed .item,
@@ -551,19 +552,18 @@ footer #footer section.sub-footer p  {
 .scorm_item_normal.scorm_highlight .item-status,
 .scorm_item_normal.scorm_completed.scorm_highlight .item-status,
 .scorm_item_normal.scorm_highlight.scorm_completed .item-status,
-.scorm_item_normal.scorm_highlight.scorm_failed .item-status,
-.scorm_item_normal.scorm_highlight.scorm_completed .item {
-  background-color: #E61983 !important;
+.scorm_item_normal.scorm_highlight.scorm_failed .item-status {
+  background: #E61983 none no-repeat 10px center !important;
 }
 .scorm_item_normal.scorm_highlight .item-status,
 .scorm_item_normal.scorm_completed.scorm_highlight .item-status {
-  background-image: url("/main/img/scorm/scorm_highlight.png") !important;
+  background: transparent url("/main/img/scorm/scorm_highlight.png") no-repeat 10px center !important;
 }
 .scorm_item_normal.scorm_highlight.scorm_completed .item-status {
-  background-image: url("/main/img/scorm/scorm_current.png") !important;
+  background: transparent url("/main/img/scorm/scorm_current.png") no-repeat 10px center !important;
 }
 .scorm_item_normal.scorm_highlight.scorm_failed .item-status {
-  background-image: url("/main/img/scorm/scorm_failed.png") !important;
+  background: transparent url("/main/img/scorm/scorm_failed.png") no-repeat 10px center !important;
 }
 .scorm-body {
   padding-left: 8px;
@@ -852,17 +852,19 @@ Custom progress indicator
   margin: auto;
   background-color: white !important;
   color: #240A5F !important;
+  font-family: 'Dosis', sans-serif;
 }
 /*
 Learn path page and styled document page
  */
-
+#homepage-course,
 .document_style_superdemain, .page_origin_learnpath {
   font-size: 20px !important;
   line-height: 24px;
   font-weight: 500 !important;
   color: #240A5F !important;
 }
+#homepage-course h1,
 .document_style_superdemain h1, .page_origin_learnpath h1 {
   font-size: 40px !important;
   text-transform: uppercase !important;
@@ -871,41 +873,50 @@ Learn path page and styled document page
   margin-bottom: 50px;
   margin-top: 40px;
 }
+#homepage-course h2,
 .document_style_superdemain h2, .page_origin_learnpath h2 {
   font-size: 28px !important;
   color: #E61983 !important;
   font-weight: 400 !important;
   margin-bottom: 20px;
 }
+#homepage-course h3,
 .document_style_superdemain h3, .page_origin_learnpath h3 {
   font-size: 24px !important;
   color: #240A5F !important;
   font-weight: 500 !important;
   margin-bottom: 20px;
 }
+#homepage-course h4,
 .document_style_superdemain h4, .page_origin_learnpath h4 {
   font-size: 20px !important;
   color: #62CBD6 !important;
   font-weight: 700 !important;
   margin-bottom: 20px;
 }
+#homepage-course h5,
 .document_style_superdemain h5, .page_origin_learnpath h5 {
   font-size: 16px !important;
   font-weight: 500 !important;
   margin-bottom: 20px;
   color: #240A5F;
 }
+#homepage-course a,
 .document_style_superdemain a, .page_origin_learnpath a {
   text-decoration: underline;
   color: #24989c !important;
 }
+#homepage-course a:hover,
 .document_style_superdemain a:hover, .page_origin_learnpath a:hover {
   text-decoration: underline;
   color: #6DEAEE !important;
 }
 
 
-
+.exercise_overview_options {
+  background-color: white;
+  text-align: left;
+}
 .exercise_overview_options .btn-success {
   background-color: #6DEAEE;
   border-color: #6DEAEE;

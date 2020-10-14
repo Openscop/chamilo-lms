@@ -34,7 +34,11 @@
 
                 {% if welcome_to_course_block %}
                     <article id="homepage-course">
-                        {{ welcome_to_course_block }}
+                        <h1>Bonjour !</h1>
+                        <h2>Nous vous souhaitons la bienvenue sur la plateforme de parcours pros de Super Demain.</h2>
+                        <h3>Comme vous pouvez le voir, votre liste de cours est vide.<br />
+                        C'est parce que vous n'êtes encore inscrit·e à aucun cours !<br />
+                        Choisissez les cours qui vous intéressent en <a href="http://pros.superdemain.fr/index.php" title="Accueil de Super Demain">page d'accueil</a>, inscrivez-vous et vous pourrez ensuite accéder aux cours pour découvrir les activités proposées.</h3>
                     </article>
                 {% endif %}
 
