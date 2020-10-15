@@ -352,6 +352,9 @@ if ($objExercise->getFeedbackType() === EXERCISE_FEEDBACK_TYPE_DIRECT) {
     }
 
     $contents .= $comments;
+    if (!$answerCorrect) {
+        $message = '<span class="incorrect-answer">'.$message.'</span>';
+    }
     $header = '
         <div class="modal-header">
             <h4 class="modal-title" id="global-modal-title">'.$message.'</h4>
@@ -429,16 +432,16 @@ if (-1 == $destinationId) {
                 '',
                 ['style' => 'padding-left:0px;padding-right:5px;']
         );
-        $links .= '<a onclick="SendEx('.$num_value_array[0].');" href="#">'.
+        $links .= '<a class="btn next-exercice-button" onclick="SendEx('.$num_value_array[0].');" href="#">'.
                 get_lang('Question').' '.$num_value_array[0].'</a>&nbsp;';
-        $links .= $icon;
+//        $links .= $icon;
     }
 }
 
 if (!empty($links)) {
     echo $header;
     echo '<div>'.$contents.'</div>';
-    echo '<div style="padding-left: 450px"><h5>'.$links.'</h5></div>';
+    echo '<div class="row"><div class="col-md-5 col-md-offset-7"><h5 class="pull-right">'.$links.'</h5></div></div>';
     echo '</div>';
 } else {
     $questionNum++;
