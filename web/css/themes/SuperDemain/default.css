@@ -1019,3 +1019,8 @@ Learn path page and styled document page
 .window_left_question, .window_right_question {
   background: #FFFFFF !important;
 }
+
+/* profile page*/
+#profile_block img {
+  width: 27px;
+}
