@@ -116,6 +116,10 @@ $template = new Template();
 $learnpath_id = isset($_REQUEST['learnpath_id']) ? (int) $_REQUEST['learnpath_id'] : 0;
 $learnpath_item_id = isset($_REQUEST['learnpath_item_id']) ? (int) $_REQUEST['learnpath_item_id'] : 0;
 $learnpath_item_view_id = isset($_REQUEST['learnpath_item_view_id']) ? (int) $_REQUEST['learnpath_item_view_id'] : 0;
+global $safe_lp_id, $safe_lp_item_id, $safe_lp_item_view_id;
+$safe_lp_id = $learnpath_id;
+$safe_lp_item_id = $learnpath_item_id;
+$safe_lp_item_view_id = $learnpath_item_view_id;
 
 $reminder = isset($_REQUEST['reminder']) ? (int) $_REQUEST['reminder'] : 0;
 $remind_question_id = isset($_REQUEST['remind_question_id']) ? (int) $_REQUEST['remind_question_id'] : 0;
