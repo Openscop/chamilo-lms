@@ -37,11 +37,6 @@ $questionId = $questionList[$questionNum];
 $choiceValue = isset($_GET['choice']) ? $_GET['choice'] : '';
 $hotSpot = isset($_GET['hotspot']) ? $_GET['hotspot'] : '';
 $tryAgain = isset($_GET['tryagain']) && 1 === (int) $_GET['tryagain'];
-$exercise_stat_info = $objExercise->get_stat_track_exercise_info(
-    $learnpath_id,
-    $learnpath_item_id,
-    isset($_GET['learnpath_item_view_id']) ? $_GET['learnpath_item_view_id'] : 0
-);
 
 $allowTryAgain = false;
 if ($tryAgain) {
@@ -94,17 +89,16 @@ function tryAgain() {
 
 function SendEx(num) {
 //    frequence ecole fix
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    const learnpath_id = urlParams.get("learnpath_id");
-    const learnpath_item_id = urlParams.get("learnpath_item_id");
-    const learnpath_item_view_id = urlParams.get("learnpath_item_view_id");
+    const learnpath_id = document.querySelector("input[name=\"learnpath_id\"").value;
+    const learnpath_item_id = document.querySelector("input[name=\"learnpath_item_id\"").value;
+    const learnpath_item_view_id = document.querySelector("input[name=\"learnpath_item_view_id\"").value;
+    const exe_id = document.querySelector("input[name=\"exe_id\"").value;
     if (num == -1) {
         // FIXME OPENSCOP > exerciceId= doit etre exe_id=
-        window.location.href = "exercise_result.php?'.api_get_cidreq().'&take_session=1&exe_id='.$exercise_stat_info['exe_id'].'&exerciseId='.$exerciseId.'&num="+num+"&learnpath_item_id="+learnpath_item_id+"&learnpath_id="+learnpath_id+"&learnpath_item_view_id="+learnpath_item_view_id;
+        window.location.href = "exercise_result.php?'.api_get_cidreq().'&take_session=1&exe_id="+exe_id+"&exerciseId='.$exerciseId.'&num="+num+"&learnpath_item_id="+learnpath_item_id+"&learnpath_id="+learnpath_id+"&learnpath_item_view_id="+learnpath_item_view_id;
     } else {
         num -= 1;
-        window.location.href = "exercise_submit.php?'.api_get_cidreq().'&tryagain=1&exe_id='.$exercise_stat_info['exe_id'].'&exerciseId='.$exerciseId.'&num="+num+"&learnpath_item_id="+learnpath_item_id+"&learnpath_id="+learnpath_id+"&learnpath_item_view_id="+learnpath_item_view_id;
+        window.location.href = "exercise_submit.php?'.api_get_cidreq().'&tryagain=1&exe_id="+exe_id+"&exerciseId='.$exerciseId.'&num="+num+"&learnpath_item_id="+learnpath_item_id+"&learnpath_id="+learnpath_id+"&learnpath_item_view_id="+learnpath_item_view_id;
     }
     return false;
 }
