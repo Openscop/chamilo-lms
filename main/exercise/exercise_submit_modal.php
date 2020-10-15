@@ -330,12 +330,23 @@ if ($objExercise->getFeedbackType() === EXERCISE_FEEDBACK_TYPE_DIRECT) {
             $data = [];
             foreach ($result['correct_answer_id'] as $answerId) {
                 $answer = $objAnswerTmp->getAnswerByAutoId($answerId);
+
+                $correct = 'correct';
+                if (!empty($answer) && !$answer['correct']) {
+                    $correct = 'false';
+                }
                 if (!empty($answer) && isset($answer['comment'])) {
-                    $data[] = [$answer['answer'], $answer['comment']];
+                    $data[] = [
+                        '<span class="answer-'.$correct.'">'.$answer['answer'].'</span>',
+                        $answer['comment']
+                    ];
                 } else {
                     $answer = $objAnswerTmp->selectAnswer($answerId);
                     $comment = $objAnswerTmp->selectComment($answerId);
-                    $data[] = [$answer, $comment];
+                    $data[] = [
+                        '<span class="answer-'.$correct.'">'.$answer.'</span>',
+                        $comment
+                    ];
                 }
             }
 

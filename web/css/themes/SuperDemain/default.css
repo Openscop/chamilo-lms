@@ -945,6 +945,25 @@ Learn path page and styled document page
   text-decoration: none;
 }
 
+.document_style_superdemain #global-modal-body tr:not(:first-child) td:first-child,
+.page_origin_learnpath #global-modal-body tr:not(:first-child) td:first-child {
+  font-size: 16px;
+}
+
+.document_style_superdemain #global-modal-body tr:first-child td,
+.page_origin_learnpath #global-modal-body tr:first-child td {
+  font-weight: bold;
+}
+.document_style_superdemain .answer-correct,
+.page_origin_learnpath .answer-correct {
+  color: #0099c0;
+}
+.document_style_superdemain .answer-false,
+.page_origin_learnpath .answer-false {
+  color: #E61983;
+}
+
+
 
 .exercise_overview_options {
   background-color: white;
