@@ -5159,9 +5159,9 @@ EOT;
         } else {
             $ribbon .= '<div class="total">';
         }
-        $ribbon .= '<h3>'.get_lang('YourTotalScore').':&nbsp;';
+        $ribbon .= '<h2 class="total-scoreTitle">'.get_lang('YourTotalScore').':&nbsp;';
         $ribbon .= self::show_score($score, $weight, false, true);
-        $ribbon .= '</h3>';
+        $ribbon .= '</h2>';
         $ribbon .= '</div>';
         if ($checkPassPercentage) {
             $ribbon .= self::showSuccessMessage(

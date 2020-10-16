@@ -970,6 +970,57 @@ Learn path page and styled document page
   color: #6DEAEE !important;
 }
 
+/* result page */
+
+.page_origin_learnpath .question_row_score .title-score .total {
+  border: none;
+  background: none;
+  padding-left: 0;
+}
+
+.page_origin_learnpath .question_row_score .title-score .total .total-scoreTitle {
+  text-align: left;
+}
+
+.page_origin_learnpath .title-score {
+  min-height: 150px;
+}
+
+.page_origin_learnpath .title-score h4{
+  float: left;
+  margin-top: 16px;
+  /*// same style as h3*/
+  font-size: 24px !important;
+  color: #240A5F !important;
+  font-weight: 500 !important;
+  margin-bottom: 20px;
+
+}
+
+.page_origin_learnpath .title-score h5{
+  float: left;
+}
+
+.page_origin_learnpath .ribbon .rib-error, .page_origin_learnpath .ribbon .ribbon-total-error {
+  background: #ff0084;
+}
+.page_origin_learnpath .ribbon .rib-error h3, .page_origin_learnpath .ribbon .ribbon-total-error h3{
+  color: #ffffff !important;
+}
+
+.page_origin_learnpath .ribbon .rib-success, .page_origin_learnpath .ribbon .ribbon-total-success {
+  background: #62cbd6;
+}
+.page_origin_learnpath .ribbon .rib-success h3, .page_origin_learnpath .ribbon .ribbon-total-success h3{
+  color: #ffffff !important;
+}
+
+.page_origin_learnpath .btn.btn-info {
+  color: #ffffff !important;
+}
+
+
+
 /* MODAL */
 
 @media (min-width: 768px) {

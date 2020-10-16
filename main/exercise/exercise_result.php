@@ -204,9 +204,10 @@ $max_score = $objExercise->get_max_score();
 if ($origin === 'embeddable') {
     $pageTop .= showEmbeddableFinishButton();
 } else {
-    Display::addFlash(
-        Display::return_message(get_lang('Saved'), 'normal', false)
-    );
+    // don't show save message
+//    Display::addFlash(
+//        Display::return_message(get_lang('Saved'), 'normal', false)
+//    );
 }
 
 $saveResults = true;
