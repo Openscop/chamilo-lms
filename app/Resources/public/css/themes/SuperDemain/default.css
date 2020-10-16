@@ -973,7 +973,7 @@ Learn path page and styled document page
 /* MODAL */
 
 @media (min-width: 768px) {
-  .document_style_superdemain, .page_origin_learnpath .modal-dialog {
+  .document_style_superdemain .modal-dialog, .page_origin_learnpath .modal-dialog {
     width: 800px;
     max-width: 100%;
   }
