@@ -989,12 +989,12 @@ Learn path page and styled document page
 .page_origin_learnpath .title-score h4{
   float: left;
   margin-top: 16px;
+  padding-right: 10px;
   /*// same style as h3*/
   font-size: 24px !important;
   color: #240A5F !important;
   font-weight: 500 !important;
   margin-bottom: 20px;
-
 }
 
 .page_origin_learnpath .title-score h5{
