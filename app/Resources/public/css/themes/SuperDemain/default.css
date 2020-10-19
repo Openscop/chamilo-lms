@@ -1,9 +1,13 @@
 /*!
- * CSS Superdemain
+ * SCSS Superdemain
  * 2020 - Samuel eyre (hello@samueleyre.com)
  * Licensed GPL
  * Based on Bootstrap
 */
+/*
+ * primary color : header bg, main button
+ * secondary color: secondary button
+ */
 /* vietnamese */
 @font-face {
   font-family: 'Dosis';
@@ -87,10 +91,10 @@ a:hover {
   text-decoration: none; }
 
 /**********************************************************************************************
-/**********************************************************************************************
-// Navbar
-***********************************************************************************************
-***********************************************************************************************/
+  /**********************************************************************************************
+  // Navbar
+  ***********************************************************************************************
+  ***********************************************************************************************/
 .navbar-nav > li.logo, .navbar-nav > li.logo > a {
   padding: 0;
   margin: 0; }
@@ -136,7 +140,7 @@ a:hover {
   color: #FFFFFF; }
 
 .navbar-default .navbar-nav > li > .dropdown-menu > li > .divider {
-  background-color: #0099c0; }
+  background-color: #6DEAEE; }
 
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
   color: #FFFFFF;
@@ -184,7 +188,7 @@ a:hover {
     background-color: #6D0019; }
   .navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
     color: #ededed;
-    background-color: #0099c0; } }
+    background-color: #6DEAEE; } }
 
 .breadcrumb {
   background: #F9F9F9;
@@ -200,10 +204,10 @@ a:hover {
   border-color: #F3F3F4; }
 
 /**********************************************************************************************
-/**********************************************************************************************
-// Footer
-***********************************************************************************************
-***********************************************************************************************/
+  /**********************************************************************************************
+  // Footer
+  ***********************************************************************************************
+  ***********************************************************************************************/
 footer {
   position: absolute !important;
   top: 100%;
@@ -239,10 +243,10 @@ footer #footer section.sub-footer p {
   margin: 0; }
 
 /**********************************************************************************************
-/**********************************************************************************************
-// Page acceuil
-***********************************************************************************************
-***********************************************************************************************/
+  /**********************************************************************************************
+  // Page acceuil
+  ***********************************************************************************************
+  ***********************************************************************************************/
 /************** Titre **************/
 .homepage-title {
   margin: 20px !important;
@@ -482,10 +486,10 @@ footer #footer section.sub-footer p {
   border-right-color: #5e0abe; }
 
 /**********************************************************************************************
-/**********************************************************************************************
-// Tableau des grains
-***********************************************************************************************
-***********************************************************************************************/
+  /**********************************************************************************************
+  // Tableau des grains
+  ***********************************************************************************************
+  ***********************************************************************************************/
 #scorm-info {
   background-color: transparent !important;
   height: 160px; }
@@ -552,10 +556,10 @@ footer #footer section.sub-footer p {
   box-sizing: border-box; }
 
 /**********************************************************************************************
-/**********************************************************************************************
-// Divers
-***********************************************************************************************
-***********************************************************************************************/
+  /**********************************************************************************************
+  // Divers
+  ***********************************************************************************************
+  ***********************************************************************************************/
 .title-text {
   width: 85%; }
 
@@ -647,8 +651,8 @@ a {
   background-color: #E61983; }
 
 /*
-Custom progress indicator
- */
+  Custom progress indicator
+   */
 #progress_bar {
   display: flex;
   justify-content: center; }
@@ -783,8 +787,8 @@ Custom progress indicator
   border: #E61983 1px solid; }
 
 /******************************************
-// IFRAMES DES GRAINS
-******************************************/
+  // IFRAMES DES GRAINS
+  ******************************************/
 .document_style_superdemain, .page_origin_learnpath {
   max-width: 1000px;
   margin: auto;
@@ -793,8 +797,8 @@ Custom progress indicator
   font-family: 'Dosis', sans-serif; }
 
 /*
-Learn path page and styled document page
- */
+  Learn path page and styled document page
+   */
 #homepage-course, .document_style_superdemain, .page_origin_learnpath {
   font-size: 20px !important;
   line-height: 24px;
@@ -873,7 +877,7 @@ Learn path page and styled document page
   color: #ffffff !important; }
 
 .page_origin_learnpath .ribbon .rib-success, .page_origin_learnpath .ribbon .ribbon-total-success {
-  background: #62cbd6; }
+  background: #6DEAEE; }
 
 .page_origin_learnpath .ribbon .rib-success h3, .page_origin_learnpath .ribbon .ribbon-total-success h3 {
   color: #ffffff !important; }
@@ -889,28 +893,23 @@ Learn path page and styled document page
   .document_style_superdemain .modal-dialog, .page_origin_learnpath .modal-dialog {
     width: 800px;
     max-width: 100%; } }
-
 .document_style_superdemain .incorrect-answer, .page_origin_learnpath .incorrect-answer {
   color: #E61983 !important; }
-
 .document_style_superdemain .next-exercice-button, .page_origin_learnpath .next-exercice-button {
   background-color: #6DEAEE;
   border-color: #6DEAEE;
   color: #20124D !important;
   text-decoration: none; }
-
-.document_style_superdemain .next-exercice-button:hover, .page_origin_learnpath .next-exercice-button:hover {
-  background-color: #FFFFFF;
-  border-color: #6DEAEE;
-  color: #20124D !important;
-  text-decoration: none; }
-
-.document_style_superdemain .next-exercice-button:focus, .page_origin_learnpath .next-exercice-button:focus {
-  background-color: #FFFFFF;
-  border-color: #6DEAEE;
-  color: #20124D !important;
-  text-decoration: none; }
-
+  .document_style_superdemain .next-exercice-button:hover, .page_origin_learnpath .next-exercice-button:hover {
+    background-color: #FFFFFF;
+    border-color: #9bf1f3;
+    color: #20124D !important;
+    text-decoration: none; }
+  .document_style_superdemain .next-exercice-button:focus, .page_origin_learnpath .next-exercice-button:focus {
+    background-color: #FFFFFF;
+    border-color: #9bf1f3;
+    color: #20124D !important;
+    text-decoration: none; }
 .document_style_superdemain #global-modal-body tr:not(:first-child) td:first-child, .page_origin_learnpath #global-modal-body tr:not(:first-child) td:first-child {
   font-size: 16px; }
 
@@ -940,13 +939,13 @@ Learn path page and styled document page
 
 .exercise_overview_options .btn-success:hover {
   background-color: #FFFFFF;
-  border-color: #63D6D6;
+  border-color: #9bf1f3;
   color: #20124D !important;
   text-decoration: none; }
 
 .exercise_overview_options .btn-success:focus {
   background-color: #FFFFFF;
-  border-color: #6DEAEE;
+  border-color: #9bf1f3;
   color: #20124D !important;
   text-decoration: none; }
 
