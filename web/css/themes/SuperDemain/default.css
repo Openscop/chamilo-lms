@@ -251,6 +251,12 @@ footer #footer section.sub-footer p {
 .homepage-title {
   margin: 20px !important;
   font-size: 23px; }
+  .homepage-title-themeName {
+    color: #E61983;
+    font-weight: bold; }
+  .homepage-title-link {
+    color: #E61983;
+    font-weight: bold; }
 
 /************** Tuiles **************/
 .tuile {
@@ -443,47 +449,42 @@ footer #footer section.sub-footer p {
   bottom: 0; }
 
 /****** Couleurs des thumbnails ******/
-/* Rouge */
-.thumbnail .background_1, .thumbnail .background_1 .registred {
+.thumbnail .background_1 {
   background-color: #FF3246; }
-
-.thumbnail .background_1 .registred:before, .thumbnail .background_1 .registred:after {
-  border-right-color: #FF3246; }
-
-/* Rose */
-.thumbnail .background_2, .thumbnail .background_2 .registred {
+  .thumbnail .background_1 .registred {
+    background-color: #FF3246; }
+    .thumbnail .background_1 .registred:before, .thumbnail .background_1 .registred:after {
+      border-right-color: #FF3246; }
+.thumbnail .background_2 {
   background-color: #E61983; }
-
-.thumbnail .background_2 .registred:before, .thumbnail .background_2 .registred:after {
-  border-right-color: #E61983; }
-
-/* Bleu sombre */
-.thumbnail .background_3, .thumbnail .background_3 .registred {
+  .thumbnail .background_2 .registred {
+    background-color: #FF3246; }
+    .thumbnail .background_2 .registred:before, .thumbnail .background_2 .registred:after {
+      border-right-color: #FF3246; }
+.thumbnail .background_3 {
   background-color: #20124D; }
-
-.thumbnail .background_3 .registred:before, .thumbnail .background_3 .registred:after {
-  border-right-color: #20124D; }
-
-/* Turquoise */
-.thumbnail .background_4, .thumbnail .background_4 .registred {
+  .thumbnail .background_3 .registred {
+    background-color: #FF3246; }
+    .thumbnail .background_3 .registred:before, .thumbnail .background_3 .registred:after {
+      border-right-color: #FF3246; }
+.thumbnail .background_4 {
   background-color: #6DEAEE; }
-
-.thumbnail .background_4 .registred:before, .thumbnail .background_4 .registred:after {
-  border-right-color: #6DEAEE; }
-
-/* Vert */
-.thumbnail .background_5, .thumbnail .background_5 .registred {
+  .thumbnail .background_4 .registred {
+    background-color: #FF3246; }
+    .thumbnail .background_4 .registred:before, .thumbnail .background_4 .registred:after {
+      border-right-color: #FF3246; }
+.thumbnail .background_5 {
   background-color: #24989c; }
-
-.thumbnail .background_5 .registred:before, .thumbnail .background_5 .registred:after {
-  border-right-color: #24989c; }
-
-/* Violet */
-.thumbnail .background_6, .thumbnail .background_6 .registred {
+  .thumbnail .background_5 .registred {
+    background-color: #FF3246; }
+    .thumbnail .background_5 .registred:before, .thumbnail .background_5 .registred:after {
+      border-right-color: #FF3246; }
+.thumbnail .background_6 {
   background-color: #5e0abe; }
-
-.thumbnail .background_6 .registred:before, .thumbnail .background_6 .registred:after {
-  border-right-color: #5e0abe; }
+  .thumbnail .background_6 .registred {
+    background-color: #FF3246; }
+    .thumbnail .background_6 .registred:before, .thumbnail .background_6 .registred:after {
+      border-right-color: #FF3246; }
 
 /**********************************************************************************************
   /**********************************************************************************************
