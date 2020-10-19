@@ -1517,7 +1517,7 @@ function update_next_item_button(newCurrentItem) {
  */
 function switch_item(current_item, next_item)
 {
-    // frequence ecole custom change
+    // FIXME : frequence ecole custom change
     update_next_item_button(next_item);
 
     logit_lms('switch_item() called with params '+olms.lms_item_id+' and '+next_item+'',2);

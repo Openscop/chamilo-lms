@@ -119,6 +119,7 @@ require_once $libraryPath.'fileUpload.lib.php';
 require_once $libraryPath.'fileDisplay.lib.php';
 require_once $libraryPath.'course_category.lib.php';
 
+
 if (!is_dir(_MPDF_TEMP_PATH)) {
     mkdir(_MPDF_TEMP_PATH, api_get_permissions_for_new_directories(), true);
 }

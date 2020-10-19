@@ -502,7 +502,7 @@ if ($fixLinkSetting) {
     $fixLink = '{type:"script", id:"_fr10", src:"'.api_get_path(WEB_LIBRARY_PATH).'fixlinks.js"}';
 }
 
-// custom change for frequence-ecole
+// FIXME frequence-ecole
 $template->assign('current_course', CourseManager::processHotCourseItem(
     [
         ['c_id' => $course_id],

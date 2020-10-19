@@ -88,7 +88,7 @@ function tryAgain() {
 }
 
 function SendEx(num) {
-//    frequence ecole fix
+//  FIXME frequence ecole
     const learnpath_id = document.querySelector("input[name=\"learnpath_id\"").value;
     const learnpath_item_id = document.querySelector("input[name=\"learnpath_item_id\"").value;
     const learnpath_item_view_id = document.querySelector("input[name=\"learnpath_item_view_id\"").value;

@@ -118,7 +118,8 @@
         "zendframework/zend-config": "~2.6|^3.0",
         "zendframework/zend-feed": "~2.6|^3.0",
         "zendframework/zend-http": "~2.6|^3.0",
-        "zendframework/zend-soap": "~2.6|^3.0"
+        "zendframework/zend-soap": "~2.6|^3.0",
+        "scssphp/scssphp": "^1.2"
     },
     "require-dev": {
         "behat/behat": "3.5.0",
@@ -136,10 +137,16 @@
             "Chamilo\\CoreBundle\\Composer\\ScriptHandler::deleteOldFilesFrom19x"
         ],
         "post-install-cmd": [
+            "Chamilo\\CoreBundle\\Composer\\ScriptHandler::generateCssFromScss",
             "Chamilo\\CoreBundle\\Composer\\ScriptHandler::dumpCssFiles"
         ],
         "post-update-cmd": [
+            "Chamilo\\CoreBundle\\Composer\\ScriptHandler::generateCssFromScss",
             "Chamilo\\CoreBundle\\Composer\\ScriptHandler::dumpCssFiles"
+        ],
+        "update-theme-css": [
+            "Chamilo\\CoreBundle\\Composer\\ScriptHandler::generateCssFromScss",
+            "Chamilo\\CoreBundle\\Composer\\ScriptHandler::updateThemeCss"
         ],
         "update-css": "Chamilo\\CoreBundle\\Composer\\ScriptHandler::updateCss"
     },
