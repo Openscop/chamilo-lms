@@ -343,6 +343,9 @@ if ($objExercise->getFeedbackType() === EXERCISE_FEEDBACK_TYPE_DIRECT) {
                 } else {
                     $answer = $objAnswerTmp->selectAnswer($answerId);
                     $comment = $objAnswerTmp->selectComment($answerId);
+                    if (!$answerCorrect && !$partialCorrect) {
+                        $correct = 'false';
+                    }
                     $data[] = [
                         '<span class="answer-'.$correct.'">'.$answer.'</span>',
                         $comment
