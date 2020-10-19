@@ -400,7 +400,7 @@ class ExerciseShowFunctions
             }
         }
 
-        echo '<td width="40%">';
+        echo '<td width="30%" class="user-answer-label">';
         echo $answer;
         echo '</td>';
 
@@ -409,7 +409,7 @@ class ExerciseShowFunctions
             if ($answerCorrect || ($answerCorrect && $studentChoiceInt === $answerCorrectChoice)) {
                 $status = Display::label(get_lang('Correct'), 'success');
             }
-            echo '<td width="20%">';
+            echo '<td width="20%" class="expected-answer-label">';
             // Show only status for the selected student answer BT#16256
             if ($studentChoice) {
                 echo $status;
@@ -423,10 +423,10 @@ class ExerciseShowFunctions
         }
 
         if ($showComment) {
-            echo '<td width="20%">';
+            echo '<td width="20%" class="expected-answer-label">';
             $color = 'black';
             if ($answerCorrect) {
-                $color = 'green';
+                $color = '#62cbd6';
             }
             if ($hide_expected_answer) {
                 $color = '';
@@ -519,7 +519,7 @@ class ExerciseShowFunctions
             }
         }
 
-        $content .= '<td width="40%">';
+        $content .= '<td width="20%" class="user-answer-label">';
         $content .= $answer;
         $content .= '</td>';
 
@@ -530,13 +530,13 @@ class ExerciseShowFunctions
                     $status = Display::label(get_lang('Correct'), 'success');
                 }
             }
-            $content .= '<td width="20%">';
+            $content .= '<td width="30%" class="expected-answer-label">';
             $content .= $status;
             $content .= '</td>';
         }
 
         if (EXERCISE_FEEDBACK_TYPE_EXAM != $feedbackType) {
-            $content .= '<td width="20%">';
+            $content .= '<td width="30%" class="expected-answer-label">';
             $color = 'black';
             if (isset($new_options[$studentChoice]) || in_array(
                     $exercise->results_disabled,
@@ -547,7 +547,7 @@ class ExerciseShowFunctions
                 )
             ) {
                 if ($studentChoice == $answerCorrect) {
-                    $color = 'green';
+                    $color = '#62cbd6';
                 }
 
                 if ($hide_expected_answer) {
@@ -713,7 +713,7 @@ class ExerciseShowFunctions
         echo '<tr>';
 
         if (false === $hideStudentChoice) {
-            echo '<td width="5%">';
+            echo '<td width="5%" class="expected-answer">';
             // Your choice
             $question = new MultipleAnswerCombinationTrueFalse();
             if (isset($question->options[$studentChoice])) {
@@ -727,7 +727,7 @@ class ExerciseShowFunctions
         // Expected choice
         if ($exercise->showExpectedChoiceColumn()) {
             if (!$hide_expected_answer) {
-                echo '<td width="5%">';
+                echo '<td width="5%" class="expected-answer">';
                 if (isset($question->options[$answerCorrect])) {
                     echo $question->options[$answerCorrect];
                 } else {
@@ -737,7 +737,7 @@ class ExerciseShowFunctions
             }
         }
 
-        echo '<td width="40%">';
+        echo '<td width="20%" class="user-answer-label">';
         echo $answer;
         echo '</td>';
 
@@ -749,13 +749,13 @@ class ExerciseShowFunctions
                     $status = Display::label(get_lang('Correct'), 'success');
                 }
             }
-            echo '<td width="20%">';
+            echo '<td width="30%" class="expected-answer">';
             echo $status;
             echo '</td>';
         }
 
         if (EXERCISE_FEEDBACK_TYPE_EXAM != $feedbackType) {
-            echo '<td width="20%">';
+            echo '<td width="30%" class="expected-answerlabel">';
             //@todo replace this harcoded value
             if ($studentChoice || in_array($resultsDisabled, [
                 RESULT_DISABLE_SHOW_ONLY_IN_CORRECT_ANSWER,
@@ -764,7 +764,7 @@ class ExerciseShowFunctions
             ) {
                 $color = 'black';
                 if ($studentChoice == $answerCorrect) {
-                    $color = 'green';
+                    $color = '#62cbd6';
                 }
                 if ($hide_expected_answer) {
                     $color = '';

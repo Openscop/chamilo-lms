@@ -1026,6 +1026,12 @@ Learn path page and styled document page
   color: #ffffff !important;
 }
 
+.page_origin_learnpath table:not(.matching) td.user-answer-label,
+.page_origin_learnpath table:not(.matching) td.user-answer-label p,
+.page_origin_learnpath table:not(.matching) td.user-answer,
+.page_origin_learnpath table:not(.matching) td.user-answer p {
+  font-size: 16px;
+}
 
 
 /* MODAL */

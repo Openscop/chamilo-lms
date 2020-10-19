@@ -4503,7 +4503,7 @@ class Exercise
                                         if (isset($real_list[$i_answer_id])) {
                                             $user_answer = Display::span(
                                                 $real_list[$i_answer_id],
-                                                ['style' => 'color: #008000; font-weight: bold;']
+                                                ['style' => 'color: #62cbd6; font-weight: bold;', 'class'=> 'user-answer']
                                             );
                                         }
 
@@ -4512,7 +4512,7 @@ class Exercise
                                             if (isset($real_list[$i_answer_id_auto])) {
                                                 $user_answer = Display::span(
                                                     $real_list[$i_answer_id_auto],
-                                                    ['style' => 'color: #008000; font-weight: bold;']
+                                                    ['style' => 'color: #62cbd6; font-weight: bold;', 'class'=> 'user-answer']
                                                 );
                                             }
                                         }
@@ -4520,13 +4520,13 @@ class Exercise
                                         if (isset($real_list[$i_answer_correct_answer])) {
                                             $user_answer = Display::span(
                                                 $real_list[$i_answer_correct_answer],
-                                                ['style' => 'color: #008000; font-weight: bold;']
+                                                ['style' => 'color: #62cbd6; font-weight: bold;', 'class'=> 'user-answer']
                                             );
                                         }
                                     } else {
                                         $user_answer = Display::span(
                                             $real_list[$s_user_answer],
-                                            ['style' => 'color: #FF0000; text-decoration: line-through;']
+                                            ['style' => 'color: #E61983;', 'class'=> 'user-answer user-answer-incorrect']
                                         );
                                         if ($this->showExpectedChoice()) {
                                             if (isset($real_list[$s_user_answer])) {
@@ -4543,7 +4543,7 @@ class Exercise
                             } else {
                                 $user_answer = Display::span(
                                     get_lang('Incorrect').' &nbsp;',
-                                    ['style' => 'color: #FF0000; text-decoration: line-through;']
+                                    ['style' => 'color: #E61983', 'class'=>'user-answer user-answer-incorrect']
                                 );
                                 if ($this->showExpectedChoice()) {
                                     $user_answer = '';
@@ -4567,10 +4567,10 @@ class Exercise
                                             ]
                                         )
                                         ) {
-                                            echo '<td>'.$s_answer_label.'</td>';
-                                            echo '<td>'.$user_answer.'</td>';
+                                            echo '<td class="user-answer-label">'.$s_answer_label.'</td>';
+                                            echo '<td class="user-answer">'.$user_answer.'</td>';
                                         } else {
-                                            echo '<td>'.$s_answer_label.'</td>';
+                                            echo '<td class="user-answer-label">'.$s_answer_label.'</td>';
                                             $status = Display::label(get_lang('Correct'), 'success');
                                         }
 
@@ -4598,7 +4598,7 @@ class Exercise
                                                         echo '<td>';
                                                         echo Display::span(
                                                             $real_list[$i_answer_correct_answer],
-                                                            ['style' => 'color: #008000; font-weight: bold;']
+                                                            ['style' => 'color: #62cbd6; font-weight: bold;', 'class'=> 'expected-answer']
                                                         );
                                                         echo '</td>';
                                                     }
@@ -4618,15 +4618,15 @@ class Exercise
                                                 //RESULT_DISABLE_SHOW_SCORE_AND_EXPECTED_ANSWERS_AND_RANKING,
                                             ])
                                             ) {
-                                                echo '<td>'.$user_answer.'</td>';
+                                                echo '<td class="user-answer">'.$user_answer.'</td>';
                                             } else {
                                                 $status = Display::label(get_lang('Correct'), 'success');
                                             }
-                                            echo '<td>'.$s_answer_label.'</td>';
+                                            echo '<td class="user-answer-label">'.$s_answer_label.'</td>';
                                             echo '<td>'.$status.'</td>';
                                         } else {
-                                            echo '<td>'.$s_answer_label.'</td>';
-                                            echo '<td>'.$user_answer.'</td>';
+                                            echo '<td class="user-answer-label">'.$s_answer_label.'</td>';
+                                            echo '<td class="user-answer">'.$user_answer.'</td>';
                                             echo '<td>';
                                             if (in_array($answerType, [MATCHING, MATCHING_DRAGGABLE])) {
                                                 if (isset($real_list[$i_answer_correct_answer]) &&
@@ -4634,7 +4634,7 @@ class Exercise
                                                 ) {
                                                     echo Display::span(
                                                         $real_list[$i_answer_correct_answer],
-                                                        ['style' => 'color: #008000; font-weight: bold;']
+                                                        ['style' => 'color: #62cbd6; font-weight: bold;', 'class'=> 'expected-answer']
                                                     );
                                                 }
                                             }
@@ -4660,7 +4660,7 @@ class Exercise
                                 if (isset($answerMatching[$choice[$answerAutoId]])) {
                                     $user_answer = Display::span(
                                         $answerMatching[$choice[$answerAutoId]],
-                                        ['style' => 'color: #FF0000; text-decoration: line-through;']
+                                        ['style' => 'color: #E61983;', 'class' => 'user-answer user-answer-incorrect']
                                     );
                                 }
                             }
@@ -5163,7 +5163,7 @@ class Exercise
                                 "$user_answer / ".Display::tag(
                                     'strong',
                                     $answerMatching[$answerCorrect],
-                                    ['style' => 'color: #008000; font-weight: bold;']
+                                    ['style' => 'color: #62cbd6; font-weight: bold;']
                                 )
                             );
                             echo '</tr>';
@@ -5522,7 +5522,7 @@ class Exercise
                                 "$user_answer / ".Display::tag(
                                     'strong',
                                     $answerMatching[$answerCorrect],
-                                    ['style' => 'color: #008000; font-weight: bold;']
+                                    ['style' => 'color: #62cbd6; font-weight: bold;']
                                 )
                             );
                             echo '</tr>';

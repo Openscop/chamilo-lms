@@ -4880,9 +4880,11 @@ EOT;
         }
 
         echo $exercise_content;
-        if (!$show_only_score) {
-            echo $totalScoreText;
-        }
+
+        // fix: frequenc ecole : don't show score again at the end
+//        if (!$show_only_score) {
+//            echo $totalScoreText;
+//        }
 
         if ($save_user_result) {
             // Tracking of results
