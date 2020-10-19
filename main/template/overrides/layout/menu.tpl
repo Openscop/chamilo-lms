@@ -115,7 +115,7 @@
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
             <li class="logo">
-                <a href="http://pros.superdemain.fr" title="Retour à l'accueil"><img src="http://pros.superdemain.fr/main/img/gallery/logo_super_demain.png" style="height: 50px; width: 50px"></a>
+                <a href="index.php" title="Retour à l'accueil" style="background-image: url('{{ _p.web_css_theme}}images/header-logo.png')"></a>
             </li>
 
                 {% for item in menu %}
