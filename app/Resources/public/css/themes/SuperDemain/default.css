@@ -442,41 +442,41 @@ footer {
   bottom: 0; }
 
 /****** Couleurs des thumbnails ******/
-.thumbnail .background_1 {
+.tuile:nth-child(6n + 1) .thumbnail .items-hotcourse {
   background-color: #FF3246; }
-  .thumbnail .background_1 .registred {
+  .tuile:nth-child(6n + 1) .thumbnail .items-hotcourse .registred {
     background-color: #FF3246; }
-    .thumbnail .background_1 .registred:before, .thumbnail .background_1 .registred:after {
+    .tuile:nth-child(6n + 1) .thumbnail .items-hotcourse .registred:before, .tuile:nth-child(6n + 1) .thumbnail .items-hotcourse .registred:after {
       border-right-color: #FF3246; }
-.thumbnail .background_2 {
+.tuile:nth-child(6n + 2) .thumbnail .items-hotcourse {
   background-color: #E61983; }
-  .thumbnail .background_2 .registred {
+  .tuile:nth-child(6n + 2) .thumbnail .items-hotcourse .registred {
     background-color: #FF3246; }
-    .thumbnail .background_2 .registred:before, .thumbnail .background_2 .registred:after {
+    .tuile:nth-child(6n + 2) .thumbnail .items-hotcourse .registred:before, .tuile:nth-child(6n + 2) .thumbnail .items-hotcourse .registred:after {
       border-right-color: #FF3246; }
-.thumbnail .background_3 {
+.tuile:nth-child(6n + 3) .thumbnail .items-hotcourse {
   background-color: #20124D; }
-  .thumbnail .background_3 .registred {
+  .tuile:nth-child(6n + 3) .thumbnail .items-hotcourse .registred {
     background-color: #FF3246; }
-    .thumbnail .background_3 .registred:before, .thumbnail .background_3 .registred:after {
+    .tuile:nth-child(6n + 3) .thumbnail .items-hotcourse .registred:before, .tuile:nth-child(6n + 3) .thumbnail .items-hotcourse .registred:after {
       border-right-color: #FF3246; }
-.thumbnail .background_4 {
+.tuile:nth-child(6n + 4) .thumbnail .items-hotcourse {
   background-color: #6DEAEE; }
-  .thumbnail .background_4 .registred {
+  .tuile:nth-child(6n + 4) .thumbnail .items-hotcourse .registred {
     background-color: #FF3246; }
-    .thumbnail .background_4 .registred:before, .thumbnail .background_4 .registred:after {
+    .tuile:nth-child(6n + 4) .thumbnail .items-hotcourse .registred:before, .tuile:nth-child(6n + 4) .thumbnail .items-hotcourse .registred:after {
       border-right-color: #FF3246; }
-.thumbnail .background_5 {
+.tuile:nth-child(6n + 5) .thumbnail .items-hotcourse {
   background-color: #24989c; }
-  .thumbnail .background_5 .registred {
+  .tuile:nth-child(6n + 5) .thumbnail .items-hotcourse .registred {
     background-color: #FF3246; }
-    .thumbnail .background_5 .registred:before, .thumbnail .background_5 .registred:after {
+    .tuile:nth-child(6n + 5) .thumbnail .items-hotcourse .registred:before, .tuile:nth-child(6n + 5) .thumbnail .items-hotcourse .registred:after {
       border-right-color: #FF3246; }
-.thumbnail .background_6 {
+.tuile:nth-child(6n + 6) .thumbnail .items-hotcourse {
   background-color: #5e0abe; }
-  .thumbnail .background_6 .registred {
+  .tuile:nth-child(6n + 6) .thumbnail .items-hotcourse .registred {
     background-color: #FF3246; }
-    .thumbnail .background_6 .registred:before, .thumbnail .background_6 .registred:after {
+    .tuile:nth-child(6n + 6) .thumbnail .items-hotcourse .registred:before, .tuile:nth-child(6n + 6) .thumbnail .items-hotcourse .registred:after {
       border-right-color: #FF3246; }
 
 /**********************************************************************************************
@@ -920,7 +920,7 @@ a {
 .exercise_overview_options .btn-success {
   background-color: #6DEAEE;
   border-color: #6DEAEE;
-  line-height: 3rem;
+  line-height: 2.5rem;
   width: 170px;
   height: 40px;
   font-size: 1.8rem;

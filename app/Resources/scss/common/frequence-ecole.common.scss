@@ -469,20 +469,40 @@
   }
 
   /****** Couleurs des thumbnails ******/
-  .thumbnail {
-    @each $color in $thumbnailColors {
-      $index : index($thumbnailColors, $color);
-      .background_#{$index} {
+
+  //default
+  @each $color in $thumbnailColors {
+    $index: index($thumbnailColors, $color);
+    .tuile:nth-child(6n + #{$index}) {
+      .thumbnail .items-hotcourse {
         background-color: $color;
-        .registred{
+        .registred {
           background-color: #FF3246;
-          &:before,&:after {
+
+          &:before, &:after {
             border-right-color: #FF3246;
           }
         }
       }
     }
   }
+  //// length to length*2
+  //@each $color in $thumbnailColors {
+  //  $index : index($thumbnailColors, $color) + length($thumbnailColors);
+  //  .thumbnail {
+  //    .background_#{$index} {
+  //      background-color: $color;
+  //      .registred{
+  //        background-color: #FF3246;
+  //        &:before,&:after {
+  //          border-right-color: #FF3246;
+  //        }
+  //      }
+  //    }
+  //  }
+  //
+  //}
+
 
 
   /**********************************************************************************************
@@ -1041,7 +1061,7 @@
   .exercise_overview_options .btn-success {
     background-color: $secondaryColor;
     border-color: $secondaryColor;
-    line-height: 3rem;
+    line-height: 2.5rem;
     width: 170px;
     height: 40px;
     font-size: 1.8rem;
