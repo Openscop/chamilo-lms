@@ -12,17 +12,26 @@
  */
 @mixin frequenceEcoleMixin(
   $mainFont,
-  $primaryColor,
-  $secondaryColor,
-  $tertiaryColor,
-  $thumbnailColors
+  $mainColors,
+  $thumbnailColors,
+  $trueFalseColors,
+  $fontREMPercentage:null
 ) {
+
+  $primaryColor : nth($mainColors, 1);
+  $secondaryColor : nth($mainColors, 2);
+  $tertiaryColor : nth($mainColors, 3);
 
   //secondary button hover
   $primaryColorButtonHover : lighten($primaryColor, 10%);
   $secondaryColorButtonHover : lighten($secondaryColor, 10%);
 
   html {
+    @if $fontREMPercentage {
+      font-size: $fontREMPercentage;
+    } @else {
+      font-size: 62.5%;
+    }
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
   }
@@ -47,15 +56,18 @@
   // Navbar
   ***********************************************************************************************
   ***********************************************************************************************/
-  .navbar-nav > li.logo,
-  .navbar-nav > li.logo > a {
-    padding: 0;
-    margin: 0;
-  }
-  .navbar-nav > li.logo > a {
-    width: 50px;
-    height: 50px;
-    background-size: contain !important;
+
+  .navbar-nav > li.logo {
+    margin-right: 10px;
+    &, & > a {
+      padding: 0;
+      margin: 0;
+    }
+    & > a {
+      width: 50px;
+      height: 50px;
+      background-size: contain !important;
+    }
   }
 
 
@@ -178,40 +190,39 @@
   footer {
     position: absolute !important;
     top: 100%;
-    font-size: 18px;
+    font-size: 1.8rem;
+    .bgfooter {
+      background: #000000;
+    }
+    .bgfooter a {
+      color: #ffffff;
+    }
+    .bgfooter a:hover {
+      color: #CCC;
+    }
+
+    #footer {
+      section.sub-footer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: white;
+        width: 100%;
+        padding: 20px 23px;
+      }
+      section.sub-footer img {
+        width: 75px;
+        height: 25px;
+        margin-right: 20px;
+      }
+      section.sub-footer p {
+        padding: 0;
+        margin: 0;
+      }
+    }
   }
 
-  footer.bgfooter {
-    background: #000000;
 
-  }
-  footer.bgfooter a {
-    color: #ffffff;
-  }
-  footer.bgfooter a:hover {
-    color: #CCC;
-  }
-
-  footer #footer {
-    background: white;
-    min-height: 50px;
-    width: 100%;
-  }
-  footer #footer section.sub-footer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-  }
-  footer #footer section.sub-footer img {
-    width: 75px;
-    height: 25px;
-    margin-right: 20px;
-  }
-  footer #footer section.sub-footer p {
-    padding: 0;
-    margin: 0;
-  }
 
   /**********************************************************************************************
   /**********************************************************************************************
@@ -230,7 +241,7 @@
       font-weight: bold;
     }
     margin: 20px !important;
-    font-size: 23px;
+    font-size: 2.3rem;
   }
 
 
@@ -254,8 +265,8 @@
   }
 
   .tuile_description-col {
-    font-size: 18px;
     padding: 20px;
+    font-size: 1.6rem;
   }
 
   /* ~ extends col-md-6 */
@@ -348,7 +359,7 @@
   .course_button .btn {
     width: 100%;
     font-weight: bold;
-    font-size: 20px !important;
+    font-size: 2rem !important;
     color: white !important;
     background-color: $primaryColor !important;
     border-color: $primaryColor !important;
@@ -505,7 +516,7 @@
     color: white !important;
   }
   .scorm_item_normal a.items-list {
-    font-size: 16px;
+    font-size: 1.6rem;
     font-weight: 400;
     line-height: 20px;
     padding: 10px 0;
@@ -569,7 +580,7 @@
 
 
   .block-title .title {
-    font-size: 20px;
+    font-size: 2rem;
     color: white !important;
   }
 
@@ -686,7 +697,7 @@
 
   #progressIndicator .progressIndicator-text {
     text-align: center;
-    font-size: 30px;
+    font-size: 3rem;
   }
 
 
@@ -802,14 +813,14 @@
   .contenu-nextButton-container {
     height: 77px;
     display: flex;
-    font-size: 28px;
+    font-size: 2.8rem;
     justify-content: flex-end;
     padding: 10px;
   }
 
   .contenu-nextButton-container .container-nextButton {
     height: 40px;
-    font-size: 20px;
+    font-size: 2rem;
     background-color: $primaryColor;
     color: white;
     border: $primaryColor 1px solid;
@@ -836,14 +847,14 @@
    */
   #homepage-course,
   .document_style_superdemain, .page_origin_learnpath {
-    font-size: 20px !important;
+    font-size: 2rem !important;
     line-height: 24px;
     font-weight: 500 !important;
     color: #240A5F !important;
   }
   #homepage-course h1,
   .document_style_superdemain h1, .page_origin_learnpath h1 {
-    font-size: 40px !important;
+    font-size: 4rem !important;
     text-transform: uppercase !important;
     color: #240A5F !important;
     font-weight: 600 !important;
@@ -852,14 +863,14 @@
   }
   #homepage-course h2,
   .document_style_superdemain h2, .page_origin_learnpath h2 {
-    font-size: 28px !important;
+    font-size: 2.8rem !important;
     color: $primaryColor !important;
     font-weight: 400 !important;
     margin-bottom: 20px;
   }
   #homepage-course h3,
   .document_style_superdemain h3, .page_origin_learnpath h3 {
-    font-size: 24px !important;
+    font-size: 2.4rem !important;
     color: #240A5F !important;
     font-weight: 500 !important;
     margin-bottom: 20px;
@@ -873,7 +884,7 @@
   }
   #homepage-course h5,
   .document_style_superdemain h5, .page_origin_learnpath h5 {
-    font-size: 16px !important;
+    font-size: 1.6rem !important;
     font-weight: 500 !important;
     margin-bottom: 20px;
     color: #240A5F;
@@ -910,7 +921,7 @@
     margin-top: 16px;
     padding-right: 10px;
     /*// same style as h3*/
-    font-size: 24px !important;
+    font-size: 2.4rem !important;
     color: #240A5F !important;
     font-weight: 500 !important;
     margin-bottom: 20px;
@@ -936,13 +947,16 @@
 
   .page_origin_learnpath .btn.btn-info {
     color: #ffffff !important;
+    background-color: $secondaryColor;
+    text-decoration: none;
+    font-size: 1.8rem;
   }
 
   .page_origin_learnpath table:not(.matching) td.user-answer-label,
   .page_origin_learnpath table:not(.matching) td.user-answer-label p,
   .page_origin_learnpath table:not(.matching) td.user-answer,
   .page_origin_learnpath table:not(.matching) td.user-answer p {
-    font-size: 16px;
+    font-size: 1.6rem;
   }
 
 
@@ -977,7 +991,7 @@
     }
 
     #global-modal-body tr:not(:first-child) td:first-child {
-      font-size: 16px;
+      font-size: 1.6rem;
     }
 
 
@@ -1005,10 +1019,10 @@
   .exercise_overview_options .btn-success {
     background-color: $secondaryColor;
     border-color: $secondaryColor;
-    line-height: 1.3;
+    line-height: 3rem;
     width: 170px;
     height: 40px;
-    font-size: 18px;
+    font-size: 1.8rem;
     font-weight: 800;
     color: #20124D !important;
     text-decoration: none;
@@ -1030,19 +1044,22 @@
     border-color: $secondaryColor;
     color: #20124D !important;
     text-decoration: none;
+    font-size: 2rem;
+    &:hover {
+      background-color: #FFFFFF;
+      border-color: $secondaryColor;
+      color: #20124D !important;
+      text-decoration: none;
+    }
+    &:focus {
+      background-color: #FFFFFF;
+      border-color: $secondaryColor;
+      color: #20124D !important;
+      text-decoration: none;
+      outline: none;
+    }
   }
-  .form-actions .btn:hover {
-    background-color: #FFFFFF;
-    border-color: $secondaryColor;
-    color: #20124D !important;
-    text-decoration: none;
-  }
-  .form-actions .btn:focus {
-    background-color: #FFFFFF;
-    border-color: $secondaryColor;
-    color: #20124D !important;
-    text-decoration: none;
-  }
+
 
   .ui-draggable circle {
     fill: #20124D;

@@ -47,7 +47,7 @@
                 {{item.description}}
             </div>
             <div class="tuile_description-line"></div>
-            <div class="tuile_description-col">
+            <div class="tuile_description-col tuile_description-col-right">
                 {{item.details }}
                 <div class="course_button">
                     {{ item.go_to_course_button }}
