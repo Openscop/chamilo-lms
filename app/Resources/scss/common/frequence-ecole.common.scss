@@ -22,6 +22,9 @@
   $secondaryColor : nth($mainColors, 2);
   $tertiaryColor : nth($mainColors, 3);
 
+  $trueColor : nth($trueFalseColors, 1);
+  $falseColor : nth($trueFalseColors, 2);
+
   //secondary button hover
   $primaryColorButtonHover : lighten($primaryColor, 10%);
   $secondaryColorButtonHover : lighten($secondaryColor, 10%);
@@ -902,61 +905,80 @@
 
   /* result page */
 
-  .page_origin_learnpath .question_row_score .title-score .total {
-    border: none;
-    background: none;
-    padding-left: 0;
-  }
+  .page_origin_learnpath {
+    .question_row_score .title-score .total {
+      border: none;
+      background: none;
+      padding-left: 0;
+    }
 
-  .page_origin_learnpath .question_row_score .title-score .total .total-scoreTitle {
-    text-align: left;
-  }
+    .question_row_score .title-score .total .total-scoreTitle {
+      text-align: left;
+    }
 
-  .page_origin_learnpath .title-score {
-    min-height: 150px;
-  }
+    .title-score {
+      min-height: 150px;
+    }
 
-  .page_origin_learnpath .title-score h4 {
-    float: left;
-    margin-top: 16px;
-    padding-right: 10px;
-    /*// same style as h3*/
-    font-size: 2.4rem !important;
-    color: #240A5F !important;
-    font-weight: 500 !important;
-    margin-bottom: 20px;
-  }
+    .title-score h4 {
+      float: left;
+      margin-top: 16px;
+      padding-right: 10px;
+      /*// same style as h3*/
+      font-size: 2.4rem !important;
+      color: #240A5F !important;
+      font-weight: 500 !important;
+      margin-bottom: 20px;
+    }
 
-  .page_origin_learnpath .title-score h5 {
-    float: left;
-  }
+    .title-score h5 {
+      float: left;
+    }
 
-  .page_origin_learnpath .ribbon .rib-error, .page_origin_learnpath .ribbon .ribbon-total-error {
-    background: #ff0084;
-  }
-  .page_origin_learnpath .ribbon .rib-error h3, .page_origin_learnpath .ribbon .ribbon-total-error h3 {
-    color: #ffffff !important;
-  }
+    .ribbon {
+      .rib-error, .ribbon-total-error {
+        background: $falseColor;
+      }
+      .rib-error h3, .ribbon-total-error h3 {
+        color: #ffffff !important;
+      }
 
-  .page_origin_learnpath .ribbon .rib-success, .page_origin_learnpath .ribbon .ribbon-total-success {
-    background: $secondaryColor;
-  }
-  .page_origin_learnpath .ribbon .rib-success h3, .page_origin_learnpath .ribbon .ribbon-total-success h3 {
-    color: #ffffff !important;
-  }
+      .rib-success, .ribbon-total-success {
+        background: $trueColor;
+      }
+      .rib-success h3, .ribbon-total-success h3 {
+        color: #ffffff !important;
+      }
+    }
 
-  .page_origin_learnpath .btn.btn-info {
-    color: #ffffff !important;
-    background-color: $secondaryColor;
-    text-decoration: none;
-    font-size: 1.8rem;
-  }
+    .btn.btn-info {
+      color: #20124D !important;
+      background-color: $secondaryColor;
+      text-decoration: none;
+      font-size: 1.8rem;
+    }
 
-  .page_origin_learnpath table:not(.matching) td.user-answer-label,
-  .page_origin_learnpath table:not(.matching) td.user-answer-label p,
-  .page_origin_learnpath table:not(.matching) td.user-answer,
-  .page_origin_learnpath table:not(.matching) td.user-answer p {
-    font-size: 1.6rem;
+    table:not(.matching) {
+      td.user-answer {
+        &-label,
+        &-label p,
+        &,
+        & p {
+          font-size: 1.6rem;
+        }
+
+      }
+    }
+
+    .user-answer, .user-answer-label {
+      &-correct {
+        color: $trueColor;
+      }
+      &-incorrect {
+        color: $falseColor;
+      }
+    }
+
   }
 
 

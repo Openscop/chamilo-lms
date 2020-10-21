@@ -399,8 +399,8 @@ class ExerciseShowFunctions
                 echo '</td>';
             }
         }
-
-        echo '<td width="30%" class="user-answer-label">';
+        $class = $answerCorrect ? 'user-answer-label-correct' : 'user-answer-label-incorrect';
+        echo '<td width="30%" class="user-answer-label '.$class.'">';
         echo $answer;
         echo '</td>';
 
@@ -423,15 +423,12 @@ class ExerciseShowFunctions
         }
 
         if ($showComment) {
-            echo '<td width="20%" class="expected-answer-label">';
-            $color = 'black';
+            $class = 'expected-answer-label-incorrect';
             if ($answerCorrect) {
-                $color = '#62cbd6';
+                $class = "expected-answer-label-correct";
             }
-            if ($hide_expected_answer) {
-                $color = '';
-            }
-            $comment = '<span style="font-weight: bold; color: '.$color.';">'.
+            echo '<td width="20%" class="expected-answer-label '.$class.'">';
+            $comment = '<span>'.
                 Security::remove_XSS($answerComment).
                 '</span>';
             echo $comment;
@@ -537,7 +534,7 @@ class ExerciseShowFunctions
 
         if (EXERCISE_FEEDBACK_TYPE_EXAM != $feedbackType) {
             $content .= '<td width="30%" class="expected-answer-label">';
-            $color = 'black';
+            $class = 'expected-answer-label-incorrect';
             if (isset($new_options[$studentChoice]) || in_array(
                     $exercise->results_disabled,
                     [
@@ -547,13 +544,13 @@ class ExerciseShowFunctions
                 )
             ) {
                 if ($studentChoice == $answerCorrect) {
-                    $color = '#62cbd6';
+                    $class = 'expected-answer-label-correct';
                 }
 
                 if ($hide_expected_answer) {
-                    $color = '';
+                    $class = '';
                 }
-                $content .= '<span style="font-weight: bold; color: '.$color.';">'.nl2br($answerComment).'</span>';
+                $content .= '<span class="'.$class.'">'.nl2br($answerComment).'</span>';
             }
             $content .= '</td>';
         }
@@ -755,21 +752,21 @@ class ExerciseShowFunctions
         }
 
         if (EXERCISE_FEEDBACK_TYPE_EXAM != $feedbackType) {
-            echo '<td width="30%" class="expected-answerlabel">';
+            echo '<td width="30%" class="expected-answer-label">';
             //@todo replace this harcoded value
             if ($studentChoice || in_array($resultsDisabled, [
                 RESULT_DISABLE_SHOW_ONLY_IN_CORRECT_ANSWER,
                 RESULT_DISABLE_SHOW_SCORE_AND_EXPECTED_ANSWERS_AND_RANKING,
             ])
             ) {
-                $color = 'black';
+                $class = 'expected-answer-label-incorrect';
                 if ($studentChoice == $answerCorrect) {
-                    $color = '#62cbd6';
+                    $class = 'expected-answer-label-correct';
                 }
                 if ($hide_expected_answer) {
-                    $color = '';
+                    $class = '';
                 }
-                echo '<span style="font-weight: bold; color: '.$color.';">'.nl2br($answerComment).'</span>';
+                echo '<span class="'.$class.'>'.nl2br($answerComment).'</span>';
             }
             echo '</td>';
         } else {
