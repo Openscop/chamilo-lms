@@ -264,8 +264,8 @@ class ScriptHandler
      */
     public static function updateThemeCss()
     {
-        $appCss = __DIR__.'/../../../../app/Resources/public';
-        $newPath = __DIR__.'/../../../../web';
+        $appCss = __DIR__.'/../../../../app/Resources/public/css/themes';
+        $newPath = __DIR__.'/../../../../web/css/themes';
         $fs = new Filesystem();
         $fs->mirror($appCss, $newPath, null, ['override' => true]);
     }
