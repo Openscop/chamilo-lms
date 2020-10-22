@@ -6,7 +6,7 @@
     {% endif %}
     <section class="sub-footer">
         <img src="http://pros.superdemain.fr/main/img/gallery/logo_footer.png" />
-        {% if access_url_description == 'SuperDemain' %}
+        {% if access_url_description matches '{\w*emain\w*}' %}
         <p>
             <strong>
                 <a href="https://www.frequence-ecoles.org/" title="Site de Fréquence Écoles" target="_blank">
@@ -19,7 +19,7 @@
             <strong><a href="https://chamilo.org/fr/chamilo/" title="Site de Chamilo" target="_blank">Chamilo</a></strong>
             , et le soutien de Zoomacom et Openscop.
         </p>
-        {% elseif access_url_description == 'Numérique En Commun' %}
+        {% elseif access_url_description matches '{\w*ommun\w*}' %}
         <p>
             <strong>
                 <a href="https://www.frequence-ecoles.org/" title="Site de Fréquence Écoles" target="_blank">
