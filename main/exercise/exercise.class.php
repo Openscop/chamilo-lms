@@ -4660,7 +4660,7 @@ class Exercise
                                 if (isset($answerMatching[$choice[$answerAutoId]])) {
                                     $user_answer = Display::span(
                                         $answerMatching[$choice[$answerAutoId]],
-                                        ['style' => 'color: #E61983;', 'class' => 'user-answer user-answer-incorrect']
+                                        ['class' => 'user-answer user-answer-incorrect']
                                     );
                                 }
                             }
@@ -5158,13 +5158,15 @@ class Exercise
                         } elseif (in_array($answerType, [MATCHING, MATCHING_DRAGGABLE])) {
                             echo '<tr>';
                             echo Display::tag('td', $answerMatching[$answerId]);
+                            $class = $answerCorrect ? "user-answer-correct" : "user-answer-incorrect";
                             echo Display::tag(
                                 'td',
                                 "$user_answer / ".Display::tag(
                                     'strong',
                                     $answerMatching[$answerCorrect],
-                                    ['class'=> 'user-answer user-answer-correct']
-                                )
+                                    ['class'=> 'user-answer']
+                                ),
+                                ['class'=> $class]
                             );
                             echo '</tr>';
                         } elseif ($answerType == ANNOTATION) {
@@ -5517,13 +5519,15 @@ class Exercise
                         case MATCHING:
                             echo '<tr>';
                             echo Display::tag('td', $answerMatching[$answerId]);
+                            $class = $answerCorrect ? "user-answer-correct" : "user-answer-incorrect";
                             echo Display::tag(
                                 'td',
                                 "$user_answer / ".Display::tag(
                                     'strong',
                                     $answerMatching[$answerCorrect],
-                                    ['class'=> 'user-answer user-answer-correct']
-                                )
+                                    ['class'=> 'user-answer']
+                                ),
+                                ['class'=> $class]
                             );
                             echo '</tr>';
                             break;
