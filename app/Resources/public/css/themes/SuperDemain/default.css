@@ -220,6 +220,8 @@ footer {
     color: #ffffff; }
   footer .bgfooter a:hover {
     color: #CCC; }
+  footer #footer {
+    width: 100%; }
     footer #footer section.sub-footer {
       display: flex;
       align-items: center;
