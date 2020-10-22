@@ -859,7 +859,9 @@
   /******************************************
   // IFRAMES DES GRAINS
   ******************************************/
-  .document_style_superdemain, .page_origin_learnpath {
+  .document_style_superdemain,
+  .document_style_iframe,
+  .page_origin_learnpath {
     max-width: 1000px;
     margin: auto;
     background-color: white !important;
@@ -870,14 +872,18 @@
   Learn path page and styled document page
    */
   #homepage-course,
-  .document_style_superdemain, .page_origin_learnpath {
+  .document_style_superdemain,
+  .document_style_iframe,
+  .page_origin_learnpath {
     font-size: 2rem !important;
     line-height: 24px;
     font-weight: 500 !important;
     color: #240A5F !important;
   }
   #homepage-course h1,
-  .document_style_superdemain h1, .page_origin_learnpath h1 {
+  .document_style_superdemain h1,
+  .document_style_iframe h1,
+  .page_origin_learnpath h1 {
     font-size: 4rem !important;
     text-transform: uppercase !important;
     color: #240A5F !important;
@@ -886,40 +892,52 @@
     margin-top: 40px;
   }
   #homepage-course h2,
-  .document_style_superdemain h2, .page_origin_learnpath h2 {
+  .document_style_superdemain h2,
+  .document_style_iframe h2,
+  .page_origin_learnpath h2 {
     font-size: 2.8rem !important;
     color: $primaryColor !important;
     font-weight: 400 !important;
     margin-bottom: 20px;
   }
   #homepage-course h3,
-  .document_style_superdemain h3, .page_origin_learnpath h3 {
+  .document_style_superdemain h3,
+  .document_style_iframe h3,
+  .page_origin_learnpath h3 {
     font-size: 2.4rem !important;
     color: #240A5F !important;
     font-weight: 500 !important;
     margin-bottom: 20px;
   }
   #homepage-course h4,
-  .document_style_superdemain h4, .page_origin_learnpath h4 {
+  .document_style_superdemain h4,
+  .document_style_iframe h4,
+  .page_origin_learnpath h4 {
     font-size: 20px !important;
     color: #62CBD6 !important;
     font-weight: 700 !important;
     margin-bottom: 20px;
   }
   #homepage-course h5,
-  .document_style_superdemain h5, .page_origin_learnpath h5 {
+  .document_style_superdemain h5,
+  .document_style_iframe h5,
+  .page_origin_learnpath h5 {
     font-size: 1.6rem !important;
     font-weight: 500 !important;
     margin-bottom: 20px;
     color: #240A5F;
   }
   #homepage-course a,
-  .document_style_superdemain a, .page_origin_learnpath a {
+  .document_style_superdemain a,
+  .document_style_iframe a,
+  .page_origin_learnpath a {
     text-decoration: underline;
     color: #24989c !important;
   }
   #homepage-course a:hover,
-  .document_style_superdemain a:hover, .page_origin_learnpath a:hover {
+  .document_style_superdemain a:hover,
+  .document_style_iframe a:hover,
+  .page_origin_learnpath a:hover {
     text-decoration: underline;
     color: #6DEAEE !important;
   }
@@ -1004,7 +1022,9 @@
 
 
   /* MODAL */
-  .document_style_superdemain, .page_origin_learnpath {
+  .document_style_superdemain,
+  .document_style_iframe,
+  .page_origin_learnpath {
     @media (min-width: 768px) {
       .modal-dialog {
         width: 800px;
@@ -1042,14 +1062,17 @@
 
 
   .document_style_superdemain #global-modal-body tr:first-child td,
+  .document_style_iframe #global-modal-body tr:first-child td,
   .page_origin_learnpath #global-modal-body tr:first-child td {
     font-weight: bold;
   }
   .document_style_superdemain .answer-correct,
+  .document_style_iframe .answer-correct,
   .page_origin_learnpath .answer-correct {
     color: #0099c0;
   }
   .document_style_superdemain .answer-false,
+  .document_style_iframe .answer-false,
   .page_origin_learnpath .answer-false {
     color: #E61983;
   }
