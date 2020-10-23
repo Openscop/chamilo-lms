@@ -94,8 +94,8 @@ function SendEx(num) {
     const learnpath_item_view_id = document.querySelector("input[name=\"learnpath_item_view_id\"").value;
     const exe_id = document.querySelector("input[name=\"exe_id\"").value;
     if (num == -1) {
-        // FIXME OPENSCOP > exerciceId= doit etre exe_id=
-        window.location.href = "exercise_result.php?'.api_get_cidreq().'&take_session=1&exe_id="+exe_id+"&exerciseId='.$exerciseId.'&num="+num+"&learnpath_item_id="+learnpath_item_id+"&learnpath_id="+learnpath_id+"&learnpath_item_view_id="+learnpath_item_view_id;
+        // FIXME OPENSCOP
+        window.location.href = "exercise_result.php?'.api_get_cidreq().'&take_session=1&exe_id="+exe_id+"&exerciseId='.$exerciseId.'&num="+num+"&learnpath_item_id="+learnpath_item_id+"&learnpath_id="+learnpath_id+"&learnpath_item_view_id="+learnpath_item_view_id+"&from_submit_modal=1";
     } else {
         num -= 1;
         window.location.href = "exercise_submit.php?'.api_get_cidreq().'&tryagain=1&exe_id="+exe_id+"&exerciseId='.$exerciseId.'&num="+num+"&learnpath_item_id="+learnpath_item_id+"&learnpath_id="+learnpath_id+"&learnpath_item_view_id="+learnpath_item_view_id;
@@ -283,6 +283,7 @@ if (!empty($result)) {
         case MULTIPLE_ANSWER:
         case UNIQUE_ANSWER:
         case DRAGGABLE:
+        case MATCHING_DRAGGABLE:
         case HOT_SPOT_DELINEATION:
         case CALCULATED_ANSWER:
             if ($result['score'] == $result['weight']) {
@@ -323,14 +324,19 @@ if ($objExercise->getFeedbackType() === EXERCISE_FEEDBACK_TYPE_DIRECT) {
             $table = new HTML_Table(['class' => 'table table-hover table-striped data_table']);
             $row = 0;
             $table->setCellContents($row, 0, get_lang('YourAnswer'));
-            if ($answerType != DRAGGABLE) {
+            if ($answerType != DRAGGABLE && $answerType != MATCHING_DRAGGABLE) {
                 $table->setCellContents($row, 1, get_lang('Comment'));
             }
 
             $data = [];
             foreach ($result['correct_answer_id'] as $answerId) {
-                $answer = $objAnswerTmp->getAnswerByAutoId($answerId);
-
+                if (isset($answerId['id']) && isset($answerId['correct'])) {
+                    // FIXME : hack to display incorrect answers for MATCHING type
+                    $answer = $objAnswerTmp->getAnswerByAutoId($answerId['id']);
+                    $answer['correct'] = $answerId['correct'];
+                } else {
+                    $answer = $objAnswerTmp->getAnswerByAutoId($answerId);
+                }
                 $correct = 'correct';
                 if (!empty($answer) && !$answer['correct']) {
                     $correct = 'false';

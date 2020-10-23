@@ -4652,12 +4652,21 @@ class Exercise
                             if (isset($choice[$answerAutoId]) &&
                                 $answerCorrect == $choice[$answerAutoId]
                             ) {
-                                $correctAnswerId[] = $answerAutoId;
+                                // FIXME: fréquence école fix to display incorrect answer on modal
+                                $correctAnswerId[] = [
+                                    'correct' => 1,
+                                    'id' => $answerAutoId
+                                ];
                                 $questionScore += $answerWeighting;
                                 $totalScore += $answerWeighting;
                                 $user_answer = Display::span($answerMatching[$choice[$answerAutoId]]);
                             } else {
                                 if (isset($answerMatching[$choice[$answerAutoId]])) {
+                                    // FIXME: fréquence école : to add incorrect answers to be displayed on modal
+                                    $correctAnswerId[] = [
+                                        'correct' => 0,
+                                        'id' => $answerAutoId
+                                    ];
                                     $user_answer = Display::span(
                                         $answerMatching[$choice[$answerAutoId]],
                                         ['class' => 'user-answer user-answer-incorrect']
@@ -5157,16 +5166,18 @@ class Exercise
                             }
                         } elseif (in_array($answerType, [MATCHING, MATCHING_DRAGGABLE])) {
                             echo '<tr>';
-                            echo Display::tag('td', $answerMatching[$answerId]);
-                            $class = $answerCorrect ? "user-answer-correct" : "user-answer-incorrect";
+                            $element = $objAnswerTmp->selectAnswer($answerId);
+                            echo Display::tag('td', $element);
+                            $class = $answerCorrect ? "correct" : "incorrect";
                             echo Display::tag(
                                 'td',
-                                "$user_answer / ".Display::tag(
-                                    'strong',
-                                    $answerMatching[$answerCorrect],
-                                    ['class'=> 'user-answer']
-                                ),
-                                ['class'=> $class]
+                                $user_answer,
+                                ['class'=> 'user-answer-'.$class]
+                            );
+                            echo Display::tag(
+                                'td',
+                                $answerMatching[$answerCorrect],
+                                ['class'=> 'expected-answer-'.$class]
                             );
                             echo '</tr>';
                         } elseif ($answerType == ANNOTATION) {

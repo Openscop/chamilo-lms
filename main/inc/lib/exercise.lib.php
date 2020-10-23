@@ -4422,12 +4422,14 @@ EOT;
      * @param int      $exeId
      * @param bool     $save_user_result save users results (true) or just show the results (false)
      * @param string   $remainingMessage
+     * @param bool   $fromSubmitModal hack to fix display of results when using direct result popins
      */
     public static function displayQuestionListByAttempt(
         $objExercise,
         $exeId,
         $save_user_result = false,
-        $remainingMessage = ''
+        $remainingMessage = '',
+        $fromSubmitModal = false
     ) {
         $origin = api_get_origin();
         $courseId = api_get_course_int_id();
@@ -4603,10 +4605,14 @@ EOT;
         $exerciseResultCoordinates = null;
         $delineationResults = null;
 
-        if (in_array(
-            $objExercise->getFeedbackType(),
-            [EXERCISE_FEEDBACK_TYPE_DIRECT, EXERCISE_FEEDBACK_TYPE_POPUP]
-        )) {
+        if (
+            in_array(
+                $objExercise->getFeedbackType(),
+                [EXERCISE_FEEDBACK_TYPE_DIRECT, EXERCISE_FEEDBACK_TYPE_POPUP]
+            )
+            //      FIXME: GET FROM DATABASE WHEN USING DIRECT POPINS
+            && $fromSubmitModal
+        ) {
             $loadChoiceFromSession = true;
             $fromDatabase = false;
             $exerciseResult = Session::read('exerciseResult');

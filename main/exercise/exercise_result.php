@@ -37,6 +37,7 @@ if (empty($objExercise)) {
 }
 
 $exe_id = isset($_REQUEST['exe_id']) ? (int) $_REQUEST['exe_id'] : 0;
+$fromSubmitModal = isset($_REQUEST['from_submit_modal']) ? (int) $_REQUEST['from_submit_modal'] : false;
 
 if (empty($objExercise)) {
     // Redirect to the exercise overview
@@ -219,7 +220,8 @@ $stats = ExerciseLib::displayQuestionListByAttempt(
     $objExercise,
     $exe_id,
     $saveResults,
-    $remainingMessage
+    $remainingMessage,
+    $fromSubmitModal
 );
 $pageContent .= ob_get_contents();
 ob_end_clean();
