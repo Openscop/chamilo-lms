@@ -502,40 +502,22 @@ footer {
 
 /****** Couleurs des thumbnails ******/
 .tuile:nth-child(6n + 1) .thumbnail .items-hotcourse {
-  background-color: #FF3246; }
+  background-color: #0430E9; }
   .tuile:nth-child(6n + 1) .thumbnail .items-hotcourse .registred {
     background-color: #FF3246; }
     .tuile:nth-child(6n + 1) .thumbnail .items-hotcourse .registred:before, .tuile:nth-child(6n + 1) .thumbnail .items-hotcourse .registred:after {
       border-right-color: #FF3246; }
 .tuile:nth-child(6n + 2) .thumbnail .items-hotcourse {
-  background-color: #E61983; }
+  background-color: #20124D; }
   .tuile:nth-child(6n + 2) .thumbnail .items-hotcourse .registred {
     background-color: #FF3246; }
     .tuile:nth-child(6n + 2) .thumbnail .items-hotcourse .registred:before, .tuile:nth-child(6n + 2) .thumbnail .items-hotcourse .registred:after {
       border-right-color: #FF3246; }
 .tuile:nth-child(6n + 3) .thumbnail .items-hotcourse {
-  background-color: #20124D; }
+  background-color: #DADEE7; }
   .tuile:nth-child(6n + 3) .thumbnail .items-hotcourse .registred {
     background-color: #FF3246; }
     .tuile:nth-child(6n + 3) .thumbnail .items-hotcourse .registred:before, .tuile:nth-child(6n + 3) .thumbnail .items-hotcourse .registred:after {
-      border-right-color: #FF3246; }
-.tuile:nth-child(6n + 4) .thumbnail .items-hotcourse {
-  background-color: #6DEAEE; }
-  .tuile:nth-child(6n + 4) .thumbnail .items-hotcourse .registred {
-    background-color: #FF3246; }
-    .tuile:nth-child(6n + 4) .thumbnail .items-hotcourse .registred:before, .tuile:nth-child(6n + 4) .thumbnail .items-hotcourse .registred:after {
-      border-right-color: #FF3246; }
-.tuile:nth-child(6n + 5) .thumbnail .items-hotcourse {
-  background-color: #24989c; }
-  .tuile:nth-child(6n + 5) .thumbnail .items-hotcourse .registred {
-    background-color: #FF3246; }
-    .tuile:nth-child(6n + 5) .thumbnail .items-hotcourse .registred:before, .tuile:nth-child(6n + 5) .thumbnail .items-hotcourse .registred:after {
-      border-right-color: #FF3246; }
-.tuile:nth-child(6n + 6) .thumbnail .items-hotcourse {
-  background-color: #5e0abe; }
-  .tuile:nth-child(6n + 6) .thumbnail .items-hotcourse .registred {
-    background-color: #FF3246; }
-    .tuile:nth-child(6n + 6) .thumbnail .items-hotcourse .registred:before, .tuile:nth-child(6n + 6) .thumbnail .items-hotcourse .registred:after {
       border-right-color: #FF3246; }
 
 /**********************************************************************************************
@@ -923,7 +905,7 @@ a {
   .page_origin_learnpath .ribbon .rib-error h3, .page_origin_learnpath .ribbon .ribbon-total-error h3 {
     color: #ffffff !important; }
   .page_origin_learnpath .ribbon .rib-success, .page_origin_learnpath .ribbon .ribbon-total-success {
-    background: #6DEAEE; }
+    background: #4A6CFF; }
   .page_origin_learnpath .ribbon .rib-success h3, .page_origin_learnpath .ribbon .ribbon-total-success h3 {
     color: #ffffff !important; }
 .page_origin_learnpath .btn.btn-info {
@@ -934,7 +916,7 @@ a {
   .page_origin_learnpath table:not(.matching) td.user-answer-label, .page_origin_learnpath table:not(.matching) td.user-answer-label p, .page_origin_learnpath table:not(.matching) td.user-answer, .page_origin_learnpath table:not(.matching) td.user-answer p {
     font-size: 1.6rem; }
 .page_origin_learnpath .user-answer-correct, .page_origin_learnpath .user-answer-label-correct {
-  color: #6DEAEE; }
+  color: #4A6CFF; }
 .page_origin_learnpath .user-answer-incorrect, .page_origin_learnpath .user-answer-label-incorrect {
   color: #E61983; }
 
@@ -945,17 +927,17 @@ a {
     max-width: 100%; } }
 .document_style_superdemain .incorrect-answer, .document_style_iframe .incorrect-answer, .page_origin_learnpath .incorrect-answer {
   color: #E61983 !important; }
-.document_style_superdemain .next-exercice-button, .document_style_iframe .next-exercice-button, .page_origin_learnpath .next-exercice-button {
+.document_style_superdemain .next-exercice-button, .document_style_superdemain .finish-button, .document_style_superdemain .reload-button, .document_style_iframe .next-exercice-button, .document_style_iframe .finish-button, .document_style_iframe .reload-button, .page_origin_learnpath .next-exercice-button, .page_origin_learnpath .finish-button, .page_origin_learnpath .reload-button {
   background-color: #FFEC00;
   border-color: #FFEC00;
   color: #1A063F !important;
   text-decoration: none; }
-  .document_style_superdemain .next-exercice-button:hover, .document_style_iframe .next-exercice-button:hover, .page_origin_learnpath .next-exercice-button:hover {
+  .document_style_superdemain .next-exercice-button:hover, .document_style_superdemain .finish-button:hover, .document_style_superdemain .reload-button:hover, .document_style_iframe .next-exercice-button:hover, .document_style_iframe .finish-button:hover, .document_style_iframe .reload-button:hover, .page_origin_learnpath .next-exercice-button:hover, .page_origin_learnpath .finish-button:hover, .page_origin_learnpath .reload-button:hover {
     background-color: #FFFFFF;
     border-color: #fff033;
     color: #1A063F !important;
     text-decoration: none; }
-  .document_style_superdemain .next-exercice-button:focus, .document_style_iframe .next-exercice-button:focus, .page_origin_learnpath .next-exercice-button:focus {
+  .document_style_superdemain .next-exercice-button:focus, .document_style_superdemain .finish-button:focus, .document_style_superdemain .reload-button:focus, .document_style_iframe .next-exercice-button:focus, .document_style_iframe .finish-button:focus, .document_style_iframe .reload-button:focus, .page_origin_learnpath .next-exercice-button:focus, .page_origin_learnpath .finish-button:focus, .page_origin_learnpath .reload-button:focus {
     background-color: #FFFFFF;
     border-color: #fff033;
     color: #1A063F !important;

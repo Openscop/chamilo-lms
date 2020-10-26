@@ -122,7 +122,7 @@ if (empty($choiceValue) && empty($hotSpot) && $loaded) {
         '',
         ['style' => 'width:22px; height:22px; padding-left:0px;padding-right:5px;']
     );
-    $links = '<a onclick="tryAgain();" href="#">'.get_lang('TryAgain').'</a>&nbsp;'.$icon.'&nbsp;';
+    $links = '<a class="btn reload-button" onclick="tryAgain();" href="#">'.get_lang('TryAgain').'</a>&nbsp;'.$icon.'&nbsp;';
 
     // the link to finish the test
     if (-1 == $destinationId) {
@@ -130,7 +130,7 @@ if (empty($choiceValue) && empty($hotSpot) && $loaded) {
                 'finish.gif',
                 '',
                 ['style' => 'width:22px; height:22px; padding-left:0px;padding-right:5px;']
-            ).'<a onclick="SendEx(-1);" href="#">'.get_lang('EndActivity').'</a><br /><br />';
+            ).'<a class="btn finish-button" onclick="SendEx(-1);" href="#">'.get_lang('EndActivity').'</a><br /><br />';
     } else {
         // the link to other question
         if (in_array($destinationId, $questionList)) {
@@ -140,7 +140,7 @@ if (empty($choiceValue) && empty($hotSpot) && $loaded) {
                 '',
                 ['style' => 'padding-left:0px;padding-right:5px;']
             );
-            $links .= '<a onclick="SendEx('.$num_value_array[0].');" href="#">'.
+            $links .= '<a class="btn next-exercice-button" onclick="SendEx('.$num_value_array[0].');" href="#">'.
                 get_lang('Question').' '.$num_value_array[0].'</a>&nbsp;';
             $links .= $icon;
         }
@@ -409,7 +409,7 @@ if (isset($try) && 1 == $try) {
         'reload.gif',
         '',
         ['style' => 'padding-left:0px;padding-right:5px;']
-    ).'<a onclick="SendEx('.$num_value_array[0].');" href="#">'.get_lang('TryAgain').'</a><br /><br />';
+    ).'<a class="btn reload-button" onclick="SendEx('.$num_value_array[0].');" href="#">'.get_lang('TryAgain').'</a><br /><br />';
 }
 
 // the link to theory (a learning path)
@@ -442,7 +442,7 @@ if (-1 == $destinationId) {
         'finish.gif',
         '',
         ['style' => 'width:22px; height:22px; padding-left:0px;padding-right:5px;']
-    ).'<a onclick="SendEx(-1);" href="#">'.get_lang('EndActivity').'</a><br /><br />';
+    ).'<a class="btn finish-button" onclick="SendEx(-1);" href="#">'.get_lang('EndActivity').'</a><br /><br />';
 } else {
     // the link to other question
     if (in_array($destinationId, $questionList)) {

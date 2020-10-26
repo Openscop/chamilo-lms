@@ -1034,7 +1034,7 @@
     .incorrect-answer {
       color: #E61983 !important;
     }
-    .next-exercice-button {
+    .next-exercice-button, .finish-button, .reload-button {
       background-color: $secondaryColor;
       border-color: $secondaryColor;
       color: $tertiaryColor !important;

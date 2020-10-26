@@ -888,17 +888,17 @@ a {
     max-width: 100%; } }
 .document_style_superdemain .incorrect-answer, .document_style_iframe .incorrect-answer, .page_origin_learnpath .incorrect-answer {
   color: #E61983 !important; }
-.document_style_superdemain .next-exercice-button, .document_style_iframe .next-exercice-button, .page_origin_learnpath .next-exercice-button {
+.document_style_superdemain .next-exercice-button, .document_style_superdemain .finish-button, .document_style_superdemain .reload-button, .document_style_iframe .next-exercice-button, .document_style_iframe .finish-button, .document_style_iframe .reload-button, .page_origin_learnpath .next-exercice-button, .page_origin_learnpath .finish-button, .page_origin_learnpath .reload-button {
   background-color: #6DEAEE;
   border-color: #6DEAEE;
   color: #20124D !important;
   text-decoration: none; }
-  .document_style_superdemain .next-exercice-button:hover, .document_style_iframe .next-exercice-button:hover, .page_origin_learnpath .next-exercice-button:hover {
+  .document_style_superdemain .next-exercice-button:hover, .document_style_superdemain .finish-button:hover, .document_style_superdemain .reload-button:hover, .document_style_iframe .next-exercice-button:hover, .document_style_iframe .finish-button:hover, .document_style_iframe .reload-button:hover, .page_origin_learnpath .next-exercice-button:hover, .page_origin_learnpath .finish-button:hover, .page_origin_learnpath .reload-button:hover {
     background-color: #FFFFFF;
     border-color: #9bf1f3;
     color: #20124D !important;
     text-decoration: none; }
-  .document_style_superdemain .next-exercice-button:focus, .document_style_iframe .next-exercice-button:focus, .page_origin_learnpath .next-exercice-button:focus {
+  .document_style_superdemain .next-exercice-button:focus, .document_style_superdemain .finish-button:focus, .document_style_superdemain .reload-button:focus, .document_style_iframe .next-exercice-button:focus, .document_style_iframe .finish-button:focus, .document_style_iframe .reload-button:focus, .page_origin_learnpath .next-exercice-button:focus, .page_origin_learnpath .finish-button:focus, .page_origin_learnpath .reload-button:focus {
     background-color: #FFFFFF;
     border-color: #9bf1f3;
     color: #20124D !important;
