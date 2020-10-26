@@ -302,17 +302,21 @@ footer {
 
 /**********************************************************************************************
   /**********************************************************************************************
-  // Page acceuil
+  // Page accueil
   ***********************************************************************************************
   ***********************************************************************************************/
-/************** Titre **************/
-.homepage-title {
+.homepage {
+  /************** Titre **************/ }
+@media (min-width: 1200px) {
+  .homepage #cm-content > .container {
+    width: 1400px; } }
+.homepage .homepage-title {
   margin: 20px !important;
   font-size: 2.3rem; }
-  .homepage-title-themeName {
+  .homepage .homepage-title-themeName {
     color: #0430E9;
     font-weight: bold; }
-  .homepage-title-link {
+  .homepage .homepage-title-link {
     color: #0430E9;
     font-weight: bold; }
 
@@ -551,24 +555,24 @@ footer {
   bottom: 0; }
 
 /****** Couleurs des thumbnails ******/
-.tuile:nth-child(6n + 1) .thumbnail .items-hotcourse {
+.tuile:nth-child(3n + 1) .thumbnail .items-hotcourse {
   background-color: #0430E9; }
-  .tuile:nth-child(6n + 1) .thumbnail .items-hotcourse .registred {
+  .tuile:nth-child(3n + 1) .thumbnail .items-hotcourse .registred {
     background-color: #0430E9; }
-    .tuile:nth-child(6n + 1) .thumbnail .items-hotcourse .registred:before, .tuile:nth-child(6n + 1) .thumbnail .items-hotcourse .registred:after {
+    .tuile:nth-child(3n + 1) .thumbnail .items-hotcourse .registred:before, .tuile:nth-child(3n + 1) .thumbnail .items-hotcourse .registred:after {
       border-right-color: #0430E9; }
-.tuile:nth-child(6n + 2) .thumbnail .items-hotcourse {
+.tuile:nth-child(3n + 2) .thumbnail .items-hotcourse {
   background-color: #20124D; }
-  .tuile:nth-child(6n + 2) .thumbnail .items-hotcourse .registred {
+  .tuile:nth-child(3n + 2) .thumbnail .items-hotcourse .registred {
     background-color: #20124D; }
-    .tuile:nth-child(6n + 2) .thumbnail .items-hotcourse .registred:before, .tuile:nth-child(6n + 2) .thumbnail .items-hotcourse .registred:after {
+    .tuile:nth-child(3n + 2) .thumbnail .items-hotcourse .registred:before, .tuile:nth-child(3n + 2) .thumbnail .items-hotcourse .registred:after {
       border-right-color: #20124D; }
-.tuile:nth-child(6n + 3) .thumbnail .items-hotcourse {
-  background-color: #DADEE7; }
-  .tuile:nth-child(6n + 3) .thumbnail .items-hotcourse .registred {
-    background-color: #DADEE7; }
-    .tuile:nth-child(6n + 3) .thumbnail .items-hotcourse .registred:before, .tuile:nth-child(6n + 3) .thumbnail .items-hotcourse .registred:after {
-      border-right-color: #DADEE7; }
+.tuile:nth-child(3n + 3) .thumbnail .items-hotcourse {
+  background-color: #bdc1ca; }
+  .tuile:nth-child(3n + 3) .thumbnail .items-hotcourse .registred {
+    background-color: #bdc1ca; }
+    .tuile:nth-child(3n + 3) .thumbnail .items-hotcourse .registred:before, .tuile:nth-child(3n + 3) .thumbnail .items-hotcourse .registred:after {
+      border-right-color: #bdc1ca; }
 
 /**********************************************************************************************
   /**********************************************************************************************
@@ -1058,3 +1062,10 @@ a {
 /* profile page*/
 #profile_block img {
   width: 27px; }
+
+/*
+  Tuiles
+ */
+@media (min-width: 1400px) {
+  .col-md-4.tuile {
+    width: 25%; } }

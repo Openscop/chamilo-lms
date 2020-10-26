@@ -245,17 +245,21 @@ footer {
 
 /**********************************************************************************************
   /**********************************************************************************************
-  // Page acceuil
+  // Page accueil
   ***********************************************************************************************
   ***********************************************************************************************/
-/************** Titre **************/
-.homepage-title {
+.homepage {
+  /************** Titre **************/ }
+@media (min-width: 1200px) {
+  .homepage #cm-content > .container {
+    width: 1400px; } }
+.homepage .homepage-title {
   margin: 20px !important;
   font-size: 2.3rem; }
-  .homepage-title-themeName {
+  .homepage .homepage-title-themeName {
     color: #E7344F;
     font-weight: bold; }
-  .homepage-title-link {
+  .homepage .homepage-title-link {
     color: #E7344F;
     font-weight: bold; }
 

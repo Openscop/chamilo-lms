@@ -230,23 +230,34 @@
 
   /**********************************************************************************************
   /**********************************************************************************************
-  // Page acceuil
+  // Page accueil
   ***********************************************************************************************
   ***********************************************************************************************/
 
-  /************** Titre **************/
-  .homepage-title {
-    &-themeName {
-      color: $primaryColor;
-      font-weight: bold;
+  .homepage {
+    @media (min-width: 1200px) {
+      #cm-content > .container {
+        width: 1400px;
+      }
     }
-    &-link {
-      color: $primaryColor;
-      font-weight: bold;
+
+    /************** Titre **************/
+    .homepage-title {
+      &-themeName {
+        color: $primaryColor;
+        font-weight: bold;
+      }
+      &-link {
+        color: $primaryColor;
+        font-weight: bold;
+      }
+      margin: 20px !important;
+      font-size: 2.3rem;
     }
-    margin: 20px !important;
-    font-size: 2.3rem;
+
   }
+
+
 
 
   /************** Tuiles **************/
@@ -531,7 +542,7 @@
   //default
   @each $color in $thumbnailColors {
     $index: index($thumbnailColors, $color);
-    .tuile:nth-child(6n + #{$index}) {
+    .tuile:nth-child(#{length($thumbnailColors)}n + #{$index}) {
       .thumbnail .items-hotcourse {
         background-color: $color;
         .registred {

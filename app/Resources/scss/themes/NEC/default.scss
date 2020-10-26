@@ -137,8 +137,17 @@
 }
 
 $mainColors: #0430E9, #FFEC00, #1A063F;
-$thumbnailColors : #0430E9, #20124D, #DADEE7;
+$thumbnailColors : #0430E9, #20124D, #bdc1ca;
 $trueFalseColors : #4A6CFF, #E61983;
 @include frequenceEcoleMixin('Montserrat', $mainColors, $thumbnailColors, $trueFalseColors, 56.5%);
 
 
+/*
+  Tuiles
+ */
+
+.col-md-4.tuile {
+  @media (min-width: 1400px) {
+    width: 25%;
+  }
+}

@@ -9,7 +9,7 @@
     {% include 'layout/head.tpl'|get_template %}
     {% endblock %}
 </head>
-<body class="{{ 'page_origin' ? ('page_origin_' ~ page_origin) : '' }}">
+<body class="homepage">
 <!-- START MAIN -->
 <main id="main" dir="{{ text_direction }}" class="{{ section_name }} {{ login_class }}">
     <noscript>{{ "NoJavascript"|get_lang }}</noscript>
@@ -46,7 +46,7 @@
 
     <!-- START CONTENT -->
     <section id="cm-content">
-        <div class="container-fluid" style="margin: 0 40px;">
+        <div class="container">
             <div class="row">
                 <h1 class="homepage-title">Bienvenue dans l'espace pro de <span class="homepage-title-themeName">{{access_url_description}}</span> développé pour vous permettre de suivre des parcours en ligne contenant des <strong>vidéos explicatives</strong>, des <strong>interviews</strong>, des <strong>exercices à faire</strong> et des <strong>fiches à télécharger</strong>... Vous pouvez vous connecter, dès à présent, avec le code que vous avez reçu par mail. <span class="homepage-title-link">Cliquez sur un parcours pour vous inscrire et accéder au cours.</span></h1>
             </div>
