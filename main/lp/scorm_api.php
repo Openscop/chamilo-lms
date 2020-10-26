@@ -1389,6 +1389,27 @@ function update_stats_page() {
 }
 
 /**
+* Updates the progress indicator with the new status. Prevents the need of a page refresh and flickering
+* @param	integer	Number of completed items
+* @param	integer	Number of items in total
+*/
+function update_progress_indicator(nbr_complete, nbr_total) {
+
+    let percentage = (nbr_complete/nbr_total)*100;
+    percentage = Math.round(percentage);
+
+    const degre = (percentage * 180)/100;
+
+    if ($('#progressIndicator').length) {
+        $('#progressIndicator .ring').css('transform', 'rotate('+degre+'deg)');
+        $('#progressIndicator .dial').css('transform', 'rotate('+degre+'deg)');
+        $('#progressIndicator .progressIndicator-text').html(percentage+'%');
+    }
+
+    return true;
+}
+
+/**
  * Updates the progress bar with the new status. Prevents the need of a page refresh and flickering
  * @param	integer	Number of completed items
  * @param	integer	Number of items in total
@@ -1427,6 +1448,10 @@ function update_progress_bar(nbr_complete, nbr_total, mode) {
             break;
     }
     progress_bar.html(mytext);
+
+    // FIXME : frequence ecole custom change
+    update_progress_indicator(nbr_complete, nbr_total);
+
     return true;
 }
 
