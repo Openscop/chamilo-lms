@@ -8,6 +8,12 @@
  * primary color : header bg, main button
  * secondary color: secondary button
  */
+/*
+Useful
+ */
+.show-flex {
+  display: flex !important; }
+
 /* cyrillic-ext */
 @font-face {
   font-family: 'Montserrat';
@@ -311,10 +317,43 @@ footer {
     font-weight: bold; }
 
 /************** Tuiles **************/
+@keyframes fadin-70-frames {
+  0% {
+    opacity: 0; }
+  70% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+@keyframes fadin-frames {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
 .tuile {
   margin-left: 0px;
   margin-top: 0px;
-  padding: 15px; }
+  padding: 15px;
+  opacity: 0; }
+  .tuile.select {
+    -webkit-transition: margin 0.3s ease-out;
+    -moz-transition: margin 0.3s ease-out;
+    -o-transition: margin 0.3s ease-out;
+    animation: jBounceUp-frames 400ms;
+    opacity: 1; }
+  .tuile:not(.hide):not(.select) {
+    animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards;
+    animation: fadin-frames 500ms;
+    opacity: 1; }
+
+@keyframes jBounceUp-frames {
+  0%, 20%, 100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0); }
+  80% {
+    -webkit-transform: translateY(-7px);
+    transform: translateY(-7px); } }
 
 .tuile_description {
   display: none;
@@ -322,7 +361,13 @@ footer {
   position: relative;
   flex-wrap: wrap;
   margin-top: 65px !important;
-  padding: 20px; }
+  padding: 20px;
+  opacity: 0; }
+  .tuile_description.show-flex {
+    animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards;
+    animation: fadin-70-frames 500ms;
+    opacity: 1; }
 
 .tuile_description .row {
   display: flex; }
@@ -439,7 +484,13 @@ footer {
   transform: skew(-70deg, 65deg);
   margin-left: 100px;
   top: 450px;
-  display: none; }
+  display: none;
+  opacity: 0; }
+  .triangle.show {
+    animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards;
+    animation: fadin-70-frames 500ms;
+    opacity: 1; }
 
 .thumbnail .items {
   position: relative; }
@@ -477,7 +528,6 @@ footer {
   width: 60px;
   display: block;
   padding: 10px 0;
-  background: #FF3246;
   color: white;
   text-align: center; }
 
@@ -487,7 +537,7 @@ footer {
   right: 60px;
   width: 0;
   height: 0;
-  border-right: 20px solid #FF3246;
+  border-right: 20px solid;
   border-left: 0; }
 
 .thumbnail .registred:before {
@@ -504,21 +554,21 @@ footer {
 .tuile:nth-child(6n + 1) .thumbnail .items-hotcourse {
   background-color: #0430E9; }
   .tuile:nth-child(6n + 1) .thumbnail .items-hotcourse .registred {
-    background-color: #FF3246; }
+    background-color: #0430E9; }
     .tuile:nth-child(6n + 1) .thumbnail .items-hotcourse .registred:before, .tuile:nth-child(6n + 1) .thumbnail .items-hotcourse .registred:after {
-      border-right-color: #FF3246; }
+      border-right-color: #0430E9; }
 .tuile:nth-child(6n + 2) .thumbnail .items-hotcourse {
   background-color: #20124D; }
   .tuile:nth-child(6n + 2) .thumbnail .items-hotcourse .registred {
-    background-color: #FF3246; }
+    background-color: #20124D; }
     .tuile:nth-child(6n + 2) .thumbnail .items-hotcourse .registred:before, .tuile:nth-child(6n + 2) .thumbnail .items-hotcourse .registred:after {
-      border-right-color: #FF3246; }
+      border-right-color: #20124D; }
 .tuile:nth-child(6n + 3) .thumbnail .items-hotcourse {
   background-color: #DADEE7; }
   .tuile:nth-child(6n + 3) .thumbnail .items-hotcourse .registred {
-    background-color: #FF3246; }
+    background-color: #DADEE7; }
     .tuile:nth-child(6n + 3) .thumbnail .items-hotcourse .registred:before, .tuile:nth-child(6n + 3) .thumbnail .items-hotcourse .registred:after {
-      border-right-color: #FF3246; }
+      border-right-color: #DADEE7; }
 
 /**********************************************************************************************
   /**********************************************************************************************

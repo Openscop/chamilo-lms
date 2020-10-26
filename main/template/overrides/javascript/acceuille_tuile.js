@@ -11,27 +11,29 @@ $(function() {
             window.location = this.getAttribute('data-url');
         }else {
             // gere l'animation pour la page home
-            if (is_display === 0) {
-                $(this).effect("bounce", {times: 1, distance: 15}, 400);
-                $('.tuile').not(this).each(function () {
-                    $(this).css("display", "none");
-                });
-                $(this).find($(".tuile_description").fadeIn().css("display", "flex"));
-                $(this).find($(".triangle").fadeIn());
-                is_display = 1;
-                return is_display;
-            }
+
+            // add selected on tuile
+            $(this).addClass("select");
+            $('.tuile').not(this).each(function () {
+                $(this).addClass("hide");
+            });
+
+            // display tuile_description
+            $(this).find($(".tuile_description").addClass("show-flex"));
+            $(this).find($(".triangle").addClass("show"));
         }
     });
 
     $(".close_tuile_description").click(function (){
 
-        $(".tuile_description").css("display", "none");
-        $(".tuile").fadeIn();
-        $(".triangle").css("display", "none");
+        const tuiles = $(".tuile");
+        tuiles.removeClass('hide');
+        tuiles.removeClass('select');
+
+        $(".tuile_description").removeClass('show-flex');
+        $(".triangle").removeClass('show');
+
         event.stopPropagation();
-        is_display = 0;
-        return is_display;
     });
 
     $(".ranking").click(function(){

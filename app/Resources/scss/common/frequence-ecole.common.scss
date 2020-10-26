@@ -250,10 +250,53 @@
 
 
   /************** Tuiles **************/
+  @keyframes fadin-70-frames {
+    0% {
+      opacity: 0;
+    }
+    70% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes fadin-frames {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
   .tuile {
     margin-left: 0px;
     margin-top: 0px;
     padding: 15px;
+    &.select {
+      -webkit-transition:margin .3s ease-out;
+      -moz-transition:margin .3s ease-out;
+      -o-transition:margin .3s ease-out;
+      animation: jBounceUp-frames 400ms;
+      opacity: 1;
+    }
+    opacity: 0;
+    &:not(.hide):not(.select) {
+      animation-fill-mode: forwards;
+      -webkit-animation-fill-mode: forwards;
+      animation: fadin-frames 500ms;
+      opacity: 1;
+    }
+    @keyframes jBounceUp-frames {
+      0%, 20%, 100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+      }
+      80% {
+        -webkit-transform: translateY(-7px);
+        transform: translateY(-7px);
+      }
+    }
   }
   .tuile_description {
     display: none;
@@ -262,6 +305,14 @@
     flex-wrap: wrap;
     margin-top: 65px !important;
     padding: 20px;
+    opacity: 0;
+    &.show-flex {
+      //transition: opacity 2s;
+      animation-fill-mode: forwards;
+      -webkit-animation-fill-mode: forwards;
+      animation: fadin-70-frames 500ms;
+      opacity: 1;
+    }
   }
 
   .tuile_description .row {
@@ -404,6 +455,13 @@
     margin-left: 100px;
     top: 450px;
     display: none;
+    opacity: 0;
+    &.show {
+      animation-fill-mode: forwards;
+      -webkit-animation-fill-mode: forwards;
+      animation: fadin-70-frames 500ms;
+      opacity: 1;
+    }
   }
   .thumbnail .items {
     position: relative;
@@ -443,7 +501,6 @@
     width: 60px;
     display: block;
     padding: 10px 0;
-    background: #FF3246;
     color: white;
     text-align: center;
   }
@@ -454,7 +511,7 @@
     right: 60px;
     width: 0;
     height: 0;
-    border-right: 20px solid #FF3246;
+    border-right: 20px solid;
     border-left: 0;
 
   }
@@ -478,32 +535,15 @@
       .thumbnail .items-hotcourse {
         background-color: $color;
         .registred {
-          background-color: #FF3246;
+          background-color: $color;
 
           &:before, &:after {
-            border-right-color: #FF3246;
+            border-right-color: $color;
           }
         }
       }
     }
   }
-  //// length to length*2
-  //@each $color in $thumbnailColors {
-  //  $index : index($thumbnailColors, $color) + length($thumbnailColors);
-  //  .thumbnail {
-  //    .background_#{$index} {
-  //      background-color: $color;
-  //      .registred{
-  //        background-color: #FF3246;
-  //        &:before,&:after {
-  //          border-right-color: #FF3246;
-  //        }
-  //      }
-  //    }
-  //  }
-  //
-  //}
-
 
 
   /**********************************************************************************************
@@ -1141,4 +1181,12 @@
     width: 27px;
   }
 
+}
+
+/*
+Useful
+ */
+
+.show-flex {
+  display: flex !important;
 }
