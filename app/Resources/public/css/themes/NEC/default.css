@@ -842,7 +842,7 @@ a {
 /******************************************
   // IFRAMES DES GRAINS
   ******************************************/
-.document_style_superdemain, .page_origin_learnpath {
+.document_style_superdemain, .document_style_iframe, .page_origin_learnpath {
   max-width: 1000px;
   margin: auto;
   background-color: white !important;
@@ -852,13 +852,13 @@ a {
 /*
   Learn path page and styled document page
    */
-#homepage-course, .document_style_superdemain, .page_origin_learnpath {
+#homepage-course, .document_style_superdemain, .document_style_iframe, .page_origin_learnpath {
   font-size: 2rem !important;
   line-height: 24px;
   font-weight: 500 !important;
   color: #240A5F !important; }
 
-#homepage-course h1, .document_style_superdemain h1, .page_origin_learnpath h1 {
+#homepage-course h1, .document_style_superdemain h1, .document_style_iframe h1, .page_origin_learnpath h1 {
   font-size: 4rem !important;
   text-transform: uppercase !important;
   color: #240A5F !important;
@@ -866,35 +866,35 @@ a {
   margin-bottom: 50px;
   margin-top: 40px; }
 
-#homepage-course h2, .document_style_superdemain h2, .page_origin_learnpath h2 {
+#homepage-course h2, .document_style_superdemain h2, .document_style_iframe h2, .page_origin_learnpath h2 {
   font-size: 2.8rem !important;
   color: #0430E9 !important;
   font-weight: 400 !important;
   margin-bottom: 20px; }
 
-#homepage-course h3, .document_style_superdemain h3, .page_origin_learnpath h3 {
+#homepage-course h3, .document_style_superdemain h3, .document_style_iframe h3, .page_origin_learnpath h3 {
   font-size: 2.4rem !important;
   color: #240A5F !important;
   font-weight: 500 !important;
   margin-bottom: 20px; }
 
-#homepage-course h4, .document_style_superdemain h4, .page_origin_learnpath h4 {
+#homepage-course h4, .document_style_superdemain h4, .document_style_iframe h4, .page_origin_learnpath h4 {
   font-size: 20px !important;
   color: #62CBD6 !important;
   font-weight: 700 !important;
   margin-bottom: 20px; }
 
-#homepage-course h5, .document_style_superdemain h5, .page_origin_learnpath h5 {
+#homepage-course h5, .document_style_superdemain h5, .document_style_iframe h5, .page_origin_learnpath h5 {
   font-size: 1.6rem !important;
   font-weight: 500 !important;
   margin-bottom: 20px;
   color: #240A5F; }
 
-#homepage-course a, .document_style_superdemain a, .page_origin_learnpath a {
+#homepage-course a, .document_style_superdemain a, .document_style_iframe a, .page_origin_learnpath a {
   text-decoration: underline;
   color: #24989c !important; }
 
-#homepage-course a:hover, .document_style_superdemain a:hover, .page_origin_learnpath a:hover {
+#homepage-course a:hover, .document_style_superdemain a:hover, .document_style_iframe a:hover, .page_origin_learnpath a:hover {
   text-decoration: underline;
   color: #6DEAEE !important; }
 
@@ -940,36 +940,36 @@ a {
 
 /* MODAL */
 @media (min-width: 768px) {
-  .document_style_superdemain .modal-dialog, .page_origin_learnpath .modal-dialog {
+  .document_style_superdemain .modal-dialog, .document_style_iframe .modal-dialog, .page_origin_learnpath .modal-dialog {
     width: 800px;
     max-width: 100%; } }
-.document_style_superdemain .incorrect-answer, .page_origin_learnpath .incorrect-answer {
+.document_style_superdemain .incorrect-answer, .document_style_iframe .incorrect-answer, .page_origin_learnpath .incorrect-answer {
   color: #E61983 !important; }
-.document_style_superdemain .next-exercice-button, .page_origin_learnpath .next-exercice-button {
+.document_style_superdemain .next-exercice-button, .document_style_iframe .next-exercice-button, .page_origin_learnpath .next-exercice-button {
   background-color: #FFEC00;
   border-color: #FFEC00;
   color: #1A063F !important;
   text-decoration: none; }
-  .document_style_superdemain .next-exercice-button:hover, .page_origin_learnpath .next-exercice-button:hover {
+  .document_style_superdemain .next-exercice-button:hover, .document_style_iframe .next-exercice-button:hover, .page_origin_learnpath .next-exercice-button:hover {
     background-color: #FFFFFF;
     border-color: #fff033;
     color: #1A063F !important;
     text-decoration: none; }
-  .document_style_superdemain .next-exercice-button:focus, .page_origin_learnpath .next-exercice-button:focus {
+  .document_style_superdemain .next-exercice-button:focus, .document_style_iframe .next-exercice-button:focus, .page_origin_learnpath .next-exercice-button:focus {
     background-color: #FFFFFF;
     border-color: #fff033;
     color: #1A063F !important;
     text-decoration: none; }
-.document_style_superdemain #global-modal-body tr:not(:first-child) td:first-child, .page_origin_learnpath #global-modal-body tr:not(:first-child) td:first-child {
+.document_style_superdemain #global-modal-body tr:not(:first-child) td:first-child, .document_style_iframe #global-modal-body tr:not(:first-child) td:first-child, .page_origin_learnpath #global-modal-body tr:not(:first-child) td:first-child {
   font-size: 1.6rem; }
 
-.document_style_superdemain #global-modal-body tr:first-child td, .page_origin_learnpath #global-modal-body tr:first-child td {
+.document_style_superdemain #global-modal-body tr:first-child td, .document_style_iframe #global-modal-body tr:first-child td, .page_origin_learnpath #global-modal-body tr:first-child td {
   font-weight: bold; }
 
-.document_style_superdemain .answer-correct, .page_origin_learnpath .answer-correct {
+.document_style_superdemain .answer-correct, .document_style_iframe .answer-correct, .page_origin_learnpath .answer-correct {
   color: #0099c0; }
 
-.document_style_superdemain .answer-false, .page_origin_learnpath .answer-false {
+.document_style_superdemain .answer-false, .document_style_iframe .answer-false, .page_origin_learnpath .answer-false {
   color: #E61983; }
 
 .exercise_overview_options {
