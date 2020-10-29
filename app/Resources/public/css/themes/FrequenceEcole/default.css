@@ -583,25 +583,25 @@ footer {
   border-collapse: collapse; }
 
 .scorm_item_normal.scorm_completed .item-status {
-  background: transparent url("/main/img/scorm/scorm_current.png") no-repeat 10px center !important; }
+  background: transparent url("/main/img/scorm/scorm_current.png") no-repeat center !important; }
 
 .scorm_item_normal.scorm_failed .item-status {
-  background: transparent url("/main/img/scorm/scorm_failed.png") no-repeat 10px center !important; }
+  background: transparent url("/main/img/scorm/scorm_failed.png") no-repeat center !important; }
 
 .scorm_item_normal.scorm_not_attempted .item-status {
-  background: transparent url("/main/img/scorm/scorm_highlight.png") no-repeat 10px center !important; }
+  background: transparent url("/main/img/scorm/scorm_highlight.png") no-repeat center !important; }
 
 .scorm_item_normal.scorm_highlight .item, .scorm_item_normal.scorm_highlight.scorm_completed .item, .scorm_item_normal.scorm_highlight.scorm_failed .item, .scorm_item_normal.scorm_highlight .item-status, .scorm_item_normal.scorm_completed.scorm_highlight .item-status, .scorm_item_normal.scorm_highlight.scorm_completed .item-status, .scorm_item_normal.scorm_highlight.scorm_failed .item-status {
-  background: #E7344F none no-repeat 10px center !important; }
+  background: #E7344F none no-repeat center !important; }
 
 .scorm_item_normal.scorm_highlight .item-status, .scorm_item_normal.scorm_completed.scorm_highlight .item-status {
-  background: transparent url("/main/img/scorm/scorm_highlight.png") no-repeat 10px center !important; }
+  background: transparent url("/main/img/scorm/scorm_highlight.png") no-repeat center !important; }
 
 .scorm_item_normal.scorm_highlight.scorm_completed .item-status {
-  background: transparent url("/main/img/scorm/scorm_current.png") no-repeat 10px center !important; }
+  background: transparent url("/main/img/scorm/scorm_current.png") no-repeat center !important; }
 
 .scorm_item_normal.scorm_highlight.scorm_failed .item-status {
-  background: transparent url("/main/img/scorm/scorm_failed.png") no-repeat 10px center !important; }
+  background: transparent url("/main/img/scorm/scorm_failed.png") no-repeat center !important; }
 
 .scorm-body {
   padding-left: 8px;
@@ -848,6 +848,10 @@ a {
   background-color: white !important;
   color: #240A5F !important;
   font-family: 'Dosis', sans-serif; }
+  .document_style_superdemain .feedback-question .feedback-green, .document_style_iframe .feedback-question .feedback-green, .page_origin_learnpath .feedback-question .feedback-green {
+    color: #6DEAEE; }
+  .document_style_superdemain .feedback-question .feedback-red, .document_style_iframe .feedback-question .feedback-red, .page_origin_learnpath .feedback-question .feedback-red {
+    color: #E61983; }
 
 /*
   Learn path page and styled document page

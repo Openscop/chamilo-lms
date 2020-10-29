@@ -622,25 +622,25 @@ footer {
   border-collapse: collapse; }
 
 .scorm_item_normal.scorm_completed .item-status {
-  background: transparent url("/main/img/scorm/scorm_current.png") no-repeat 10px center !important; }
+  background: transparent url("/main/img/scorm/scorm_current.png") no-repeat center !important; }
 
 .scorm_item_normal.scorm_failed .item-status {
-  background: transparent url("/main/img/scorm/scorm_failed.png") no-repeat 10px center !important; }
+  background: transparent url("/main/img/scorm/scorm_failed.png") no-repeat center !important; }
 
 .scorm_item_normal.scorm_not_attempted .item-status {
-  background: transparent url("/main/img/scorm/scorm_highlight.png") no-repeat 10px center !important; }
+  background: transparent url("/main/img/scorm/scorm_highlight.png") no-repeat center !important; }
 
 .scorm_item_normal.scorm_highlight .item, .scorm_item_normal.scorm_highlight.scorm_completed .item, .scorm_item_normal.scorm_highlight.scorm_failed .item, .scorm_item_normal.scorm_highlight .item-status, .scorm_item_normal.scorm_completed.scorm_highlight .item-status, .scorm_item_normal.scorm_highlight.scorm_completed .item-status, .scorm_item_normal.scorm_highlight.scorm_failed .item-status {
-  background: #0430E9 none no-repeat 10px center !important; }
+  background: #0430E9 none no-repeat center !important; }
 
 .scorm_item_normal.scorm_highlight .item-status, .scorm_item_normal.scorm_completed.scorm_highlight .item-status {
-  background: transparent url("/main/img/scorm/scorm_highlight.png") no-repeat 10px center !important; }
+  background: transparent url("/main/img/scorm/scorm_highlight.png") no-repeat center !important; }
 
 .scorm_item_normal.scorm_highlight.scorm_completed .item-status {
-  background: transparent url("/main/img/scorm/scorm_current.png") no-repeat 10px center !important; }
+  background: transparent url("/main/img/scorm/scorm_current.png") no-repeat center !important; }
 
 .scorm_item_normal.scorm_highlight.scorm_failed .item-status {
-  background: transparent url("/main/img/scorm/scorm_failed.png") no-repeat 10px center !important; }
+  background: transparent url("/main/img/scorm/scorm_failed.png") no-repeat center !important; }
 
 .scorm-body {
   padding-left: 8px;
@@ -887,6 +887,10 @@ a {
   background-color: white !important;
   color: #240A5F !important;
   font-family: 'Montserrat', sans-serif; }
+  .document_style_superdemain .feedback-question .feedback-green, .document_style_iframe .feedback-question .feedback-green, .page_origin_learnpath .feedback-question .feedback-green {
+    color: #4A6CFF; }
+  .document_style_superdemain .feedback-question .feedback-red, .document_style_iframe .feedback-question .feedback-red, .page_origin_learnpath .feedback-question .feedback-red {
+    color: #FF4A76; }
 
 /*
   Learn path page and styled document page
@@ -958,7 +962,7 @@ a {
 .page_origin_learnpath .title-score h5 {
   float: left; }
   .page_origin_learnpath .ribbon .rib-error, .page_origin_learnpath .ribbon .ribbon-total-error {
-    background: #E61983; }
+    background: #FF4A76; }
   .page_origin_learnpath .ribbon .rib-error h3, .page_origin_learnpath .ribbon .ribbon-total-error h3 {
     color: #ffffff !important; }
   .page_origin_learnpath .ribbon .rib-success, .page_origin_learnpath .ribbon .ribbon-total-success {
@@ -975,7 +979,7 @@ a {
 .page_origin_learnpath .user-answer-correct, .page_origin_learnpath .user-answer-label-correct {
   color: #4A6CFF; }
 .page_origin_learnpath .user-answer-incorrect, .page_origin_learnpath .user-answer-label-incorrect {
-  color: #E61983; }
+  color: #FF4A76; }
 
 /* MODAL */
 @media (min-width: 768px) {

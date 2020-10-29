@@ -4229,6 +4229,21 @@ class Exercise
                             }
                         }
                         $answer = FillBlanks::getAnswerInStudentAttempt($listCorrectAnswers);
+
+                        // FIXME: hack to get results in modal
+                        ob_start();
+                        ExerciseShowFunctions::display_fill_in_blanks_answer(
+                            $this,
+                            $feedback_type,
+                            $answer,
+                            0,
+                            0,
+                            $results_disabled,
+                            '',
+                            $showTotalScoreAndUserChoicesInLastAttempt
+                        );
+                        $correctAnswerId = ob_get_clean();
+
                     }
                     break;
                 case CALCULATED_ANSWER:

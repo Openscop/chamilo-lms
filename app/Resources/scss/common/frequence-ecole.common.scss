@@ -606,13 +606,13 @@
     border-collapse: collapse;
   }
   .scorm_item_normal.scorm_completed .item-status {
-    background: transparent url("/main/img/scorm/scorm_current.png") no-repeat 10px center !important;
+    background: transparent url("/main/img/scorm/scorm_current.png") no-repeat center !important;
   }
   .scorm_item_normal.scorm_failed .item-status {
-    background: transparent url("/main/img/scorm/scorm_failed.png") no-repeat 10px center !important;
+    background: transparent url("/main/img/scorm/scorm_failed.png") no-repeat center !important;
   }
   .scorm_item_normal.scorm_not_attempted .item-status {
-    background: transparent url("/main/img/scorm/scorm_highlight.png") no-repeat 10px center !important;
+    background: transparent url("/main/img/scorm/scorm_highlight.png") no-repeat center !important;
   }
   .scorm_item_normal.scorm_highlight .item,
   .scorm_item_normal.scorm_highlight.scorm_completed .item,
@@ -621,17 +621,17 @@
   .scorm_item_normal.scorm_completed.scorm_highlight .item-status,
   .scorm_item_normal.scorm_highlight.scorm_completed .item-status,
   .scorm_item_normal.scorm_highlight.scorm_failed .item-status {
-    background: $primaryColor none no-repeat 10px center !important;
+    background: $primaryColor none no-repeat center !important;
   }
   .scorm_item_normal.scorm_highlight .item-status,
   .scorm_item_normal.scorm_completed.scorm_highlight .item-status {
-    background: transparent url("/main/img/scorm/scorm_highlight.png") no-repeat 10px center !important;
+    background: transparent url("/main/img/scorm/scorm_highlight.png") no-repeat center !important;
   }
   .scorm_item_normal.scorm_highlight.scorm_completed .item-status {
-    background: transparent url("/main/img/scorm/scorm_current.png") no-repeat 10px center !important;
+    background: transparent url("/main/img/scorm/scorm_current.png") no-repeat center !important;
   }
   .scorm_item_normal.scorm_highlight.scorm_failed .item-status {
-    background: transparent url("/main/img/scorm/scorm_failed.png") no-repeat 10px center !important;
+    background: transparent url("/main/img/scorm/scorm_failed.png") no-repeat center !important;
   }
   .scorm-body {
     padding-left: 8px;
@@ -922,6 +922,17 @@
     background-color: white !important;
     color: #240A5F !important;
     font-family: $mainFont, sans-serif;
+
+    .feedback-question {
+      .feedback-green {
+        color: $trueColor;
+      }
+      .feedback-red {
+        color: $falseColor;
+      }
+    }
+
+
   }
   /*
   Learn path page and styled document page

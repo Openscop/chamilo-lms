@@ -280,6 +280,7 @@ $answerCorrect = false;
 $partialCorrect = false;
 if (!empty($result)) {
     switch ($answerType) {
+        case FILL_IN_BLANKS:
         case MULTIPLE_ANSWER:
         case UNIQUE_ANSWER:
         case DRAGGABLE:
@@ -321,52 +322,61 @@ if ($objExercise->getFeedbackType() === EXERCISE_FEEDBACK_TYPE_DIRECT) {
     $comments = '';
     if ($answerType != HOT_SPOT_DELINEATION) {
         if (isset($result['correct_answer_id'])) {
-            $table = new HTML_Table(['class' => 'table table-hover table-striped data_table']);
-            $row = 0;
-            $table->setCellContents($row, 0, get_lang('YourAnswer'));
-            if ($answerType != DRAGGABLE && $answerType != MATCHING_DRAGGABLE) {
-                $table->setCellContents($row, 1, get_lang('Comment'));
-            }
+            if ($answerType == FILL_IN_BLANKS ) {
+                $table = "<table class='table table-hover table-striped data_table'>";
+                $table.= "<tr><td>".get_lang('YourAnswer')."</td></tr>";
+                $table.= $result['correct_answer_id'];
+                $table.= "</table>";
+                $contents.= $table;
+            } else {
 
-            $data = [];
-            foreach ($result['correct_answer_id'] as $answerId) {
-                if (isset($answerId['id']) && isset($answerId['correct'])) {
-                    // FIXME : hack to display incorrect answers for MATCHING type
-                    $answer = $objAnswerTmp->getAnswerByAutoId($answerId['id']);
-                    $answer['correct'] = $answerId['correct'];
-                } else {
-                    $answer = $objAnswerTmp->getAnswerByAutoId($answerId);
+                $table = new HTML_Table(['class' => 'table table-hover table-striped data_table']);
+                $row = 0;
+                $table->setCellContents($row, 0, get_lang('YourAnswer'));
+                if ($answerType != DRAGGABLE && $answerType != MATCHING_DRAGGABLE) {
+                    $table->setCellContents($row, 1, get_lang('Comment'));
                 }
-                $correct = 'correct';
-                if (!empty($answer) && !$answer['correct']) {
-                    $correct = 'false';
-                }
-                if (!empty($answer) && isset($answer['comment'])) {
-                    $data[] = [
-                        '<span class="answer-'.$correct.'">'.$answer['answer'].'</span>',
-                        $answer['comment']
-                    ];
-                } else {
-                    $answer = $objAnswerTmp->selectAnswer($answerId);
-                    $comment = $objAnswerTmp->selectComment($answerId);
-                    if (!$answerCorrect && !$partialCorrect) {
+
+                $data = [];
+                foreach ($result['correct_answer_id'] as $answerId) {
+                    if (isset($answerId['id']) && isset($answerId['correct'])) {
+                        // FIXME : hack to display incorrect answers for MATCHING type
+                        $answer = $objAnswerTmp->getAnswerByAutoId($answerId['id']);
+                        $answer['correct'] = $answerId['correct'];
+                    } else {
+                        $answer = $objAnswerTmp->getAnswerByAutoId($answerId);
+                    }
+                    $correct = 'correct';
+                    if (!empty($answer) && !$answer['correct']) {
                         $correct = 'false';
                     }
-                    $data[] = [
-                        '<span class="answer-'.$correct.'">'.$answer.'</span>',
-                        $comment
-                    ];
+                    if (!empty($answer) && isset($answer['comment'])) {
+                        $data[] = [
+                            '<span class="answer-' . $correct . '">' . $answer['answer'] . '</span>',
+                            $answer['comment']
+                        ];
+                    } else {
+                        $answer = $objAnswerTmp->selectAnswer($answerId);
+                        $comment = $objAnswerTmp->selectComment($answerId);
+                        if (!$answerCorrect && !$partialCorrect) {
+                            $correct = 'false';
+                        }
+                        $data[] = [
+                            '<span class="answer-' . $correct . '">' . $answer . '</span>',
+                            $comment
+                        ];
+                    }
                 }
-            }
 
-            if (!empty($data)) {
-                $row = 1;
-                foreach ($data as $dataItem) {
-                    $table->setCellContents($row, 0, $dataItem[0]);
-                    $table->setCellContents($row, 1, $dataItem[1]);
-                    $row++;
+                if (!empty($data)) {
+                    $row = 1;
+                    foreach ($data as $dataItem) {
+                        $table->setCellContents($row, 0, $dataItem[0]);
+                        $table->setCellContents($row, 1, $dataItem[1]);
+                        $row++;
+                    }
+                    $comments = $table->toHtml();
                 }
-                $comments = $table->toHtml();
             }
         }
     }
