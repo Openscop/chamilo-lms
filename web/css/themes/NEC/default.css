@@ -554,6 +554,9 @@ footer {
   border-bottom: 0px solid transparent;
   bottom: 0; }
 
+.tuile .thumbnail .items {
+  min-height: 375px; }
+
 /****** Couleurs des thumbnails ******/
 .tuile:nth-child(3n + 1) .thumbnail .items-hotcourse {
   background-color: #0430E9; }
