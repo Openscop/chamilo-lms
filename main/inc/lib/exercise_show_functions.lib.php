@@ -278,7 +278,7 @@ class ExerciseShowFunctions
         if (EXERCISE_FEEDBACK_TYPE_EXAM != $feedback_type) {
             $content .= '<td class="text-left" width="60%">';
             if ($studentChoice) {
-                $content .= '<span style="font-weight: bold; color: #008000;">'.nl2br($answerComment).'</span>';
+                $content .= '<span class="expected-answer-correct">'.nl2br($answerComment).'</span>';
             } else {
                 $content .= '&nbsp;';
             }

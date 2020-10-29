@@ -281,6 +281,7 @@ $partialCorrect = false;
 if (!empty($result)) {
     switch ($answerType) {
         case FILL_IN_BLANKS:
+        case HOT_SPOT:
         case MULTIPLE_ANSWER:
         case UNIQUE_ANSWER:
         case DRAGGABLE:
@@ -326,6 +327,13 @@ if ($objExercise->getFeedbackType() === EXERCISE_FEEDBACK_TYPE_DIRECT) {
                 $table = "<table class='table table-hover table-striped data_table'>";
                 $table.= "<tr><td>".get_lang('YourAnswer')."</td></tr>";
                 $table.= $result['correct_answer_id'];
+                $table.= "</table>";
+                $contents.= $table;
+            } else if ($answerType == HOT_SPOT){
+                $table = "<table class='table'>";
+                foreach ($result['correct_answer_id'] as $answerId) {
+                    $table .= $answerId;
+                }
                 $table.= "</table>";
                 $contents.= $table;
             } else {

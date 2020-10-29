@@ -891,6 +891,10 @@ a {
     color: #4A6CFF; }
   .document_style_superdemain .feedback-question .feedback-red, .document_style_iframe .feedback-question .feedback-red, .page_origin_learnpath .feedback-question .feedback-red {
     color: #FF4A76; }
+.document_style_superdemain .label-success, .document_style_iframe .label-success, .page_origin_learnpath .label-success {
+  background-color: #4A6CFF; }
+.document_style_superdemain .label-danger, .document_style_iframe .label-danger, .page_origin_learnpath .label-danger {
+  background-color: #FF4A76; }
 
 /*
   Learn path page and styled document page

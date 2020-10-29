@@ -3542,6 +3542,8 @@ class Exercise
         $debug = false;
         //needed in order to use in the exercise_attempt() for the time
         global $learnpath_id, $learnpath_item_id;
+
+
         require_once api_get_path(LIBRARY_PATH).'geometry.lib.php';
         $em = Database::getManager();
         $feedback_type = $this->getFeedbackType();
@@ -4704,6 +4706,7 @@ class Exercise
                                     hotspot_answer_id = $answerAutoId
                                 ORDER BY hotspot_id ASC";
                         $result = Database::query($sql);
+
                         if (Database::num_rows($result)) {
                             $studentChoice = Database::result(
                                 $result,
@@ -4763,6 +4766,9 @@ class Exercise
                             }
                         }
                     } else {
+
+                        $choiceIsValid = false;
+
                         if (!isset($choice[$answerAutoId]) && !isset($choice[$answerIid])) {
                             $choice[$answerAutoId] = 0;
                             $choice[$answerIid] = 0;
@@ -4776,6 +4782,13 @@ class Exercise
                                 $hotspotType = $objAnswerTmp->selectHotspotType($answerId);
                                 $hotspotCoordinates = $objAnswerTmp->selectHotspotCoordinates($answerId);
                                 $choicePoint = Geometry::decodePoint($studentChoice);
+
+                                if (!isset($exerciseResultCoordinates[$questionId])) {
+                                    $exerciseResultCoordinates[$questionId] = [];
+                                }
+
+                                $hotspotAnswerId = $objAnswerTmp->selectAutoId($answerId);
+                                $exerciseResultCoordinates[$questionId][$hotspotAnswerId] = explode("|",$hotspotCoordinates)[0];
 
                                 switch ($hotspotType) {
                                     case 'square':
@@ -4801,6 +4814,51 @@ class Exercise
                                 $choice[$answerIid] = 1;
                             }
                         }
+
+                        // FIXME: hack to get results in modal
+
+                        // force to show whether the choice is correct or not
+                        $showTotalScoreAndUserChoicesInLastAttempt = true;
+                        ob_start();
+                        ExerciseShowFunctions::display_hotspot_answer(
+                            $feedback_type,
+                            $answerId,
+                            $answer,
+                            $choiceIsValid,
+                            $answerComment,
+                            $results_disabled,
+                            $answerId,
+                            $showTotalScoreAndUserChoicesInLastAttempt
+                        );
+                        $correctAnswerId[] = ob_get_clean();
+
+                        // if last element, display result image
+                        if ($answerId === $nbrAnswers) {
+                            $relPath = api_get_path(WEB_CODE_PATH);
+                            $correctAnswerId[] = "<tr>
+                                                <td colspan='4'>
+                                                    <p><em>".get_lang('HotSpot')."</em></p>
+                                                    <div id=\"hotspot-solution-$questionId\"></div>
+                                                    <script>
+                                                        const exe_id = document.querySelector('input[name=\"exe_id\"').value;
+                                                        $(function() {
+                                                            new HotspotQuestion({
+                                                                questionId: $questionId,
+                                                                exerciseId: {$this->id},
+                                                                exeId: exe_id,
+                                                                selector: '#hotspot-solution-$questionId',
+                                                                for: 'solution',
+                                                                relPath: '$relPath'
+                                                            });
+                                                        });
+                                                    </script>
+                                                </td>
+                                            </tr>";
+
+                        }
+
+
+
                     }
                     break;
                 case HOT_SPOT_ORDER:

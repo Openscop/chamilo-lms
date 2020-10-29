@@ -932,6 +932,15 @@
       }
     }
 
+    .label {
+      &-success {
+        background-color: $trueColor;
+      }
+      &-danger {
+        background-color: $falseColor;
+      }
+    }
+
 
   }
   /*
