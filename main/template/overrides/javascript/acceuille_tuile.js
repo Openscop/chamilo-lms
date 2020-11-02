@@ -21,6 +21,7 @@ $(function() {
             // display tuile_description
             $(this).find($(".tuile_description").addClass("show-flex"));
             $(this).find($(".triangle").addClass("show"));
+            window.scrollTo({ top: 0 });
         }
     });
 
