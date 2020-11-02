@@ -273,43 +273,43 @@ a:hover {
   // Footer
   ***********************************************************************************************
   ***********************************************************************************************/
-footer {
+footer.footer {
   position: absolute !important;
   top: 100%;
   font-size: 1.8rem;
   display: block;
   background-color: white;
   text-align: center; }
-  footer #footer-partenaires {
+  footer.footer #footer-partenaires {
     display: block;
     background-color: white;
     text-align: center; }
-    footer #footer-partenaires img {
+    footer.footer #footer-partenaires img {
       max-height: 150px;
       margin: auto; }
-  footer .bgfooter {
+  footer.footer .bgfooter {
     background: #000000; }
-  footer .bgfooter a {
+  footer.footer .bgfooter a {
     color: #ffffff; }
-  footer .bgfooter a:hover {
+  footer.footer .bgfooter a:hover {
     color: #CCC; }
-  footer #footer {
+  footer.footer #footer {
     display: block;
     width: 100%; }
-    footer #footer section.sub-footer {
+    footer.footer #footer section.sub-footer {
       display: flex;
       align-items: center;
       justify-content: center;
       background: white;
       width: 100%;
       padding: 20px 23px; }
-      footer #footer section.sub-footer a {
+      footer.footer #footer section.sub-footer a {
         font-weight: bold; }
-      footer #footer section.sub-footer img {
+      footer.footer #footer section.sub-footer img {
         width: 75px;
         height: 25px;
         margin-right: 20px; }
-      footer #footer section.sub-footer p {
+      footer.footer #footer section.sub-footer p {
         padding: 0;
         margin: 0; }
 
