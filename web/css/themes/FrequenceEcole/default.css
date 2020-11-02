@@ -235,13 +235,15 @@ footer {
       background: white;
       width: 100%;
       padding: 20px 23px; }
-    footer #footer section.sub-footer img {
-      width: 75px;
-      height: 25px;
-      margin-right: 20px; }
-    footer #footer section.sub-footer p {
-      padding: 0;
-      margin: 0; }
+      footer #footer section.sub-footer a {
+        font-weight: bold; }
+      footer #footer section.sub-footer img {
+        width: 75px;
+        height: 25px;
+        margin-right: 20px; }
+      footer #footer section.sub-footer p {
+        padding: 0;
+        margin: 0; }
 
 /**********************************************************************************************
   /**********************************************************************************************
@@ -257,7 +259,7 @@ footer {
   margin: 20px !important;
   font-size: 2.3rem; }
   .homepage .homepage-title-themeName {
-    color: #E7344F;
+    color: #E7344F !important;
     font-weight: bold; }
   .homepage .homepage-title-link {
     color: #E7344F;

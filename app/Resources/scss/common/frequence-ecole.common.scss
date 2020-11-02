@@ -213,15 +213,19 @@
         background: white;
         width: 100%;
         padding: 20px 23px;
-      }
-      section.sub-footer img {
-        width: 75px;
-        height: 25px;
-        margin-right: 20px;
-      }
-      section.sub-footer p {
-        padding: 0;
-        margin: 0;
+        a {
+          font-weight: bold;
+        }
+        img {
+          width: 75px;
+          height: 25px;
+          margin-right: 20px;
+        }
+        p {
+          padding: 0;
+          margin: 0;
+        }
+
       }
     }
   }
@@ -244,7 +248,7 @@
     /************** Titre **************/
     .homepage-title {
       &-themeName {
-        color: $primaryColor;
+        color: $primaryColor !important;
         font-weight: bold;
       }
       &-link {

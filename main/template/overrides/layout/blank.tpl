@@ -48,7 +48,26 @@
     <section id="cm-content">
         <div class="container">
             <div class="row">
-                <h1 class="homepage-title">Bienvenue dans l'espace pro de <span class="homepage-title-themeName">{{access_url_description}}</span> développé pour vous permettre de suivre des parcours en ligne contenant des <strong>vidéos explicatives</strong>, des <strong>interviews</strong>, des <strong>exercices à faire</strong> et des <strong>fiches à télécharger</strong>... Vous pouvez vous connecter, dès à présent, avec le code que vous avez reçu par mail. <span class="homepage-title-link">Cliquez sur un parcours pour vous inscrire et accéder au cours.</span></h1>
+                {% if access_url_description matches '{\w*emain\w*}' %}
+                <h1 class="homepage-title">Bienvenue dans l'espace pro de
+                    <a class="homepage-title-themeName" href="https://superdemain.fr/" title="Site de Super Demain" target="_blank">Super Demain</a>
+                    développé pour vous permettre de suivre des parcours en ligne contenant des <b>vidéos explicatives</b>, des <b>interviews</b>, des <b>exercices à faire</b> et des <b>fiches à télécharger</b>... Vous pouvez vous connecter, dès à présent, avec le code que vous avez reçu par mail. <span class="homepage-title-link">Cliquez sur un parcours pour vous inscrire et accéder au cours.</span>
+                </h1>
+                {% elseif access_url_description matches '{\w*ommun\w*}' %}
+                <h1 class="homepage-title">Bienvenue dans l'espace pro de
+                    <a class="homepage-title-themeName" href="https://numerique-en-communs.fr" title="Site de Numérique en Communs" target="_blank">Numérique En Commun[s]</a>
+                    développé pour vous permettre de suivre des parcours en ligne contenant des <b>vidéos explicatives</b>, des <b>interviews</b>, des <b>exercices à faire</b> et des <b>fiches à télécharger</b>... Vous pouvez vous connecter, dès à présent, avec le code que vous avez reçu par mail. <span class="homepage-title-link">Cliquez sur un parcours pour vous inscrire et accéder au cours.</span>
+                </h1>
+                {% else %}
+                <h1 class="homepage-title">
+                    Bienvenue dans l'espace pro de
+                    <a class="homepage-title-themeName" href="https://frequence-ecoles.org/" title="Site de Fréquence Écoles" target="_blank">Fréquence Écoles</a>
+                    développé pour vous permettre de suivre des parcours en ligne contenant des <b>vidéos explicatives</b>, des <b>interviews</b>, des <b>exercices à faire</b> et des <b>fiches à télécharger</b>... Vous pouvez vous connecter, dès à présent, avec le code que vous avez reçu par mail. <span class="homepage-title-link">Cliquez sur un parcours pour vous inscrire et accéder au cours.</span>
+                </h1>
+                {% endif %}
+
+
+
             </div>
             <div class="row" style="display: flex;
                                     flex-wrap: wrap;">
