@@ -78,7 +78,7 @@ $thumbnailColors : #FF3246, #E61983, #20124D, #6DEAEE, #24989c, #5e0abe;
 $trueFalseColors : #6DEAEE, #E61983;
 @include frequenceEcoleMixin('Dosis', $mainColors, $thumbnailColors, $trueFalseColors);
 
-footer {
+footer.footer {
   #footer {
     section.sub-footer {
       background-color: #20124D;

@@ -1048,6 +1048,6 @@ a {
 #profile_block img {
   width: 27px; }
 
-footer #footer section.sub-footer {
+footer.footer #footer section.sub-footer {
   background-color: #20124D;
   color: white; }
