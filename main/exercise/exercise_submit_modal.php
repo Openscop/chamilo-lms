@@ -336,24 +336,27 @@ if ($objExercise->getFeedbackType() === EXERCISE_FEEDBACK_TYPE_DIRECT) {
                 }
                 $table.= "</table>";
                 $contents.= $table;
+            } else if ($answerType == MATCHING_DRAGGABLE || $answerType == MATCHING || $answerType == DRAGGABLE) {
+                $table = "<table class='table table-hover table-striped data_table'>";
+                $table.= "<tr><td>".get_lang('ElementList')."</td>";
+                $table.= "<td>".get_lang('YourAnswer')."</td>";
+                $table.= "<td>".get_lang('CorrespondsTo')."</td></tr>";
+                foreach ($result['correct_answer_id'] as $answerId) {
+                    $class = $answerId['correct'] ? 'correct' : 'incorrect';
+                    $table .= "<tr><td>".$answerId['element']."</td>
+                        <td class='user-answer user-answer-".$class."'>".$answerId['user_answer']."</td>
+                        <td>".$answerId['correct_answer']."</td></tr>";
+                }
+                $table.= "</table>";
+                $contents.= $table;
             } else {
 
                 $table = new HTML_Table(['class' => 'table table-hover table-striped data_table']);
                 $row = 0;
                 $table->setCellContents($row, 0, get_lang('YourAnswer'));
-                if ($answerType != DRAGGABLE && $answerType != MATCHING_DRAGGABLE) {
-                    $table->setCellContents($row, 1, get_lang('Comment'));
-                }
-
                 $data = [];
                 foreach ($result['correct_answer_id'] as $answerId) {
-                    if (isset($answerId['id']) && isset($answerId['correct'])) {
-                        // FIXME : hack to display incorrect answers for MATCHING type
-                        $answer = $objAnswerTmp->getAnswerByAutoId($answerId['id']);
-                        $answer['correct'] = $answerId['correct'];
-                    } else {
-                        $answer = $objAnswerTmp->getAnswerByAutoId($answerId);
-                    }
+                    $answer = $objAnswerTmp->getAnswerByAutoId($answerId);
                     $correct = 'correct';
                     if (!empty($answer) && !$answer['correct']) {
                         $correct = 'false';
