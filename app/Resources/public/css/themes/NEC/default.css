@@ -292,13 +292,15 @@ footer {
       background: white;
       width: 100%;
       padding: 20px 23px; }
-    footer #footer section.sub-footer img {
-      width: 75px;
-      height: 25px;
-      margin-right: 20px; }
-    footer #footer section.sub-footer p {
-      padding: 0;
-      margin: 0; }
+      footer #footer section.sub-footer a {
+        font-weight: bold; }
+      footer #footer section.sub-footer img {
+        width: 75px;
+        height: 25px;
+        margin-right: 20px; }
+      footer #footer section.sub-footer p {
+        padding: 0;
+        margin: 0; }
 
 /**********************************************************************************************
   /**********************************************************************************************
