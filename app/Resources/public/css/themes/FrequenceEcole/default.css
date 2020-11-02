@@ -219,7 +219,17 @@ a:hover {
 footer {
   position: absolute !important;
   top: 100%;
-  font-size: 1.8rem; }
+  font-size: 1.8rem;
+  display: block;
+  background-color: white;
+  text-align: center; }
+  footer #footer-partenaires {
+    display: block;
+    background-color: white;
+    text-align: center; }
+    footer #footer-partenaires img {
+      max-height: 150px;
+      margin: auto; }
   footer .bgfooter {
     background: #000000; }
   footer .bgfooter a {
@@ -227,6 +237,7 @@ footer {
   footer .bgfooter a:hover {
     color: #CCC; }
   footer #footer {
+    display: block;
     width: 100%; }
     footer #footer section.sub-footer {
       display: flex;

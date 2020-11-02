@@ -1,5 +1,7 @@
 {% if access_url_description matches '{\w*emain\w*}' %}
-    <img src="./web/img/themes/SuperDemain/logos-footer.png" alt="Partenaires de Super Demain" />
+    <div id="footer-partenaires">
+        <img src="./web/img/themes/SuperDemain/logos-footer.png" alt="Partenaires de Super Demain" />
+    </div>
 {% elseif access_url_description matches '{\w*ommun\w*}' %}
 {% endif %}
 <div id="footer">
