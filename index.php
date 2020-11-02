@@ -164,7 +164,6 @@ if ($useCookieValidation === 'true') {
 // FIXME OPENSCOP
 $controller->tpl->assign('hot_courses', $controller->getHomeCourseList());
 $controller->tpl->assign('announcements_block', $announcements_block);
-$controller->tpl->assign('access_url_description', api_get_access_url(api_get_current_access_url_id())['description']);
 
 $allowJustification = api_get_plugin_setting('justification', 'tool_enable') === 'true';
 

@@ -975,6 +975,10 @@ class Template
         $this->assign('page_origin', api_get_origin());
         $this->assign('flash_messages', Display::getFlashToString());
 
+//        FIXME: global var to know which url we're on
+        $this->assign('access_url_description', api_get_access_url(api_get_current_access_url_id())['description']);
+
+
         if ($clearFlashMessages) {
             Display::cleanFlashMessages();
         }
