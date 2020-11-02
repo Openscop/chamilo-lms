@@ -481,14 +481,14 @@
     width: 100%;
   }
   .thumbnail {
-    max-height: 340px !important;
+    height: 422px !important;
     padding: 0px !important;
     margin-bottom: 50px;
     cursor: pointer;
   }
   .thumbnail .block-title {
     height: 25% !important;
-    min-height: 125px !important;
+    min-height: 200px !important;
     padding: 5px 0 5px 0;
   }
 
@@ -547,7 +547,7 @@
   @each $color in $thumbnailColors {
     $index: index($thumbnailColors, $color);
     .tuile:nth-child(#{length($thumbnailColors)}n + #{$index}) {
-      .thumbnail .items-hotcourse {
+      .thumbnail {
         background-color: $color;
         .registred {
           background-color: $color;

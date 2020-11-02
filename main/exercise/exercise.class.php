@@ -5073,24 +5073,17 @@ class Exercise
                                 $questionScore
                             );
                         } elseif ($answerType == HOT_SPOT) {
-                            $correctAnswerId = 0;
-                            /** @var TrackEHotspot $hotspot */
-                            foreach ($orderedHotSpots as $correctAnswerId => $hotspot) {
-                                if ($hotspot->getHotspotAnswerId() == $answerAutoId) {
-                                    break;
-                                }
-                            }
-
                             // force to show whether the choice is correct or not
                             $showTotalScoreAndUserChoicesInLastAttempt = true;
+
                             ExerciseShowFunctions::display_hotspot_answer(
                                 $feedback_type,
-                                ++$correctAnswerId,
+                                $answerId,
                                 $answer,
-                                $studentChoice,
+                                $choiceIsValid,
                                 $answerComment,
                                 $results_disabled,
-                                $correctAnswerId,
+                                $answerId,
                                 $showTotalScoreAndUserChoicesInLastAttempt
                             );
                         } elseif ($answerType == HOT_SPOT_ORDER) {
