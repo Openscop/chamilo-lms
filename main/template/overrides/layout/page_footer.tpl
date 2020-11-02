@@ -8,9 +8,7 @@
         <img src="http://pros.superdemain.fr/main/img/gallery/logo_footer.png" />
         {% if access_url_description matches '{\w*emain\w*}' %}
         <p>
-            <a href="https://www.frequence-ecoles.org/" title="Site de Fréquence Écoles" target="_blank">
-                Fréquence Écoles
-            </a>
+            <a href="https://www.frequence-ecoles.org/" title="Site de Fréquence Écoles" target="_blank">Fréquence Écoles</a>
             vous donne l'autorisation de copier et d'utiliser l'ensemble des contenus pédagogiques développés pour
             <a href="https://www.superdemain.fr/" title="Site de Super Demain" target="_blank">Super Demain</a>.
             La plateforme a été développée grâce à

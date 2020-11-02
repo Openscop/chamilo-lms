@@ -316,7 +316,7 @@ footer {
   margin: 20px !important;
   font-size: 2.3rem; }
   .homepage .homepage-title-themeName {
-    color: #0430E9;
+    color: #0430E9 !important;
     font-weight: bold; }
   .homepage .homepage-title-link {
     color: #0430E9;

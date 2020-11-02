@@ -248,7 +248,7 @@
     /************** Titre **************/
     .homepage-title {
       &-themeName {
-        color: $primaryColor;
+        color: $primaryColor !important;
         font-weight: bold;
       }
       &-link {
