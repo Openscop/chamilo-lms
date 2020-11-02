@@ -1028,11 +1028,9 @@ a {
 #profile_block img {
   width: 27px; }
 
-<<<<<<< HEAD
 footer.footer #footer section.sub-footer {
   background-color: #20124D;
   color: white; }
-=======
+
 .tuile.select .thumbnail {
   max-height: 400px; }
->>>>>>> f010b4a18a... fix: height of thumbnails
