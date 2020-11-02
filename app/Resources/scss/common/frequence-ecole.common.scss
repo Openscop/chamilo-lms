@@ -278,9 +278,6 @@
 
   }
 
-
-
-
   /************** Tuiles **************/
   @keyframes fadin-70-frames {
     0% {
@@ -311,6 +308,9 @@
       -o-transition:margin .3s ease-out;
       animation: jBounceUp-frames 400ms;
       opacity: 1;
+      .thumbnail{
+        max-height: 350px;
+      }
     }
     opacity: 0;
     &:not(.hide):not(.select) {
@@ -331,6 +331,17 @@
     }
   }
   .tuile_description {
+    &:before {
+      content: "";
+      width: 50px;
+      height: 50px;
+      position: absolute;
+      top: 13px;
+      background: white;
+      transform: skew(-70deg, 65deg);
+      z-index: -1;
+      left: 105px;
+    }
     display: none;
     background-color: white;
     position: relative;
@@ -477,89 +488,83 @@
 
 
   /************** Thumbnails **************/
-  .triangle {
-    width: 50px;
-    height: 50px;
-    position: absolute;
-    z-index: 0;
-    background-color: white;
-    transform: skew(-70deg, 65deg);
-    margin-left: 100px;
-    top: 450px;
-    display: none;
-    opacity: 0;
-    &.show {
-      animation-fill-mode: forwards;
-      -webkit-animation-fill-mode: forwards;
-      animation: fadin-70-frames 500ms;
-      opacity: 1;
-    }
-  }
-  .thumbnail .items {
-    position: relative;
-  }
-  .thumbnail .items-hotcourse .img-responsive {
-    width: 100%;
-  }
+  //.triangle {
+  //  width: 50px;
+  //  height: 50px;
+  //  position: absolute;
+  //  z-index: 0;
+  //  background-color: white;
+  //  transform: skew(-70deg, 65deg);
+  //  margin-left: 100px;
+  //  top: 450px;
+  //  display: none;
+  //  opacity: 0;
+  //  &.show {
+  //    animation-fill-mode: forwards;
+  //    -webkit-animation-fill-mode: forwards;
+  //    animation: fadin-70-frames 500ms;
+  //    opacity: 1;
+  //  }
+  //}
+
   .thumbnail {
-    height: 422px !important;
-    padding: 0px !important;
-    margin-bottom: 50px;
+    height: 100%;
+    padding: 0 !important;
     cursor: pointer;
-  }
-  .thumbnail .block-title {
-    height: 25% !important;
-    min-height: 200px !important;
-    padding: 5px 0 5px 0;
-  }
+    .items {
+      position: relative;
+    }
+    .items-hotcourse .img-responsive {
+      width: 100%;
+    }
+    .block-title {
+      padding: 5px 0 5px 0;
+    }
 
-  .thumbnail .title {
-    padding: 0 15px 0 15px;
-    font-weight: bolder !important;
-    display: flex;
-  }
-  .thumbnail a > img {
-    max-height: 220px;
-    width: 100%;
-    margin: 0 !important;
-  }
+    .title {
+      padding: 0 15px 0 15px;
+      font-weight: bolder !important;
+      display: flex;
+    }
+    a > img {
+      max-height: 220px;
+      width: 100%;
+      margin: 0 !important;
+    }
 
-  /****** Ruban "registred" ******/
-  .thumbnail .registred {
-    position: absolute;
-    transform: none;
-    top: 10px;
-    right: 0px;
-    width: 60px;
-    display: block;
-    padding: 10px 0;
-    color: white;
-    text-align: center;
-  }
-  .thumbnail .registred:before,
-  .thumbnail .registred:after {
-    content: "";
-    position: absolute;
-    right: 60px;
-    width: 0;
-    height: 0;
-    border-right: 20px solid;
-    border-left: 0;
+    /****** Ruban "registred" ******/
+    .registred {
+      position: absolute;
+      transform: none;
+      top: 10px;
+      right: 0px;
+      width: 60px;
+      display: block;
+      padding: 10px 0;
+      color: white;
+      text-align: center;
+    }
+    .registred:before,
+    .registred:after {
+      content: "";
+      position: absolute;
+      right: 60px;
+      width: 0;
+      height: 0;
+      border-right: 20px solid;
+      border-left: 0;
 
-  }
-  .thumbnail .registred:before {
-    border-top: 0px solid transparent;
-    border-bottom: 20px solid transparent;
-    top: 0;
-  }
-  .thumbnail .registred:after {
-    border-top: 20px solid transparent;
-    border-bottom: 0px solid transparent;
-    bottom: 0;
-  }
-
-  .tuile .thumbnail .items {
-    min-height: 375px;
+    }
+    .registred:before {
+      border-top: 0px solid transparent;
+      border-bottom: 20px solid transparent;
+      top: 0;
+    }
+    .registred:after {
+      border-top: 20px solid transparent;
+      border-bottom: 0px solid transparent;
+      bottom: 0;
+    }
   }
 
   /****** Couleurs des thumbnails ******/
