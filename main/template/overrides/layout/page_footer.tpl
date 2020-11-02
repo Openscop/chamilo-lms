@@ -13,7 +13,10 @@
             <a href="https://www.superdemain.fr/" title="Site de Super Demain" target="_blank">Super Demain</a>.
             La plateforme a été développée grâce à
             <a href="https://chamilo.org/fr/chamilo/" title="Site de Chamilo" target="_blank">Chamilo</a>,
-            et le soutien de Zoomacom et Openscop.
+            et le soutien de
+            <a href="https://www.zoomacom.org/" title="Site de Zoomacom" target="_blank">Zoomacom</a>
+            et
+            <a href="https://www.openscop.fr/" title="Site de Openscop" target="_blank">Openscop</a>.
         </p>
         {% elseif access_url_description matches '{\w*ommun\w*}' %}
         <p>
@@ -38,8 +41,11 @@
                 Fréquence Écoles
             </a>
             vous donne l'autorisation de copier et d'utiliser l'ensemble des contenus pédagogiques. La plateforme a été développée grâce à
-            <a href="https://chamilo.org/fr/chamilo/" title="Site de Chamilo" target="_blank">Chamilo</a>
-            , et le soutien de Zoomacom et Openscop.
+            <a href="https://chamilo.org/fr/chamilo/" title="Site de Chamilo" target="_blank">Chamilo</a>,
+            et le soutien de
+            <a href="https://www.zoomacom.org/" title="Site de Zoomacom" target="_blank">Zoomacom</a>
+            et
+            <a href="https://www.openscop.fr/" title="Site de Openscop" target="_blank">Openscop</a>.
         </p>
         {% endif %}
 
