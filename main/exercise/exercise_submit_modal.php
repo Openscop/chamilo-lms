@@ -38,7 +38,7 @@ $choiceValue = isset($_GET['choice']) ? $_GET['choice'] : '';
 $hotSpot = isset($_GET['hotspot']) ? $_GET['hotspot'] : '';
 $tryAgain = isset($_GET['tryagain']) && 1 === (int) $_GET['tryagain'];
 
-$allowTryAgain = false;
+$allowTryAgain = true; // FIXME: always allow try again
 if ($tryAgain) {
     // Check if try again exists in this question, otherwise only allow one attempt BT#15827.
     $objQuestionTmp = Question::read($questionId);
@@ -456,6 +456,9 @@ if (!empty($url) && $url != -1) {
 
 $nextQuestion = $questionNum + 1;
 $destinationId = isset($questionList[$nextQuestion]) ? $questionList[$nextQuestion] : -1;
+
+// FIXME: add try again link button on each modals
+$links .= '<a class="btn reload-button" onclick="tryAgain();" href="#">'.get_lang('TryAgain').'</a>&nbsp;';
 
 // the link to finish the test
 if (-1 == $destinationId) {
