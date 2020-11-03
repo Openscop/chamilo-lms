@@ -252,6 +252,10 @@ $(function() {
         } else {
             logit_lms('Content type is SCO and is responsible to launch LMSInitialize() on its own - Skipping',2);
         }
+
+        // init "next item" button
+        update_next_item_button(olms.info_lms_item[0], olms.lms_item_types['i'+olms.info_lms_item[0]]);
+
     });
 });
 
@@ -1512,13 +1516,16 @@ function reinit_updatable_vars_list() {
  * frequence ecole change
  * update data value of next item button
  */
-function update_next_item_button(newCurrentItem) {
+function update_next_item_button(newCurrentItem, itemType) {
     const buttonEl = $("#nextItemButton");
     const returnHomebuttonEl = $("#returnHomeButton");
     buttonEl.attr('data-current-item', newCurrentItem);
     const list = buttonEl.data('list');
     const lastId = list[list.length-1].id;
-    if (lastId === newCurrentItem) {
+    if (itemType === "quiz") {
+        buttonEl.addClass('hidden');
+        returnHomebuttonEl.addClass('hidden');
+    } else if (lastId === newCurrentItem) {
         buttonEl.addClass('hidden');
         returnHomebuttonEl.removeClass('hidden');
     } else {
@@ -1542,8 +1549,6 @@ function update_next_item_button(newCurrentItem) {
  */
 function switch_item(current_item, next_item)
 {
-    // FIXME : frequence ecole custom change
-    update_next_item_button(next_item);
 
     logit_lms('switch_item() called with params '+olms.lms_item_id+' and '+next_item+'',2);
 
@@ -1573,6 +1578,9 @@ function switch_item(current_item, next_item)
         // set in a previous stage
         olms.statusSignalReceived = 1;
     }
+
+    // FIXME : frequence ecole custom change
+    update_next_item_button(next_item, next_item_type);
 
     /*
      There are four "cases" for switching items:

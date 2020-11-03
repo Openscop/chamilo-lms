@@ -186,7 +186,7 @@
                     </div>
                 </div>
                 <div class="contenu-nextButton-container">
-                    <button id='nextItemButton' data-current-item="{{lp_current_item_id}}" data-list="{{data_list|json_encode|e('html_attr')}}" onclick="next_item({{data_list|json_encode|e('html_attr')}}, this); return false;" class="container-nextButton btn">J’ai bien compris, (enfin, je crois)
+                    <button id='nextItemButton' data-current-item="{{lp_current_item_id}}" data-list="{{data_list|json_encode|e('html_attr')}}" onclick="next_item({{data_list|json_encode|e('html_attr')}}, this); return false;" class="container-nextButton btn hidden">J’ai bien compris, (enfin, je crois)
                         et je passe à la suite</button>
                     <a href="/index.php" id='returnHomeButton' class="hidden container-nextButton btn">Commencer un autre parcours</a>
                     <script>
