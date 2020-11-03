@@ -187,7 +187,8 @@ a {
           color: #FFFFFF; }
       .navbar-default .navbar-nav > li > .dropdown-menu {
         background: #FFFFFF;
-        color: #1A063F !important; }
+        color: #1A063F !important;
+        padding: 20px; }
         .navbar-default .navbar-nav > li > .dropdown-menu > li {
           border: none; }
           .navbar-default .navbar-nav > li > .dropdown-menu > li > a {
