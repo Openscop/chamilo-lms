@@ -128,7 +128,8 @@ body {
       .navbar-default .navbar-nav > li > .dropdown-menu {
         padding: 20px;
         background: #FFFFFF;
-        color: #20124D !important; }
+        color: #20124D !important;
+        padding: 20px; }
         .navbar-default .navbar-nav > li > .dropdown-menu > li {
           border: none; }
           .navbar-default .navbar-nav > li > .dropdown-menu > li > a {
