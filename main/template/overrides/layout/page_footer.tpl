@@ -3,6 +3,10 @@
         <img src="./web/img/themes/SuperDemain/logos-footer.png" alt="Partenaires de Super Demain" />
     </div>
 {% elseif access_url_description matches '{\w*ommun\w*}' %}
+    <div id="footer-partenaires">
+        <img src="./web/img/themes/NEC/logo-footer-organisatrices.jpg" alt="Structures organisatrices de NEC" /><br />
+        <img src="./web/img/themes/NEC/logo-footer-soutiens.jpg" alt="Soutiens de NEC" />
+    </div>
 {% endif %}
 <div id="footer">
     {% if plugin_pre_footer is not null %}
