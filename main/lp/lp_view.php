@@ -610,6 +610,7 @@ if (api_get_configuration_value('lp_view_accordion') === true && $lpType == 1) {
 $template->assign('lp_id', $lp->lp_id);
 $template->assign('lp_current_item_id', $lp->get_current_item_id());
 
+
 $menuLocation = 'left';
 if (!empty(api_get_configuration_value('lp_menu_location'))) {
     $menuLocation = api_get_configuration_value('lp_menu_location');
