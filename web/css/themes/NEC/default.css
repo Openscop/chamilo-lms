@@ -147,6 +147,9 @@ body {
   background-color: #F3F3F3 !important;
   color: #240A5F !important; }
 
+a {
+  color: inherit; }
+
 /**********************************************************************************************
   /**********************************************************************************************
   // Navbar
@@ -320,28 +323,30 @@ footer.footer {
   margin-top: 0px;
   padding: 15px;
   opacity: 0; }
-  .tuile a:hover {
-    text-decoration: none; }
-    .tuile .image.card-img-top a {
-      display: block;
-      overflow: hidden; }
-      .tuile .image.card-img-top a img {
-        transition: all linear 0.2s; }
-  .tuile:hover .image.card-img-top a img {
-    transform: scale(1.1); }
-  .tuile.select {
-    -webkit-transition: margin 0.3s ease-out;
-    -moz-transition: margin 0.3s ease-out;
-    -o-transition: margin 0.3s ease-out;
-    animation: jBounceUp-frames 400ms;
-    opacity: 1; }
-    .tuile.select .thumbnail {
-      max-height: 350px; }
-  .tuile:not(.hide):not(.select) {
-    animation-fill-mode: forwards;
-    -webkit-animation-fill-mode: forwards;
-    animation: fadin-frames 500ms;
-    opacity: 1; }
+  .tuile a {
+    color: #ffffff; }
+    .tuile a:hover {
+      text-decoration: none; }
+  .tuile .image.card-img-top a {
+    display: block;
+    overflow: hidden; }
+    .tuile .image.card-img-top a img {
+      transition: all linear 0.2s; }
+.tuile:hover .image.card-img-top a img {
+  transform: scale(1.1); }
+.tuile.select {
+  -webkit-transition: margin 0.3s ease-out;
+  -moz-transition: margin 0.3s ease-out;
+  -o-transition: margin 0.3s ease-out;
+  animation: jBounceUp-frames 400ms;
+  opacity: 1; }
+  .tuile.select .thumbnail {
+    max-height: 350px; }
+.tuile:not(.hide):not(.select) {
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+  animation: fadin-frames 500ms;
+  opacity: 1; }
 
 @keyframes jBounceUp-frames {
   0%, 20%, 100% {
