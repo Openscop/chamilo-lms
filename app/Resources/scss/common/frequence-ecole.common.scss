@@ -323,23 +323,19 @@
     }
 
     .image.card-img-top {
-      a {
+      &> a {
         display: block;
         overflow: hidden;
 
-        img {
+        &> img {
           transition: all linear 0.2s;
         }
       }
     }
 
     &:hover {
-      .image.card-img-top {
-        a {
-          img {
-            transform: scale(1.1);
-          }
-        }
+      &> .image.card-img-top > a > img {
+        transform: scale(1.1);
       }
     }
 
