@@ -140,23 +140,46 @@
       }
       /* Menu de droite */
       &.navbar-right {
-        .avatar-user .img-circle {
-          border: none;
+        .avatar-user {
+          .img-circle {
+            border: none;
+          }
+          .dropdown-toggle {
+            padding-bottom: 10px;
+          }
         }
 
         /* Dropdown formulaire login */
-        .dropdown-menu.dropdown-menu-form-login {
-          width: 350px;
-          padding: 10px 20px;
+        .dropdown-menu {
+          .user-header {
+            em {
+              margin-right: 5px;
+            }
+          }
+          .user-body {
+            a {
+              color: $bluedark;
+              font-weight: 500;
 
-          button#formLogin_submitAuth {
-            border: 2px solid $primaryColor;
-            background-color: $primaryColor;
-            color: #ffffff;
+              em {
+                margin-right: 10px;
+              }
+            }
+          }
 
-            &:hover {
-              background: #ffffff;
-              color: $primaryColor;
+          &.dropdown-menu-form-login {
+            width: 350px;
+            padding: 10px 20px;
+
+            button#formLogin_submitAuth {
+              border: 2px solid $primaryColor;
+              background-color: $primaryColor;
+              color: #ffffff;
+
+              &:hover {
+                background: #ffffff;
+                color: $primaryColor;
+              }
             }
           }
         }
@@ -385,7 +408,12 @@
       -o-transition:margin .3s ease-out;
       animation: jBounceUp-frames 400ms;
       opacity: 1;
-      .thumbnail{
+
+      .image.card-img-top > a > img {
+        border-width: 5px;
+      }
+
+      .thumbnail {
         max-height: 350px;
       }
     }

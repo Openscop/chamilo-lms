@@ -150,16 +150,25 @@ a {
     /* Dropdown formulaire login */ }
     .navbar-default .navbar-nav.navbar-right .avatar-user .img-circle {
       border: none; }
-    .navbar-default .navbar-nav.navbar-right .dropdown-menu.dropdown-menu-form-login {
-      width: 350px;
-      padding: 10px 20px; }
-      .navbar-default .navbar-nav.navbar-right .dropdown-menu.dropdown-menu-form-login button#formLogin_submitAuth {
-        border: 2px solid #E61983;
-        background-color: #E61983;
-        color: #ffffff; }
-        .navbar-default .navbar-nav.navbar-right .dropdown-menu.dropdown-menu-form-login button#formLogin_submitAuth:hover {
-          background: #ffffff;
-          color: #E61983; }
+    .navbar-default .navbar-nav.navbar-right .avatar-user .dropdown-toggle {
+      padding-bottom: 10px; }
+  .navbar-default .navbar-nav.navbar-right .dropdown-menu .user-header em {
+    margin-right: 5px; }
+.navbar-default .navbar-nav.navbar-right .dropdown-menu .user-body a {
+  color: #240A5F;
+  font-weight: 500; }
+  .navbar-default .navbar-nav.navbar-right .dropdown-menu .user-body a em {
+    margin-right: 10px; }
+.navbar-default .navbar-nav.navbar-right .dropdown-menu.dropdown-menu-form-login {
+  width: 350px;
+  padding: 10px 20px; }
+  .navbar-default .navbar-nav.navbar-right .dropdown-menu.dropdown-menu-form-login button#formLogin_submitAuth {
+    border: 2px solid #E61983;
+    background-color: #E61983;
+    color: #ffffff; }
+    .navbar-default .navbar-nav.navbar-right .dropdown-menu.dropdown-menu-form-login button#formLogin_submitAuth:hover {
+      background: #ffffff;
+      color: #E61983; }
 .navbar-default .navbar-collapse .icon-bar, .navbar-default .navbar-toggle .icon-bar {
   background-color: #ffffff; }
 .navbar-default .navbar-link {
@@ -314,6 +323,8 @@ footer.footer {
     -o-transition: margin 0.3s ease-out;
     animation: jBounceUp-frames 400ms;
     opacity: 1; }
+    .tuile.select .image.card-img-top > a > img {
+      border-width: 5px; }
     .tuile.select .thumbnail {
       max-height: 350px; }
   .tuile:not(.hide):not(.select) {
