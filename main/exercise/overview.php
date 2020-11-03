@@ -38,6 +38,17 @@ $learnpath_item_id = isset($_REQUEST['learnpath_item_id']) ? (int) $_REQUEST['le
 $learnpathItemViewId = isset($_REQUEST['learnpath_item_view_id']) ? (int) $_REQUEST['learnpath_item_view_id'] : null;
 $origin = api_get_origin();
 
+$attempts = Event::getExerciseResultsByUser(
+    api_get_user_id(),
+    $objExercise->id,
+    api_get_course_int_id(),
+    api_get_session_id(),
+    $learnpath_id,
+    $learnpath_item_id,
+    'desc'
+);
+$first_attempt = empty($attempts);
+
 $logInfo = [
     'tool' => TOOL_QUIZ,
     'tool_id' => $exercise_id,
@@ -128,6 +139,15 @@ if (!empty($objExercise->description)) {
     $html .= Display::div($objExercise->description, ['class' => 'exercise_description']);
 }
 
+$endOfMessage = $objExercise->getTextWhenFinished();
+if (!$first_attempt && !empty($endOfMessage)) {
+     $html .= "<div id='quiz_end_message'>";
+     $html .= "<p>Vous avez déjà répondu à cet exercice, voici un récapitulatif de ce que vous avez appris : </p>";
+     $html .= $endOfMessage;
+     $html .= "</div>";
+//     echo $html;
+}
+
 $extra_params = '';
 if (isset($_GET['preview'])) {
     $extra_params = '&preview=1';
@@ -140,7 +160,7 @@ $exercise_stat_info = $objExercise->get_stat_track_exercise_info(
 );
 
 //1. Check if this is a new attempt or a previous
-$label = get_lang('StartTest');
+$label = $first_attempt ? get_lang('StartTest') : "Recommencer le test";
 if ($time_control && !empty($clock_expired_time) || isset($exercise_stat_info['exe_id'])) {
     $label = get_lang('ContinueTest');
 }
@@ -198,15 +218,6 @@ if (!api_is_allowed_to_session_edit()) {
     $exercise_url_button = null;
 }
 
-$attempts = Event::getExerciseResultsByUser(
-    api_get_user_id(),
-    $objExercise->id,
-    api_get_course_int_id(),
-    api_get_session_id(),
-    $learnpath_id,
-    $learnpath_item_id,
-    'desc'
-);
 $counter = count($attempts);
 
 $my_attempt_array = [];
@@ -479,11 +490,13 @@ if ($isLimitReached) {
     );
 }
 
-$html .= Display::tag(
-    'div',
-    $table_content,
-    ['class' => 'table-responsive']
-);
+// NEVER SHOW RESULT TABLE
+//$html .= Display::tag(
+//    'div',
+//    $table_content,
+//    ['class' => 'table-responsive']
+//);
+
 $html .= '</div>';
 
 if ($certificateBlock) {

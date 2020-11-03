@@ -977,6 +977,11 @@ a {
   color: #4A6CFF; }
 .page_origin_learnpath .user-answer-incorrect, .page_origin_learnpath .user-answer-label-incorrect {
   color: #FF4A76; }
+.page_origin_learnpath #quiz_end_message {
+  margin-top: 20px; }
+  .page_origin_learnpath #quiz_end_message img {
+    max-width: 100%;
+    height: auto; }
 
 /* MODAL */
 @media (min-width: 768px) {
@@ -1020,7 +1025,7 @@ a {
   background-color: #FFEC00;
   border-color: #FFEC00;
   line-height: 2.5rem;
-  width: 170px;
+  min-width: 170px;
   height: 40px;
   font-size: 1.8rem;
   font-weight: 800;

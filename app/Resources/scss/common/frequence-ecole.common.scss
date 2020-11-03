@@ -1119,6 +1119,14 @@
       }
     }
 
+    #quiz_end_message {
+      margin-top: 20px;
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+
   }
 
 
@@ -1187,7 +1195,7 @@
     background-color: $secondaryColor;
     border-color: $secondaryColor;
     line-height: 2.5rem;
-    width: 170px;
+    min-width: 170px;
     height: 40px;
     font-size: 1.8rem;
     font-weight: 800;
