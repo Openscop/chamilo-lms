@@ -145,9 +145,20 @@
         }
 
         /* Dropdown formulaire login */
-        .dropdown-menu-form.dropdown-menu-form-login {
+        .dropdown-menu.dropdown-menu-form-login {
           width: 350px;
           padding: 10px 20px;
+
+          button#formLogin_submitAuth {
+            border: 2px solid $primaryColor;
+            background-color: $primaryColor;
+            color: #ffffff;
+
+            &:hover {
+              background: #ffffff;
+              color: $primaryColor;
+            }
+          }
         }
       }
     }
@@ -313,6 +324,7 @@
     margin-left: 0px;
     margin-top: 0px;
     padding: 15px;
+    opacity: 0;
 
     a {
       color: #ffffff;
@@ -334,9 +346,36 @@
       }
     }
 
+    /* Icone chevron */
+    .gg-chevron-right-o {
+      box-sizing: border-box;
+      position: relative;
+      display: block;
+      transform: scale(var(--ggs, 1));
+      width: 22px;
+      height: 22px;
+      border: 2px solid;
+      border-radius: 100px;
+      margin: 15px auto auto auto;
+
+    }
+    .gg-chevron-right-o::after {
+      content: "";
+      display: block;
+      box-sizing: border-box;
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      border-bottom: 2px solid;
+      border-right: 2px solid;
+      transform: rotate(-45deg);
+      left: 5px;
+      top: 6px
+    }
+
     &:hover {
       .image.card-img-top > a > img {
-        border-size: 5px;
+        border-width: 5px;
       }
     }
 
@@ -350,7 +389,7 @@
         max-height: 350px;
       }
     }
-    opacity: 0;
+
     &:not(.hide):not(.select) {
       animation-fill-mode: forwards;
       -webkit-animation-fill-mode: forwards;
@@ -368,18 +407,10 @@
       }
     }
   }
+
+
+  /************** Description des tuiles **************/
   .tuile_description {
-    &:before {
-      content: "";
-      width: 50px;
-      height: 50px;
-      position: absolute;
-      top: 13px;
-      background: white;
-      transform: skew(-70deg, 65deg);
-      z-index: -1;
-      left: 105px;
-    }
     display: none;
     background-color: white;
     position: relative;
@@ -387,6 +418,20 @@
     margin-top: 65px !important;
     padding: 20px;
     opacity: 0;
+
+    /* Chevron au-dessus */
+    &:before {
+      content: "";
+      position: absolute;
+      top: -40px;
+      left: 30px;
+      width: 0;
+      height: 0;
+      border-left: 40px solid transparent;
+      border-right: 40px solid transparent;
+      border-bottom: 40px solid white;
+    }
+
     &.show-flex {
       //transition: opacity 2s;
       animation-fill-mode: forwards;
@@ -394,18 +439,68 @@
       animation: fadin-70-frames 500ms;
       opacity: 1;
     }
+    .row {
+      display: flex;
+    }
+
+    .tuile_description-col {
+      padding: 20px;
+      font-size: 1.6rem;
+      line-height: 1.2;
+
+      &.tuile_description-col-right {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .course_button {
+        width: 100%;
+        padding: 0 25% 0 25%;
+        margin-top: 5%;
+
+        a.btn,
+        a.btn-primary {
+          transition: all 0.2s linear;
+          width: 100%;
+          font-weight: 600;
+          font-size: 2rem !important;
+          color: #ffffff !important;
+          background-color: $primaryColor !important;
+          border: 2px solid $primaryColor !important;
+
+          em {
+            margin-left: 10px;
+          }
+
+          &:hover {
+            color: $primaryColor !important;
+            background-color: #ffffff !important;
+            border-color: $primaryColor !important;
+          }
+        }
+      }
+    }
+    .close_tuile_description {
+      position: absolute;
+      z-index: 2600;
+      top: -8px;
+      right: -8px;
+      width: 34px;
+      height: 34px;
+      border-radius: 17px;
+      border: solid 2px $primaryColor;
+      background-color: $primaryColor;
+      color: #ffffff;
+      font-weight: 700;
+
+      &:hover {
+        background-color: #ffffff;
+        color: $primaryColor;
+      }
+    }
   }
 
-  .tuile_description .row {
-    display: flex;
-  }
-
-  .tuile_description-col {
-    padding: 20px;
-    font-size: 1.6rem;
-  }
-
-  /* ~ extends col-md-6 */
   @media (min-width: 992px) {
     .tuile_description-col {
       width: 49%;
@@ -413,12 +508,11 @@
 
     .tuile_description-line {
       min-height: 50px;
-      border-right: $tertiaryColor 2px solid;
+      border-right: $primaryColor 2px solid;
       width: 1px;
       margin: 20px 0;
     }
   }
-
   @media (max-width: 992px) {
     .tuile_description .row {
       display: flex;
@@ -430,87 +524,9 @@
       height: 1px;
       margin: 0 20px;
     }
-
     .tuile_description-col {
       width: 100%;
     }
-  }
-
-  .tuile_description-col {
-    line-height: 1.2;
-  }
-
-  .tuile_description-col-right {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-
-  .close_tuile_description {
-    position: absolute;
-    top: -8px;
-    right: -8px;
-    width: 34px;
-    height: 34px;
-    border-radius: 17px;
-    border: solid 1px gray;
-    background-color: white;
-    z-index: 2600;
-  }
-  /* Icone chevron */
-  .gg-chevron-right-o {
-    box-sizing: border-box;
-    position: relative;
-    display: block;
-    transform: scale(var(--ggs, 1));
-    width: 22px;
-    height: 22px;
-    border: 2px solid;
-    border-radius: 100px;
-    margin: 15px auto auto auto;
-
-  }
-  .gg-chevron-right-o::after {
-    content: "";
-    display: block;
-    box-sizing: border-box;
-    position: absolute;
-    width: 6px;
-    height: 6px;
-    border-bottom: 2px solid;
-    border-right: 2px solid;
-    transform: rotate(-45deg);
-    left: 5px;
-    top: 6px
-  }
-
-  /*Button */
-  .course_button {
-    width: 100%;
-    padding: 0 25% 0 25%;
-    margin-top: 5%;
-  }
-
-  .course_button .btn {
-    width: 100%;
-    font-weight: bold;
-    font-size: 2rem !important;
-    color: white !important;
-    background-color: $primaryColor !important;
-    border-color: $primaryColor !important;
-  }
-
-  .course_button .btn:hover {
-    color: $primaryColor !important;
-    background-color: white !important;
-    border-color: $primaryColor !important;
-  }
-
-  .course_button .btn-primary:hover {
-    color: $primaryColor !important;
-    background-color: white !important;
-    border-color: $primaryColor !important;
   }
 
   .unsubscribe_button {
@@ -736,12 +752,6 @@
 
   .ranking {
     display: inline-block;
-  }
-
-  /* forumaile */
-  #formLogin_submitAuth {
-    background-color: $primaryColor;
-    border-color: #b4025e;
   }
 
   /* Photo de profile */
