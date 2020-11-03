@@ -51,6 +51,21 @@
 
   a {
     color: inherit;
+    outline: none;
+
+    &:hover,
+    &:focus {
+      outline: none;
+    }
+  }
+
+  button {
+    outline: none;
+
+    &:hover,
+    &:focus {
+      outline: none;
+    }
   }
 
 
@@ -140,6 +155,8 @@
       }
       /* Menu de droite */
       &.navbar-right {
+
+        /* Dropdown user menu */
         .avatar-user {
           .img-circle {
             border: none;
@@ -175,6 +192,8 @@
               border: 2px solid $primaryColor;
               background-color: $primaryColor;
               color: #ffffff;
+              transition: all 0.2s linear;
+              font-weight: 500;
 
               &:hover {
                 background: #ffffff;
@@ -396,12 +415,14 @@
       top: 6px
     }
 
+    /* Hover */
     &:hover {
       .image.card-img-top > a > img {
         border-width: 5px;
       }
     }
 
+    /* Tuile sélectionnée */
     &.select {
       -webkit-transition:margin .3s ease-out;
       -moz-transition:margin .3s ease-out;
@@ -447,7 +468,7 @@
     padding: 20px;
     opacity: 0;
 
-    /* Chevron au-dessus */
+    /* Flèche au-dessus */
     &:before {
       content: "";
       position: absolute;
@@ -467,6 +488,7 @@
       animation: fadin-70-frames 500ms;
       opacity: 1;
     }
+
     .row {
       display: flex;
     }

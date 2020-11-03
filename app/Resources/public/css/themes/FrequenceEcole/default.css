@@ -91,7 +91,15 @@ body {
   color: #240A5F !important; }
 
 a {
-  color: inherit; }
+  color: inherit;
+  outline: none; }
+  a:hover, a:focus {
+    outline: none; }
+
+button {
+  outline: none; }
+  button:hover, button:focus {
+    outline: none; }
 
 /**********************************************************************************************
   /**********************************************************************************************
@@ -147,6 +155,7 @@ a {
     color: #FFFFFF;
     background: #E7344F !important; }
   .navbar-default .navbar-nav.navbar-right {
+    /* Dropdown user menu */
     /* Dropdown formulaire login */ }
     .navbar-default .navbar-nav.navbar-right .avatar-user .img-circle {
       border: none; }
@@ -165,7 +174,9 @@ a {
   .navbar-default .navbar-nav.navbar-right .dropdown-menu.dropdown-menu-form-login button#formLogin_submitAuth {
     border: 2px solid #E7344F;
     background-color: #E7344F;
-    color: #ffffff; }
+    color: #ffffff;
+    transition: all 0.2s linear;
+    font-weight: 500; }
     .navbar-default .navbar-nav.navbar-right .dropdown-menu.dropdown-menu-form-login button#formLogin_submitAuth:hover {
       background: #ffffff;
       color: #E7344F; }
@@ -282,7 +293,9 @@ footer.footer {
   margin-top: 0px;
   padding: 15px;
   opacity: 0;
-  /* Icone chevron */ }
+  /* Icone chevron */
+  /* Hover */
+  /* Tuile sélectionnée */ }
   .tuile a {
     color: #ffffff; }
     .tuile a:hover {
@@ -349,7 +362,7 @@ footer.footer {
   margin-top: 65px !important;
   padding: 20px;
   opacity: 0;
-  /* Chevron au-dessus */ }
+  /* Flèche au-dessus */ }
   .tuile_description:before {
     content: "";
     position: absolute;

@@ -60,7 +60,7 @@
                 {{ item.unsubscribe_button }}
                 </div>
             </div>
-            <button class="close_tuile_description">X</button>
+            <button class="close_tuile_description"><i class="fa fa-times" aria-hidden="true"></i></button>
         </div>
 </div>
     </div>
