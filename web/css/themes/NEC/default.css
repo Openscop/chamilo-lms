@@ -285,6 +285,7 @@ footer.footer {
     text-align: center; }
     footer.footer #footer-partenaires img {
       max-height: 150px;
+      max-width: 100%;
       margin: auto; }
   footer.footer .bgfooter {
     background: #000000; }
@@ -1066,9 +1067,16 @@ a {
 #profile_block img {
   width: 27px; }
 
-/*
-  Tuiles
- */
+/*************************************
+ * Footer
+ *************************************/
+footer.footer #footer section.sub-footer {
+  background-color: #20124D;
+  color: white; }
+
+/*************************************
+ * Tuiles
+ *************************************/
 @media (min-width: 1400px) {
   .col-md-4.tuile {
     width: 25%; } }

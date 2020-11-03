@@ -142,10 +142,21 @@ $trueFalseColors : #4A6CFF, #FF4A76;
 @include frequenceEcoleMixin('Montserrat', $mainColors, $thumbnailColors, $trueFalseColors, 56.5%);
 
 
-/*
-  Tuiles
- */
+/*************************************
+ * Footer
+ *************************************/
+footer.footer {
+  #footer {
+    section.sub-footer {
+      background-color: #20124D;
+      color: white;
+    }
+  }
+}
 
+/*************************************
+ * Tuiles
+ *************************************/
 .col-md-4.tuile {
   @media (min-width: 1400px) {
     width: 25%;
