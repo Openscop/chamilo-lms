@@ -90,9 +90,6 @@ body {
   background-color: #F3F3F3 !important;
   color: #240A5F !important; }
 
-a {
-  color: inherit !important; }
-
 /**********************************************************************************************
   /**********************************************************************************************
   // Navbar
@@ -127,8 +124,9 @@ a {
       .navbar-default .navbar-nav > li > a {
         color: #FFFFFF; }
         .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
-          color: #FFFFFF; }
+          color: rgba(255, 255, 255, 0.8); }
       .navbar-default .navbar-nav > li > .dropdown-menu {
+        padding: 20px;
         background: #FFFFFF;
         color: #20124D !important; }
         .navbar-default .navbar-nav > li > .dropdown-menu > li {
@@ -145,8 +143,13 @@ a {
   .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
     color: #FFFFFF;
     background: #E61983 !important; }
-.navbar-default .navbar-nav.navbar-right .avatar-user .img-circle {
-  border: none; }
+  .navbar-default .navbar-nav.navbar-right {
+    /* Dropdown formulaire login */ }
+    .navbar-default .navbar-nav.navbar-right .avatar-user .img-circle {
+      border: none; }
+    .navbar-default .navbar-nav.navbar-right .dropdown-menu-form.dropdown-menu-form-login {
+      width: 350px;
+      padding: 10px 20px; }
 .navbar-default .navbar-collapse .icon-bar, .navbar-default .navbar-toggle .icon-bar {
   background-color: #ffffff; }
 .navbar-default .navbar-link {
@@ -158,8 +161,7 @@ a {
 
 @media (max-width: 767px) {
   .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
-    color: #ededed;
-    background-color: #6D0019; }
+    color: #ededed; }
   .navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
     color: #ededed;
     background-color: #6DEAEE; } }
@@ -261,6 +263,15 @@ footer.footer {
   margin-top: 0px;
   padding: 15px;
   opacity: 0; }
+  .tuile a:hover {
+    text-decoration: none; }
+    .tuile .image.card-img-top a {
+      display: block;
+      overflow: hidden; }
+      .tuile .image.card-img-top a img {
+        transition: all linear 0.2s; }
+  .tuile:hover .image.card-img-top a img {
+    transform: scale(1.1); }
   .tuile.select {
     -webkit-transition: margin 0.3s ease-out;
     -moz-transition: margin 0.3s ease-out;

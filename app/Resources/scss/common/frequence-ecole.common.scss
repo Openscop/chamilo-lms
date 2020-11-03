@@ -31,7 +31,6 @@
 
   /* Couleurs communes */
   $bluedark: #240A5F;
-  $reddark: #6D0019;
 
   html {
     @if $fontREMPercentage {
@@ -48,9 +47,6 @@
     line-height: 1.72222;
     background-color: #F3F3F3 !important;
     color: $bluedark !important;
-  }
-  a {
-    color: inherit !important;
   }
 
 
@@ -97,10 +93,11 @@
 
           &:hover,
           &:focus {
-            color: #FFFFFF;
+            color: rgba(255,255,255,0.8);
           }
         }
         &> .dropdown-menu {
+          padding: 20px;
           background: #FFFFFF;
           color: $tertiaryColor !important;
 
@@ -142,6 +139,12 @@
         .avatar-user .img-circle {
           border: none;
         }
+
+        /* Dropdown formulaire login */
+        .dropdown-menu-form.dropdown-menu-form-login {
+          width: 350px;
+          padding: 10px 20px;
+        }
       }
     }
     .navbar-collapse,
@@ -166,7 +169,6 @@
   @media (max-width: 767px) {
     .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
       color: #ededed;
-      background-color: $reddark;
     }
     .navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
       color: #ededed;
@@ -307,6 +309,32 @@
     margin-left: 0px;
     margin-top: 0px;
     padding: 15px;
+
+    a:hover {
+      text-decoration: none;
+    }
+
+    .image.card-img-top {
+      a {
+        display: block;
+        overflow: hidden;
+
+        img {
+          transition: all linear 0.2s;
+        }
+      }
+    }
+
+    &:hover {
+      .image.card-img-top {
+        a {
+          img {
+            transform: scale(1.1);
+          }
+        }
+      }
+    }
+
     &.select {
       -webkit-transition:margin .3s ease-out;
       -moz-transition:margin .3s ease-out;

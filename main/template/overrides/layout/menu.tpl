@@ -147,7 +147,7 @@
                         <span id="count_message" class="badge badge-warning"></span>
                     </a>
                 </li>
-                <li class="dropdown avatar-user" style="float:right">
+                <li class="dropdown avatar-user">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                        aria-expanded="false">
                         <img class="img-circle" src="{{ _u.avatar_small }}" alt="{{ _u.complete_name }}"/>
@@ -213,7 +213,7 @@
                         SE CONNECTER
                         <em class="fa fa-sign-in"></em>
                     </a>
-                    <ul class="dropdown-menu" role="menu" style="width: 350px">
+                    <ul class="dropdown-menu dropdown-menu-form-login" role="menu">
                         {{ login_form }}
                     </ul>
                 </li>
