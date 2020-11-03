@@ -162,19 +162,19 @@ a {
   font-weight: bold;
   border-radius: 0px;
   color: white !important;
-  /* Menu de droite */
   /* Badge */ }
   .navbar-default .navbar-brand {
     color: #ffffff; }
   .navbar-default .navbar-text {
     color: #ffffff; }
+  .navbar-default .navbar-nav {
+    /* Menu de droite */ }
     .navbar-default .navbar-nav > li {
       padding-top: 15px;
       padding-bottom: 15px;
       /* Logo à gauche dans la navbar */ }
       .navbar-default .navbar-nav > li.logo {
-        margin: 0 20px 0 0;
-        padding: 0; }
+        margin: 0 20px 0 0; }
         .navbar-default .navbar-nav > li.logo > a {
           width: 50px;
           height: 50px;
@@ -201,24 +201,17 @@ a {
       background: #0430E9; }
   .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
     color: #FFFFFF;
-    background: #0430E9 !important;
-    padding: 20px; }
-  .navbar-default .navbar-collapse, .navbar-default .navbar-toggle {
-    border-color: #6D0019; }
-    .navbar-default .navbar-collapse:hover, .navbar-default .navbar-collapse:focus, .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
-      background-color: #6D0019; }
-    .navbar-default .navbar-collapse .icon-bar, .navbar-default .navbar-toggle .icon-bar {
-      background-color: #ffffff; }
-  .navbar-default .navbar-form {
-    background-color: #6D0019; }
-  .navbar-default .navbar-link {
-    color: #ffffff; }
-    .navbar-default .navbar-link:hover {
-      color: #ededed; }
-  .navbar-default.navbar-right .avatar-user .img-circle {
-    border: none; }
-  .navbar-default .badge {
-    background-color: #50B387; }
+    background: #0430E9 !important; }
+.navbar-default .navbar-nav.navbar-right .avatar-user .img-circle {
+  border: none; }
+.navbar-default .navbar-collapse .icon-bar, .navbar-default .navbar-toggle .icon-bar {
+  background-color: #ffffff; }
+.navbar-default .navbar-link {
+  color: #ffffff; }
+  .navbar-default .navbar-link:hover {
+    color: #ededed; }
+.navbar-default .badge {
+  background-color: #50B387; }
 
 @media (max-width: 767px) {
   .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {

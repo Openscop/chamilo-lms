@@ -82,7 +82,6 @@
         /* Logo à gauche dans la navbar */
         &.logo {
           margin: 0 20px 0 0;
-          padding: 0;
 
           & > a {
             width: 50px;
@@ -136,36 +135,26 @@
         &> a:focus {
           color: #FFFFFF;
           background: $primaryColor !important;
-          padding: 20px;
+        }
+      }
+      /* Menu de droite */
+      &.navbar-right {
+        .avatar-user .img-circle {
+          border: none;
         }
       }
     }
     .navbar-collapse,
     .navbar-toggle {
-      border-color: $reddark;
-
-      &:hover,
-      &:focus {
-        background-color: $reddark;
-      }
       .icon-bar {
         background-color: #ffffff;
       }
-    }
-    .navbar-form {
-      background-color: $reddark;
     }
     .navbar-link {
       color: #ffffff;
 
       &:hover {
         color: #ededed;
-      }
-    }
-    /* Menu de droite */
-    &.navbar-right {
-      .avatar-user .img-circle {
-        border: none;
       }
     }
     /* Badge */
