@@ -275,7 +275,7 @@ footer.footer {
     overflow: hidden; }
     .tuile .image.card-img-top > a > img {
       transition: all linear 0.2s; }
-.tuile:hover > .image.card-img-top > a > img {
+.tuile:hover .image.card-img-top > a > img {
   transform: scale(1.1); }
 .tuile.select {
   -webkit-transition: margin 0.3s ease-out;

@@ -334,7 +334,7 @@
     }
 
     &:hover {
-      &> .image.card-img-top > a > img {
+      .image.card-img-top > a > img {
         transform: scale(1.1);
       }
     }
