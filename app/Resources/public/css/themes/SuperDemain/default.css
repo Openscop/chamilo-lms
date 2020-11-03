@@ -274,9 +274,10 @@ footer.footer {
     display: block;
     overflow: hidden; }
     .tuile .image.card-img-top > a > img {
-      transition: all linear 0.2s; }
+      transition: all linear 0.2s;
+      border: 0px solid transparent; }
 .tuile:hover .image.card-img-top > a > img {
-  transform: scale(1.1); }
+  border-size: 5px; }
 .tuile.select {
   -webkit-transition: margin 0.3s ease-out;
   -moz-transition: margin 0.3s ease-out;
