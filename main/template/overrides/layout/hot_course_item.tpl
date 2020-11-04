@@ -11,13 +11,13 @@
     {% endif %}
     <div id="toggle-card-listing" class="toggle-cards-{{ itemsPerLine }}-columns">
         {% for key, item in hot_courses %}
-            {% set line = (key/itemsPerLine)|round(0, 'floor') + 1 %}
+            {% set line = (key/itemsPerLine)|round(0, 'floor') %}
 
 
             <!-- Create a new line very each "itemsPerLine" items -->
             <!-- Open the line if it's the first item -->
             {% if(key%itemsPerLine == 0) %}
-                <div class="toggle-card-line">
+                <div id="toggle-card-line-{{ line }}" class="toggle-card-line">
             {% endif %}
                 <div class="toggle-card-item modulo-2-{{ key%2 }} modulo-3-{{ key%3 }} modulo-4-{{ key%4 }} modulo-5-{{ key%5 }} modulo-6-{{ key%6 }}">
                     <!-- Small part of toggle-card -->
