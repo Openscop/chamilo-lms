@@ -10,6 +10,7 @@
  * Licensed CC-BY-SA
 */
 #toggle-card-listing {
+  width: 100%;
   margin: 20px auto;
   /* Settings of toggle-card-item based on the number of columns */ }
   #toggle-card-listing .toggle-card-line {
