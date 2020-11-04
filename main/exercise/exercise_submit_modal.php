@@ -335,7 +335,11 @@ if ($objExercise->getFeedbackType() === EXERCISE_FEEDBACK_TYPE_DIRECT) {
                     $table .= $answerId;
                 }
                 $table.= "</table>";
-                $contents.= $table;
+
+                // only show table if it has values
+                if (!empty($result['correct_answer_id'])) {
+                    $contents .= $table;
+                }
             } else if ($answerType == MATCHING_DRAGGABLE || $answerType == MATCHING || $answerType == DRAGGABLE) {
                 $table = "<table class='table table-hover table-striped data_table'>";
                 $table.= "<tr><td>".get_lang('ElementList')."</td>";
@@ -348,7 +352,11 @@ if ($objExercise->getFeedbackType() === EXERCISE_FEEDBACK_TYPE_DIRECT) {
                         <td>".$answerId['correct_answer']."</td></tr>";
                 }
                 $table.= "</table>";
-                $contents.= $table;
+
+                // only show table if it has values
+                if (!empty($result['correct_answer_id'])) {
+                    $contents.= $table;
+                }
             } else {
 
                 $table = new HTML_Table(['class' => 'table table-hover table-striped data_table']);
