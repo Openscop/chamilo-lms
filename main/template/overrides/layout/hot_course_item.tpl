@@ -15,8 +15,8 @@
 
 
             <!-- Create a new line very each "itemsPerLine" items -->
-            <!-- Open the line if it's the first item -->
             {% if(key%itemsPerLine == 0) %}
+                <!-- Open the line if it's the first item -->
                 <div id="toggle-card-line-{{ line }}" class="toggle-card-line">
             {% endif %}
                 <div class="toggle-card-item modulo-2-{{ key%2 }} modulo-3-{{ key%3 }} modulo-4-{{ key%4 }} modulo-5-{{ key%5 }} modulo-6-{{ key%6 }}">
@@ -59,14 +59,14 @@
                     </div>
                 </div>
 
-            <!-- Close the line if it's the last and fourth item of the line -->
             {% if(key%itemsPerLine == itemsPerLine - 1) %}
+                <!-- Close the line if it's the last and itemsPerLine-th item of the line -->
                 </div>
-            <!-- Cline the line and add missing toggle-cards if it's the last item (but if it's not the fourth item of the line) -->
             {% elseif(key + 1 == hot_courses|length) %}
                     {% set missing_cards = (itemsPerLine * (line + 1) - hot_courses|length) %}
-                    {% for missing_card in missing_cards %}
-                        <div class="toggle-card-item"></div>
+                    {% for i in 0..missing_cards %}
+                    <!-- Close the line and add missing toggle-cards if it's the last item (but if it's not the itemsPerLine-th item of the line) -->
+                        <div class="toggle-card-item modulo-2-{{ key%2 }} modulo-3-{{ key%3 }} modulo-4-{{ key%4 }} modulo-5-{{ key%5 }} modulo-6-{{ key%6 }}"></div>
                     {% endfor %}
                 </div>
             {% endif %}
