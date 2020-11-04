@@ -5,7 +5,6 @@
  * Based on Bootstrap
 */
 
-@import 'toggle-cards';
 
 /*
  * primary color : header bg, main button
@@ -32,61 +31,6 @@
 
   /* Couleurs communes */
   $bluedark: #240A5F;
-
-
-
-
-
-
-
-/* Couleur des toggle-cards */
-@each $color in $thumbnailColors {
-    $index: index($thumbnailColors, $color) - 1;
-    #toggle-card-listing .toggle-card-line .toggle-card-item {
-        &.modulo-#{length($thumbnailColors)}-#{$index%length($thumbnailColors)} {
-            .toggle-card-summary .toggle-card-summary-container {
-                background-color: $color;
-                .registred {
-                    background-color: $color;
-
-                    &:before,
-                    &:after {
-                        border-right-color: $color;
-                    }
-                }
-            }
-            .toggle-card-details .toggle-card-details-container {
-                border-color: $color;
-
-                &:before {
-                    border-bottom-color: $color;
-                }
-
-                .toggle-card-details-right {
-                    border-color: $color;
-
-                    .toggle-card-details-buttons a.btn {
-                        background-color: $color;
-                        border: 2px solid $color;
-
-                        &:hover {
-                            color: $color;
-                            background-color: white;
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-
-
-
-
-
-
-
-
 
   html {
     @if $fontREMPercentage {
@@ -691,6 +635,40 @@
       width: 100%;
       margin: 0 !important;
     }
+
+    /****** Ruban "registred" ******/
+    .registred {
+      position: absolute;
+      transform: none;
+      top: 10px;
+      right: 0px;
+      width: 80px;
+      display: block;
+      padding: 10px 0;
+      color: white;
+      text-align: center;
+    }
+    .registred:before,
+    .registred:after {
+      content: "";
+      position: absolute;
+      right: 80px;
+      width: 0;
+      height: 0;
+      border-right: 20px solid;
+      border-left: 0;
+
+    }
+    .registred:before {
+      border-top: 0px solid transparent;
+      border-bottom: 20px solid transparent;
+      top: 0;
+    }
+    .registred:after {
+      border-top: 20px solid transparent;
+      border-bottom: 0px solid transparent;
+      bottom: 0;
+    }
   }
 
   /****** Couleurs des thumbnails ******/
@@ -711,7 +689,6 @@
       }
     }
   }
-
 
 
   /**********************************************************************************************
