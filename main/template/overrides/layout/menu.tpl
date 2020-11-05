@@ -118,20 +118,21 @@
                 <a href="index.php" title="Retour à l'accueil" style="background-image: url('{{ _p.web_css_theme}}images/header-logo.png')"></a>
             </li>
 
-                {% for item in menu %}
+            {% for item in menu %}
                 {% set show_item = true %}
                 {% if user_in_anon_survey and item.key != 'homepage' %}
-                {% set show_item = false %}
+                    {% set show_item = false %}
                 {% endif %}
 
                 {% if show_item %}
-                <li class="{{ item.key }} {{ item.current }}">
-                    <a href="{{ item.url }}" {{ item.target ? 'target="' ~ item.target ~ '"' : '' }} title="{{ item.title }}">
-                        {{ item.title|upper}}
-                    </a>
-                </li>
+                    <li class="{{ item.key }} {{ item.current }}">
+                        <a href="{{ item.url }}" {{ item.target ? 'target="' ~ item.target ~ '"' : '' }} title="{{ item.title }}">
+                            {{ item.title|upper}}
+                        </a>
+                    </li>
                 {% endif %}
-                {% endfor %}
+            {% endfor %}
+
             </ul>
             {% if _u.logged == 1 and not user_in_anon_survey %}
             <ul class="nav navbar-nav navbar-right">

@@ -326,7 +326,7 @@ function returnNotificationMenu()
 }
 
 /**
- * Return an array with different navigation mennu elements.
+ * Return an array with different navigation menu elements.
  *
  * @return array [menu_navigation[], navigation[], possible_tabs[]]
  */
@@ -474,6 +474,24 @@ function return_navigation_array()
         }
     }
 
+    // FREQ - custom
+    $forum_id = "forum_with_title_global_not_created";
+
+    $forums = ForumHelper::get_forums();
+
+    foreach ($forums as $forum) {
+        if ($forum['forum_title'] === 'global') {
+            $forum_id = $forum['forum_id'];
+        }
+    }
+
+    $navigation['forum'] = [
+        "url" => api_get_path(WEB_CODE_PATH)."forum/viewforum.php?cidReq=FORUMGLOBAL&forum=".$forum_id,
+        "title" => "Forum",
+        "key" => "forum",
+        "icon" => "social-network.png"
+    ];
+
     return [
         'menu_navigation' => $menu_navigation,
         'navigation' => $navigation,
@@ -562,7 +580,6 @@ function menuArray()
     if (!empty($open) || !empty($openMenuTabsLoggedIn)) {
         if (strpos($open.$openMenuTabsLoggedIn, 'show_menu') !== false) {
             $list = explode("\n", api_get_user_id() && !api_is_anonymous() ? $openMenuTabsLoggedIn : $open);
-
             foreach ($list as $link) {
                 if (strpos($link, 'class="hide_menu"') !== false) {
                     continue;
@@ -586,11 +603,9 @@ function menuArray()
     }
 
     if (count($mainNavigation['navigation']) > 0) {
-        //$pre_lis = '';
         $activeSection = '';
-        foreach ($mainNavigation['navigation'] as $section => $navigation_info) {
-            $key = (!empty($navigation_info['key']) ? 'tab-'.$navigation_info['key'] : '');
 
+        foreach ($mainNavigation['navigation'] as $section => $navigation_info) {
             if (isset($GLOBALS['this_section'])) {
                 $tempSection = $section;
                 if ($section == 'social') {
@@ -609,11 +624,10 @@ function menuArray()
                         }
                     }
                 }
-            } else {
-                $current = '';
             }
             $mainNavigation['navigation'][$section]['current'] = '';
         }
+
         if (!empty($activeSection)) {
             $mainNavigation['navigation'][$activeSection]['current'] = 'active';
         }
