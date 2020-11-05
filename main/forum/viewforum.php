@@ -31,7 +31,7 @@ api_protect_course_script(true);
 api_protect_course_group(GroupManager::GROUP_TOOL_FORUM);
 
 // The section (tabs).
-$this_section = SECTION_COURSES;
+$this_section = SECTION_FORUM;
 $nameTools = get_lang('ToolForum');
 
 // Are we in a lp ?

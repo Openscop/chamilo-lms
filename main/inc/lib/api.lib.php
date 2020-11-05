@@ -152,6 +152,7 @@ define('TOOL_PLAGIARISM', 'compilatio');
 // CONSTANTS defining Chamilo interface sections
 define('SECTION_CAMPUS', 'mycampus');
 define('SECTION_COURSES', 'mycourses');
+define('SECTION_FORUM', 'forum');
 define('SECTION_CATALOG', 'catalog');
 define('SECTION_MYPROFILE', 'myprofile');
 define('SECTION_MYAGENDA', 'myagenda');
