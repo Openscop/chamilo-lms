@@ -1,5 +1,28 @@
-# Openscop
-Ce fork correspond à des demandes spécifiques de notre client dans un délai limité.
+# Openscop / Fréquence école
+
+
+### Install ddev
+
+- install ddev : https://www.ddev.com/get-started/
+- launch ddev : ddev start
+- create user for db ( root // root )
+
+### Install website
+
+- ddev exec bash ; composer install 
+- go to http://chamilo-1.11.ddev.site/ 
+- use config mysql : hôte : db et port : 3306 and root // root for user and pwd
+
+### Config
+
+- Activate multiurl : uncommunt in configuration.php 
+
+
+### useful
+
+- update css of the tpl of the theme : composer update-theme-css
+
+Ce fork correspond à des demandes spécifiques dans un délai limité.
 
 les objectifs sont de :
 
