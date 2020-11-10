@@ -4244,7 +4244,8 @@ class Exercise
                             '',
                             $showTotalScoreAndUserChoicesInLastAttempt
                         );
-                        $correctAnswerId = ob_get_clean();
+                        $correctAnswerId['answer'] = ob_get_clean();
+                        $correctAnswerId['comment'] = $answerComment;
 
                     }
                     break;

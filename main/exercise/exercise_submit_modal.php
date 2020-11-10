@@ -326,7 +326,9 @@ if ($objExercise->getFeedbackType() === EXERCISE_FEEDBACK_TYPE_DIRECT) {
             if ($answerType == FILL_IN_BLANKS ) {
                 $table = "<table class='table table-hover table-striped data_table'>";
                 $table.= "<tr><td>".get_lang('YourAnswer')."</td></tr>";
-                $table.= $result['correct_answer_id'];
+                $table.= $result['correct_answer_id']['answer'];
+                $table.= "<table class='table table-hover table-striped data_table'><tr><td>".get_lang('Comment')."</td></tr></table>";
+                $table.= "<tr></tr><td>".$result['correct_answer_id']['comment']."</td></tr>";
                 $table.= "</table>";
                 $contents.= $table;
             } else if ($answerType == HOT_SPOT){
