@@ -475,22 +475,28 @@ function return_navigation_array()
     }
 
     // FREQ - custom
-    $forum_id = "forum_with_title_global_not_created";
+    if (api_get_user_id() && !api_is_anonymous()) {
 
-    $forums = ForumHelper::get_forums();
+        $forum_id = -1;
 
-    foreach ($forums as $forum) {
-        if ($forum['forum_title'] === 'global') {
-            $forum_id = $forum['forum_id'];
+        $forums = ForumHelper::get_forums();
+
+        foreach ($forums as $forum) {
+            if ($forum['forum_title'] === 'global') {
+                $forum_id = $forum['forum_id'];
+            }
         }
-    }
 
-    $navigation['forum'] = [
-        "url" => api_get_path(WEB_CODE_PATH)."forum/viewforum.php?cidReq=FORUMGLOBAL&forum=".$forum_id,
-        "title" => "Forum",
-        "key" => "forum",
-        "icon" => "social-network.png"
-    ];
+        if ($forum_id > -1) {
+            $navigation['forum'] = [
+                "url" => api_get_path(WEB_CODE_PATH) . "forum/viewforum.php?cidReq=FORUMGLOBAL&forum=" . $forum_id,
+                "title" => "Echanger",
+                "key" => "forum",
+                "icon" => "social-network.png"
+            ];
+        }
+
+    }
 
     return [
         'menu_navigation' => $menu_navigation,

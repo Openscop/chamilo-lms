@@ -2,9 +2,9 @@
 {% block body %}
 
 {% if hot_courses|length > 0 %}
-    {% if access_url_description matches '{\w*emain\w*}' %}
+    {% if isSuperDemain %}
         {% set itemsPerLine = 3 %}
-    {% elseif access_url_description matches '{\w*ommun\w*}' %}
+    {% elseif isNEC %}
         {% set itemsPerLine = 4 %}
     {% else %}
         {% set itemsPerLine = 3 %}

@@ -975,8 +975,15 @@ class Template
         $this->assign('page_origin', api_get_origin());
         $this->assign('flash_messages', Display::getFlashToString());
 
-//        FIXME: global var to know which url we're on
-        $this->assign('access_url_description', api_get_access_url(api_get_current_access_url_id())['description']);
+        // Global var to know which url we're on
+        $access_url_description = api_get_access_url(api_get_current_access_url_id())['description'] ?? null;
+        if (preg_match("{\w*emain\w*}",$access_url_description)) {
+            $this->assign('isSuperDemain', true);
+        } else if (preg_match("{\w*ommun\w*}", $access_url_description)) {
+            $this->assign('isNEC', true);
+        } else {
+            $this->assign('isFreq', true);
+        }
 
 
         if ($clearFlashMessages) {
