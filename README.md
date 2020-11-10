@@ -18,9 +18,14 @@
 - Activate multiurl : uncommunt in configuration.php 
 
 
-### useful
+### new tools
 
-- update css of the tpl of the theme : composer update-theme-css
+- compile & update css of the tpl of the theme : composer update-theme-css
+
+### specificities
+
+- to use the global forum : create a forum with the title : "global" and the category : GLOBALFORUM
+
 
 Ce fork correspond à des demandes spécifiques dans un délai limité.
 
