@@ -4675,11 +4675,12 @@ class Exercise
                                 // used in result page from session
                                 $user_answer = Display::span($answerMatching[$choice[$answerAutoId]], ['class' => 'user-answer user-answer-correct']);
 
-                                // FIXME: fréquence école fix to display incorrect answer on modal
+                                // fréquence école fix to display incorrect answer on modal
                                 $correctAnswerId[] = [
                                     'correct' => 1,
                                     'id' => $answerAutoId,
                                     'element'=> $objAnswerTmp->selectAnswer($answerId),
+                                    'comment'=> $objAnswerTmp->selectComment($answerId),
                                     'user_answer' => $user_answer,
                                     'correct_answer' => $answerMatching[$answerCorrect],
                                 ];
@@ -4693,11 +4694,12 @@ class Exercise
                                         ['class' => 'user-answer user-answer-incorrect']
                                     );
 
-                                    // FIXME: fréquence école : to add incorrect answers to be displayed on modal
+                                    // fréquence école : to add incorrect answers to be displayed on modal
                                     $correctAnswerId[] = [
                                         'correct' => 0,
                                         'id' => $answerAutoId,
                                         'element'=> $objAnswerTmp->selectAnswer($answerId),
+                                        'comment'=> $objAnswerTmp->selectComment($answerId),
                                         'user_answer' => $user_answer,
                                         'correct_answer' => $answerMatching[$answerCorrect],
                                     ];

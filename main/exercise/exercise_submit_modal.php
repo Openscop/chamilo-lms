@@ -344,12 +344,13 @@ if ($objExercise->getFeedbackType() === EXERCISE_FEEDBACK_TYPE_DIRECT) {
                 $table = "<table class='table table-hover table-striped data_table'>";
                 $table.= "<tr><td>".get_lang('ElementList')."</td>";
                 $table.= "<td>".get_lang('YourAnswer')."</td>";
-                $table.= "<td>".get_lang('CorrespondsTo')."</td></tr>";
+                $table.= "<td>".get_lang('Comment')."</td>";
+                $table.= "</tr>";
                 foreach ($result['correct_answer_id'] as $answerId) {
                     $class = $answerId['correct'] ? 'correct' : 'incorrect';
                     $table .= "<tr><td>".$answerId['element']."</td>
                         <td class='user-answer user-answer-".$class."'>".$answerId['user_answer']."</td>
-                        <td>".$answerId['correct_answer']."</td></tr>";
+                        <td>".$answerId['comment']."</td></tr>";
                 }
                 $table.= "</table>";
 

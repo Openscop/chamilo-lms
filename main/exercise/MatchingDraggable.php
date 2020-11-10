@@ -1,6 +1,8 @@
 <?php
 /* For licensing terms, see /license.txt */
 
+use ChamiloSession as Session;
+
 /**
  * MatchingDraggable.
  *
@@ -64,6 +66,7 @@ class MatchingDraggable extends Question
                     if ($answer->isCorrect($i)) {
                         $nb_matches++;
                         $defaults['answer['.$nb_matches.']'] = $answer->selectAnswer($i);
+                        $defaults['comment['.$nb_matches.']'] = $answer->selectComment($i);
                         $defaults['weighting['.$nb_matches.']'] = float_format($answer->selectWeighting($i), 1);
                         $defaults['matches['.$nb_matches.']'] = $answer->correct[$i];
                     } else {
@@ -100,8 +103,9 @@ class MatchingDraggable extends Question
             <thead>
                 <tr>
                     <th width="10">'.get_lang('Number').'</th>
-                    <th width="85%">'.get_lang('Answer').'</th>
+                    <th width="45%">'.get_lang('Answer').'</th>
                     <th width="15%">'.get_lang('MatchesTo').'</th>
+                    <th width="40%">'.get_lang('Comment').'</th>
                     <th width="10">'.get_lang('Weighting').'</th>
                 </tr>
             </thead>
@@ -135,13 +139,17 @@ class MatchingDraggable extends Question
 
             $renderer->setElementTemplate(
                 '<td><!-- BEGIN error --><span class="form_error">{error}</span><!-- END error -->{element}</td>',
+                "comment[$i]"
+            );
+
+            $renderer->setElementTemplate(
+                '<td><!-- BEGIN error --><span class="form_error">{error}</span><!-- END error -->{element}</td>',
                 "weighting[$i]"
             );
 
             $form->addHtml('<tr>');
             $form->addHtml("<td>$i</td>");
 
-            //$form->addText("answer[$i]", null);
             $form->addHtmlEditor(
                 "answer[$i]",
                 null,
@@ -151,6 +159,14 @@ class MatchingDraggable extends Question
             );
 
             $form->addSelect("matches[$i]", null, $matches);
+
+            $form->addHtmlEditor(
+                "comment[$i]",
+                null,
+                null,
+                false,
+                $editorConfig
+            );
             $form->addText("weighting[$i]", null, true, ['style' => 'width: 60px;', 'value' => 10]);
             $form->addHtml('</tr>');
         }
@@ -242,13 +258,14 @@ class MatchingDraggable extends Question
             $position++;
             $answer = $form->getSubmitValue("answer[$i]");
             $matches = $form->getSubmitValue("matches[$i]");
+            $comment = $form->getSubmitValue("comment[$i]");
             $weighting = $form->getSubmitValue("weighting[$i]");
             $this->weighting += $weighting;
 
             $objAnswer->createAnswer(
                 $answer,
                 $matches,
-                '',
+                $comment,
                 $weighting,
                 $position
             );
