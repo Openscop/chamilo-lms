@@ -4667,6 +4667,7 @@ class Exercise
                         break 2; // break the switch and the "for" condition
                     } else {
                         if ($answerCorrect) {
+                            $correct = -1; // -1 means no answer is given
                             if (isset($choice[$answerAutoId]) &&
                                 $answerCorrect == $choice[$answerAutoId]
                             ) {
@@ -4676,15 +4677,7 @@ class Exercise
                                 // used in result page from session
                                 $user_answer = Display::span($answerMatching[$choice[$answerAutoId]], ['class' => 'user-answer user-answer-correct']);
 
-                                // fréquence école fix to display incorrect answer on modal
-                                $correctAnswerId[] = [
-                                    'correct' => 1,
-                                    'id' => $answerAutoId,
-                                    'element'=> $objAnswerTmp->selectAnswer($answerId),
-                                    'comment'=> $objAnswerTmp->selectComment($answerId),
-                                    'user_answer' => $user_answer,
-                                    'correct_answer' => $answerMatching[$answerCorrect],
-                                ];
+                                $correct = 1;
 
                             } else {
                                 if (isset($answerMatching[$choice[$answerAutoId]])) {
@@ -4695,17 +4688,34 @@ class Exercise
                                         ['class' => 'user-answer user-answer-incorrect']
                                     );
 
-                                    // fréquence école : to add incorrect answers to be displayed on modal
-                                    $correctAnswerId[] = [
-                                        'correct' => 0,
-                                        'id' => $answerAutoId,
-                                        'element'=> $objAnswerTmp->selectAnswer($answerId),
-                                        'comment'=> $objAnswerTmp->selectComment($answerId),
-                                        'user_answer' => $user_answer,
-                                        'correct_answer' => $answerMatching[$answerCorrect],
-                                    ];
+                                    $correct = 0;
                                 }
                             }
+
+                            // for submit modal
+                            if ($correct > -1) {
+                                $drag_or_match_answer_obj = [
+                                    'correct' => $correct,
+                                    'id' => $answerAutoId,
+                                    'element'=> $objAnswerTmp->selectAnswer($answerId),
+                                    'comment'=> $objAnswerTmp->selectComment($answerId),
+                                    'user_answer' => $user_answer,
+                                    'correct_answer' => $answerMatching[$answerCorrect],
+                                ];
+                                if ($answerType == DRAGGABLE) {
+                                    if (!isset($correctAnswerId['answers'])) {
+                                        $correctAnswerId = [
+                                            'answers' => [$drag_or_match_answer_obj],
+                                            'comment' => $objAnswerTmp->selectComment(1) // draggable has only one global comment
+                                        ];
+                                    } else {
+                                        $correctAnswerId['answers'][] = $drag_or_match_answer_obj;
+                                    }
+                                } else {
+                                    $correctAnswerId[] = $drag_or_match_answer_obj;
+                                }
+                            }
+
                             $matching[$answerAutoId] = $choice[$answerAutoId];
                         }
                     }

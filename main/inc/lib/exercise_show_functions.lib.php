@@ -277,11 +277,11 @@ class ExerciseShowFunctions
         $content .= '</td>';
         if (EXERCISE_FEEDBACK_TYPE_EXAM != $feedback_type) {
             $content .= '<td class="text-left" width="60%">';
-            if ($studentChoice) {
+//            if ($studentChoice) {
                 $content .= '<span class="expected-answer-correct">'.nl2br($answerComment).'</span>';
-            } else {
-                $content .= '&nbsp;';
-            }
+//            } else {
+//                $content .= '&nbsp;';
+//            }
             $content .= '</td>';
         } else {
             $content .= '<td class="text-left" width="60%">&nbsp;</td>';

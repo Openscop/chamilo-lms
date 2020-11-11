@@ -58,6 +58,7 @@ class Draggable extends Question
 
             if ($answer->nbrAnswers > 0) {
                 $nb_matches = $nb_options = 0;
+                $defaults['comment[1]'] = $answer->selectComment(1);
                 for ($i = 1; $i <= $answer->nbrAnswers; $i++) {
                     if ($answer->isCorrect($i)) {
                         $nb_matches++;
@@ -149,10 +150,26 @@ class Draggable extends Question
         $group = [
             $form->addButtonDelete(get_lang('DelElem'), 'lessMatches', true),
             $form->addButtonCreate(get_lang('AddElem'), 'moreMatches', true),
-            $form->addButtonSave($text, 'submitQuestion', true),
         ];
 
         $form->addGroup($group);
+
+        $form->addHeader(get_lang('Comment'));
+
+        $form->addHtmlEditor(
+            "comment[1]",
+            null,
+            null,
+            false,
+            [
+                'Width' => '100%',
+                'Height' => '125',
+            ]
+        );
+
+        $form->addGroup(
+            [$form->addButtonSave($text, 'submitQuestion', true)]
+        );
 
         if (!empty($this->id)) {
             $form->setDefaults($defaults);
@@ -185,7 +202,8 @@ class Draggable extends Question
         // Insert the options
         for ($i = 1; $i <= $nb_matches; $i++) {
             $position++;
-            $objAnswer->createAnswer($position, 0, '', 0, $position);
+            $comment = $form->getSubmitValue('comment['.$i.']');
+            $objAnswer->createAnswer($position, 0, $comment, 0, $position);
         }
 
         // Insert the answers

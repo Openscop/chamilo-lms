@@ -342,7 +342,7 @@ if ($objExercise->getFeedbackType() === EXERCISE_FEEDBACK_TYPE_DIRECT) {
                 if (!empty($result['correct_answer_id'])) {
                     $contents .= $table;
                 }
-            } else if ($answerType == MATCHING_DRAGGABLE || $answerType == MATCHING || $answerType == DRAGGABLE) {
+            } else if ($answerType == MATCHING_DRAGGABLE || $answerType == MATCHING ) {
                 $table = "<table class='table table-hover table-striped data_table'>";
                 $table.= "<tr><td>".get_lang('ElementList')."</td>";
                 $table.= "<td>".get_lang('YourAnswer')."</td>";
@@ -359,6 +359,25 @@ if ($objExercise->getFeedbackType() === EXERCISE_FEEDBACK_TYPE_DIRECT) {
                 // only show table if it has values
                 if (!empty($result['correct_answer_id'])) {
                     $contents.= $table;
+                }
+            } else if ($answerType == DRAGGABLE) {
+                $contents .= $result['correct_answer_id']['comment'];
+                if (!$answerCorrect) {
+                    $table = "<table class='table table-hover table-striped data_table'>";
+                    $table.= "<tr><td>".get_lang('ElementList')."</td>";
+                    $table.= "<td>".get_lang('YourAnswer')."</td>";
+                    $table.= "</tr>";
+                    foreach ($result['correct_answer_id']['answers'] as $answerId) {
+                        $class = $answerId['correct'] ? 'correct' : 'incorrect';
+                        $table .= "<tr><td>".$answerId['element']."</td>
+                        <td class='user-answer user-answer-".$class."'>".$answerId['user_answer']."</td></tr>";
+                    }
+                    $table.= "</table>";
+
+                    // only show table if it has values
+                    if (!empty($result['correct_answer_id'])) {
+                        $contents.= $table;
+                    }
                 }
             } else {
 
