@@ -490,7 +490,7 @@ function return_navigation_array()
         if ($forum_id > -1) {
             $navigation['forum'] = [
                 "url" => api_get_path(WEB_CODE_PATH) . "forum/viewforum.php?cidReq=FORUMGLOBAL&forum=" . $forum_id,
-                "title" => "Echanger",
+                "title" => "Discuter",
                 "key" => "forum",
                 "icon" => "social-network.png"
             ];
