@@ -973,6 +973,7 @@ class Template
     public function display($template, $clearFlashMessages = true)
     {
         $this->assign('page_origin', api_get_origin());
+        $this->assign('homepage_url', api_get_path().'index.php');
         $this->assign('flash_messages', Display::getFlashToString());
 
         // Global var to know which url we're on

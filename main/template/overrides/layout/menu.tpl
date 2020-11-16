@@ -115,7 +115,7 @@
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
             <li class="logo">
-                <a href="index.php" title="Retour à l'accueil" style="background-image: url('{{ _p.web_css_theme}}images/header-logo.png')"></a>
+                <a href="{{homepage_url}}" title="Retour à l'accueil" style="background-image: url('{{ _p.web_css_theme}}images/header-logo.png')"></a>
             </li>
 
             {% for item in menu %}
