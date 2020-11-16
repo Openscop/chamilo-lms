@@ -152,7 +152,7 @@ if ($origin == 'learnpath') {
     Display::display_reduced_header();
 } else {
     // The last element of the breadcrumb navigation is already set in interbreadcrumb, so give empty string.
-    Display::display_header();
+    Display::display_header('', null, null, false);
 }
 
 /* Actions */
