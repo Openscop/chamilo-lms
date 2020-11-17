@@ -3137,6 +3137,7 @@ function store_thread(
  *                              The message will be in the reply. (I first thought not to put an I-frame here)
  * @param array  $form_values
  * @param bool   $showPreview
+ * @param mixed  $attributes  (optional) Extra attributes for <form> tag
  *
  * @return FormValidator
  *
@@ -3144,7 +3145,7 @@ function store_thread(
  *
  * @version february 2006, dokeos 1.8
  */
-function show_add_post_form($current_forum, $action, $form_values = [], $showPreview = true)
+function show_add_post_form($current_forum, $action, $form_values = [], $showPreview = true, $attributes = [])
 {
     $_user = api_get_user_info();
     $action = isset($action) ? Security::remove_XSS($action) : '';
@@ -3165,7 +3166,10 @@ function show_add_post_form($current_forum, $action, $form_values = [], $showPre
     $form = new FormValidator(
         'thread',
         'post',
-        $url
+        $url,
+        '',
+        $attributes,
+        'inline'
     );
 
     $form->setConstants(['forum' => '5']);
@@ -3181,7 +3185,11 @@ function show_add_post_form($current_forum, $action, $form_values = [], $showPre
         $form->applyFilter('poster_name', 'html_filter');
     }
 
-    $form->addElement('text', 'post_title', get_lang('Title'));
+    if (in_array($action, ['replythread', 'replymessage', 'quote'])) {
+        $form->addElement('hidden', 'post_title', get_lang('Title'));
+    } else {
+        $form->addElement('text', 'post_title', get_lang('Title'));
+    }
     $form->addHtmlEditor(
         'post_text',
         get_lang('Text'),
@@ -3284,17 +3292,17 @@ function show_add_post_form($current_forum, $action, $form_values = [], $showPre
         $form->addElement('checkbox', 'thread_sticky', '', get_lang('StickyPost'));
     }
 
-    if (in_array($action, ['quote', 'replymessage'])) {
-        $form->addFile('user_upload[]', get_lang('Attachment'));
-        $form->addButton(
-            'add_attachment',
-            get_lang('AddAttachment'),
-            'paperclip',
-            'default',
-            'default',
-            null,
-            ['id' => 'reply-add-attachment']
-        );
+    if (in_array($action, ['quote', 'replymessage', 'replythread'])) {
+//        $form->addFile('user_upload[]', get_lang('Attachment'));
+//        $form->addButton(
+//            'add_attachment',
+//            get_lang('AddAttachment'),
+//            'paperclip',
+//            'default',
+//            'default',
+//            null,
+//            ['id' => 'reply-add-attachment']
+//        );
     } else {
         $form->addFile('user_upload', get_lang('Attachment'));
     }
@@ -3323,7 +3331,7 @@ function show_add_post_form($current_forum, $action, $form_values = [], $showPre
     if ($action == 'quote') {
         $form->addButtonCreate(get_lang('QuoteMessage'), 'SubmitPost');
     } elseif ($action == 'replythread') {
-        $form->addButtonCreate(get_lang('ReplyToThread'), 'SubmitPost');
+        $form->addButton('SubmitPost', get_lang('ReplyToThread'), null, 'primary' );
     } elseif ($action == 'replymessage') {
         $form->addButtonCreate(get_lang('ReplyToMessage'), 'SubmitPost');
     } else {

@@ -141,7 +141,7 @@ $htmlHeadXtra[] = "
         $(function() {
             $('#reply-add-attachment').on('click', function(e) {
                 e.preventDefault();
-    
+
                 var newInputFile = $('<input>', {
                     type: 'file',
                     name: 'user_upload[]'
@@ -161,13 +161,13 @@ $form = show_add_post_form(
 if ($origin == 'learnpath') {
     Display::display_reduced_header();
 } else {
-    Display::display_header();
+    Display::display_header('', null, null, false);
 }
 handle_forum_and_forumcategories();
 
 // Action links
 echo '<div class="actions">';
-echo '<span style="float:right;">'.search_link().'</span>';
+//echo '<span style="float:right;">'.search_link().'</span>';
 echo '<a href="viewforum.php?forum='.intval($_GET['forum']).'&'.$cidreq.'">'.
     Display::return_icon('back.png', get_lang('BackToForum'), '', ICON_SIZE_MEDIUM).'</a>';
 echo '</div>';

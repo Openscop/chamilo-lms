@@ -7,6 +7,7 @@
 
 @import 'toggle-cards';
 @import "forum";
+@import "tools";
 
 /*
  * primary color : header bg, main button
@@ -1386,10 +1387,3 @@
 
 }
 
-/*
-Useful
- */
-
-.show-flex {
-  display: flex !important;
-}

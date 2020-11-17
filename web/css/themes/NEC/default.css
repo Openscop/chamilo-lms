@@ -251,17 +251,29 @@
     margin-bottom: 0; }
   .globalForum-threadList-lastAnswer {
     text-align: right; }
+.globalForum-addPostForm .form_required_container {
+  display: none; }
+.globalForum-addPostForm label[for=post_text] {
+  display: none; }
+@media (min-width: 768px) {
+  .globalForum-addPostForm .col-sm-2:first-child {
+    width: 8.33333333%; } }
+.globalForum-addPostForm .col-sm-2:last-child {
+  display: none; }
+@media (min-width: 768px) {
+  .globalForum-addPostForm .col-sm-8 {
+    width: 91.66666667%; } }
+
+.show-flex {
+  display: flex !important; }
+
+.container-970 {
+  max-width: 970px; }
 
 /*
  * primary color : header bg, main button
  * secondary color: secondary button
  */
-/*
-Useful
- */
-.show-flex {
-  display: flex !important; }
-
 /* cyrillic-ext */
 @font-face {
   font-family: 'Montserrat';

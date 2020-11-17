@@ -26,4 +26,27 @@
       text-align: right;
     }
   }
+  &-addPostForm {
+    .form_required_container {
+      display: none;
+    }
+    label[for=post_text] {
+      display: none;
+    }
+    .col-sm-2 {
+      &:first-child {
+        @media (min-width: 768px) {
+          width: 8.33333333%;
+        }
+      }
+      &:last-child {
+        display: none;
+      }
+    }
+    .col-sm-8 {
+      @media (min-width: 768px) {
+        width: 91.66666667%;
+      }
+    }
+  }
 }

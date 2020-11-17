@@ -195,10 +195,21 @@ increase_thread_view($threadId);
 if ($origin === 'learnpath') {
     $template = new Template('', false, false, true, true, false);
 } else {
-    $template = new Template();
+    $template = new Template(
+        '',
+        true,
+        true,
+        false,
+        false,
+        true,
+        true,
+        0,
+        false
+    );
 }
 
-$actions = '<span style="float:right;">'.search_link().'</span>';
+$actions = '';
+//$actions = '<span style="float:right;">'.search_link().'</span>';
 if ($origin !== 'learnpath') {
     $actions .= '<a href="'.$forumUrl.'viewforum.php?forum='.$forumId.'&'.api_get_cidreq().'">'
         .Display::return_icon('back.png', get_lang('BackToForum'), '', ICON_SIZE_MEDIUM).'</a>';
@@ -216,12 +227,12 @@ if (($current_forum_category &&
     // The link should only appear when the user is logged in or when anonymous posts are allowed.
     if ($_user['user_id'] || ($current_forum['allow_anonymous'] == 1 && !$_user['user_id'])) {
         // reply link
-        if (!api_is_anonymous() && api_is_allowed_to_session_edit(false, true)) {
-            $actions .= '<a href="'.$forumUrl.'reply.php?'.api_get_cidreq().'&forum='.$forumId.'&thread='
-                .$threadId.'&action=replythread">'
-                .Display::return_icon('reply_thread.png', get_lang('ReplyToThread'), '', ICON_SIZE_MEDIUM)
-                .'</a>';
-        }
+//        if (!api_is_anonymous() && api_is_allowed_to_session_edit(false, true)) {
+//            $actions .= '<a href="'.$forumUrl.'reply.php?'.api_get_cidreq().'&forum='.$forumId.'&thread='
+//                .$threadId.'&action=replythread">'
+//                .Display::return_icon('reply_thread.png', get_lang('ReplyToThread'), '', ICON_SIZE_MEDIUM)
+//                .'</a>';
+//        }
         // new thread link
         if ((
             api_is_allowed_to_edit(false, true) &&
@@ -238,15 +249,15 @@ if (($current_forum_category &&
     }
 }
 
-$actions .= Display::url(
-    Display::return_icon('forum_nestedview.png', get_lang('NestedView'), [], ICON_SIZE_MEDIUM),
-    $currentUrl.'&action=change_view&view=nested'
-);
-
-$actions .= Display::url(
-    Display::return_icon('forum_listview.png', get_lang('FlatView'), [], ICON_SIZE_MEDIUM),
-    $currentUrl.'&action=change_view&view=flat'
-);
+//$actions .= Display::url(
+//    Display::return_icon('forum_nestedview.png', get_lang('NestedView'), [], ICON_SIZE_MEDIUM),
+//    $currentUrl.'&action=change_view&view=nested'
+//);
+//
+//$actions .= Display::url(
+//    Display::return_icon('forum_listview.png', get_lang('FlatView'), [], ICON_SIZE_MEDIUM),
+//    $currentUrl.'&action=change_view&view=flat'
+//);
 
 $template->assign('forum_actions', $actions);
 $template->assign('origin', api_get_origin());
@@ -704,7 +715,8 @@ if ($showForm) {
         $current_forum,
         'replythread',
         $values,
-        false
+        false,
+        ["class" => 'inline globalForum-addPostForm']
     );
     $formToString = $form->returnForm();
 }
