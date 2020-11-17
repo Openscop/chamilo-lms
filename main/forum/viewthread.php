@@ -526,13 +526,13 @@ foreach ($posts as $post) {
     }
 
     $statusIcon = getPostStatus($current_forum, $post);
-    if (!empty($iconEdit)) {
-        $post['user_data'] .= "<div class='tools-icons'> $iconEdit $statusIcon </div>";
-    } else {
-        if (!empty(strip_tags($statusIcon))) {
-            $post['user_data'] .= "<div class='tools-icons'> $statusIcon </div>";
-        }
-    }
+//    if (!empty($iconEdit)) {
+//        $post['user_data'] .= "<div class='tools-icons'> $iconEdit $statusIcon </div>";
+//    } else {
+//        if (!empty(strip_tags($statusIcon))) {
+//            $post['user_data'] .= "<div class='tools-icons'> $statusIcon </div>";
+//        }
+//    }
 
     $buttonReply = '';
     $buttonQuote = '';
