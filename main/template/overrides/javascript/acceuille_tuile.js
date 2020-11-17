@@ -1,6 +1,5 @@
 $(function() {
     // color_tuile();
-    var is_display = 0;
     $(".tuile").click(function(e){
         // stop listener si click sur bouton de rating :
         if(e.target.getAttribute('data-link')){

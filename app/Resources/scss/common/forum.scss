@@ -49,4 +49,39 @@
       }
     }
   }
+  &Thread {
+    &-title {
+      justify-content: center;
+      height: 97px;
+      display: flex;
+      align-items: center;
+      margin: 60px 0;
+    }
+
+    &-userData{
+      display: flex;
+      align-items: center;
+      height: 36px;
+      &-image {
+        margin-right: 5px;
+      }
+      img {
+        border-radius: 50%;
+        width: 23px;
+        margin: 0;
+      }
+      &-name {
+        font-weight: bold;
+      }
+    }
+
+    #newResponse, #responseForm {
+      margin-bottom: 20px;
+    }
+  }
+  &DirectAnswer {
+
+  }
 }
+
+

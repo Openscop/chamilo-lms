@@ -3304,7 +3304,7 @@ function show_add_post_form($current_forum, $action, $form_values = [], $showPre
 //            ['id' => 'reply-add-attachment']
 //        );
     } else {
-        $form->addFile('user_upload', get_lang('Attachment'));
+//        $form->addFile('user_upload', get_lang('Attachment'));
     }
 
     if ($giveRevision) {
@@ -3332,10 +3332,11 @@ function show_add_post_form($current_forum, $action, $form_values = [], $showPre
         $form->addButtonCreate(get_lang('QuoteMessage'), 'SubmitPost');
     } elseif ($action == 'replythread') {
         $form->addButton('SubmitPost', get_lang('ReplyToThread'), null, 'primary' );
+        $form->addButton('Cancel', get_lang('Cancel'), null, 'secondary' , 'default', null, ['onclick'=>'hidePostForm()']);
     } elseif ($action == 'replymessage') {
-        $form->addButtonCreate(get_lang('ReplyToMessage'), 'SubmitPost');
+        $form->addButton('SubmitPost', 'Envoyer', null, 'primary' );
     } else {
-        $form->addButtonCreate(get_lang('CreateThread'), 'SubmitPost');
+        $form->addButton('SubmitPost', get_lang('CreateThread'), null, 'primary');
     }
 
     $defaults['thread_peer_qualify'] = 0;

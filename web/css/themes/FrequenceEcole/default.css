@@ -264,6 +264,27 @@
   .globalForum-addPostForm .col-sm-8 {
     width: 91.66666667%; } }
 
+.globalForumThread-title {
+  justify-content: center;
+  height: 97px;
+  display: flex;
+  align-items: center;
+  margin: 60px 0; }
+.globalForumThread-userData {
+  display: flex;
+  align-items: center;
+  height: 36px; }
+  .globalForumThread-userData-image {
+    margin-right: 5px; }
+  .globalForumThread-userData img {
+    border-radius: 50%;
+    width: 23px;
+    margin: 0; }
+  .globalForumThread-userData-name {
+    font-weight: bold; }
+.globalForumThread #newResponse, .globalForumThread #responseForm {
+  margin-bottom: 20px; }
+
 .show-flex {
   display: flex !important; }
 
