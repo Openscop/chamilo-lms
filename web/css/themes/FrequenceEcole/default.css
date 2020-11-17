@@ -1,6 +1,6 @@
 /*!
  * SCSS Superdemain
- * 2020 - Samuel eyre (hello@samueleyre.com)
+ * 2020 - Samuel eyre (hello@samueleyre.com), Marjolaine Vé (marjolaine.ve@mail.com) & Fréquence écoles - http://frequence-ecoles.org
  * Licensed GPL
  * Based on Bootstrap
 */
@@ -234,6 +234,23 @@
             border-left: none;
             border-top-width: 2px;
             border-top-style: solid; } }
+
+.globalForum-actions {
+  padding: 20px 0; }
+.globalForum-title {
+  text-align: center; }
+  .globalForum-threadList-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around; }
+    .globalForum-threadList-title-author img {
+      border-radius: 50%;
+      width: 15px; }
+  .globalForum-threadList-stats {
+    font-size: 1.4rem;
+    margin-bottom: 0; }
+  .globalForum-threadList-lastAnswer {
+    text-align: right; }
 
 /*
  * primary color : header bg, main button

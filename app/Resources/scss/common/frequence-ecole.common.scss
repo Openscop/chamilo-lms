@@ -1,11 +1,12 @@
 /*!
  * SCSS Superdemain
- * 2020 - Samuel eyre (hello@samueleyre.com)
+ * 2020 - Samuel eyre (hello@samueleyre.com), Marjolaine Vé (marjolaine.ve@mail.com) & Fréquence écoles - http://frequence-ecoles.org
  * Licensed GPL
  * Based on Bootstrap
 */
 
 @import 'toggle-cards';
+@import "forum";
 
 /*
  * primary color : header bg, main button
@@ -19,73 +20,63 @@
   $fontREMPercentage:null
 ) {
 
-  $primaryColor : nth($mainColors, 1);
-  $secondaryColor : nth($mainColors, 2);
-  $tertiaryColor : nth($mainColors, 3);
+  $primaryColor: nth($mainColors, 1);
+  $secondaryColor: nth($mainColors, 2);
+  $tertiaryColor: nth($mainColors, 3);
 
-  $trueColor : nth($trueFalseColors, 1);
-  $falseColor : nth($trueFalseColors, 2);
+  $trueColor: nth($trueFalseColors, 1);
+  $falseColor: nth($trueFalseColors, 2);
 
   //secondary button hover
-  $primaryColorButtonHover : lighten($primaryColor, 10%);
-  $secondaryColorButtonHover : lighten($secondaryColor, 10%);
+  $primaryColorButtonHover: lighten($primaryColor, 10%);
+  $secondaryColorButtonHover: lighten($secondaryColor, 10%);
 
   /* Couleurs communes */
   $bluedark: #240A5F;
 
 
-
-
-
-
-
-/* Couleur des toggle-cards */
-@each $color in $thumbnailColors {
+  /* Couleur des toggle-cards */
+  @each $color in $thumbnailColors {
     $index: index($thumbnailColors, $color) - 1;
     #toggle-card-listing .toggle-card-line .toggle-card-item {
-        &.modulo-#{length($thumbnailColors)}-#{$index%length($thumbnailColors)} {
-            .toggle-card-summary .toggle-card-summary-container {
-                background-color: $color;
-                .registred {
-                    background-color: $color;
+      &.modulo-#{length($thumbnailColors)}-#{$index%length($thumbnailColors)} {
+        .toggle-card-summary .toggle-card-summary-container {
+          background-color: $color;
 
-                    &:before,
-                    &:after {
-                        border-right-color: $color;
-                    }
-                }
+          .registred {
+            background-color: $color;
+
+            &:before,
+            &:after {
+              border-right-color: $color;
             }
-            .toggle-card-details .toggle-card-details-container {
-                border-color: $color;
-
-                &:before {
-                    border-bottom-color: $color;
-                }
-
-                .toggle-card-details-right {
-                    border-color: $color;
-
-                    .toggle-card-details-buttons a.btn {
-                        background-color: $color;
-                        border: 2px solid $color;
-
-                        &:hover {
-                            color: $color;
-                            background-color: white;
-                        }
-                    }
-                }
-            }
+          }
         }
+
+        .toggle-card-details .toggle-card-details-container {
+          border-color: $color;
+
+          &:before {
+            border-bottom-color: $color;
+          }
+
+          .toggle-card-details-right {
+            border-color: $color;
+
+            .toggle-card-details-buttons a.btn {
+              background-color: $color;
+              border: 2px solid $color;
+
+              &:hover {
+                color: $color;
+                background-color: white;
+              }
+            }
+          }
+        }
+      }
     }
-}
-
-
-
-
-
-
-
+  }
 
 
   html {
@@ -142,11 +133,13 @@
     .navbar-brand {
       color: #ffffff;
     }
+
     .navbar-text {
       color: #ffffff;
     }
+
     .navbar-nav {
-      &> li {
+      & > li {
         padding-top: 15px;
         padding-bottom: 15px;
 
@@ -163,23 +156,24 @@
           }
         }
 
-        &> a {
+        & > a {
           color: #FFFFFF;
 
           &:hover,
           &:focus {
-            color: rgba(255,255,255,0.8);
+            color: rgba(255, 255, 255, 0.8);
           }
         }
-        &> .dropdown-menu {
+
+        & > .dropdown-menu {
           padding: 20px;
           background: #FFFFFF;
           color: $tertiaryColor !important;
 
-          &> li {
+          & > li {
             border: none;
 
-            &> a {
+            & > a {
               color: #ffffff;
 
               &:hover,
@@ -187,28 +181,32 @@
                 color: #ffffff;
               }
             }
-            &> .divider {
+
+            & > .divider {
               background-color: $secondaryColor;
             }
           }
         }
       }
-      &> .active {
-        &> a,
-        &> a:hover,
-        &> a:focus {
+
+      & > .active {
+        & > a,
+        & > a:hover,
+        & > a:focus {
           color: #FFFFFF;
-          background: rgba(255,255,255,0.2);
+          background: rgba(255, 255, 255, 0.2);
         }
       }
-      &> .open {
-        &> a,
-        &> a:hover,
-        &> a:focus {
+
+      & > .open {
+        & > a,
+        & > a:hover,
+        & > a:focus {
           color: #FFFFFF;
           background: $primaryColor !important;
         }
       }
+
       /* Menu de droite */
       &.navbar-right {
 
@@ -217,6 +215,7 @@
           .img-circle {
             border: none;
           }
+
           .dropdown-toggle {
             padding-bottom: 10px;
           }
@@ -229,6 +228,7 @@
               margin-right: 5px;
             }
           }
+
           .user-body {
             a {
               color: $bluedark;
@@ -260,12 +260,14 @@
         }
       }
     }
+
     .navbar-collapse,
     .navbar-toggle {
       .icon-bar {
         background-color: #ffffff;
       }
     }
+
     .navbar-link {
       color: #ffffff;
 
@@ -273,6 +275,7 @@
         color: #ededed;
       }
     }
+
     /* Badge */
     .badge {
       background-color: #50B387;
@@ -332,9 +335,11 @@
     .bgfooter {
       background: #000000;
     }
+
     .bgfooter a {
       color: #ffffff;
     }
+
     .bgfooter a:hover {
       color: #CCC;
     }
@@ -354,11 +359,13 @@
         a {
           font-weight: bold;
         }
+
         img {
           width: 75px;
           height: 25px;
           margin-right: 20px;
         }
+
         p {
           padding: 0;
           margin: 0;
@@ -366,7 +373,6 @@
       }
     }
   }
-
 
 
   /**********************************************************************************************
@@ -388,10 +394,12 @@
         color: $primaryColor !important;
         font-weight: bold;
       }
+
       &-link {
         color: $primaryColor;
         font-weight: bold;
       }
+
       margin: 20px !important;
       font-size: 2.3rem;
     }
@@ -433,11 +441,11 @@
     }
 
     .image.card-img-top {
-      &> a {
+      & > a {
         display: block;
         overflow: hidden;
 
-        &> img {
+        & > img {
           transition: all linear 0.2s;
           border: 0px solid transparent;
         }
@@ -457,6 +465,7 @@
       margin: 15px auto auto auto;
 
     }
+
     .gg-chevron-right-o::after {
       content: "";
       display: block;
@@ -480,9 +489,9 @@
 
     /* Tuile sélectionnée */
     &.select {
-      -webkit-transition:margin .3s ease-out;
-      -moz-transition:margin .3s ease-out;
-      -o-transition:margin .3s ease-out;
+      -webkit-transition: margin .3s ease-out;
+      -moz-transition: margin .3s ease-out;
+      -o-transition: margin .3s ease-out;
       animation: jBounceUp-frames 400ms;
       opacity: 1;
 
@@ -501,6 +510,7 @@
       animation: fadin-frames 500ms;
       opacity: 1;
     }
+
     @keyframes jBounceUp-frames {
       0%, 20%, 100% {
         -webkit-transform: translateY(0);
@@ -587,6 +597,7 @@
         }
       }
     }
+
     .close_tuile_description {
       position: absolute;
       z-index: 2600;
@@ -671,12 +682,15 @@
     height: 100%;
     padding: 0 !important;
     cursor: pointer;
+
     .items {
       position: relative;
     }
+
     .items-hotcourse .img-responsive {
       width: 100%;
     }
+
     .block-title {
       padding: 5px 0 5px 0;
     }
@@ -686,6 +700,7 @@
       font-weight: bolder !important;
       display: flex;
     }
+
     a > img {
       max-height: 220px;
       width: 100%;
@@ -701,6 +716,7 @@
     .tuile:nth-child(#{length($thumbnailColors)}n + #{$index}) {
       .thumbnail {
         background-color: $color;
+
         .registred {
           background-color: $color;
 
@@ -711,7 +727,6 @@
       }
     }
   }
-
 
 
   /**********************************************************************************************
@@ -1069,6 +1084,7 @@
       .feedback-green {
         color: $trueColor;
       }
+
       .feedback-red {
         color: $falseColor;
       }
@@ -1078,6 +1094,7 @@
       &-success {
         background-color: $trueColor;
       }
+
       &-danger {
         background-color: $falseColor;
       }
@@ -1195,6 +1212,7 @@
       .rib-error, .ribbon-total-error {
         background: $falseColor;
       }
+
       .rib-error h3, .ribbon-total-error h3 {
         color: #ffffff !important;
       }
@@ -1202,6 +1220,7 @@
       .rib-success, .ribbon-total-success {
         background: $trueColor;
       }
+
       .rib-success h3, .ribbon-total-success h3 {
         color: #ffffff !important;
       }
@@ -1230,6 +1249,7 @@
       &-correct {
         color: $trueColor;
       }
+
       &-incorrect {
         color: $falseColor;
       }
@@ -1248,20 +1268,24 @@
         max-width: 100%;
       }
     }
+
     .incorrect-answer {
       color: #E61983 !important;
     }
+
     .next-exercice-button, .finish-button, .reload-button {
       background-color: $secondaryColor;
       border-color: $secondaryColor;
       color: $tertiaryColor !important;
       text-decoration: none;
+
       &:hover {
         background-color: #FFFFFF;
         border-color: $secondaryColorButtonHover;
         color: $tertiaryColor !important;
         text-decoration: none;
       }
+
       &:focus {
         background-color: #FFFFFF;
         border-color: $secondaryColorButtonHover;
@@ -1328,12 +1352,14 @@
     color: #20124D !important;
     text-decoration: none;
     font-size: 2rem;
+
     &:hover {
       background-color: #FFFFFF;
       border-color: $secondaryColor;
       color: #20124D !important;
       text-decoration: none;
     }
+
     &:focus {
       background-color: #FFFFFF;
       border-color: $secondaryColor;

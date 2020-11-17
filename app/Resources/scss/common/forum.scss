@@ -1,0 +1,29 @@
+.globalForum {
+  &-actions {
+    padding: 20px 0;
+  }
+  &-title {
+    text-align: center;
+  }
+  &-threadList {
+    &-title {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      &-author {
+        img {
+          border-radius: 50%;
+          width: 15px;
+        }
+      }
+
+    }
+    &-stats {
+      font-size: 1.4rem;
+      margin-bottom: 0;
+    }
+    &-lastAnswer {
+      text-align: right;
+    }
+  }
+}
