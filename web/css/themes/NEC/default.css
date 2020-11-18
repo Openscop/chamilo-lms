@@ -1,6 +1,6 @@
 /*!
  * SCSS Superdemain
- * 2020 - Samuel eyre (hello@samueleyre.com)
+ * 2020 - Samuel eyre (hello@samueleyre.com), Marjolaine Vé (marjolaine.ve@mail.com) & Fréquence écoles - http://frequence-ecoles.org
  * Licensed GPL
  * Based on Bootstrap
 */
@@ -235,16 +235,66 @@
             border-top-width: 2px;
             border-top-style: solid; } }
 
+.globalForum-actions {
+  padding: 20px 0; }
+.globalForum-title {
+  text-align: center; }
+  .globalForum-threadList-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around; }
+    .globalForum-threadList-title-author img {
+      border-radius: 50%;
+      width: 15px; }
+  .globalForum-threadList-stats {
+    font-size: 1.4rem;
+    margin-bottom: 0; }
+  .globalForum-threadList-lastAnswer {
+    text-align: right; }
+.globalForum-addPostForm .form_required_container {
+  display: none; }
+.globalForum-addPostForm label[for=post_text] {
+  display: none; }
+@media (min-width: 768px) {
+  .globalForum-addPostForm .col-sm-2:first-child {
+    width: 8.33333333%; } }
+.globalForum-addPostForm .col-sm-2:last-child {
+  display: none; }
+@media (min-width: 768px) {
+  .globalForum-addPostForm .col-sm-8 {
+    width: 91.66666667%; } }
+
+.globalForumThread-title {
+  justify-content: center;
+  height: 97px;
+  display: flex;
+  align-items: center;
+  margin: 60px 0; }
+.globalForumThread-userData {
+  display: flex;
+  align-items: center;
+  height: 36px; }
+  .globalForumThread-userData-image {
+    margin-right: 5px; }
+  .globalForumThread-userData img {
+    border-radius: 50%;
+    width: 23px;
+    margin: 0; }
+  .globalForumThread-userData-name {
+    font-weight: bold; }
+.globalForumThread #newResponse, .globalForumThread #responseForm {
+  margin-bottom: 20px; }
+
+.show-flex {
+  display: flex !important; }
+
+.container-970 {
+  max-width: 970px; }
+
 /*
  * primary color : header bg, main button
  * secondary color: secondary button
  */
-/*
-Useful
- */
-.show-flex {
-  display: flex !important; }
-
 /* cyrillic-ext */
 @font-face {
   font-family: 'Montserrat';

@@ -19,7 +19,7 @@
  */
 require_once __DIR__.'/../inc/global.inc.php';
 
-$this_section = SECTION_COURSES;
+$this_section = SECTION_FORUM;
 
 api_protect_course_script(true);
 
@@ -164,20 +164,23 @@ Event::registerLog($logInfo);
 $form = show_add_post_form(
     $current_forum,
     $my_action,
-    $my_elements
+    $my_elements,
+    false,
+    ["class" => 'inline globalForum-addPostForm']
 );
 
 if ($origin == 'learnpath') {
     Display::display_reduced_header();
 } else {
     // The last element of the breadcrumb navigation is already set in interbreadcrumb, so give an empty string.
-    Display::display_header();
+    Display::display_header('', null, null, false);
 }
 /* Action links */
 
 if ($origin != 'learnpath') {
+    echo '<div class="forumGlobalDirectAnswer">';
     echo '<div class="actions">';
-    echo '<span style="float:right;">'.search_link().'</span>';
+//    echo '<span style="float:right;">'.search_link().'</span>';
     echo '<a href="viewthread.php?'.api_get_cidreq().'&forum='.$forumId.'&thread='.$threadId.'">';
     echo Display::return_icon(
         'back.png',
@@ -186,21 +189,24 @@ if ($origin != 'learnpath') {
         ICON_SIZE_MEDIUM
     ).'</a>';
     echo '</div>';
+    echo '<p>Rédiger votre réponse :</p>';
 }
 /*New display forum div*/
-echo '<div class="forum_title">';
-echo '<h1>';
-echo Display::url(
-    prepare4display($current_forum['forum_title']),
-    'viewforum.php?'.api_get_cidreq().'&'.http_build_query(['forum' => $current_forum['forum_id']]),
-    ['class' => empty($current_forum['visibility']) ? 'text-muted' : null]
-);
-echo '</h1>';
-echo '<p class="forum_description">'.prepare4display($current_forum['forum_comment']).'</p>';
-echo '</div>';
+//echo '<div class="forum_title">';
+//echo '<h1>';
+//echo Display::url(
+//    prepare4display($current_forum['forum_title']),
+//    'viewforum.php?'.api_get_cidreq().'&'.http_build_query(['forum' => $current_forum['forum_id']]),
+//    ['class' => empty($current_forum['visibility']) ? 'text-muted' : null]
+//);
+//echo '</h1>';
+//echo '<p class="forum_description">'.prepare4display($current_forum['forum_comment']).'</p>';
+//echo '</div>';
 if ($form) {
     $form->display();
 }
+
+echo '</div>';
 
 if ($origin == 'learnpath') {
     Display::display_reduced_footer();

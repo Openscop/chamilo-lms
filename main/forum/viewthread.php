@@ -11,7 +11,7 @@ use ChamiloSession as Session;
 require_once __DIR__.'/../inc/global.inc.php';
 $current_course_tool = TOOL_FORUM;
 
-$this_section = SECTION_COURSES;
+$this_section = SECTION_FORUM;
 
 // Notification for unauthorized people.
 api_protect_course_script(true);
@@ -195,10 +195,21 @@ increase_thread_view($threadId);
 if ($origin === 'learnpath') {
     $template = new Template('', false, false, true, true, false);
 } else {
-    $template = new Template();
+    $template = new Template(
+        '',
+        true,
+        true,
+        false,
+        false,
+        true,
+        true,
+        0,
+        false
+    );
 }
 
-$actions = '<span style="float:right;">'.search_link().'</span>';
+$actions = '';
+//$actions = '<span style="float:right;">'.search_link().'</span>';
 if ($origin !== 'learnpath') {
     $actions .= '<a href="'.$forumUrl.'viewforum.php?forum='.$forumId.'&'.api_get_cidreq().'">'
         .Display::return_icon('back.png', get_lang('BackToForum'), '', ICON_SIZE_MEDIUM).'</a>';
@@ -216,12 +227,12 @@ if (($current_forum_category &&
     // The link should only appear when the user is logged in or when anonymous posts are allowed.
     if ($_user['user_id'] || ($current_forum['allow_anonymous'] == 1 && !$_user['user_id'])) {
         // reply link
-        if (!api_is_anonymous() && api_is_allowed_to_session_edit(false, true)) {
-            $actions .= '<a href="'.$forumUrl.'reply.php?'.api_get_cidreq().'&forum='.$forumId.'&thread='
-                .$threadId.'&action=replythread">'
-                .Display::return_icon('reply_thread.png', get_lang('ReplyToThread'), '', ICON_SIZE_MEDIUM)
-                .'</a>';
-        }
+//        if (!api_is_anonymous() && api_is_allowed_to_session_edit(false, true)) {
+//            $actions .= '<a href="'.$forumUrl.'reply.php?'.api_get_cidreq().'&forum='.$forumId.'&thread='
+//                .$threadId.'&action=replythread">'
+//                .Display::return_icon('reply_thread.png', get_lang('ReplyToThread'), '', ICON_SIZE_MEDIUM)
+//                .'</a>';
+//        }
         // new thread link
         if ((
             api_is_allowed_to_edit(false, true) &&
@@ -238,15 +249,15 @@ if (($current_forum_category &&
     }
 }
 
-$actions .= Display::url(
-    Display::return_icon('forum_nestedview.png', get_lang('NestedView'), [], ICON_SIZE_MEDIUM),
-    $currentUrl.'&action=change_view&view=nested'
-);
-
-$actions .= Display::url(
-    Display::return_icon('forum_listview.png', get_lang('FlatView'), [], ICON_SIZE_MEDIUM),
-    $currentUrl.'&action=change_view&view=flat'
-);
+//$actions .= Display::url(
+//    Display::return_icon('forum_nestedview.png', get_lang('NestedView'), [], ICON_SIZE_MEDIUM),
+//    $currentUrl.'&action=change_view&view=nested'
+//);
+//
+//$actions .= Display::url(
+//    Display::return_icon('forum_listview.png', get_lang('FlatView'), [], ICON_SIZE_MEDIUM),
+//    $currentUrl.'&action=change_view&view=flat'
+//);
 
 $template->assign('forum_actions', $actions);
 $template->assign('origin', api_get_origin());
@@ -301,6 +312,8 @@ $allowUserImageForum = api_get_course_setting('allow_user_image_forum');
 // The course admin him/herself can do this off course always
 $tutorGroup = GroupManager::is_tutor_of_group(api_get_user_id(), $groupInfo);
 
+$template->assign('thread_title', Security::remove_XSS($posts[0]['post_title']));
+
 $postList = [];
 foreach ($posts as $post) {
     $posterId = isset($post['user_id']) ? $post['user_id'] : 0;
@@ -314,51 +327,57 @@ foreach ($posts as $post) {
         $name = $post['poster_name'];
     }
 
-    $post['user_data'] = '';
-    if ($origin !== 'learnpath') {
-        if ($allowUserImageForum) {
-            $post['user_data'] = '<div class="thumbnail">'.
-                display_user_image($posterId, $name, $origin).'</div>';
-        }
+//    $post['user_data'] = '';
+//    if ($origin !== 'learnpath') {
+//        if ($allowUserImageForum) {
+//            $post['user_data'] = '<div class="thumbnail">'.
+//                display_user_image($posterId, $name, $origin).'</div>';
+//        }
+//
+//        $post['user_data'] .= Display::tag(
+//            'h4',
+//            display_user_link($posterId, $name, $origin, $username),
+//            ['class' => 'title-username']
+//        );
+//
+//        $_user = api_get_user_info($posterId);
+////        $iconStatus = $_user['icon_status'];
+////        $post['user_data'] .= '<div class="user-type text-center">'.$iconStatus.'</div>';
+//    } else {
+//        if ($allowUserImageForum) {
+//            $post['user_data'] .= '<div class="thumbnail">'.
+//                display_user_image($posterId, $name, $origin).'</div>';
+//        }
+//
+//        $post['user_data'] .= Display::tag(
+//            'p',
+//            $name,
+//            [
+//                'title' => api_htmlentities($username, ENT_QUOTES),
+//                'class' => 'lead',
+//            ]
+//        );
+//    }
+//
+//    if ($origin !== 'learnpath') {
+//        $post['user_data'] .= Display::tag(
+//            'p',
+//            Display::dateToStringAgoAndLongDate($post['post_date']),
+//            ['class' => 'post-date']
+//        );
+//    } else {
+//        $post['user_data'] .= Display::tag(
+//            'p',
+//            Display::dateToStringAgoAndLongDate($post['post_date']),
+//            ['class' => 'text-muted']
+//        );
+//    }
 
-        $post['user_data'] .= Display::tag(
-            'h4',
-            display_user_link($posterId, $name, $origin, $username),
-            ['class' => 'title-username']
-        );
-
-        $_user = api_get_user_info($posterId);
-        $iconStatus = $_user['icon_status'];
-        $post['user_data'] .= '<div class="user-type text-center">'.$iconStatus.'</div>';
-    } else {
-        if ($allowUserImageForum) {
-            $post['user_data'] .= '<div class="thumbnail">'.
-                display_user_image($posterId, $name, $origin).'</div>';
-        }
-
-        $post['user_data'] .= Display::tag(
-            'p',
-            $name,
-            [
-                'title' => api_htmlentities($username, ENT_QUOTES),
-                'class' => 'lead',
-            ]
-        );
-    }
-
-    if ($origin !== 'learnpath') {
-        $post['user_data'] .= Display::tag(
-            'p',
-            Display::dateToStringAgoAndLongDate($post['post_date']),
-            ['class' => 'post-date']
-        );
-    } else {
-        $post['user_data'] .= Display::tag(
-            'p',
-            Display::dateToStringAgoAndLongDate($post['post_date']),
-            ['class' => 'text-muted']
-        );
-    }
+    $post['user_data'] = [
+         "name" => display_user_link($posterId, $name, $origin, $username),
+         "date" => Display::dateToStringAgoAndLongDate($post['post_date']),
+         "image" => display_user_image($posterId, $name, $origin)
+    ];
 
     // get attach id
     $attachment_list = get_attachment($post['post_id']);
@@ -507,13 +526,13 @@ foreach ($posts as $post) {
     }
 
     $statusIcon = getPostStatus($current_forum, $post);
-    if (!empty($iconEdit)) {
-        $post['user_data'] .= "<div class='tools-icons'> $iconEdit $statusIcon </div>";
-    } else {
-        if (!empty(strip_tags($statusIcon))) {
-            $post['user_data'] .= "<div class='tools-icons'> $statusIcon </div>";
-        }
-    }
+//    if (!empty($iconEdit)) {
+//        $post['user_data'] .= "<div class='tools-icons'> $iconEdit $statusIcon </div>";
+//    } else {
+//        if (!empty(strip_tags($statusIcon))) {
+//            $post['user_data'] .= "<div class='tools-icons'> $statusIcon </div>";
+//        }
+//    }
 
     $buttonReply = '';
     $buttonQuote = '';
@@ -532,23 +551,23 @@ foreach ($posts as $post) {
                         'post' => $post['post_id'],
                         'action' => 'replymessage',
                     ]),
-                    'reply',
+                    null,
                     'primary',
-                    ['id' => "reply-to-post-{$post['post_id']}"]
+                    ['id' => "reply-to-post-{$post['post_id']}", "class"=> "btn-sm"]
                 );
 
-                $buttonQuote = Display::toolbarButton(
-                    get_lang('QuoteMessage'),
-                    'reply.php?'.api_get_cidreq().'&'.http_build_query([
-                        'forum' => $forumId,
-                        'thread' => $threadId,
-                        'post' => $post['post_id'],
-                        'action' => 'quote',
-                    ]),
-                    'quote-left',
-                    'success',
-                    ['id' => "quote-post-{$post['post_id']}"]
-                );
+//                $buttonQuote = Display::toolbarButton(
+//                    get_lang('QuoteMessage'),
+//                    'reply.php?'.api_get_cidreq().'&'.http_build_query([
+//                        'forum' => $forumId,
+//                        'thread' => $threadId,
+//                        'post' => $post['post_id'],
+//                        'action' => 'quote',
+//                    ]),
+//                    'quote-left',
+//                    'success',
+//                    ['id' => "quote-post-{$post['post_id']}"]
+//                );
 
                 if ($current_forum['moderated'] && !api_is_allowed_to_edit(false, true)) {
                     if (empty($post['status']) || $post['status'] == CForumPost::STATUS_WAITING_MODERATION) {
@@ -621,7 +640,9 @@ foreach ($posts as $post) {
     // The post title
     $titlePost = Display::tag('h3', $post['post_title'], ['class' => 'forum_post_title']);
     $post['post_title'] = '<a name="post_id_'.$post['post_id'].'"></a>';
-    $post['post_title'] .= Display::tag('div', $titlePost, ['class' => 'post-header']);
+
+    // don't show title here
+//    $post['post_title'] .= Display::tag('div', $titlePost, ['class' => 'post-header']);
 
     // the post body
     $post['post_data'] = Display::tag('div', $post['post_text'], ['class' => 'post-body']);
@@ -704,7 +725,8 @@ if ($showForm) {
         $current_forum,
         'replythread',
         $values,
-        false
+        false,
+        ["class" => 'inline globalForum-addPostForm']
     );
     $formToString = $form->returnForm();
 }

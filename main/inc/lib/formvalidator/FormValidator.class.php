@@ -51,20 +51,22 @@ class FormValidator extends HTML_QuickForm
         // Form template
         $formTemplate = $this->getFormTemplate();
 
-        switch ($layout) {
-            case self::LAYOUT_HORIZONTAL:
-                $attributes['class'] = 'form-horizontal';
-                break;
-            case self::LAYOUT_INLINE:
-                $attributes['class'] = 'form-inline';
-                break;
-            case self::LAYOUT_BOX:
-                $attributes['class'] = 'form-inline-box';
-                break;
-            case self::LAYOUT_GRID:
-                $attributes['class'] = 'form-grid';
-                $formTemplate = $this->getGridFormTemplate();
-                break;
+        if (!isset($attributes['class'])) {
+            switch ($layout) {
+                case self::LAYOUT_HORIZONTAL:
+                    $attributes['class'] = 'form-horizontal';
+                    break;
+                case self::LAYOUT_INLINE:
+                    $attributes['class'] = 'form-inline';
+                    break;
+                case self::LAYOUT_BOX:
+                    $attributes['class'] = 'form-inline-box';
+                    break;
+                case self::LAYOUT_GRID:
+                    $attributes['class'] = 'form-grid';
+                    $formTemplate = $this->getGridFormTemplate();
+                    break;
+            }
         }
 
         parent::__construct($name, $method, $action, $target, $attributes, $trackSubmit);
@@ -106,7 +108,7 @@ class FormValidator extends HTML_QuickForm
         );
 
         $noteTemplate = <<<EOT
-	<div class="form-group">
+	<div class="form-group form_required_container">
 		<div class="col-sm-offset-2 col-sm-10">{requiredNote}</div>
 	</div>
 EOT;

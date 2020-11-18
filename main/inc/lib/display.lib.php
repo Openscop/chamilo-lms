@@ -60,7 +60,8 @@ class Display
     public static function display_header(
         $tool_name = '',
         $help = null,
-        $page_header = null
+        $page_header = null,
+        $show_breadcrumb = true
     ) {
         $origin = api_get_origin();
         $showHeader = true;
@@ -75,7 +76,7 @@ class Display
         /* USER_IN_ANON_SURVEY is defined in fillsurvey.php when survey is marked as anonymous survey */
         $userInAnonSurvey = defined('USER_IN_ANON_SURVEY') && USER_IN_ANON_SURVEY;
 
-        self::$global_template = new Template($tool_name, $showHeader, $showHeader, false, $userInAnonSurvey);
+        self::$global_template = new Template($tool_name, $showHeader, $showHeader, false, $userInAnonSurvey, true, true, 0, $show_breadcrumb);
         self::$global_template->assign('user_in_anon_survey', $userInAnonSurvey);
 
         // Fixing tools with any help it takes xxx part of main/xxx/index.php
@@ -2581,7 +2582,11 @@ class Display
         $includeText = true
     ) {
         $buttonClass = "btn btn-$type";
-        $icon = self::tag('i', null, ['class' => "fa fa-$icon fa-fw", 'aria-hidden' => 'true']);
+        if ($icon) {
+            $icon = self::tag('i', null, ['class' => "fa fa-$icon fa-fw", 'aria-hidden' => 'true']);
+        } else {
+            $icon = "";
+        }
         $attributes['class'] = isset($attributes['class']) ? "$buttonClass {$attributes['class']}" : $buttonClass;
         $attributes['title'] = isset($attributes['title']) ? $attributes['title'] : $text;
 
