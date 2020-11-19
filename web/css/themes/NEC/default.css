@@ -263,7 +263,6 @@
 @media (min-width: 768px) {
   .globalForum-addPostForm .col-sm-8 {
     width: 91.66666667%; } }
-
 .globalForumThread-title {
   justify-content: center;
   height: 97px;
@@ -284,7 +283,6 @@
     font-weight: bold; }
 .globalForumThread #newResponse, .globalForumThread #responseForm {
   margin-bottom: 20px; }
-
 .show-flex {
   display: flex !important; }
 

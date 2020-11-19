@@ -543,31 +543,31 @@ foreach ($posts as $post) {
     ) {
         if ($userId || ($current_forum['allow_anonymous'] == 1 && !$userId)) {
             if (!api_is_anonymous() && api_is_allowed_to_session_edit(false, true)) {
-                $buttonReply = Display::toolbarButton(
-                    get_lang('ReplyToMessage'),
-                    'reply.php?'.api_get_cidreq().'&'.http_build_query([
-                        'forum' => $forumId,
-                        'thread' => $threadId,
-                        'post' => $post['post_id'],
-                        'action' => 'replymessage',
-                    ]),
-                    null,
-                    'primary',
-                    ['id' => "reply-to-post-{$post['post_id']}", "class"=> "btn-sm"]
-                );
-
-//                $buttonQuote = Display::toolbarButton(
-//                    get_lang('QuoteMessage'),
+//                $buttonReply = Display::toolbarButton(
+//                    get_lang('ReplyToMessage'),
 //                    'reply.php?'.api_get_cidreq().'&'.http_build_query([
 //                        'forum' => $forumId,
 //                        'thread' => $threadId,
 //                        'post' => $post['post_id'],
-//                        'action' => 'quote',
+//                        'action' => 'replymessage',
 //                    ]),
-//                    'quote-left',
-//                    'success',
-//                    ['id' => "quote-post-{$post['post_id']}"]
+//                    null,
+//                    'primary',
+//                    ['id' => "reply-to-post-{$post['post_id']}", "class"=> "btn-sm"]
 //                );
+
+                $buttonQuote = Display::toolbarButton(
+                    get_lang('QuoteMessage'),
+                    'reply.php?'.api_get_cidreq().'&'.http_build_query([
+                        'forum' => $forumId,
+                        'thread' => $threadId,
+                        'post' => $post['post_id'],
+                        'action' => 'quote',
+                    ]),
+                    'quote-left',
+                    'success',
+                    ['id' => "quote-post-{$post['post_id']}"]
+                );
 
                 if ($current_forum['moderated'] && !api_is_allowed_to_edit(false, true)) {
                     if (empty($post['status']) || $post['status'] == CForumPost::STATUS_WAITING_MODERATION) {
