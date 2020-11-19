@@ -1859,8 +1859,13 @@ class Template
         //Added to verify if in the current Chamilo Theme exist a favicon
         $favicoThemeUrl = api_get_path(SYS_CSS_PATH).$this->themeDir.'images/';
 
+        //If exists pick the current chamilo theme favicon in png format
+        if (is_file($favicoThemeUrl.'favicon.png')) {
+            $favico = '<link rel="shortcut icon" href="'.api_get_path(WEB_CSS_PATH).$this->themeDir.'images/favicon.png" type="image/png" />';
+        }
+
         //If exist pick the current chamilo theme favicon
-        if (is_file($favicoThemeUrl.'favicon.ico')) {
+        else if (is_file($favicoThemeUrl.'favicon.ico')) {
             $favico = '<link rel="shortcut icon" href="'.api_get_path(WEB_CSS_PATH).$this->themeDir.'images/favicon.ico" type="image/x-icon" />';
         }
 
