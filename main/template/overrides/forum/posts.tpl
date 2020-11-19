@@ -13,18 +13,7 @@
             </div>
         {% endif %}
 
-        <h1 class="globalForumThread-title">{{ thread_title }}</h1>
-
-        <div id="newResponse">
-            <button class="btn btn-primary" onclick="showPostForm()">Ajouter une réponse</button>
-        </div>
-
-        <div class="row hidden" id="responseForm">
-            <div class="col-md-12">
-                <p>Répondre au sujet :</p>
-                {{ form }}
-            </div>
-        </div>
+        <h1 class="globalForumThread-title"><p>{{ thread_title }}</p></h1>
 
         {% for post in posts %}
             {% set post_data %}
@@ -76,6 +65,17 @@
                 </div>
             {% endif %}
         {% endfor %}
+
+        <div id="newResponse">
+            <button class="btn btn-primary" onclick="showPostForm()">Ajouter une réponse</button>
+        </div>
+
+        <div class="row hidden" id="responseForm">
+            <div class="col-md-12">
+                <p>Répondre au sujet :</p>
+                {{ form }}
+            </div>
+        </div>
 
     </div>
 

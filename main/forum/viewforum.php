@@ -567,13 +567,13 @@ if (is_array($threads)) {
 
             if ($last_post_info) {
                 $poster_info = api_get_user_info($last_post_info['poster_id']);
-                $post_date = Display::dateToStringAgoAndLongDate($last_post_info['post_date']);
-                $last_post = $post_date.'<br>'.get_lang('By').' '.display_user_link(
+                $post_date = str_replace("depuis", "il y a", Display::dateToStringAgoAndLongDate($last_post_info['post_date']));
+                $last_post = get_lang('By').' '.display_user_link(
                     $last_post_info['poster_id'],
                     $poster_info['complete_name'],
                     '',
                     $poster_info['username']
-                );
+                ).'<br>'.$post_date;
             }
 
             $html .= '<div class="globalForum-threadList-lastAnswer col-md-6"><p>Dernière réponse :</p>'

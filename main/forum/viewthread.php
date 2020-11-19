@@ -211,8 +211,7 @@ if ($origin === 'learnpath') {
 $actions = '';
 //$actions = '<span style="float:right;">'.search_link().'</span>';
 if ($origin !== 'learnpath') {
-    $actions .= '<a href="'.$forumUrl.'viewforum.php?forum='.$forumId.'&'.api_get_cidreq().'">'
-        .Display::return_icon('back.png', get_lang('BackToForum'), '', ICON_SIZE_MEDIUM).'</a>';
+    $actions .= '<a class="btn btn-primary" href="'.$forumUrl.'viewforum.php?forum='.$forumId.'&'.api_get_cidreq().'"><i class="fa fa-chevron-left" aria-hidden="true"></i> Retourner à la liste des sujets</a>';
 }
 
 // The reply to thread link should only appear when the forum_category is

@@ -1,10 +1,21 @@
+  .globalForum-title h1 {
+    display: inline-block;
+    background: #FFEC00;
+    text-transform: uppercase;
+  }
+  /* List des topics */
 .globalForum {
+  /**********************************************************************************************
+  // Actions
+  ***********************************************************************************************/
   &-actions {
     padding: 20px 0;
   }
-  &-title {
-    text-align: center;
-  }
+
+
+  /**********************************************************************************************
+  // Liste des topics
+  ***********************************************************************************************/
   &-threadList {
     &-title {
       display: flex;
@@ -24,7 +35,59 @@
     }
     &-lastAnswer {
       text-align: right;
+
+      p {
+        font-weight: 600;
+        margin: 0;
+      }
+      .boot-tooltip {
+        font-style: italic;
+      }
     }
+  }
+
+
+  /**********************************************************************************************
+  // Détails d'un topic
+  ***********************************************************************************************/
+  &Thread {
+    &-title {
+      justify-content: center;
+      height: 97px;
+      display: flex;
+      align-items: center;
+      margin: 60px 0;
+    }
+
+    &-userData {
+      display: flex;
+      align-items: center;
+      height: 36px;
+      &-image {
+        margin-right: 5px;
+      }
+      img {
+        border-radius: 50%;
+        width: 23px;
+        margin: 0;
+      }
+      &-name {
+        font-weight: bold;
+      }
+    }
+
+    #newResponse, #responseForm {
+      margin-bottom: 20px;
+    }
+  }
+
+
+
+  /**********************************************************************************************
+  // Divers
+  ***********************************************************************************************/
+  &-title {
+    text-align: center;
   }
   &-addPostForm {
     .form_required_container {
@@ -47,36 +110,6 @@
       @media (min-width: 768px) {
         width: 91.66666667%;
       }
-    }
-  }
-  &Thread {
-    &-title {
-      justify-content: center;
-      height: 97px;
-      display: flex;
-      align-items: center;
-      margin: 60px 0;
-    }
-
-    &-userData{
-      display: flex;
-      align-items: center;
-      height: 36px;
-      &-image {
-        margin-right: 5px;
-      }
-      img {
-        border-radius: 50%;
-        width: 23px;
-        margin: 0;
-      }
-      &-name {
-        font-weight: bold;
-      }
-    }
-
-    #newResponse, #responseForm {
-      margin-bottom: 20px;
     }
   }
   &DirectAnswer {

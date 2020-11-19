@@ -5,11 +5,11 @@
  * Based on Bootstrap
 */
 /*!
+ * Imports : toggle-cards + forum + tools
  * Navbar
  * Footer
  * Page d'accueil
  * Tableau des grains
- * Forum
  * Divers
 */
 
@@ -808,7 +808,7 @@
   ***********************************************************************************************/
   .globalForum-title h1 {
     display: inline-block;
-    background: #FFEC00;
+    background: $secondaryColor;
     text-transform: uppercase;
   }
   /* Actions */
@@ -826,7 +826,7 @@
       }
     }
   }
-  /* List des posts */
+  /* List des topics */
   .globalForum-threadList > .panel {
     /* Partie gauche avec le titre */
     .globalForum-threadList-title {
@@ -835,7 +835,7 @@
 
         a {
           transition: all 0.2s linear;
-          display: inline-block;
+          display: inline;
           padding-left: 2px;
           padding-right: 2px;
           background: $tertiaryColor;
@@ -867,7 +867,101 @@
     /* Partie d'icônes d'administration */
     .globalForum-threadList-adminIcons {
       padding: 15px;
-      background: #DADEE7;
+      border-top: 1px solid #DADEE7;
+    }
+  }
+  /* Détail d'un topic */
+  .globalForumThread {
+    .actions {
+      padding: 0;
+      margin-bottom: 0;
+      background: transparent;
+      border: none;
+      box-shadow: 0 0 black;
+
+      a.btn-primary {
+        transition: all 0.2s linear;
+        background-color: $primaryColor;
+        border: 2px solid $primaryColor;
+        font-size: 12px;
+        font-weight: 500;
+
+        i {
+          margin-right: 6px;
+        }
+
+        &:hover {
+          color: $primaryColor;
+          background-color: white;
+        }
+      }
+    }
+    h1.globalForumThread-title {
+      display: inline-block;
+      margin: 30px 0;
+      line-height: 50px;
+
+      p {
+        display: inline;
+        padding-left: 2px;
+        padding-right: 2px;
+        background: $tertiaryColor;
+        color: white;
+      }
+    }
+    #newResponse button.btn-primary {
+      transition: all 0.2s linear;
+      background-color: $primaryColor;
+      border: 2px solid $primaryColor;
+      font-size: 16px;
+      font-weight: 500;
+
+      &:hover {
+        color: $primaryColor;
+        background-color: white;
+      }
+    }
+    // Chaque message dans le topic
+    .forum-post {
+      padding: 0;
+
+      .text-right {
+        a.btn-default,
+        a.btn-success {
+          transition: all 0.2s linear;
+          background-color: $primaryColor;
+          border: 2px solid $primaryColor;
+          font-size: 12px;
+          font-weight: 500;
+          color: white;
+
+          i {
+            margin-right: 6px;
+          }
+
+          &:hover {
+            color: $primaryColor;
+            background-color: white;
+          }
+        }
+      }
+    }
+    // Formulaire de réponse
+    .globalForum-addPostForm {
+      button.btn-primary,
+      button.btn-secondary {
+        transition: all 0.2s linear;
+        background-color: $primaryColor;
+        border: 2px solid $primaryColor;
+        font-size: 12px;
+        font-weight: 500;
+        color: white;
+
+        &:hover {
+          color: $primaryColor;
+          background-color: white;
+        }
+      }
     }
   }
 
