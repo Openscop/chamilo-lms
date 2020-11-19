@@ -3855,10 +3855,13 @@ class Exercise
                     } else {
                         $studentChoice = isset($choice[$answerAutoId]) ? $choice[$answerAutoId] : null;
                         $real_answers[$answerId] = (bool) $studentChoice;
-
                         if (isset($studentChoice)) {
-                            $correctAnswerId[] = $answerAutoId;
+                            $correctAnswerId[] = $objAnswerTmp->getAnswerByAutoId($answerAutoId);
                             $questionScore += $answerWeighting;
+                        } else {
+                            $answer_not_selected = $objAnswerTmp->getAnswerByAutoId($answerAutoId);
+                            $answer_not_selected['correct'] = -1;
+                            $correctAnswerId[] = $answer_not_selected;
                         }
                     }
                     $totalScore += $answerWeighting;

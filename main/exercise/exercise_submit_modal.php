@@ -379,6 +379,22 @@ if ($objExercise->getFeedbackType() === EXERCISE_FEEDBACK_TYPE_DIRECT) {
                         $contents.= $table;
                     }
                 }
+            } else if ($answerType == MULTIPLE_ANSWER) {
+                $table = "<table class='table table-hover table-striped data_table'>";
+                $table.= "<tr><td>".get_lang('YourAnswer')."</td>";
+                $table.= "<td>".get_lang('Comment')."</td>";
+                $table.= "</tr>";
+                foreach ($result['correct_answer_id'] as $answerId) {
+                    $class = $answerId['correct'] == 1 ? 'user-answer-correct' : ($answerId['correct'] == 0 ? 'user-answer-incorrect' : '');
+                    $table .= "<td class='user-answer ".$class."'>".$answerId['answer']."</td>
+                    <td>".$answerId['comment']."</td></tr>";
+                }
+                $table.= "</table>";
+
+                // only show table if it has values
+                if (!empty($result['correct_answer_id'])) {
+                    $contents.= $table;
+                }
             } else {
 
                 $table = new HTML_Table(['class' => 'table table-hover table-striped data_table']);
