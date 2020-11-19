@@ -220,7 +220,7 @@ $skillList = Skill::addSkillsToForm($form, ITEM_TYPE_FORUM_THREAD, $threadId);
 if (!empty($threadData)) {
     $defaults['thread_qualify_gradebook'] = $gradeThisThread;
     $defaults['thread_title'] = prepare4display($threadData['threadTitle']);
-    $defaults['thread_sticky'] = strval(intval($threadData['threadSticky']));
+    // $defaults['thread_sticky'] = strval(intval($threadData['threadSticky']));
     $defaults['thread_peer_qualify'] = intval($threadData['threadPeerQualify']);
     $defaults['numeric_calification'] = $threadData['threadQualifyMax'];
     $defaults['calification_notebook_title'] = $threadData['threadTitleQualify'];

@@ -155,7 +155,7 @@ if ($origin == 'learnpath') {
     Display::display_header('', null, null, false);
 }
 
-echo "<h1 class='globalForum-title'>Discuter des sujets de Numérique en Communs</h1>";
+echo "<div class='globalForum-title'><h1>Discuter des sujets de Numérique en Communs</h1></div>";
 
 /* Actions */
 // Change visibility of a forum or a forum category.
@@ -536,8 +536,8 @@ if (is_array($threads)) {
             }
 
             $html .= '<p class="globalForum-threadList-stats">'
-                .$row['thread_views'].' vues, '
-                .$row['thread_replies']. ' réponses'
+                .'Consulté : '.$row['thread_views'].' fois - '
+                .'Réponses : ' .$row['thread_replies']. ''
                 .'</p>';
 
 
@@ -546,8 +546,6 @@ if (is_array($threads)) {
 
             $html .= '</div>';
 
-            $html .= '<div class="col-md-'.($isAdmin ? "6" : "4").'">';
-            $html .= '<div class="row">';
 //            $html .= '<div class="col-md-4">'
 //                .Display::return_icon('post-forum.png', null, null, ICON_SIZE_SMALL)
 //                ." {$row['thread_replies']} ".get_lang('Replies').'<br>';
@@ -578,10 +576,14 @@ if (is_array($threads)) {
                 );
             }
 
-            $html .= '<div class="globalForum-threadList-lastAnswer col-md-'.($isAdmin ? "6" : "12").'"><p>Dernière réponse :</p>'
+            $html .= '<div class="globalForum-threadList-lastAnswer col-md-6"><p>Dernière réponse :</p>'
                 .' '.$last_post;
             $html .= '</div>';
-            $html .= '<div class="'.($isAdmin ? "col-md-6" : "hidden").'">';
+
+            $html .= '</div>';
+            $html .= '</div>';
+            /* BEGIN icônes d'administration */
+            $html .= '<div class="globalForum-threadList-adminIcons"><span>Icônes d\'administration : ';
             $cidreq = api_get_cidreq();
 
             // Get attachment id.
@@ -670,11 +672,7 @@ if (is_array($threads)) {
             }
             $html .= $iconsEdit;
             $html .= '</div>';
-            $html .= '</div>';
-            $html .= '</div>';
-
-            $html .= '</div>';
-            $html .= '</div>';
+            /* END icônes d'administration */
             $html .= '</div>';
 
             echo $html;
