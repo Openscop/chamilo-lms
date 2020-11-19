@@ -142,7 +142,7 @@ if (!empty($objExercise->description)) {
 $endOfMessage = $objExercise->getTextWhenFinished();
 if (!$first_attempt && !empty($endOfMessage)) {
      $html .= "<div id='quiz_end_message'>";
-     $html .= "<p>Vous avez déjà répondu à cet exercice, voici un récapitulatif de ce que vous avez appris : </p>";
+//     $html .= "<p>Vous avez déjà répondu à cet exercice, voici un récapitulatif de ce que vous avez appris : </p>";
      $html .= $endOfMessage;
      $html .= "</div>";
 //     echo $html;

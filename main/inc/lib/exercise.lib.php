@@ -4580,11 +4580,11 @@ EOT;
             !empty($studentInfo)
         ) {
             // Shows exercise header.
-            echo $objExercise->showExerciseResultHeader(
-                $studentInfo,
-                $exercise_stat_info,
-                $save_user_result
-            );
+//            echo $objExercise->showExerciseResultHeader(
+//                $studentInfo,
+//                $exercise_stat_info,
+//                $save_user_result
+//            );
         }
 
         // Display text when test is finished #4074 and for LP #4227
@@ -4764,88 +4764,88 @@ EOT;
 
                 $contents = ob_get_clean();
                 $question_content = '';
-                if ($show_results) {
-                    $question_content = '<div class="question_row_answer">';
-                    if (false == $showQuestionScore) {
-                        $score = [];
-                    }
-
-                    // Shows question title an description
-                    $question_content .= $objQuestionTmp->return_header(
-                        $objExercise,
-                        $counter,
-                        $score
-                    );
-                }
+//                if ($show_results) {
+//                    $question_content = '<div class="question_row_answer">';
+//                    if (false == $showQuestionScore) {
+//                        $score = [];
+//                    }
+//
+//                    // Shows question title an description
+//                    $question_content .= $objQuestionTmp->return_header(
+//                        $objExercise,
+//                        $counter,
+//                        $score
+//                    );
+//                }
                 $counter++;
                 $question_content .= $contents;
                 if ($show_results) {
                     $question_content .= '</div>';
                 }
                 if ($objExercise->showExpectedChoice()) {
-                    $exercise_content .= Display::div(
-                        Display::panel($question_content),
-                        ['class' => 'question-panel']
-                    );
+//                    $exercise_content .= Display::div(
+//                        Display::panel($question_content),
+//                        ['class' => 'question-panel']
+//                    );
                 } else {
                     // $show_all_but_expected_answer should not happen at
                     // the same time as $show_results
-                    if ($show_results && !$show_only_score) {
-                        $exercise_content .= Display::div(
-                            Display::panel($question_content),
-                            ['class' => 'question-panel']
-                        );
-                    }
+//                    if ($show_results && !$show_only_score) {
+//                        $exercise_content .= Display::div(
+//                            Display::panel($question_content),
+//                            ['class' => 'question-panel']
+//                        );
+//                    }
                 }
             }
         }
 
         $totalScoreText = null;
         $certificateBlock = '';
-        if (($show_results || $show_only_score) && $showTotalScore) {
-            if ($result['answer_type'] == MULTIPLE_ANSWER_TRUE_FALSE_DEGREE_CERTAINTY) {
-                echo '<h1 style="text-align : center; margin : 20px 0;">'.get_lang('YourResults').'</h1><br />';
-            }
-            $totalScoreText .= '<div class="question_row_score">';
-            if ($result['answer_type'] == MULTIPLE_ANSWER_TRUE_FALSE_DEGREE_CERTAINTY) {
-                $totalScoreText .= self::getQuestionDiagnosisRibbon(
-                    $objExercise,
-                    $total_score,
-                    $total_weight,
-                    true
-                );
-            } else {
-                $pluginEvaluation = QuestionOptionsEvaluationPlugin::create();
-                if ('true' === $pluginEvaluation->get(QuestionOptionsEvaluationPlugin::SETTING_ENABLE)) {
-                    $formula = $pluginEvaluation->getFormulaForExercise($objExercise->selectId());
-
-                    if (!empty($formula)) {
-                        $total_score = $pluginEvaluation->getResultWithFormula($exeId, $formula);
-                        $total_weight = $pluginEvaluation->getMaxScore();
-                    }
-                }
-
-                $totalScoreText .= self::getTotalScoreRibbon(
-                    $objExercise,
-                    $total_score,
-                    $total_weight,
-                    true,
-                    $countPendingQuestions
-                );
-            }
-            $totalScoreText .= '</div>';
-
-            if (!empty($studentInfo)) {
-                $certificateBlock = self::generateAndShowCertificateBlock(
-                    $total_score,
-                    $total_weight,
-                    $objExercise,
-                    $studentInfo['id'],
-                    $courseCode,
-                    $sessionId
-                );
-            }
-        }
+//        if (($show_results || $show_only_score) && $showTotalScore) {
+//            if ($result['answer_type'] == MULTIPLE_ANSWER_TRUE_FALSE_DEGREE_CERTAINTY) {
+//                echo '<h1 style="text-align : center; margin : 20px 0;">'.get_lang('YourResults').'</h1><br />';
+//            }
+//            $totalScoreText .= '<div class="question_row_score">';
+//            if ($result['answer_type'] == MULTIPLE_ANSWER_TRUE_FALSE_DEGREE_CERTAINTY) {
+//                $totalScoreText .= self::getQuestionDiagnosisRibbon(
+//                    $objExercise,
+//                    $total_score,
+//                    $total_weight,
+//                    true
+//                );
+//            } else {
+//                $pluginEvaluation = QuestionOptionsEvaluationPlugin::create();
+//                if ('true' === $pluginEvaluation->get(QuestionOptionsEvaluationPlugin::SETTING_ENABLE)) {
+//                    $formula = $pluginEvaluation->getFormulaForExercise($objExercise->selectId());
+//
+//                    if (!empty($formula)) {
+//                        $total_score = $pluginEvaluation->getResultWithFormula($exeId, $formula);
+//                        $total_weight = $pluginEvaluation->getMaxScore();
+//                    }
+//                }
+//
+//                $totalScoreText .= self::getTotalScoreRibbon(
+//                    $objExercise,
+//                    $total_score,
+//                    $total_weight,
+//                    true,
+//                    $countPendingQuestions
+//                );
+//            }
+//            $totalScoreText .= '</div>';
+//
+//            if (!empty($studentInfo)) {
+//                $certificateBlock = self::generateAndShowCertificateBlock(
+//                    $total_score,
+//                    $total_weight,
+//                    $objExercise,
+//                    $studentInfo['id'],
+//                    $courseCode,
+//                    $sessionId
+//                );
+//            }
+//        }
 
         if ($result['answer_type'] == MULTIPLE_ANSWER_TRUE_FALSE_DEGREE_CERTAINTY) {
             $chartMultiAnswer = MultipleAnswerTrueFalseDegreeCertainty::displayStudentsChartResults(
