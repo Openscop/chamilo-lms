@@ -168,11 +168,11 @@ if ($origin == 'learnpath') {
 handle_forum_and_forumcategories();
 
 // Action links
-echo '<div class="actions">';
+echo '<div class="actions customActions">';
 //echo '<span style="float:right;">'.search_link().'</span>';
-echo '<a href="viewforum.php?forum='.intval($_GET['forum']).'&'.$cidreq.'">'.
-    Display::return_icon('back.png', get_lang('BackToForum'), '', ICON_SIZE_MEDIUM).'</a>';
+echo '<a class="btn btn-primary customBtn-medium" href="viewforum.php?forum='.intval($_GET['forum']).'&'.$cidreq.'"><i class="fa fa-chevron-left" aria-hidden="true"></i> Retourner à la liste des sujets</a>';
 echo '</div>';
+echo '<div class="globalForum-title"><h1>Aborder une question avec la communauté</h1></div>';
 
 // Set forum attachment data into $_SESSION
 getAttachedFiles($current_forum['forum_id'], 0, 0);

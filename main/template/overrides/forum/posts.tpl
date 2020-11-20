@@ -8,7 +8,7 @@
         {% endif %}
 
         {% if forum_actions %}
-            <div class="actions">
+            <div class="actions customActions">
                 {{ forum_actions }}
             </div>
         {% endif %}
@@ -67,12 +67,12 @@
         {% endfor %}
 
         <div id="newResponse">
-            <button class="btn btn-primary" onclick="showPostForm()">Ajouter une réponse</button>
+            <button class="btn btn-primary customBtn-large">Ajouter une réponse</button>
         </div>
 
         <div class="row hidden" id="responseForm">
             <div class="col-md-12">
-                <p>Répondre au sujet :</p>
+                <label>Répondre au sujet :</label>
                 {{ form }}
             </div>
         </div>
@@ -80,15 +80,16 @@
     </div>
 
     <script>
+        $('#newResponse button').on('click', function(e) {
+            e.preventDefault();
+            $('#newResponse').addClass('hidden');
+            $('#responseForm').removeClass('hidden');
+        });
 
-        function showPostForm() {
-            document.getElementById('responseForm').classList.remove("hidden");
-            document.getElementById('newResponse').classList.add("hidden");
-        }
-        function hidePostForm() {
-            document.getElementById('responseForm').classList.add("hidden");
-            document.getElementById('newResponse').classList.remove("hidden");
-        }
-
+        $('#thread_Cancel').on('click', function(e) {
+            e.preventDefault();
+            $('#newResponse').removeClass('hidden');
+            $('#responseForm').addClass('hidden');
+        });
     </script>
 {% endblock %}

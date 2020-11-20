@@ -9,7 +9,6 @@
   // Actions
   ***********************************************************************************************/
   &-actions {
-    padding: 20px 0;
   }
 
 
@@ -53,10 +52,8 @@
   &Thread {
     &-title {
       justify-content: center;
-      height: 97px;
       display: flex;
       align-items: center;
-      margin: 60px 0;
     }
 
     &-userData {
@@ -78,6 +75,10 @@
 
     #newResponse, #responseForm {
       margin-bottom: 20px;
+
+      .alert-warning {
+        display: none;
+      }
     }
   }
 

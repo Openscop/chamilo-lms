@@ -24,6 +24,7 @@
 @mixin frequenceEcoleMixin(
   $mainFont,
   $mainColors,
+  $otherColors,
   $thumbnailColors,
   $trueFalseColors,
   $fontREMPercentage:null
@@ -32,6 +33,10 @@
   $primaryColor: nth($mainColors, 1);
   $secondaryColor: nth($mainColors, 2);
   $tertiaryColor: nth($mainColors, 3);
+
+  $otherColor1: nth($otherColors, 1);
+  $otherColor2: nth($otherColors, 2);
+  $otherColor3: nth($otherColors, 3);
 
   $trueColor: nth($trueFalseColors, 1);
   $falseColor: nth($trueFalseColors, 2);
@@ -74,7 +79,7 @@
 
             .toggle-card-details-buttons a.btn {
               background-color: $color;
-              border: 2px solid $color;
+              border: 1px solid $color;
 
               &:hover {
                 color: $color;
@@ -254,7 +259,7 @@
             padding: 10px 20px;
 
             button#formLogin_submitAuth {
-              border: 2px solid $primaryColor;
+              border: 1px solid $primaryColor;
               background-color: $primaryColor;
               color: #ffffff;
               transition: all 0.2s linear;
@@ -469,7 +474,7 @@
       transform: scale(var(--ggs, 1));
       width: 22px;
       height: 22px;
-      border: 2px solid;
+      border: 1px solid;
       border-radius: 100px;
       margin: 15px auto auto auto;
 
@@ -482,8 +487,8 @@
       position: absolute;
       width: 6px;
       height: 6px;
-      border-bottom: 2px solid;
-      border-right: 2px solid;
+      border-bottom: 1px solid;
+      border-right: 1px solid;
       transform: rotate(-45deg);
       left: 5px;
       top: 6px
@@ -592,7 +597,7 @@
           font-size: 2rem !important;
           color: #ffffff !important;
           background-color: $primaryColor !important;
-          border: 2px solid $primaryColor !important;
+          border: 1px solid $primaryColor !important;
 
           em {
             margin-left: 10px;
@@ -615,7 +620,7 @@
       width: 34px;
       height: 34px;
       border-radius: 17px;
-      border: solid 2px $primaryColor;
+      border: solid 1px $primaryColor;
       background-color: $primaryColor;
       color: #ffffff;
       font-weight: 700;
@@ -634,7 +639,7 @@
 
     .tuile_description-line {
       min-height: 50px;
-      border-right: $primaryColor 2px solid;
+      border-right: $primaryColor 1px solid;
       width: 1px;
       margin: 20px 0;
     }
@@ -646,7 +651,7 @@
     }
 
     .tuile_description-line {
-      border-bottom: $tertiaryColor 2px solid;
+      border-bottom: $tertiaryColor 1px solid;
       height: 1px;
       margin: 0 20px;
     }
@@ -696,26 +701,6 @@
       max-height: 220px;
       width: 100%;
       margin: 0 !important;
-    }
-  }
-
-  /****** Couleurs des thumbnails ******/
-
-  //default
-  @each $color in $thumbnailColors {
-    $index: index($thumbnailColors, $color);
-    .tuile:nth-child(#{length($thumbnailColors)}n + #{$index}) {
-      .thumbnail {
-        background-color: $color;
-
-        .registred {
-          background-color: $color;
-
-          &:before, &:after {
-            border-right-color: $color;
-          }
-        }
-      }
     }
   }
 
@@ -806,25 +791,69 @@
   // Forum
   ***********************************************************************************************
   ***********************************************************************************************/
-  .globalForum-title h1 {
-    display: inline-block;
-    background: $secondaryColor;
-    text-transform: uppercase;
+  /* Général */
+  .section-forum {
+    #cm-content {
+      padding-top: 10px;
+    }
+    // Actions
+    .actions.customActions {
+      padding: 0;
+      margin-bottom: 30px;
+      background: transparent;
+      border: none;
+      box-shadow: 0 0 black;
+    }
+    // Boutons
+    .customBtn-large {
+      transition: all 0.2s linear;
+      border: 1px solid $primaryColor !important;
+      background-color: $primaryColor !important;
+      color: white !important;
+      font-size: 16px;
+      font-weight: 600;
+
+      i {
+        margin-right: 6px;
+      }
+
+      &:hover {
+        border-color: $primaryColor !important;
+        background-color: white !important;
+        color: $primaryColor !important;
+      }
+    }
+    .customBtn-medium {
+      transition: all 0.2s linear;
+      border: 1px solid $tertiaryColor !important;
+      background-color: white !important;
+      color: $tertiaryColor !important;
+      font-size: 12px;
+      font-weight: 600;
+
+      i {
+        margin-right: 6px;
+      }
+
+      &:hover {
+        border-color: $primaryColor !important;
+        background-color: $primaryColor !important;
+        color: white !important;
+      }
+    }
+  }
+  .globalForum-title {
+    padding: 20px 0;
+    h1 {
+      display: inline-block;
+      margin: 0 0 30px;
+      background: $tertiaryColor;
+      color: white;
+      text-transform: uppercase;
+    }
   }
   /* Actions */
   .globalForum-actions {
-    a.btn.btn-primary {
-      transition: all 0.2s linear;
-      background-color: $primaryColor;
-      border: 2px solid $primaryColor;
-      font-size: 16px;
-      font-weight: 500;
-
-      &:hover {
-        color: $primaryColor;
-        background-color: white;
-      }
-    }
   }
   /* List des topics */
   .globalForum-threadList > .panel {
@@ -838,14 +867,13 @@
           display: inline;
           padding-left: 2px;
           padding-right: 2px;
-          background: $tertiaryColor;
+          background: $secondaryColor;
           font-size: 24px;
           line-height: 32px;
-          color: white;
+          color: $tertiaryColor;
 
           &:hover {
-            background-color: $primaryColor;
-            color: white;
+            background-color: $otherColor1;
             text-decoration: none;
           }
         }
@@ -867,101 +895,30 @@
     /* Partie d'icônes d'administration */
     .globalForum-threadList-adminIcons {
       padding: 15px;
-      border-top: 1px solid #DADEE7;
+      border-top: 1px solid $otherColor1;
     }
   }
   /* Détail d'un topic */
   .globalForumThread {
-    .actions {
-      padding: 0;
-      margin-bottom: 0;
-      background: transparent;
-      border: none;
-      box-shadow: 0 0 black;
-
-      a.btn-primary {
-        transition: all 0.2s linear;
-        background-color: $primaryColor;
-        border: 2px solid $primaryColor;
-        font-size: 12px;
-        font-weight: 500;
-
-        i {
-          margin-right: 6px;
-        }
-
-        &:hover {
-          color: $primaryColor;
-          background-color: white;
-        }
-      }
-    }
     h1.globalForumThread-title {
       display: inline-block;
-      margin: 30px 0;
+      margin: 0px 0 30px;
       line-height: 50px;
 
       p {
         display: inline;
         padding-left: 2px;
         padding-right: 2px;
-        background: $tertiaryColor;
-        color: white;
-      }
-    }
-    #newResponse button.btn-primary {
-      transition: all 0.2s linear;
-      background-color: $primaryColor;
-      border: 2px solid $primaryColor;
-      font-size: 16px;
-      font-weight: 500;
-
-      &:hover {
-        color: $primaryColor;
-        background-color: white;
+        background: $secondaryColor;
+        color: $tertiaryColor;
       }
     }
     // Chaque message dans le topic
     .forum-post {
       padding: 0;
-
-      .text-right {
-        a.btn-default,
-        a.btn-success {
-          transition: all 0.2s linear;
-          background-color: $primaryColor;
-          border: 2px solid $primaryColor;
-          font-size: 12px;
-          font-weight: 500;
-          color: white;
-
-          i {
-            margin-right: 6px;
-          }
-
-          &:hover {
-            color: $primaryColor;
-            background-color: white;
-          }
-        }
-      }
     }
     // Formulaire de réponse
     .globalForum-addPostForm {
-      button.btn-primary,
-      button.btn-secondary {
-        transition: all 0.2s linear;
-        background-color: $primaryColor;
-        border: 2px solid $primaryColor;
-        font-size: 12px;
-        font-weight: 500;
-        color: white;
-
-        &:hover {
-          color: $primaryColor;
-          background-color: white;
-        }
-      }
     }
   }
 

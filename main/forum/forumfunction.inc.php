@@ -3331,12 +3331,12 @@ function show_add_post_form($current_forum, $action, $form_values = [], $showPre
     if ($action == 'quote') {
         $form->addButtonCreate(get_lang('QuoteMessage'), 'SubmitPost');
     } elseif ($action == 'replythread') {
-        $form->addButton('SubmitPost', get_lang('ReplyToThread'), null, 'primary' );
-        $form->addButton('Cancel', get_lang('Cancel'), null, 'secondary' , 'default', null, ['onclick'=>'hidePostForm()']);
+        $form->addButton('SubmitPost', get_lang('ReplyToThread'), null, 'primary customBtn-large' );
+        $form->addButton('Cancel', get_lang('Cancel'), null, 'secondary' , 'default customBtn-large', null);
     } elseif ($action == 'replymessage') {
-        $form->addButton('SubmitPost', 'Envoyer', null, 'primary' );
+        $form->addButton('SubmitPost', 'Envoyer', null, 'primary customBtn-large' );
     } else {
-        $form->addButton('SubmitPost', get_lang('CreateThread'), null, 'primary');
+        $form->addButton('SubmitPost', get_lang('CreateThread'), null, 'primary customBtn-large');
     }
 
     $defaults['thread_peer_qualify'] = 0;

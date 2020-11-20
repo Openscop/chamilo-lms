@@ -137,9 +137,10 @@
 }
 
 $mainColors: #0430E9, #FFEC00, #1A063F;
+$otherColors: #DADEE7, #FCF072, #5A7CEA;
 $thumbnailColors : #0430E9, #20124D, #bdc1ca;
 $trueFalseColors : #4A6CFF, #FF4A76;
-@include frequenceEcoleMixin('Montserrat', $mainColors, $thumbnailColors, $trueFalseColors, 56.5%);
+@include frequenceEcoleMixin('Montserrat', $mainColors, $otherColors, $thumbnailColors, $trueFalseColors, 56.5%);
 
 
 /*************************************

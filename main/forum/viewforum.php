@@ -333,7 +333,7 @@ if (!empty($message)) {
 }
 
 /* Action links */
-echo '<div class="globalForum-actions">';
+echo '<div class="globalForum-actions actions customActions">';
 
 // search button
 //echo '<span style="float:right;">'.search_link().'</span>';
@@ -363,12 +363,12 @@ if (api_is_allowed_to_edit(false, true) ||
     if ($current_forum['locked'] != 1 && $current_forum['locked'] != 1) {
         if (!api_is_anonymous() && !api_is_invitee()) {
             if ($my_forum == strval(intval($my_forum))) {
-                echo '<a class="btn btn-primary"href="'.$forumUrl.'newthread.php?'.api_get_cidreq().'&forum='
+                echo '<a class="btn btn-primary customBtn-large" href="'.$forumUrl.'newthread.php?'.api_get_cidreq().'&forum='
                     .Security::remove_XSS($my_forum).'">Aborder une question avec la communauté'
                     .'</a>';
             } else {
                 $my_forum = strval(intval($my_forum));
-                echo '<a class="btn btn-primary" href="'.$forumUrl.'newthread.php?'.api_get_cidreq()
+                echo '<a class="btn btn-primary customBtn-large" href="'.$forumUrl.'newthread.php?'.api_get_cidreq()
                     .'&forum='.$my_forum.'">Aborder une question avec la communauté'
                     .'</a>';
             }

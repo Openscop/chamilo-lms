@@ -74,9 +74,10 @@
 }
 
 $mainColors : #E61983, #6DEAEE, #20124D;
+$otherColors: #DADEE7, #5A7CEA, #FCF072;
 $thumbnailColors : #FF3246, #E61983, #20124D, #6DEAEE, #24989c, #5e0abe;
 $trueFalseColors : #6DEAEE, #E61983;
-@include frequenceEcoleMixin('Dosis', $mainColors, $thumbnailColors, $trueFalseColors);
+@include frequenceEcoleMixin('Dosis', $mainColors, $otherColors, $thumbnailColors, $trueFalseColors);
 
 /*************************************
  * Footer

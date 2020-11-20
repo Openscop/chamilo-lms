@@ -86,8 +86,8 @@
   top: 10px;
   right: 0px;
   display: block;
-  width: 80px;
-  padding: 10px 0;
+  width: auto;
+  padding: 10px 20px;
   line-height: 20px;
   color: white;
   text-align: center;
@@ -96,7 +96,7 @@
 #toggle-card-listing .toggle-card-line .toggle-card-item .toggle-card-summary .toggle-card-summary-container .registred:before, #toggle-card-listing .toggle-card-line .toggle-card-item .toggle-card-summary .toggle-card-summary-container .registred:after {
   content: "";
   position: absolute;
-  right: 80px;
+  left: -20px;
   width: 0;
   height: 0;
   border-right: 20px solid #abcdef;
@@ -320,9 +320,6 @@
   // Divers
   ***********************************************************************************************/
 }
-.globalForum-actions {
-  padding: 20px 0;
-}
 .globalForum-threadList-title {
   display: flex;
   flex-direction: column;
@@ -348,10 +345,8 @@
 }
 .globalForumThread-title {
   justify-content: center;
-  height: 97px;
   display: flex;
   align-items: center;
-  margin: 60px 0;
 }
 .globalForumThread-userData {
   display: flex;
@@ -371,6 +366,9 @@
 }
 .globalForumThread #newResponse, .globalForumThread #responseForm {
   margin-bottom: 20px;
+}
+.globalForumThread #newResponse .alert-warning, .globalForumThread #responseForm .alert-warning {
+  display: none;
 }
 .globalForum-title {
   text-align: center;
@@ -561,7 +559,7 @@
 }
 #toggle-card-listing .toggle-card-line .toggle-card-item.modulo-3-0 .toggle-card-details .toggle-card-details-container .toggle-card-details-right .toggle-card-details-buttons a.btn {
   background-color: #0430E9;
-  border: 2px solid #0430E9;
+  border: 1px solid #0430E9;
 }
 #toggle-card-listing .toggle-card-line .toggle-card-item.modulo-3-0 .toggle-card-details .toggle-card-details-container .toggle-card-details-right .toggle-card-details-buttons a.btn:hover {
   color: #0430E9;
@@ -587,7 +585,7 @@
 }
 #toggle-card-listing .toggle-card-line .toggle-card-item.modulo-3-1 .toggle-card-details .toggle-card-details-container .toggle-card-details-right .toggle-card-details-buttons a.btn {
   background-color: #20124D;
-  border: 2px solid #20124D;
+  border: 1px solid #20124D;
 }
 #toggle-card-listing .toggle-card-line .toggle-card-item.modulo-3-1 .toggle-card-details .toggle-card-details-container .toggle-card-details-right .toggle-card-details-buttons a.btn:hover {
   color: #20124D;
@@ -613,7 +611,7 @@
 }
 #toggle-card-listing .toggle-card-line .toggle-card-item.modulo-3-2 .toggle-card-details .toggle-card-details-container .toggle-card-details-right .toggle-card-details-buttons a.btn {
   background-color: #bdc1ca;
-  border: 2px solid #bdc1ca;
+  border: 1px solid #bdc1ca;
 }
 #toggle-card-listing .toggle-card-line .toggle-card-item.modulo-3-2 .toggle-card-details .toggle-card-details-container .toggle-card-details-right .toggle-card-details-buttons a.btn:hover {
   color: #bdc1ca;
@@ -738,7 +736,7 @@ button:hover, button:focus {
   padding: 10px 20px;
 }
 .navbar-default .navbar-nav.navbar-right .dropdown-menu.dropdown-menu-form-login button#formLogin_submitAuth {
-  border: 2px solid #0430E9;
+  border: 1px solid #0430E9;
   background-color: #0430E9;
   color: #ffffff;
   transition: all 0.2s linear;
@@ -912,7 +910,7 @@ footer.footer #footer section.sub-footer p {
   transform: scale(var(--ggs, 1));
   width: 22px;
   height: 22px;
-  border: 2px solid;
+  border: 1px solid;
   border-radius: 100px;
   margin: 15px auto auto auto;
 }
@@ -923,8 +921,8 @@ footer.footer #footer section.sub-footer p {
   position: absolute;
   width: 6px;
   height: 6px;
-  border-bottom: 2px solid;
-  border-right: 2px solid;
+  border-bottom: 1px solid;
+  border-right: 1px solid;
   transform: rotate(-45deg);
   left: 5px;
   top: 6px;
@@ -1014,7 +1012,7 @@ footer.footer #footer section.sub-footer p {
   font-size: 2rem !important;
   color: #ffffff !important;
   background-color: #0430E9 !important;
-  border: 2px solid #0430E9 !important;
+  border: 1px solid #0430E9 !important;
 }
 .tuile_description .tuile_description-col .course_button a.btn em, .tuile_description .tuile_description-col .course_button a.btn-primary em {
   margin-left: 10px;
@@ -1032,7 +1030,7 @@ footer.footer #footer section.sub-footer p {
   width: 34px;
   height: 34px;
   border-radius: 17px;
-  border: solid 2px #0430E9;
+  border: solid 1px #0430E9;
   background-color: #0430E9;
   color: #ffffff;
   font-weight: 700;
@@ -1047,7 +1045,7 @@ footer.footer #footer section.sub-footer p {
   }
   .tuile_description-line {
     min-height: 50px;
-    border-right: #0430E9 2px solid;
+    border-right: #0430E9 1px solid;
     width: 1px;
     margin: 20px 0;
   }
@@ -1058,7 +1056,7 @@ footer.footer #footer section.sub-footer p {
     flex-direction: column;
   }
   .tuile_description-line {
-    border-bottom: #1A063F 2px solid;
+    border-bottom: #1A063F 1px solid;
     height: 1px;
     margin: 0 20px;
   }
@@ -1099,34 +1097,6 @@ footer.footer #footer section.sub-footer p {
   max-height: 220px;
   width: 100%;
   margin: 0 !important;
-}
-/****** Couleurs des thumbnails ******/
-.tuile:nth-child(3n + 1) .thumbnail {
-  background-color: #0430E9;
-}
-.tuile:nth-child(3n + 1) .thumbnail .registred {
-  background-color: #0430E9;
-}
-.tuile:nth-child(3n + 1) .thumbnail .registred:before, .tuile:nth-child(3n + 1) .thumbnail .registred:after {
-  border-right-color: #0430E9;
-}
-.tuile:nth-child(3n + 2) .thumbnail {
-  background-color: #20124D;
-}
-.tuile:nth-child(3n + 2) .thumbnail .registred {
-  background-color: #20124D;
-}
-.tuile:nth-child(3n + 2) .thumbnail .registred:before, .tuile:nth-child(3n + 2) .thumbnail .registred:after {
-  border-right-color: #20124D;
-}
-.tuile:nth-child(3n + 3) .thumbnail {
-  background-color: #bdc1ca;
-}
-.tuile:nth-child(3n + 3) .thumbnail .registred {
-  background-color: #bdc1ca;
-}
-.tuile:nth-child(3n + 3) .thumbnail .registred:before, .tuile:nth-child(3n + 3) .thumbnail .registred:after {
-  border-right-color: #bdc1ca;
 }
 /**********************************************************************************************
   /**********************************************************************************************
@@ -1205,23 +1175,60 @@ footer.footer #footer section.sub-footer p {
   // Forum
   ***********************************************************************************************
   ***********************************************************************************************/
+/* Général */
+.section-forum #cm-content {
+  padding-top: 10px;
+}
+.section-forum .actions.customActions {
+  padding: 0;
+  margin-bottom: 30px;
+  background: transparent;
+  border: none;
+  box-shadow: 0 0 black;
+}
+.section-forum .customBtn-large {
+  transition: all 0.2s linear;
+  border: 1px solid #0430E9 !important;
+  background-color: #0430E9 !important;
+  color: white !important;
+  font-size: 16px;
+  font-weight: 600;
+}
+.section-forum .customBtn-large i {
+  margin-right: 6px;
+}
+.section-forum .customBtn-large:hover {
+  border-color: #0430E9 !important;
+  background-color: white !important;
+  color: #0430E9 !important;
+}
+.section-forum .customBtn-medium {
+  transition: all 0.2s linear;
+  border: 1px solid #1A063F !important;
+  background-color: white !important;
+  color: #1A063F !important;
+  font-size: 12px;
+  font-weight: 600;
+}
+.section-forum .customBtn-medium i {
+  margin-right: 6px;
+}
+.section-forum .customBtn-medium:hover {
+  border-color: #0430E9 !important;
+  background-color: #0430E9 !important;
+  color: white !important;
+}
+.globalForum-title {
+  padding: 20px 0;
+}
 .globalForum-title h1 {
   display: inline-block;
-  background: #FFEC00;
+  margin: 0 0 30px;
+  background: #1A063F;
+  color: white;
   text-transform: uppercase;
 }
 /* Actions */
-.globalForum-actions a.btn.btn-primary {
-  transition: all 0.2s linear;
-  background-color: #0430E9;
-  border: 2px solid #0430E9;
-  font-size: 16px;
-  font-weight: 500;
-}
-.globalForum-actions a.btn.btn-primary:hover {
-  color: #0430E9;
-  background-color: white;
-}
 /* List des topics */
 .globalForum-threadList > .panel {
   /* Partie gauche avec le titre */
@@ -1236,14 +1243,13 @@ footer.footer #footer section.sub-footer p {
   display: inline;
   padding-left: 2px;
   padding-right: 2px;
-  background: #1A063F;
+  background: #FFEC00;
   font-size: 24px;
   line-height: 32px;
-  color: white;
+  color: #1A063F;
 }
 .globalForum-threadList > .panel .globalForum-threadList-title h3.title a:hover {
-  background-color: #0430E9;
-  color: white;
+  background-color: #DADEE7;
   text-decoration: none;
 }
 .globalForum-threadList > .panel .globalForum-threadList-title p {
@@ -1261,79 +1267,20 @@ footer.footer #footer section.sub-footer p {
   border-top: 1px solid #DADEE7;
 }
 /* Détail d'un topic */
-.globalForumThread .actions {
-  padding: 0;
-  margin-bottom: 0;
-  background: transparent;
-  border: none;
-  box-shadow: 0 0 black;
-}
-.globalForumThread .actions a.btn-primary {
-  transition: all 0.2s linear;
-  background-color: #0430E9;
-  border: 2px solid #0430E9;
-  font-size: 12px;
-  font-weight: 500;
-}
-.globalForumThread .actions a.btn-primary i {
-  margin-right: 6px;
-}
-.globalForumThread .actions a.btn-primary:hover {
-  color: #0430E9;
-  background-color: white;
-}
 .globalForumThread h1.globalForumThread-title {
   display: inline-block;
-  margin: 30px 0;
+  margin: 0px 0 30px;
   line-height: 50px;
 }
 .globalForumThread h1.globalForumThread-title p {
   display: inline;
   padding-left: 2px;
   padding-right: 2px;
-  background: #1A063F;
-  color: white;
-}
-.globalForumThread #newResponse button.btn-primary {
-  transition: all 0.2s linear;
-  background-color: #0430E9;
-  border: 2px solid #0430E9;
-  font-size: 16px;
-  font-weight: 500;
-}
-.globalForumThread #newResponse button.btn-primary:hover {
-  color: #0430E9;
-  background-color: white;
+  background: #FFEC00;
+  color: #1A063F;
 }
 .globalForumThread .forum-post {
   padding: 0;
-}
-.globalForumThread .forum-post .text-right a.btn-default, .globalForumThread .forum-post .text-right a.btn-success {
-  transition: all 0.2s linear;
-  background-color: #0430E9;
-  border: 2px solid #0430E9;
-  font-size: 12px;
-  font-weight: 500;
-  color: white;
-}
-.globalForumThread .forum-post .text-right a.btn-default i, .globalForumThread .forum-post .text-right a.btn-success i {
-  margin-right: 6px;
-}
-.globalForumThread .forum-post .text-right a.btn-default:hover, .globalForumThread .forum-post .text-right a.btn-success:hover {
-  color: #0430E9;
-  background-color: white;
-}
-.globalForumThread .globalForum-addPostForm button.btn-primary, .globalForumThread .globalForum-addPostForm button.btn-secondary {
-  transition: all 0.2s linear;
-  background-color: #0430E9;
-  border: 2px solid #0430E9;
-  font-size: 12px;
-  font-weight: 500;
-  color: white;
-}
-.globalForumThread .globalForum-addPostForm button.btn-primary:hover, .globalForumThread .globalForum-addPostForm button.btn-secondary:hover {
-  color: #0430E9;
-  background-color: white;
 }
 /**********************************************************************************************
   /**********************************************************************************************
