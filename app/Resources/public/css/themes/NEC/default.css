@@ -1751,9 +1751,9 @@ footer.footer #footer section.sub-footer {
  * Forum
  *************************************/
 .section-forum {
-  background: transparent url('forme20-7.png') no-repeat bottom right;
+  background: transparent url('../../../web/img/themes/NEC/forme20-7.png') no-repeat bottom right;
   background-size: contain;
 }
 .section-forum #cm-content {
-  background: transparent url('topographie5-5.png') no-repeat top left;
+  background: transparent url('../../../web/img/themes/NEC/topographie5-5.png') no-repeat top left;
 }
