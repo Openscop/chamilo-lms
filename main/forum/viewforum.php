@@ -454,7 +454,7 @@ if (is_array($threads)) {
             $html .= '<div class="row">';
 
             $isAdmin = api_is_allowed_to_edit(false, true);
-            $html .= '<div class="col-md-'.($isAdmin ? "6" : "8").'">';
+            $html .= '<div class="col-md-8">';
             $html .= '<div class="row">';
 //            $html .= '<div class="col-md-2">';
 
@@ -576,102 +576,104 @@ if (is_array($threads)) {
                 ).'<br>'.$post_date;
             }
 
-            $html .= '<div class="globalForum-threadList-lastAnswer col-md-6"><p>Dernière réponse :</p>'
+            $html .= '<div class="globalForum-threadList-lastAnswer col-md-4"><p>Dernière réponse :</p>'
                 .' '.$last_post;
             $html .= '</div>';
 
             $html .= '</div>';
             $html .= '</div>';
             /* BEGIN icônes d'administration */
-            $html .= '<div class="globalForum-threadList-adminIcons"><span>Icônes d\'administration : ';
-            $cidreq = api_get_cidreq();
+            if ($isAdmin) {
+                $html .= '<div class="globalForum-threadList-adminIcons"><span>Icônes d\'administration : ';
+                $cidreq = api_get_cidreq();
 
-            // Get attachment id.
-            if (isset($row['post_id'])) {
-                $attachment_list = get_attachment($row['post_id']);
-            }
-            $id_attach = !empty($attachment_list) ? $attachment_list['id'] : '';
-            $iconsEdit = '';
-            if ($origin != 'learnpath') {
-                if (api_is_allowed_to_edit(false, true) &&
-                    !(api_is_session_general_coach() && $current_forum['session_id'] != $sessionId)
-                ) {
-                    $iconsEdit .= '<a href="'.$forumUrl.'editthread.php?'.$cidreq
-                        .'&forum='.$my_forum.'&thread='
-                        .intval($row['thread_id'])
-                        .'&id_attach='.$id_attach.'">'
-                        .Display::return_icon('edit.png', get_lang('Edit'), [], ICON_SIZE_SMALL).'</a>';
-                    if (api_resource_is_locked_by_gradebook($row['thread_id'], LINK_FORUM_THREAD)) {
-                        $iconsEdit .= Display::return_icon(
-                            'delete_na.png',
-                            get_lang('ResourceLockedByGradebook'),
-                            [],
-                            ICON_SIZE_SMALL
+                // Get attachment id.
+                if (isset($row['post_id'])) {
+                    $attachment_list = get_attachment($row['post_id']);
+                }
+                $id_attach = !empty($attachment_list) ? $attachment_list['id'] : '';
+                $iconsEdit = '';
+                if ($origin != 'learnpath') {
+                    if (api_is_allowed_to_edit(false, true) &&
+                        !(api_is_session_general_coach() && $current_forum['session_id'] != $sessionId)
+                    ) {
+                        $iconsEdit .= '<a href="'.$forumUrl.'editthread.php?'.$cidreq
+                            .'&forum='.$my_forum.'&thread='
+                            .intval($row['thread_id'])
+                            .'&id_attach='.$id_attach.'">'
+                            .Display::return_icon('edit.png', get_lang('Edit'), [], ICON_SIZE_SMALL).'</a>';
+                        if (api_resource_is_locked_by_gradebook($row['thread_id'], LINK_FORUM_THREAD)) {
+                            $iconsEdit .= Display::return_icon(
+                                'delete_na.png',
+                                get_lang('ResourceLockedByGradebook'),
+                                [],
+                                ICON_SIZE_SMALL
+                            );
+                        } else {
+                            $iconsEdit .= '<a href="'.api_get_self().'?'.$cidreq.'&forum='
+                                .$my_forum.'&action=delete&content=thread&id='
+                                .$row['thread_id']."\" onclick=\"javascript:if(!confirm('"
+                                .addslashes(api_htmlentities(get_lang('DeleteCompleteThread'), ENT_QUOTES))
+                                ."')) return false;\">"
+                                .Display::return_icon('delete.png', get_lang('Delete'), [], ICON_SIZE_SMALL).'</a>';
+                        }
+
+                        $iconsEdit .= return_visible_invisible_icon(
+                            'thread',
+                            $row['thread_id'],
+                            $row['visibility'],
+                            [
+                                'forum' => $my_forum,
+                                'gidReq' => $groupId,
+                            ]
                         );
-                    } else {
-                        $iconsEdit .= '<a href="'.api_get_self().'?'.$cidreq.'&forum='
-                            .$my_forum.'&action=delete&content=thread&id='
-                            .$row['thread_id']."\" onclick=\"javascript:if(!confirm('"
-                            .addslashes(api_htmlentities(get_lang('DeleteCompleteThread'), ENT_QUOTES))
-                            ."')) return false;\">"
-                            .Display::return_icon('delete.png', get_lang('Delete'), [], ICON_SIZE_SMALL).'</a>';
+                        $iconsEdit .= return_lock_unlock_icon(
+                            'thread',
+                            $row['thread_id'],
+                            $row['locked'],
+                            [
+                                'forum' => $my_forum,
+                                'gidReq' => api_get_group_id(),
+                            ]
+                        );
+                        $iconsEdit .= '<a href="viewforum.php?'.$cidreq.'&forum='
+                            .$my_forum
+                            .'&action=move&thread='.$row['thread_id'].'">'
+                            .Display::return_icon('move.png', get_lang('MoveThread'), [], ICON_SIZE_SMALL)
+                            .'</a>';
                     }
+                }
+                $iconnotify = 'notification_mail_na.png';
+                if (is_array(
+                    isset($_SESSION['forum_notification']['thread']) ? $_SESSION['forum_notification']['thread'] : null
+                    )
+                ) {
+                    if (in_array($row['thread_id'], $_SESSION['forum_notification']['thread'])) {
+                        $iconnotify = 'notification_mail.png';
+                    }
+                }
+                $icon_liststd = 'user.png';
+                if (!api_is_anonymous() &&
+                    api_is_allowed_to_session_edit(false, true) &&
+                    !$hideNotifications
+                ) {
+                    // don't show subscribe anymore ( but later ? )
+    //                $iconsEdit .= '<a href="'.api_get_self().'?'.$cidreq.'&forum='
+    //                    .$my_forum
+    //                    ."&action=notify&content=thread&id={$row['thread_id']}"
+    //                    .'">'.Display::return_icon($iconnotify, get_lang('NotifyMe')).'</a>';
+                }
 
-                    $iconsEdit .= return_visible_invisible_icon(
-                        'thread',
-                        $row['thread_id'],
-                        $row['visibility'],
-                        [
-                            'forum' => $my_forum,
-                            'gidReq' => $groupId,
-                        ]
-                    );
-                    $iconsEdit .= return_lock_unlock_icon(
-                        'thread',
-                        $row['thread_id'],
-                        $row['locked'],
-                        [
-                            'forum' => $my_forum,
-                            'gidReq' => api_get_group_id(),
-                        ]
-                    );
-                    $iconsEdit .= '<a href="viewforum.php?'.$cidreq.'&forum='
+                if (api_is_allowed_to_edit(null, true) && $origin != 'learnpath') {
+                    $iconsEdit .= '<a href="'.api_get_self().'?'.$cidreq.'&forum='
                         .$my_forum
-                        .'&action=move&thread='.$row['thread_id'].'">'
-                        .Display::return_icon('move.png', get_lang('MoveThread'), [], ICON_SIZE_SMALL)
+                        ."&action=liststd&content=thread&id={$row['thread_id']}"
+                        .'">'.Display::return_icon($icon_liststd, get_lang('StudentList'), [], ICON_SIZE_SMALL)
                         .'</a>';
                 }
+                $html .= $iconsEdit;
+                $html .= '</div>';
             }
-            $iconnotify = 'notification_mail_na.png';
-            if (is_array(
-                isset($_SESSION['forum_notification']['thread']) ? $_SESSION['forum_notification']['thread'] : null
-                )
-            ) {
-                if (in_array($row['thread_id'], $_SESSION['forum_notification']['thread'])) {
-                    $iconnotify = 'notification_mail.png';
-                }
-            }
-            $icon_liststd = 'user.png';
-            if (!api_is_anonymous() &&
-                api_is_allowed_to_session_edit(false, true) &&
-                !$hideNotifications
-            ) {
-                // don't show subscribe anymore ( but later ? )
-//                $iconsEdit .= '<a href="'.api_get_self().'?'.$cidreq.'&forum='
-//                    .$my_forum
-//                    ."&action=notify&content=thread&id={$row['thread_id']}"
-//                    .'">'.Display::return_icon($iconnotify, get_lang('NotifyMe')).'</a>';
-            }
-
-            if (api_is_allowed_to_edit(null, true) && $origin != 'learnpath') {
-                $iconsEdit .= '<a href="'.api_get_self().'?'.$cidreq.'&forum='
-                    .$my_forum
-                    ."&action=liststd&content=thread&id={$row['thread_id']}"
-                    .'">'.Display::return_icon($icon_liststd, get_lang('StudentList'), [], ICON_SIZE_SMALL)
-                    .'</a>';
-            }
-            $html .= $iconsEdit;
-            $html .= '</div>';
             /* END icônes d'administration */
             $html .= '</div>';
 
