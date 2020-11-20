@@ -795,6 +795,10 @@
   .section-forum {
     #cm-content {
       padding-top: 10px;
+
+      .container {
+        margin-bottom: 0;
+      }
     }
     // Actions
     .actions.customActions {

@@ -1194,6 +1194,9 @@ footer.footer #footer section.sub-footer p {
 .section-forum #cm-content {
   padding-top: 10px;
 }
+.section-forum #cm-content .container {
+  margin-bottom: 0;
+}
 .section-forum .actions.customActions {
   padding: 0;
   margin-bottom: 30px;
