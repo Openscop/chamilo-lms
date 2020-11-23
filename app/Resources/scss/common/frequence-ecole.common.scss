@@ -704,6 +704,26 @@
     }
   }
 
+  /****** Couleurs des thumbnails ******/
+
+  //default
+  @each $color in $thumbnailColors {
+    $index: index($thumbnailColors, $color);
+    .tuile:nth-child(#{length($thumbnailColors)}n + #{$index}) {
+      .thumbnail {
+        background-color: $color;
+
+        .registred {
+          background-color: $color;
+
+          &:before, &:after {
+            border-right-color: $color;
+          }
+        }
+      }
+    }
+  }
+
 
   /**********************************************************************************************
   /**********************************************************************************************
