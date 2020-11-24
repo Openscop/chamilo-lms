@@ -374,7 +374,7 @@ foreach ($posts as $post) {
 
     $post['user_data'] = [
          "name" => display_user_link($posterId, $name, $origin, $username),
-         "date" => Display::dateToStringAgoAndLongDate($post['post_date']),
+         "date" => str_replace("depuis", "il y a", Display::dateToStringAgoAndLongDate($post['post_date'])),
          "image" => display_user_image($posterId, $name, $origin)
     ];
 

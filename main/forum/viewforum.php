@@ -343,7 +343,6 @@ $hideNotifications = api_get_course_setting('hide_forum_notifications') == 1;
 echo '<div class="globalForum-threadList">';
 if (is_array($threads)) {
     $html = '';
-    $count = 1;
     $stickedThreads = array();
     $notStickedThreads = array();
     foreach ($threads as $row) {
@@ -360,7 +359,7 @@ if (is_array($threads)) {
         echo '<div id="stickedThreads" class="category">';
         echo '<div class="category-title">Pour un bon usage de la plate-forme</div>';
         foreach ($stickedThreads as $row) {
-            displayRow($row);
+            displayRow($row, $my_forum, $my_search, $groupId);
         }
         echo '</div>';
     }
@@ -391,7 +390,7 @@ if (is_array($threads)) {
         echo '<div id="notStickedThreads" class="category">';
         echo '<div class="category-title">Tous les sujets</div>';
         foreach ($notStickedThreads as $row) {
-            displayRow($row);
+            displayRow($row, $my_forum, $my_search, $groupId);
         }
         echo '</div>';
     }
@@ -458,7 +457,10 @@ if ($origin != 'learnpath') {
  * Function displayRow($row)
  * Affiche une ligne de thread sur la liste du forum
  *********************************/
-function displayRow($row) {
+function displayRow($row, $my_forum, $my_search) {
+
+    $current_forum = get_forum_information($my_forum);
+    $origin = api_get_origin();
 
     // Thread who have no replies yet and the only post is invisible should not be displayed to students.
     if (api_is_allowed_to_edit(false, true) ||
@@ -486,7 +488,6 @@ function displayRow($row) {
         $html .= '<div class="panel-body">';
         $html .= '<div class="row">';
 
-        $isAdmin = api_is_allowed_to_edit(false, true);
         $html .= '<div class="col-md-8">';
         $html .= '<div class="row">';
 
@@ -534,9 +535,6 @@ function displayRow($row) {
                 $poster_info['username']
             );
         }
-
-//            $html .= '<div class="thumbnail">'.display_user_image($row['user_id'], $name, $origin).'</div>';
-//            $html .= '</div>';
         $html .= '<div class="col-md-12 globalForum-threadList-title">';
         $html .= Display::tag(
             'h3',
@@ -546,12 +544,6 @@ function displayRow($row) {
             ]
         );
         $html .= '<p class="globalForum-threadList-title-author">'.get_lang('By').' '.display_user_image($row['user_id'], $name, $origin).' '.$authorName.'</p>';
-
-//            if ($last_post_info) {
-//                $html .= '<p>'.Security::remove_XSS(cut($last_post_info['post_text'], 140)).'</p>';
-//            }
-
-//            $html .= '<p>'.Display::dateToStringAgoAndLongDate($row['insert_date']).'</p>';
 
         if ($current_forum['moderated'] == 1 && api_is_allowed_to_edit(false, true)) {
             $waitingCount = getCountPostsWithStatus(
@@ -578,16 +570,17 @@ function displayRow($row) {
 
         $html .= '</div>';
 
-//            $html .= '<div class="col-md-4">'
-//                .Display::return_icon('post-forum.png', null, null, ICON_SIZE_SMALL)
-//                ." {$row['thread_replies']} ".get_lang('Replies').'<br>';
-//            $html .= Display::return_icon(
-//                'post-forum.png',
-//                null,
-//                null,
-//                ICON_SIZE_SMALL
-//            ).' '.$row['thread_views'].' '.get_lang('Views').'<br>'.$newPost;
-//            $html .= '</div>';
+       //  // Affiche un extrait de la dernière réponse
+       // $html .= '<div class="col-md-4">'
+       //     .Display::return_icon('post-forum.png', null, null, ICON_SIZE_SMALL)
+       //     ." {$row['thread_replies']} ".get_lang('Replies').'<br>';
+       // $html .= Display::return_icon(
+       //     'post-forum.png',
+       //     null,
+       //     null,
+       //     ICON_SIZE_SMALL
+       // ).' '.$row['thread_views'].' '.get_lang('Views').'<br>'.$newPost;
+       // $html .= '</div>';
 
         $last_post_info = get_last_post_by_thread(
             $row['c_id'],
@@ -614,8 +607,8 @@ function displayRow($row) {
 
         $html .= '</div>';
         $html .= '</div>';
-        /* BEGIN icônes d'administration */
-        if ($isAdmin) {
+        /* BEGIN icônes d'administration if is admin */
+        if (api_is_allowed_to_edit(false, true)) {
             $html .= '<div class="globalForum-threadList-adminIcons"><span>Icônes d\'administration : ';
             $cidreq = api_get_cidreq();
 
@@ -685,16 +678,15 @@ function displayRow($row) {
                 }
             }
             $icon_liststd = 'user.png';
-            if (!api_is_anonymous() &&
-                api_is_allowed_to_session_edit(false, true) &&
-                !$hideNotifications
-            ) {
-                // don't show subscribe anymore ( but later ? )
-//                $iconsEdit .= '<a href="'.api_get_self().'?'.$cidreq.'&forum='
-//                    .$my_forum
-//                    ."&action=notify&content=thread&id={$row['thread_id']}"
-//                    .'">'.Display::return_icon($iconnotify, get_lang('NotifyMe')).'</a>';
-            }
+            // if (!api_is_anonymous() &&
+            //     api_is_allowed_to_session_edit(false, true) &&
+            //     !$hideNotifications
+            // ) {
+            //     $iconsEdit .= '<a href="'.api_get_self().'?'.$cidreq.'&forum='
+            //         .$my_forum
+            //         ."&action=notify&content=thread&id={$row['thread_id']}"
+            //         .'">'.Display::return_icon($iconnotify, get_lang('NotifyMe')).'</a>';
+            // }
 
             if (api_is_allowed_to_edit(null, true) && $origin != 'learnpath') {
                 $iconsEdit .= '<a href="'.api_get_self().'?'.$cidreq.'&forum='
@@ -711,5 +703,4 @@ function displayRow($row) {
 
         echo $html;
     }
-    $count++;
 }
