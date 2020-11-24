@@ -332,6 +332,71 @@ if (!empty($message)) {
     echo Display::return_message($message, 'confirm');
 }
 
+
+// Getting all the threads
+$threads = get_threads($my_forum);
+$whatsnew_post_info = isset($_SESSION['whatsnew_post_info']) ? $_SESSION['whatsnew_post_info'] : null;
+$course_id = api_get_course_int_id();
+
+$hideNotifications = api_get_course_setting('hide_forum_notifications') == 1;
+
+echo '<div class="globalForum-threadList">';
+if (is_array($threads)) {
+    $html = '';
+    $count = 1;
+    $stickedThreads = array();
+    $notStickedThreads = array();
+    foreach ($threads as $row) {
+        if($row['thread_sticky']) {
+            $stickedThreads[] = $row;
+        }
+        else {
+            $notStickedThreads[] = $row;
+        }
+    }
+
+    // Affichage des threads post-it
+    if(count($stickedThreads) > 0) {
+        echo '<div id="stickedThreads" class="category">';
+        echo '<div class="category-title">Pour un bon usage de la plate-forme</div>';
+        foreach ($stickedThreads as $row) {
+            displayRow($row);
+        }
+        echo '</div>';
+    }
+    // Bouton de publication d'un thread
+    echo '<div class="globalForum-actions actions customActions">';
+    if (api_is_allowed_to_edit(false, true) ||
+        ($current_forum['allow_new_threads'] == 1 && isset($_user['user_id'])) ||
+        ($current_forum['allow_new_threads'] == 1 && !isset($_user['user_id']) && $current_forum['allow_anonymous'] == 1)
+    ) {
+        if ($current_forum['locked'] != 1 && $current_forum['locked'] != 1) {
+            if (!api_is_anonymous() && !api_is_invitee()) {
+                if ($my_forum == strval(intval($my_forum))) {
+                    echo '<a class="btn btn-primary customBtn-large" href="'.$forumUrl.'newthread.php?'.api_get_cidreq().'&forum='
+                        .Security::remove_XSS($my_forum).'">Aborder une question avec la communauté'
+                        .'</a>';
+                } else {
+                    $my_forum = strval(intval($my_forum));
+                    echo '<a class="btn btn-primary customBtn-large" href="'.$forumUrl.'newthread.php?'.api_get_cidreq()
+                        .'&forum='.$my_forum.'">Aborder une question avec la communauté'
+                        .'</a>';
+                }
+            }
+        }
+    }
+    echo '</div>';
+    // Affichage des threads qui ne sont pas des post-it
+    if(count($notStickedThreads) > 0) {
+        echo '<div id="notStickedThreads" class="category">';
+        echo '<div class="category-title">Tous les sujets</div>';
+        foreach ($notStickedThreads as $row) {
+            displayRow($row);
+        }
+        echo '</div>';
+    }
+}
+echo '</div>';
 /* Action links */
 echo '<div class="globalForum-actions actions customActions">';
 
@@ -378,142 +443,109 @@ if (api_is_allowed_to_edit(false, true) ||
     }
 }
 echo '</div>';
+echo isset($table_list) ? $table_list : '';
 
-/* Display */
-//$titleForum = $current_forum['forum_title'];
-//$descriptionForum = $current_forum['forum_comment'];
-//$iconForum = Display::return_icon(
-//    'forum_yellow.png',
-//    get_lang('Forum'),
-//    null,
-//    ICON_SIZE_MEDIUM
-//);
-//$html = '';
-//$html .= '<div class="topic-forum">';
-//// The current forum
-//if ($origin != 'learnpath') {
-//    $html .= Display::tag(
-//        'h3',
-//        $iconForum.' '.$titleForum,
-//        [
-//            'class' => 'title-forum', ]
-//    );
-//
-//    if (!empty($descriptionForum)) {
-//        $html .= Display::tag(
-//            'p',
-//            Security::remove_XSS($descriptionForum),
-//            [
-//                'class' => 'description',
-//            ]
-//        );
-//    }
-//}
-//
-//$html .= '</div>';
+if ($origin != 'learnpath') {
+    Display::display_footer();
+}
 
-// Don't show title of forum anymore
-//echo $html;
 
-// Getting al the threads
-$threads = get_threads($my_forum);
-$whatsnew_post_info = isset($_SESSION['whatsnew_post_info']) ? $_SESSION['whatsnew_post_info'] : null;
-$course_id = api_get_course_int_id();
 
-$hideNotifications = api_get_course_setting('hide_forum_notifications') == 1;
 
-echo '<div class="globalForum-threadList">';
-if (is_array($threads)) {
-    $html = '';
-    $count = 1;
-    foreach ($threads as $row) {
-        // Thread who have no replies yet and the only post is invisible should not be displayed to students.
-        if (api_is_allowed_to_edit(false, true) ||
-            !($row['thread_replies'] == '0' && $row['visibility'] == '0')
-        ) {
-            $my_whatsnew_post_info = null;
 
-            if (isset($whatsnew_post_info[$my_forum][$row['thread_id']])) {
-                $my_whatsnew_post_info = $whatsnew_post_info[$my_forum][$row['thread_id']];
-            }
 
-            $newPost = '';
-            if (is_array($my_whatsnew_post_info) && !empty($my_whatsnew_post_info)) {
-                $newPost = ' '.Display::return_icon('alert.png', get_lang('Forum'), null, ICON_SIZE_SMALL);
-            }
+/*********************************
+ * Function displayRow($row)
+ * Affiche une ligne de thread sur la liste du forum
+ *********************************/
+function displayRow($row) {
 
-            $name = api_get_person_name($row['firstname'], $row['lastname']);
+    // Thread who have no replies yet and the only post is invisible should not be displayed to students.
+    if (api_is_allowed_to_edit(false, true) ||
+        !($row['thread_replies'] == '0' && $row['visibility'] == '0')
+    ) {
+        $my_whatsnew_post_info = null;
 
-            $linkPostForum = '<a href="viewthread.php?'.api_get_cidreq().'&forum='.$my_forum
-                ."&thread={$row['thread_id']}&search="
-                .Security::remove_XSS(urlencode($my_search)).'">'
-                .$row['thread_title'].'</a>';
-            $html = '';
-            $html .= '<div class="panel panel-default forum '.($row['thread_sticky'] ? 'sticky' : '').'">';
-            $html .= '<div class="panel-body">';
-            $html .= '<div class="row">';
+        if (isset($whatsnew_post_info[$my_forum][$row['thread_id']])) {
+            $my_whatsnew_post_info = $whatsnew_post_info[$my_forum][$row['thread_id']];
+        }
 
-            $isAdmin = api_is_allowed_to_edit(false, true);
-            $html .= '<div class="col-md-8">';
-            $html .= '<div class="row">';
-//            $html .= '<div class="col-md-2">';
+        $newPost = '';
+        if (is_array($my_whatsnew_post_info) && !empty($my_whatsnew_post_info)) {
+            $newPost = ' '.Display::return_icon('alert.png', get_lang('Forum'), null, ICON_SIZE_SMALL);
+        }
 
-            // display the author name
-            $tab_poster_info = api_get_user_info($row['user_id']);
-            $poster_username = sprintf(get_lang('LoginX'), $tab_poster_info['username']);
-            $authorName = '';
+        $name = api_get_person_name($row['firstname'], $row['lastname']);
 
-            if ($origin != 'learnpath') {
-                $authorName = display_user_link(
-                    $row['user_id'],
-                    api_get_person_name($row['firstname'], $row['lastname']),
-                    '',
-                    $poster_username
-                );
-            } else {
-                $authorName = Display::tag(
-                    'span',
-                    api_get_person_name(
-                        $row['firstname'],
-                        $row['lastname']
-                    ),
-                    [
-                        'title' => api_htmlentities($poster_username, ENT_QUOTES),
-                    ]
-                );
-            }
+        $linkPostForum = '<a href="viewthread.php?'.api_get_cidreq().'&forum='.$my_forum
+            ."&thread={$row['thread_id']}&search="
+            .Security::remove_XSS(urlencode($my_search)).'">'
+            .$row['thread_title'].'</a>';
+        $html = '';
+        $html .= '<div class="panel panel-default forum '.($row['thread_sticky'] ? 'sticky' : '').'">';
+        $html .= '<div class="panel-body">';
+        $html .= '<div class="row">';
 
-            $_user = api_get_user_info($row['user_id']);
-            $iconStatus = $_user['icon_status'];
-            $last_post_info = get_last_post_by_thread(
-                $row['c_id'],
-                $row['thread_id'],
-                $row['forum_id'],
-                api_is_allowed_to_edit()
+        $isAdmin = api_is_allowed_to_edit(false, true);
+        $html .= '<div class="col-md-8">';
+        $html .= '<div class="row">';
+
+        // display the author name
+        $tab_poster_info = api_get_user_info($row['user_id']);
+        $poster_username = sprintf(get_lang('LoginX'), $tab_poster_info['username']);
+        $authorName = '';
+
+        if ($origin != 'learnpath') {
+            $authorName = display_user_link(
+                $row['user_id'],
+                api_get_person_name($row['firstname'], $row['lastname']),
+                '',
+                $poster_username
             );
-            $last_post = null;
-            if ($last_post_info) {
-                $poster_info = api_get_user_info($last_post_info['poster_id']);
-                $post_date = api_convert_and_format_date($last_post_info['post_date']);
-                $last_post = $post_date.'<br>'.get_lang('By').' '.display_user_link(
-                    $last_post_info['poster_id'],
-                    $poster_info['complete_name'],
-                    '',
-                    $poster_info['username']
-                );
-            }
+        } else {
+            $authorName = Display::tag(
+                'span',
+                api_get_person_name(
+                    $row['firstname'],
+                    $row['lastname']
+                ),
+                [
+                    'title' => api_htmlentities($poster_username, ENT_QUOTES),
+                ]
+            );
+        }
+
+        $_user = api_get_user_info($row['user_id']);
+        $iconStatus = $_user['icon_status'];
+        $last_post_info = get_last_post_by_thread(
+            $row['c_id'],
+            $row['thread_id'],
+            $row['forum_id'],
+            api_is_allowed_to_edit()
+        );
+        $last_post = null;
+        if ($last_post_info) {
+            $poster_info = api_get_user_info($last_post_info['poster_id']);
+            $post_date = api_convert_and_format_date($last_post_info['post_date']);
+            $last_post = $post_date.'<br>'.get_lang('By').' '.display_user_link(
+                $last_post_info['poster_id'],
+                $poster_info['complete_name'],
+                '',
+                $poster_info['username']
+            );
+        }
 
 //            $html .= '<div class="thumbnail">'.display_user_image($row['user_id'], $name, $origin).'</div>';
 //            $html .= '</div>';
-            $html .= '<div class="col-md-12 globalForum-threadList-title">';
-            $html .= Display::tag(
-                'h3',
-                $linkPostForum,
-                [
-                    'class' => 'title',
-                ]
-            );
-            $html .= '<p class="globalForum-threadList-title-author">'.get_lang('By').' '.display_user_image($row['user_id'], $name, $origin).' '.$authorName.'</p>';
+        $html .= '<div class="col-md-12 globalForum-threadList-title">';
+        $html .= Display::tag(
+            'h3',
+            $linkPostForum,
+            [
+                'class' => 'title',
+            ]
+        );
+        $html .= '<p class="globalForum-threadList-title-author">'.get_lang('By').' '.display_user_image($row['user_id'], $name, $origin).' '.$authorName.'</p>';
 
 //            if ($last_post_info) {
 //                $html .= '<p>'.Security::remove_XSS(cut($last_post_info['post_text'], 140)).'</p>';
@@ -521,30 +553,30 @@ if (is_array($threads)) {
 
 //            $html .= '<p>'.Display::dateToStringAgoAndLongDate($row['insert_date']).'</p>';
 
-            if ($current_forum['moderated'] == 1 && api_is_allowed_to_edit(false, true)) {
-                $waitingCount = getCountPostsWithStatus(
-                    CForumPost::STATUS_WAITING_MODERATION,
-                    $current_forum,
-                    $row['thread_id']
+        if ($current_forum['moderated'] == 1 && api_is_allowed_to_edit(false, true)) {
+            $waitingCount = getCountPostsWithStatus(
+                CForumPost::STATUS_WAITING_MODERATION,
+                $current_forum,
+                $row['thread_id']
+            );
+            if (!empty($waitingCount)) {
+                $html .= Display::label(
+                    get_lang('PostsPendingModeration').': '.$waitingCount,
+                    'warning'
                 );
-                if (!empty($waitingCount)) {
-                    $html .= Display::label(
-                        get_lang('PostsPendingModeration').': '.$waitingCount,
-                        'warning'
-                    );
-                }
             }
+        }
 
-            $html .= '<p class="globalForum-threadList-stats">'
-                .'Consulté : '.$row['thread_views'].' fois - '
-                .'Réponses : ' .$row['thread_replies']. ''
-                .'</p>';
+        $html .= '<p class="globalForum-threadList-stats">'
+            .'Consulté : '.$row['thread_views'].' fois - '
+            .'Réponses : ' .$row['thread_replies']. ''
+            .'</p>';
 
 
-            $html .= '</div>';
-            $html .= '</div>';
+        $html .= '</div>';
+        $html .= '</div>';
 
-            $html .= '</div>';
+        $html .= '</div>';
 
 //            $html .= '<div class="col-md-4">'
 //                .Display::return_icon('post-forum.png', null, null, ICON_SIZE_SMALL)
@@ -557,135 +589,127 @@ if (is_array($threads)) {
 //            ).' '.$row['thread_views'].' '.get_lang('Views').'<br>'.$newPost;
 //            $html .= '</div>';
 
-            $last_post_info = get_last_post_by_thread(
-                $row['c_id'],
-                $row['thread_id'],
-                $row['forum_id'],
-                api_is_allowed_to_edit()
-            );
-            $last_post = null;
+        $last_post_info = get_last_post_by_thread(
+            $row['c_id'],
+            $row['thread_id'],
+            $row['forum_id'],
+            api_is_allowed_to_edit()
+        );
+        $last_post = null;
 
-            if ($last_post_info) {
-                $poster_info = api_get_user_info($last_post_info['poster_id']);
-                $post_date = str_replace("depuis", "il y a", Display::dateToStringAgoAndLongDate($last_post_info['post_date']));
-                $last_post = get_lang('By').' '.display_user_link(
-                    $last_post_info['poster_id'],
-                    $poster_info['complete_name'],
-                    '',
-                    $poster_info['username']
-                ).'<br>'.$post_date;
+        if ($last_post_info) {
+            $poster_info = api_get_user_info($last_post_info['poster_id']);
+            $post_date = str_replace("depuis", "il y a", Display::dateToStringAgoAndLongDate($last_post_info['post_date']));
+            $last_post = get_lang('By').' '.display_user_link(
+                $last_post_info['poster_id'],
+                $poster_info['complete_name'],
+                '',
+                $poster_info['username']
+            ).'<br>'.$post_date;
+        }
+
+        $html .= '<div class="globalForum-threadList-lastAnswer col-md-4"><p>Dernière réponse :</p>'
+            .' '.$last_post;
+        $html .= '</div>';
+
+        $html .= '</div>';
+        $html .= '</div>';
+        /* BEGIN icônes d'administration */
+        if ($isAdmin) {
+            $html .= '<div class="globalForum-threadList-adminIcons"><span>Icônes d\'administration : ';
+            $cidreq = api_get_cidreq();
+
+            // Get attachment id.
+            if (isset($row['post_id'])) {
+                $attachment_list = get_attachment($row['post_id']);
             }
-
-            $html .= '<div class="globalForum-threadList-lastAnswer col-md-4"><p>Dernière réponse :</p>'
-                .' '.$last_post;
-            $html .= '</div>';
-
-            $html .= '</div>';
-            $html .= '</div>';
-            /* BEGIN icônes d'administration */
-            if ($isAdmin) {
-                $html .= '<div class="globalForum-threadList-adminIcons"><span>Icônes d\'administration : ';
-                $cidreq = api_get_cidreq();
-
-                // Get attachment id.
-                if (isset($row['post_id'])) {
-                    $attachment_list = get_attachment($row['post_id']);
-                }
-                $id_attach = !empty($attachment_list) ? $attachment_list['id'] : '';
-                $iconsEdit = '';
-                if ($origin != 'learnpath') {
-                    if (api_is_allowed_to_edit(false, true) &&
-                        !(api_is_session_general_coach() && $current_forum['session_id'] != $sessionId)
-                    ) {
-                        $iconsEdit .= '<a href="'.$forumUrl.'editthread.php?'.$cidreq
-                            .'&forum='.$my_forum.'&thread='
-                            .intval($row['thread_id'])
-                            .'&id_attach='.$id_attach.'">'
-                            .Display::return_icon('edit.png', get_lang('Edit'), [], ICON_SIZE_SMALL).'</a>';
-                        if (api_resource_is_locked_by_gradebook($row['thread_id'], LINK_FORUM_THREAD)) {
-                            $iconsEdit .= Display::return_icon(
-                                'delete_na.png',
-                                get_lang('ResourceLockedByGradebook'),
-                                [],
-                                ICON_SIZE_SMALL
-                            );
-                        } else {
-                            $iconsEdit .= '<a href="'.api_get_self().'?'.$cidreq.'&forum='
-                                .$my_forum.'&action=delete&content=thread&id='
-                                .$row['thread_id']."\" onclick=\"javascript:if(!confirm('"
-                                .addslashes(api_htmlentities(get_lang('DeleteCompleteThread'), ENT_QUOTES))
-                                ."')) return false;\">"
-                                .Display::return_icon('delete.png', get_lang('Delete'), [], ICON_SIZE_SMALL).'</a>';
-                        }
-
-                        $iconsEdit .= return_visible_invisible_icon(
-                            'thread',
-                            $row['thread_id'],
-                            $row['visibility'],
-                            [
-                                'forum' => $my_forum,
-                                'gidReq' => $groupId,
-                            ]
-                        );
-                        $iconsEdit .= return_lock_unlock_icon(
-                            'thread',
-                            $row['thread_id'],
-                            $row['locked'],
-                            [
-                                'forum' => $my_forum,
-                                'gidReq' => api_get_group_id(),
-                            ]
-                        );
-                        $iconsEdit .= '<a href="viewforum.php?'.$cidreq.'&forum='
-                            .$my_forum
-                            .'&action=move&thread='.$row['thread_id'].'">'
-                            .Display::return_icon('move.png', get_lang('MoveThread'), [], ICON_SIZE_SMALL)
-                            .'</a>';
-                    }
-                }
-                $iconnotify = 'notification_mail_na.png';
-                if (is_array(
-                    isset($_SESSION['forum_notification']['thread']) ? $_SESSION['forum_notification']['thread'] : null
-                    )
+            $id_attach = !empty($attachment_list) ? $attachment_list['id'] : '';
+            $iconsEdit = '';
+            if ($origin != 'learnpath') {
+                if (api_is_allowed_to_edit(false, true) &&
+                    !(api_is_session_general_coach() && $current_forum['session_id'] != $sessionId)
                 ) {
-                    if (in_array($row['thread_id'], $_SESSION['forum_notification']['thread'])) {
-                        $iconnotify = 'notification_mail.png';
+                    $iconsEdit .= '<a href="'.$forumUrl.'editthread.php?'.$cidreq
+                        .'&forum='.$my_forum.'&thread='
+                        .intval($row['thread_id'])
+                        .'&id_attach='.$id_attach.'">'
+                        .Display::return_icon('edit.png', get_lang('Edit'), [], ICON_SIZE_SMALL).'</a>';
+                    if (api_resource_is_locked_by_gradebook($row['thread_id'], LINK_FORUM_THREAD)) {
+                        $iconsEdit .= Display::return_icon(
+                            'delete_na.png',
+                            get_lang('ResourceLockedByGradebook'),
+                            [],
+                            ICON_SIZE_SMALL
+                        );
+                    } else {
+                        $iconsEdit .= '<a href="'.api_get_self().'?'.$cidreq.'&forum='
+                            .$my_forum.'&action=delete&content=thread&id='
+                            .$row['thread_id']."\" onclick=\"javascript:if(!confirm('"
+                            .addslashes(api_htmlentities(get_lang('DeleteCompleteThread'), ENT_QUOTES))
+                            ."')) return false;\">"
+                            .Display::return_icon('delete.png', get_lang('Delete'), [], ICON_SIZE_SMALL).'</a>';
                     }
-                }
-                $icon_liststd = 'user.png';
-                if (!api_is_anonymous() &&
-                    api_is_allowed_to_session_edit(false, true) &&
-                    !$hideNotifications
-                ) {
-                    // don't show subscribe anymore ( but later ? )
-    //                $iconsEdit .= '<a href="'.api_get_self().'?'.$cidreq.'&forum='
-    //                    .$my_forum
-    //                    ."&action=notify&content=thread&id={$row['thread_id']}"
-    //                    .'">'.Display::return_icon($iconnotify, get_lang('NotifyMe')).'</a>';
-                }
 
-                if (api_is_allowed_to_edit(null, true) && $origin != 'learnpath') {
-                    $iconsEdit .= '<a href="'.api_get_self().'?'.$cidreq.'&forum='
+                    $iconsEdit .= return_visible_invisible_icon(
+                        'thread',
+                        $row['thread_id'],
+                        $row['visibility'],
+                        [
+                            'forum' => $my_forum,
+                            'gidReq' => $groupId,
+                        ]
+                    );
+                    $iconsEdit .= return_lock_unlock_icon(
+                        'thread',
+                        $row['thread_id'],
+                        $row['locked'],
+                        [
+                            'forum' => $my_forum,
+                            'gidReq' => api_get_group_id(),
+                        ]
+                    );
+                    $iconsEdit .= '<a href="viewforum.php?'.$cidreq.'&forum='
                         .$my_forum
-                        ."&action=liststd&content=thread&id={$row['thread_id']}"
-                        .'">'.Display::return_icon($icon_liststd, get_lang('StudentList'), [], ICON_SIZE_SMALL)
+                        .'&action=move&thread='.$row['thread_id'].'">'
+                        .Display::return_icon('move.png', get_lang('MoveThread'), [], ICON_SIZE_SMALL)
                         .'</a>';
                 }
-                $html .= $iconsEdit;
-                $html .= '</div>';
             }
-            /* END icônes d'administration */
+            $iconnotify = 'notification_mail_na.png';
+            if (is_array(
+                isset($_SESSION['forum_notification']['thread']) ? $_SESSION['forum_notification']['thread'] : null
+                )
+            ) {
+                if (in_array($row['thread_id'], $_SESSION['forum_notification']['thread'])) {
+                    $iconnotify = 'notification_mail.png';
+                }
+            }
+            $icon_liststd = 'user.png';
+            if (!api_is_anonymous() &&
+                api_is_allowed_to_session_edit(false, true) &&
+                !$hideNotifications
+            ) {
+                // don't show subscribe anymore ( but later ? )
+//                $iconsEdit .= '<a href="'.api_get_self().'?'.$cidreq.'&forum='
+//                    .$my_forum
+//                    ."&action=notify&content=thread&id={$row['thread_id']}"
+//                    .'">'.Display::return_icon($iconnotify, get_lang('NotifyMe')).'</a>';
+            }
+
+            if (api_is_allowed_to_edit(null, true) && $origin != 'learnpath') {
+                $iconsEdit .= '<a href="'.api_get_self().'?'.$cidreq.'&forum='
+                    .$my_forum
+                    ."&action=liststd&content=thread&id={$row['thread_id']}"
+                    .'">'.Display::return_icon($icon_liststd, get_lang('StudentList'), [], ICON_SIZE_SMALL)
+                    .'</a>';
+            }
+            $html .= $iconsEdit;
             $html .= '</div>';
-
-            echo $html;
         }
-        $count++;
+        /* END icônes d'administration */
+        $html .= '</div>';
+
+        echo $html;
     }
-}
-
-echo '</div>';
-echo isset($table_list) ? $table_list : '';
-
-if ($origin != 'learnpath') {
-    Display::display_footer();
+    $count++;
 }

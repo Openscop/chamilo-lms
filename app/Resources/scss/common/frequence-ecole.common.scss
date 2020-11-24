@@ -880,46 +880,69 @@
   .globalForum-actions {
   }
   /* List des topics */
-  .globalForum-threadList > .panel {
-    /* Partie gauche avec le titre */
-    .globalForum-threadList-title {
-      h3.title {
-        margin: 0 0 10px;
+  .globalForum-threadList > .category {
+    margin-bottom: 20px;
+    border: 4px solid $otherColor1;
 
-        a {
-          transition: all 0.2s linear;
-          display: inline;
-          padding-left: 2px;
-          padding-right: 2px;
-          background: $secondaryColor;
-          font-size: 24px;
-          line-height: 32px;
-          color: $tertiaryColor;
+    .category-title {
+      padding: 5px;
+      background-color: $otherColor1;
+      text-align: center;
+      font-size: 20px;
+      font-weight: 600;
+    }
 
-          &:hover {
-            background-color: $otherColor1;
-            text-decoration: none;
+    &#stickedThreads {
+      border-color: $secondaryColor;
+
+      .category-title {
+        background-color: $secondaryColor;
+      }
+    }
+
+    .panel {
+      margin: 0;
+
+      /* Partie gauche avec le titre */
+      .globalForum-threadList-title {
+        h3.title {
+          margin: 0 0 10px;
+
+          a {
+            transition: all 0.2s linear;
+            display: inline;
+            padding-left: 2px;
+            padding-right: 2px;
+            // background: $secondaryColor;
+            font-size: 24px;
+            line-height: 32px;
+            color: $tertiaryColor;
+
+            &:hover {
+              background-color: $otherColor1;
+              text-decoration: none;
+            }
           }
         }
+        p {
+          margin: 0;
+        }
       }
-      p {
-        margin: 0;
+      /* Partie droite avec les informations de réponse */
+      .globalForum-threadList-lastAnswer {
+        p {
+          font-weight: 600;
+          margin: 0;
+        }
+        .boot-tooltip {
+          font-style: italic;
+        }
       }
-    }
-    /* Partie droite avec les informations de réponse */
-    .globalForum-threadList-lastAnswer {
-      p {
-        font-weight: 600;
-        margin: 0;
+      /* Partie d'icônes d'administration */
+      .globalForum-threadList-adminIcons {
+        padding: 15px;
+        border-top: 1px solid $otherColor1;
       }
-      .boot-tooltip {
-        font-style: italic;
-      }
-    }
-    /* Partie d'icônes d'administration */
-    .globalForum-threadList-adminIcons {
-      padding: 15px;
-      border-top: 1px solid $otherColor1;
     }
   }
   /* Détail d'un topic */
